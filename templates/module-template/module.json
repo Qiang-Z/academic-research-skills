@@ -1,0 +1,9 @@
+{
+  "id": "replace-with-module-id",
+  "title": "填写模块名称",
+  "status": "template",
+  "path": "modules/replace-with-module-id",
+  "source_projects": 0,
+  "runtime_tested": false,
+  "source_manifest": "SOURCE_MANIFEST.json"
+}

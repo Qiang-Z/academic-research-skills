@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "repository": "Qiang-Z/academic-research-skills",
+  "title": "学术技能库",
+  "updated_at": "2026-10-11",
+  "scope": "Modular collection of academic research skills; idea discovery is one module, not the entire repository.",
+  "modules": [
+    {
+      "id": "idea-discovery",
+      "title": "论文创新点探索",
+      "status": "curated",
+      "path": "modules/idea-discovery",
+      "readme": "modules/idea-discovery/README.md",
+      "skill_index": "modules/idea-discovery/SKILL_INDEX.md",
+      "manifest": "modules/idea-discovery/SOURCE_MANIFEST.json",
+      "source_projects": 5,
+      "source_snapshots": 6,
+      "highlighted_skill_entrypoints": 18,
+      "runtime_tested": false
+    }
+  ],
+  "planned_modules": [
+    {
+      "id": "literature-review",
+      "title": "文献检索与综述",
+      "status": "planned",
+      "content_included": false
+    },
+    {
+      "id": "experiment-design",
+      "title": "实验设计与复现",
+      "status": "planned",
+      "content_included": false
+    },
+    {
+      "id": "paper-writing",
+      "title": "论文写作与润色",
+      "status": "planned",
+      "content_included": false
+    },
+    {
+      "id": "academic-figures",
+      "title": "学术绘图与可视化",
+      "status": "planned",
+      "content_included": false
+    },
+    {
+      "id": "submission-rebuttal",
+      "title": "投稿与审稿回复",
+      "status": "planned",
+      "content_included": false
+    }
+  ]
+}
