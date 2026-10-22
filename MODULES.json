@@ -202,6 +202,8 @@
     "workflow": "docs/RESEARCH_WORKFLOW.md",
     "evidence_checks": "docs/EVIDENCE_CHECKS.md",
     "runtime_status": "docs/RUNTIME_STATUS.md",
-    "continuous_example": "examples/research-workflow/README.md"
+    "continuous_example": "examples/research-workflow/README.md",
+    "beginner_tasks": "prompts/README.md",
+    "skill_catalog": "docs/SKILL_CATALOG.md"
   }
 }

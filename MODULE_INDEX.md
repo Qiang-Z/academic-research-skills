@@ -2,6 +2,8 @@
 
 [返回首页](README.md) · [按任务入门](docs/GETTING_STARTED.md)
 
+第一次使用请先选[读论文、整理想法或修改文字](prompts/README.md)中的一个小任务。需要主动选择具体技能时，再查看[完整技能用法速查](docs/SKILL_CATALOG.md)；以下为完整模块登记。
+
 ## 已整理的八个模块
 
 | 模块 ID | 模块 | 当前范围 | 入口 |

@@ -12,10 +12,12 @@ THIRD_PARTY_NOTICES.md
 docs/COMPLETION_AUDIT.md
 docs/EVIDENCE_CHECKS.md
 docs/GETTING_STARTED.md
+docs/ONBOARDING_CHECK.md
 docs/PUBLISH.md
 docs/REPOSITORY_PLAN.md
 docs/RESEARCH_WORKFLOW.md
 docs/RUNTIME_STATUS.md
+docs/SKILL_CATALOG.md
 docs/SYNC_VALIDATION.md
 docs/VALIDATION.md
 docs/assets/README.md
@@ -2196,6 +2198,10 @@ modules/submission-rebuttal/templates/response-template.md
 modules/submission-rebuttal/templates/reviewer-evidence.csv
 modules/submission-rebuttal/templates/revision-log.csv
 modules/submission-rebuttal/templates/submission-conditions.md
+prompts/README.md
+prompts/develop-idea.md
+prompts/polish-text.md
+prompts/read-paper.md
 scripts/verify_bundle.py
 templates/module-template/README.md
 templates/module-template/module.json
