@@ -18,6 +18,8 @@ docs/RESEARCH_WORKFLOW.md
 docs/RUNTIME_STATUS.md
 docs/SYNC_VALIDATION.md
 docs/VALIDATION.md
+docs/assets/README.md
+docs/assets/academic-skills-workflow.png
 examples/research-workflow/README.md
 examples/research-workflow/VALIDATION.md
 examples/research-workflow/case-map.json
