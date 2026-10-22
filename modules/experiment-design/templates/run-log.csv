@@ -1,0 +1,1 @@
+run_id,protocol_id,protocol_sha256,condition_id,seed,split_id,code_ref,data_manifest_sha256,split_manifest_sha256,environment_path,command_record_path,started_at,ended_at,status,exit_code,metrics_path,artifacts_manifest_path,failure_reason,retry_of,deviation_notes

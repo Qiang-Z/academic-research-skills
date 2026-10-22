@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "module_id": "submission-rebuttal",
+  "title": "投稿与审稿回复",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/submission-rebuttal/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 2,
+  "number_of_source_snapshots": 3,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 3,
+  "entrypoint_files": 6,
+  "optional_related_entrypoint_files": 2,
+  "runtime_tested": false,
+  "example_runtime_tested": false,
+  "example_validation_record": "VALIDATION.md",
+  "upstream_code_executed": false,
+  "agent_configuration_changed": false,
+  "scope_note": "Three core skill names and six main/Codex entry files, plus two optional resubmit entry files and three root licenses, form eleven pinned references. Reuses existing snapshots without installation or execution. The manually authored example contains three explicitly simulated review comments and self-contained revisions; it uses existing synthetic experiment and analysis records, not real peer reviews, new experiments, venue compliance or successful submission.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/rebuttal/SKILL.md",
+        "skills/skills-codex/rebuttal/SKILL.md"
+      ],
+      "optional_related_entrypoints": [
+        "skills/resubmit-pipeline/SKILL.md",
+        "skills/skills-codex/resubmit-pipeline/SKILL.md"
+      ],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/rebuttal/SKILL.md",
+          "bytes": 24627,
+          "git_blob_sha1": "bf3544c35062ec9459e9f47a21847d8f1f7b42fc",
+          "sha256": "36b9f570181c5afcf4149e4a911613f421733d4f3fcb84579709c8097d514f02",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/resubmit-pipeline/SKILL.md",
+          "bytes": 33464,
+          "git_blob_sha1": "45c3329ba7e709978b0d5c3aedcb93a6749b7ed4",
+          "sha256": "11d8c78dcb9fbdb4e9882b0d2d292f16e99b6bbd1fc2e0daee0b531e1e03251f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/rebuttal/SKILL.md",
+          "bytes": 15563,
+          "git_blob_sha1": "034ef9d96043b867a7925142d0f54814785e4d8f",
+          "sha256": "0c1c9efa98651da5c34e67a65e75804dec64c0fd175185b5c1370903364705e9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/resubmit-pipeline/SKILL.md",
+          "bytes": 33214,
+          "git_blob_sha1": "965eaf9accb975049655346c606aec303ee8bc5f",
+          "sha256": "2a0eafe7073abe3a113142376a7c4a9d0cc8fe8c2819ec268dc83be3c195128a",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "main",
+      "commit": "903787345d6aec134086afa2b97715a78fbde519",
+      "tree_sha": "d7f61d97768bcaa4442e2481da680073da7528bc",
+      "commit_date": "2026-09-23T07:23:56Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.953825+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_main",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/paper-self-review/SKILL.md",
+        "skills/review-response/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-self-review/SKILL.md",
+          "bytes": 6032,
+          "git_blob_sha1": "e72019b31b7c5074d0b28d5766465b687f9368b7",
+          "sha256": "e9c0040db7394e537becb5209f1b0100eb1267fbf1c540a2da07d7876cb93a41",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/review-response/SKILL.md",
+          "bytes": 5760,
+          "git_blob_sha1": "6d8c504c9a4f9ec12ddee29c0c5925d4537aba22",
+          "sha256": "f98a40dc5df70419d257406398ccce8b2f8aeab22ebd6919b1d9d6bbbdb04fd5",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar_Codex",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "codex",
+      "commit": "b672e80951a2348dd6136316d096603bf2dc5b83",
+      "tree_sha": "09aed09c52f6498c11a4ec8fa711f4e913973e48",
+      "commit_date": "2026-09-23T07:02:54Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.860336+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_codex",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar_Codex",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/paper-self-review/SKILL.md",
+        "skills/review-response/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-self-review/SKILL.md",
+          "bytes": 6032,
+          "git_blob_sha1": "e72019b31b7c5074d0b28d5766465b687f9368b7",
+          "sha256": "e9c0040db7394e537becb5209f1b0100eb1267fbf1c540a2da07d7876cb93a41",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/review-response/SKILL.md",
+          "bytes": 5741,
+          "git_blob_sha1": "adfe777b29d6cb508c2851eefffbfe02bd478d62",
+          "sha256": "b6e3f5b96e2fa50f07319889c03f791a5c57a78f54651cb8f2afc07fa20420bc",
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}

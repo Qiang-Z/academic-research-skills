@@ -1,0 +1,88 @@
+{
+  "run_date": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "tool": "mcp__codex_apps__search_service_web_run",
+  "queries": [
+    {
+      "q": "\"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\"",
+      "domains": [
+        "arxiv.org"
+      ]
+    },
+    {
+      "q": "\"Self-RAG\" \"Self-Reflection\"",
+      "domains": [
+        "arxiv.org"
+      ]
+    }
+  ],
+  "returned_cards": 9,
+  "distinct_ids": 9,
+  "selected_count": 3,
+  "selection_policy": "Small host-workflow smoke test: select up to three directly relevant RAG-method abstract records. Exclude citation-only/noisy hits from this bounded test, not from a systematic review.",
+  "records": [
+    {
+      "title_as_returned": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "url": "https://arxiv.org/abs/2310.11511",
+      "canonical_id": "2310.11511",
+      "decision": "include",
+      "reason": "直接讨论RAG方法或证据利用，进入三篇摘要级测试"
+    },
+    {
+      "title_as_returned": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "canonical_id": "2005.11401",
+      "decision": "include",
+      "reason": "直接讨论RAG方法或证据利用，进入三篇摘要级测试"
+    },
+    {
+      "title_as_returned": "Evidentiality-guided Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2112.08688",
+      "canonical_id": "2112.08688",
+      "decision": "include",
+      "reason": "直接讨论RAG方法或证据利用，进入三篇摘要级测试"
+    },
+    {
+      "title_as_returned": "README: Bridging Medical Jargon and Lay Understanding for",
+      "url": "https://arxiv.org/pdf/2312.15561",
+      "canonical_id": "2312.15561",
+      "decision": "exclude_from_smoke",
+      "reason": "该结果卡主要为目标论文的引用命中或不属于本次三个方法的有限测试集；未作全文筛选"
+    },
+    {
+      "title_as_returned": "Improving Text Embeddings with Large Language Models",
+      "url": "https://arxiv.org/pdf/2401.00368",
+      "canonical_id": "2401.00368",
+      "decision": "exclude_from_smoke",
+      "reason": "该结果卡主要为目标论文的引用命中或不属于本次三个方法的有限测试集；未作全文筛选"
+    },
+    {
+      "title_as_returned": "Fake News in Sheep’s Clothing: Robust Fake News Detection",
+      "url": "https://arxiv.org/pdf/2310.10830",
+      "canonical_id": "2310.10830",
+      "decision": "exclude_from_smoke",
+      "reason": "该结果卡主要为目标论文的引用命中或不属于本次三个方法的有限测试集；未作全文筛选"
+    },
+    {
+      "title_as_returned": "Accelerating Clinical Evidence Synthesis with Large Language Models",
+      "url": "https://arxiv.org/pdf/2406.17755",
+      "canonical_id": "2406.17755",
+      "decision": "exclude_from_smoke",
+      "reason": "该结果卡主要为目标论文的引用命中或不属于本次三个方法的有限测试集；未作全文筛选"
+    },
+    {
+      "title_as_returned": "Language Models are Few-Shot Learners",
+      "url": "https://arxiv.org/pdf/2005.14165",
+      "canonical_id": "2005.14165",
+      "decision": "exclude_from_smoke",
+      "reason": "该结果卡主要为目标论文的引用命中或不属于本次三个方法的有限测试集；未作全文筛选"
+    },
+    {
+      "title_as_returned": "Measuring and Addressing Indexical Bias in Information Retrieval",
+      "url": "https://arxiv.org/pdf/2406.04298",
+      "canonical_id": "2406.04298",
+      "decision": "exclude_from_smoke",
+      "reason": "该结果卡主要为目标论文的引用命中或不属于本次三个方法的有限测试集；未作全文筛选"
+    }
+  ]
+}

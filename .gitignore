@@ -1,6 +1,8 @@
 # Local credentials and OS files
 .DS_Store
 ._*
+# Local Baidu sync upload markers (not publication content)
+.*.baiduyun.uploading.cfg
 .env
 .env.*
 !.env.example

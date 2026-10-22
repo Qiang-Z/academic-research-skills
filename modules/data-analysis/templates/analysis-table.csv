@@ -1,0 +1,1 @@
+analysis_id,comparison_id,metric,metric_direction,unit_of_analysis,sample_size,n_runs,n_clusters,estimate,estimate_unit,interval_method,interval_level,interval_low,interval_high,uncertainty_scope,test_method,p_value,adjustment_family,p_adjusted,status,source_artifact,limitations

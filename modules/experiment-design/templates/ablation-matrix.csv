@@ -1,0 +1,1 @@
+protocol_id,claim_id,condition_id,role,comparator_id,changed_factor,held_constant,possible_confound,seed_set,split_manifest_sha256,selection_rule,primary_metric,resource_limit,expected_failure,status,notes

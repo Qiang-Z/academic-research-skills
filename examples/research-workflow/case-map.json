@@ -1,0 +1,17 @@
+{
+  "case_id": "synthetic-1nn-to-research-records-v1",
+  "scope": "Original synthetic teaching artifacts plus manually authored writing, mock review and knowledge records; no real submission.",
+  "expected_default_analysis_sha256": "b2fa4ed155337da6e8e337bfde23186d842c80efda2b1a5db5b214bed3c7d8c0",
+  "documents": [
+    "modules/paper-writing/examples/manuscript-walkthrough.md",
+    "modules/paper-writing/examples/claim-check.md",
+    "modules/submission-rebuttal/examples/mock-review-walkthrough.md",
+    "modules/research-knowledge/examples/plain-files/index.md",
+    "modules/research-knowledge/examples/plain-files/source-notes.md",
+    "modules/research-knowledge/examples/plain-files/experiment-analysis.md",
+    "modules/research-knowledge/examples/plain-files/claims-decisions.md",
+    "modules/research-knowledge/examples/plain-files/maintenance.md"
+  ],
+  "teaching_status": "post-hoc; not preregistered, confirmatory, novel research or reproduced paper",
+  "interpretation": "Paired bootstrap conditions on fixed split 11 and fitted models, assumes IID test observations, and excludes training, model-selection and across-split uncertainty."
+}

@@ -1,0 +1,1205 @@
+{
+  "schema_version": 1,
+  "test_date": "2026-10-22",
+  "scope": "Original ARIS queue helper components only; synthetic manifest/state/file fixtures; zero launched training jobs, no scheduler loop, no GPU/SSH/network/configuration/notifications.",
+  "runtime_tested_full_upstream_workflow": false,
+  "mocked_source_functions": false,
+  "scheduler_step_called": false,
+  "training_jobs_launched": 0,
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_packages_added": [],
+    "pyyaml_available": false,
+    "executables_present": {
+      "screen": false,
+      "bash": false,
+      "nvidia-smi": false,
+      "conda": false,
+      "tail": false,
+      "ssh": true,
+      "rsync": false
+    }
+  },
+  "sources": [
+    {
+      "role": "builder",
+      "path": "modules/idea-discovery/01_ARIS/upstream/skills/experiment-queue/scripts/build_manifest.py",
+      "sha256_before": "2fe0d13d2bba863e9bbde65f8a746f1c0f46b7e2c08e16107786fad6980a5820",
+      "sha256_after": "2fe0d13d2bba863e9bbde65f8a746f1c0f46b7e2c08e16107786fad6980a5820",
+      "unchanged": true
+    },
+    {
+      "role": "queue",
+      "path": "modules/idea-discovery/01_ARIS/upstream/skills/experiment-queue/scripts/queue_manager.py",
+      "sha256_before": "9b53e554bda3fec88d9d293e323e26f531d8c074b7544a8ca7b4c3b529ab0129",
+      "sha256_after": "9b53e554bda3fec88d9d293e323e26f531d8c074b7544a8ca7b4c3b529ab0129",
+      "unchanged": true
+    },
+    {
+      "role": "builder_shim",
+      "path": "modules/idea-discovery/01_ARIS/upstream/tools/experiment_queue/build_manifest.py",
+      "sha256_before": "e1daa4116e24a36f970e5fddf6d1493e6a7396933c4e21468c85593ca35d4a25",
+      "sha256_after": "e1daa4116e24a36f970e5fddf6d1493e6a7396933c4e21468c85593ca35d4a25",
+      "unchanged": true
+    },
+    {
+      "role": "queue_shim",
+      "path": "modules/idea-discovery/01_ARIS/upstream/tools/experiment_queue/queue_manager.py",
+      "sha256_before": "eac75a1285c81eb1683906cc979486f14bbba612c7cf434c753dfacec1f79dda",
+      "sha256_after": "eac75a1285c81eb1683906cc979486f14bbba612c7cf434c753dfacec1f79dda",
+      "unchanged": true
+    },
+    {
+      "role": "bridge_skill",
+      "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/experiment-bridge/SKILL.md",
+      "sha256_before": "8325b87f1bb3c5293f5f52365f1be31b47fd79e1dc7dcde4e8986d5363e0c798",
+      "sha256_after": "8325b87f1bb3c5293f5f52365f1be31b47fd79e1dc7dcde4e8986d5363e0c798",
+      "unchanged": true
+    },
+    {
+      "role": "run_skill",
+      "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/run-experiment/SKILL.md",
+      "sha256_before": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+      "sha256_after": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+      "unchanged": true
+    },
+    {
+      "role": "queue_skill",
+      "path": "modules/idea-discovery/01_ARIS/upstream/skills/experiment-queue/SKILL.md",
+      "sha256_before": "6da32285f905d77664334bba7f7bbc2c069814ff5c3bc266ecc00f6c77d77208",
+      "sha256_after": "6da32285f905d77664334bba7f7bbc2c069814ff5c3bc266ecc00f6c77d77208",
+      "unchanged": true
+    },
+    {
+      "role": "compute_contract",
+      "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/compute-env-contract.md",
+      "sha256_before": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+      "sha256_after": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+      "unchanged": true
+    },
+    {
+      "role": "legacy_readme",
+      "path": "modules/idea-discovery/01_ARIS/upstream/tools/experiment_queue/README.md",
+      "sha256_before": "df7757d1b2cec27a52fd655a233948c5a031b846ea93e2167811a668877924b3",
+      "sha256_after": "df7757d1b2cec27a52fd655a233948c5a031b846ea93e2167811a668877924b3",
+      "unchanged": true
+    }
+  ],
+  "summary": {
+    "case_count": 27,
+    "classification_counts": {
+      "passed": 9,
+      "expected_rejection": 3,
+      "input_validation_gap": 5,
+      "blocked_missing_dependency": 1,
+      "known_boundary": 5,
+      "platform_failure": 2,
+      "deployment_failure": 2
+    },
+    "all_observations_confirmed": true,
+    "all_upstream_sources_unchanged": true
+  },
+  "fixtures": {
+    "valid-grid.json": {
+      "project": "synthetic_component_probe",
+      "cwd": "<TEMP>\\synthetic-project",
+      "conda": "synthetic-not-executed",
+      "gpus": [],
+      "max_parallel": 0,
+      "phases": [
+        {
+          "name": "grid",
+          "grid": {
+            "seed": [
+              11,
+              23,
+              47
+            ],
+            "variant": [
+              "raw",
+              "scaled"
+            ]
+          },
+          "template": {
+            "id": "${variant}_s${seed}",
+            "cmd": "python synthetic_not_executed.py --seed ${seed} --variant ${variant} --gpu ${GPU}",
+            "expected_output": "results/${variant}_s${seed}.json"
+          }
+        },
+        {
+          "name": "summary",
+          "depends_on": "grid",
+          "template": {
+            "id": "summary",
+            "cmd": "python synthetic_not_executed_summary.py",
+            "expected_output": "summary.json"
+          }
+        }
+      ]
+    },
+    "malformed.json": "{\"phases\":",
+    "missing-cmd.json": {
+      "phases": [
+        {
+          "name": "broken",
+          "template": {
+            "id": "broken"
+          }
+        }
+      ]
+    },
+    "unknown-placeholder.json": {
+      "phases": [
+        {
+          "name": "unknown",
+          "grid": {
+            "seed": [
+              11
+            ]
+          },
+          "template": {
+            "id": "s${seed}",
+            "cmd": "python synthetic.py --seed ${sead}"
+          }
+        }
+      ]
+    },
+    "duplicate-id.json": {
+      "phases": [
+        {
+          "name": "duplicate",
+          "grid": {
+            "seed": [
+              11,
+              23
+            ]
+          },
+          "template": {
+            "id": "same-id",
+            "cmd": "python synthetic.py --seed ${seed}"
+          }
+        }
+      ]
+    },
+    "string-grid.json": {
+      "phases": [
+        {
+          "name": "chars",
+          "grid": {
+            "seed": "12"
+          },
+          "template": {
+            "id": "s${seed}",
+            "cmd": "python synthetic.py --seed ${seed}"
+          }
+        }
+      ]
+    },
+    "empty-axis.json": {
+      "phases": [
+        {
+          "name": "empty",
+          "grid": {
+            "seed": []
+          },
+          "template": {
+            "id": "s${seed}",
+            "cmd": "python synthetic.py"
+          }
+        }
+      ]
+    },
+    "valid-grid.yaml": "project: synthetic_yaml\nphases:\n  - name: single\n    template:\n      id: single\n      cmd: python synthetic.py\n",
+    "optional-settings.json": {
+      "project": "synthetic_component_probe",
+      "cwd": "<TEMP>\\synthetic-project",
+      "conda": "synthetic-not-executed",
+      "gpus": [],
+      "max_parallel": 0,
+      "phases": [
+        {
+          "name": "grid",
+          "grid": {
+            "seed": [
+              11,
+              23,
+              47
+            ],
+            "variant": [
+              "raw",
+              "scaled"
+            ]
+          },
+          "template": {
+            "id": "${variant}_s${seed}",
+            "cmd": "python synthetic_not_executed.py --seed ${seed} --variant ${variant} --gpu ${GPU}",
+            "expected_output": "results/${variant}_s${seed}.json"
+          }
+        },
+        {
+          "name": "summary",
+          "depends_on": "grid",
+          "template": {
+            "id": "summary",
+            "cmd": "python synthetic_not_executed_summary.py",
+            "expected_output": "summary.json"
+          }
+        }
+      ],
+      "conda_hook": "/synthetic/conda",
+      "gpu_free_threshold_mib": 123
+    },
+    "invalid-state.json": "not-json",
+    "old-shape-state.json": {
+      "meta": {
+        "project": "synthetic_component_probe",
+        "started": "2026-10-22T08:13:17.486451Z",
+        "manifest_path": ""
+      },
+      "phases": [
+        {
+          "name": "grid",
+          "depends_on": [],
+          "status": "completed"
+        },
+        {
+          "name": "summary",
+          "depends_on": "grid",
+          "status": "pending"
+        }
+      ],
+      "jobs": [
+        {
+          "id": "raw_s11",
+          "phase": "grid",
+          "cmd": "python synthetic_not_executed.py --seed 11 --variant raw --gpu ${GPU}",
+          "expected_output": "results/raw_s11.json",
+          "status": "completed",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        },
+        {
+          "id": "scaled_s11",
+          "phase": "grid",
+          "cmd": "python synthetic_not_executed.py --seed 11 --variant scaled --gpu ${GPU}",
+          "expected_output": "results/scaled_s11.json",
+          "status": "completed",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        },
+        {
+          "id": "raw_s23",
+          "phase": "grid",
+          "cmd": "python synthetic_not_executed.py --seed 23 --variant raw --gpu ${GPU}",
+          "expected_output": "results/raw_s23.json",
+          "status": "completed",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        },
+        {
+          "id": "scaled_s23",
+          "phase": "grid",
+          "cmd": "python synthetic_not_executed.py --seed 23 --variant scaled --gpu ${GPU}",
+          "expected_output": "results/scaled_s23.json",
+          "status": "completed",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        },
+        {
+          "id": "raw_s47",
+          "phase": "grid",
+          "cmd": "python synthetic_not_executed.py --seed 47 --variant raw --gpu ${GPU}",
+          "expected_output": "results/raw_s47.json",
+          "status": "completed",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        },
+        {
+          "id": "scaled_s47",
+          "phase": "grid",
+          "cmd": "python synthetic_not_executed.py --seed 47 --variant scaled --gpu ${GPU}",
+          "expected_output": "results/scaled_s47.json",
+          "status": "completed",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        },
+        {
+          "id": "summary",
+          "phase": "summary",
+          "cmd": "python synthetic_not_executed_summary.py",
+          "expected_output": "summary.json",
+          "status": "pending",
+          "gpu": null,
+          "screen_name": null,
+          "pid": null,
+          "attempts": 0,
+          "started": null,
+          "completed": null,
+          "error": null
+        }
+      ]
+    },
+    "empty-manifest.json": {
+      "project": "empty_synthetic",
+      "cwd": "<TEMP>\\empty-project",
+      "gpus": [],
+      "max_parallel": 0,
+      "phases": []
+    },
+    "flat-manifest.json": {
+      "project": "flat_synthetic",
+      "cwd": "<TEMP>\\flat-project",
+      "gpus": [],
+      "max_parallel": 0,
+      "jobs": [
+        {
+          "id": "must-not-execute",
+          "cmd": "python synthetic_not_executed.py"
+        }
+      ]
+    }
+  },
+  "tests": [
+    {
+      "id": "BM01",
+      "title": "JSON Cartesian grid expansion and GPU placeholder preservation",
+      "classification": "passed",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "valid-grid.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\valid-grid.json",
+          "--output",
+          "<TEMP>\\valid-manifest.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 2 phases, 7 total jobs\nSaved to <TEMP>\\valid-manifest.json",
+        "stderr": "",
+        "jobs": [
+          {
+            "id": "raw_s11",
+            "cmd": "python synthetic_not_executed.py --seed 11 --variant raw --gpu ${GPU}",
+            "expected_output": "results/raw_s11.json"
+          },
+          {
+            "id": "scaled_s11",
+            "cmd": "python synthetic_not_executed.py --seed 11 --variant scaled --gpu ${GPU}",
+            "expected_output": "results/scaled_s11.json"
+          },
+          {
+            "id": "raw_s23",
+            "cmd": "python synthetic_not_executed.py --seed 23 --variant raw --gpu ${GPU}",
+            "expected_output": "results/raw_s23.json"
+          },
+          {
+            "id": "scaled_s23",
+            "cmd": "python synthetic_not_executed.py --seed 23 --variant scaled --gpu ${GPU}",
+            "expected_output": "results/scaled_s23.json"
+          },
+          {
+            "id": "raw_s47",
+            "cmd": "python synthetic_not_executed.py --seed 47 --variant raw --gpu ${GPU}",
+            "expected_output": "results/raw_s47.json"
+          },
+          {
+            "id": "scaled_s47",
+            "cmd": "python synthetic_not_executed.py --seed 47 --variant scaled --gpu ${GPU}",
+            "expected_output": "results/scaled_s47.json"
+          },
+          {
+            "id": "summary",
+            "cmd": "python synthetic_not_executed_summary.py",
+            "expected_output": "summary.json"
+          }
+        ],
+        "phase_count": 2
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM02",
+      "title": "Legacy shim works inside intact upstream tree",
+      "classification": "passed",
+      "operation": "legacy CLI",
+      "input": {
+        "fixture": "valid-grid.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\tools\\experiment_queue\\build_manifest.py",
+          "--config",
+          "<TEMP>\\valid-grid.json",
+          "--output",
+          "<TEMP>\\shim-manifest.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 2 phases, 7 total jobs\nSaved to <TEMP>\\shim-manifest.json",
+        "stderr": "",
+        "same_as_canonical": true
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM03",
+      "title": "Malformed JSON rejected",
+      "classification": "expected_rejection",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "malformed.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\malformed.json",
+          "--output",
+          "<TEMP>\\malformed-out.json"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py\", line 142, in <module>\n    main()\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py\", line 130, in main\n    config = json.loads(p.read_text())\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<PYTHON_DIR>\\Lib\\json\\__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<PYTHON_DIR>\\Lib\\json\\decoder.py\", line 338, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<PYTHON_DIR>\\Lib\\json\\decoder.py\", line 356, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 11 (char 10)"
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM04",
+      "title": "Missing required command rejected with traceback",
+      "classification": "expected_rejection",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "missing-cmd.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\missing-cmd.json",
+          "--output",
+          "<TEMP>\\missing-cmd-out.json"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py\", line 142, in <module>\n    main()\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py\", line 132, in main\n    manifest = build(config)\n               ^^^^^^^^^^^^^\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py\", line 96, in build\n    \"cmd\": template[\"cmd\"],\n           ~~~~~~~~^^^^^^^\nKeyError: 'cmd'"
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM05",
+      "title": "Misspelled non-GPU placeholder silently retained",
+      "classification": "input_validation_gap",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "unknown-placeholder.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\unknown-placeholder.json",
+          "--output",
+          "<TEMP>\\unknown-out.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 1 phases, 1 total jobs\nSaved to <TEMP>\\unknown-out.json",
+        "stderr": "",
+        "manifest": {
+          "project": "unknown",
+          "cwd": ".",
+          "conda": "base",
+          "gpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "max_parallel": 8,
+          "oom_retry": {
+            "delay": 120,
+            "max_attempts": 3
+          },
+          "phases": [
+            {
+              "name": "unknown",
+              "depends_on": [],
+              "jobs": [
+                {
+                  "id": "s11",
+                  "cmd": "python synthetic.py --seed ${sead}"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM06",
+      "title": "Duplicate generated IDs collapse two jobs into one queue state job",
+      "classification": "input_validation_gap",
+      "operation": "canonical CLI + load_state + assign_jobs_to_phases",
+      "input": {
+        "fixture": "duplicate-id.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\duplicate-id.json",
+          "--output",
+          "<TEMP>\\duplicate-out.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 1 phases, 2 total jobs\nSaved to <TEMP>\\duplicate-out.json",
+        "stderr": "",
+        "manifest_jobs": [
+          {
+            "id": "same-id",
+            "cmd": "python synthetic.py --seed 11"
+          },
+          {
+            "id": "same-id",
+            "cmd": "python synthetic.py --seed 23"
+          }
+        ],
+        "state_jobs": [
+          {
+            "id": "same-id",
+            "phase": "duplicate",
+            "cmd": "python synthetic.py --seed 11",
+            "expected_output": null,
+            "status": "pending",
+            "gpu": null,
+            "screen_name": null,
+            "pid": null,
+            "attempts": 0,
+            "started": null,
+            "completed": null,
+            "error": null
+          }
+        ]
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM07",
+      "title": "String grid value is expanded character by character",
+      "classification": "input_validation_gap",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "string-grid.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\string-grid.json",
+          "--output",
+          "<TEMP>\\string-out.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 1 phases, 2 total jobs\nSaved to <TEMP>\\string-out.json",
+        "stderr": "",
+        "manifest": {
+          "project": "unknown",
+          "cwd": ".",
+          "conda": "base",
+          "gpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "max_parallel": 8,
+          "oom_retry": {
+            "delay": 120,
+            "max_attempts": 3
+          },
+          "phases": [
+            {
+              "name": "chars",
+              "depends_on": [],
+              "jobs": [
+                {
+                  "id": "s1",
+                  "cmd": "python synthetic.py --seed 1"
+                },
+                {
+                  "id": "s2",
+                  "cmd": "python synthetic.py --seed 2"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM08",
+      "title": "Empty grid axis produces zero jobs without warning",
+      "classification": "input_validation_gap",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "empty-axis.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\empty-axis.json",
+          "--output",
+          "<TEMP>\\empty-axis-out.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 1 phases, 0 total jobs\nSaved to <TEMP>\\empty-axis-out.json",
+        "stderr": "",
+        "manifest": {
+          "project": "unknown",
+          "cwd": ".",
+          "conda": "base",
+          "gpus": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "max_parallel": 8,
+          "oom_retry": {
+            "delay": 120,
+            "max_attempts": 3
+          },
+          "phases": [
+            {
+              "name": "empty",
+              "depends_on": [],
+              "jobs": []
+            }
+          ]
+        }
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM09",
+      "title": "YAML dependency branch",
+      "classification": "blocked_missing_dependency",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "valid-grid.yaml"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\valid-grid.yaml",
+          "--output",
+          "<TEMP>\\yaml-out.json"
+        ],
+        "exit_code": 1,
+        "stdout": "PyYAML not available; install with: pip install pyyaml",
+        "stderr": ""
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "BM10",
+      "title": "Builder does not forward optional scheduler settings",
+      "classification": "known_boundary",
+      "operation": "canonical CLI",
+      "input": {
+        "fixture": "optional-settings.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+          "--config",
+          "<TEMP>\\optional-settings.json",
+          "--output",
+          "<TEMP>\\options-out.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 2 phases, 7 total jobs\nSaved to <TEMP>\\options-out.json",
+        "stderr": "",
+        "conda_hook_present": false,
+        "gpu_free_threshold_mib_present": false
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM01",
+      "title": "Initialize jobs and normalize string phase dependency",
+      "classification": "passed",
+      "operation": "load_state + assign_jobs_to_phases",
+      "input": {
+        "fixture": "valid-grid.json"
+      },
+      "actual": {
+        "phase_dependencies": [
+          "grid"
+        ],
+        "job_count": 7,
+        "statuses": [
+          "pending"
+        ]
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM02",
+      "title": "Repeated job assignment is idempotent for unique IDs",
+      "classification": "passed",
+      "operation": "assign_jobs_to_phases twice",
+      "input": {
+        "manifest": "valid-manifest.json"
+      },
+      "actual": {
+        "unchanged": true,
+        "job_count": 7
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM03",
+      "title": "Pending dependency blocks child phase until parent phase is completed",
+      "classification": "passed",
+      "operation": "pending_jobs_in_active_phases",
+      "input": {
+        "states": "synthetic pending then completed"
+      },
+      "actual": {
+        "initial_ids": [
+          "raw_s11",
+          "scaled_s11",
+          "raw_s23",
+          "scaled_s23",
+          "raw_s47",
+          "scaled_s47"
+        ],
+        "after_parent_completed_ids": [
+          "summary"
+        ]
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM04",
+      "title": "Documented terminal-state dependency includes stuck jobs",
+      "classification": "known_boundary",
+      "operation": "phase_complete + phase_ready",
+      "input": {
+        "parent_job_status": "stuck"
+      },
+      "actual": {
+        "parent_phase_complete": true,
+        "child_phase_ready": true,
+        "all_parent_jobs_successful": false
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM05",
+      "title": "Existing state cannot be atomically replaced on Windows",
+      "classification": "platform_failure",
+      "operation": "save_state twice",
+      "input": {
+        "first_state": "valid initialized state",
+        "second_state": "meta.probe_revision = 2"
+      },
+      "actual": {
+        "first_write_matches": true,
+        "second_error": {
+          "type": "FileExistsError",
+          "message": "[WinError 183] 当文件已存在时，无法创建该文件。: '<TEMP>\\\\persist-state.json.tmp' -> '<TEMP>\\\\persist-state.json'"
+        },
+        "original_state_preserved": true,
+        "temporary_state_exists": true
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM06",
+      "title": "Malformed persisted state rejected",
+      "classification": "expected_rejection",
+      "operation": "load_state",
+      "input": {
+        "fixture": "invalid-state.json"
+      },
+      "actual": {
+        "type": "JSONDecodeError",
+        "message": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM07",
+      "title": "Existing older dependency string normalized on load",
+      "classification": "passed",
+      "operation": "load_state",
+      "input": {
+        "fixture": "old-shape-state.json"
+      },
+      "actual": {
+        "depends_on": [
+          "grid"
+        ]
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM08",
+      "title": "Existing synthetic JSON recognized as completed",
+      "classification": "passed",
+      "operation": "job_status_check (early output branch, no subprocess)",
+      "input": {
+        "synthetic_output": "valid.json",
+        "screen_name": null
+      },
+      "actual": {
+        "status": "completed",
+        "error": null,
+        "is_file": true
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM09",
+      "title": "Malformed result content still recognized as completed",
+      "classification": "known_boundary",
+      "operation": "job_status_check (early output branch, no subprocess)",
+      "input": {
+        "synthetic_output": "invalid.json",
+        "screen_name": null
+      },
+      "actual": {
+        "status": "completed",
+        "error": null,
+        "is_file": true
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM10",
+      "title": "Directory matching output pattern still recognized as completed",
+      "classification": "known_boundary",
+      "operation": "job_status_check (early output branch, no subprocess)",
+      "input": {
+        "synthetic_output": "looks-like-result.json",
+        "screen_name": null
+      },
+      "actual": {
+        "status": "completed",
+        "error": null,
+        "is_file": false
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM11",
+      "title": "Missing output with no known screen is not completed",
+      "classification": "passed",
+      "operation": "job_status_check (missing log and absent screen)",
+      "input": {
+        "id": "synthetic-job",
+        "expected_output": "missing.json",
+        "screen_name": null,
+        "pid": null
+      },
+      "actual": {
+        "status": "failed_other",
+        "error": "Screen exited without expected output"
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM12",
+      "title": "Empty queue CLI exits zero without executing any jobs",
+      "classification": "known_boundary",
+      "operation": "canonical CLI (all_done before loop)",
+      "input": {
+        "fixture": "empty-manifest.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py",
+          "--manifest",
+          "<TEMP>\\empty-manifest.json",
+          "--state",
+          "<TEMP>\\empty-cli-state.json",
+          "--log-dir",
+          "<TEMP>\\empty-logs",
+          "--poll",
+          "0"
+        ],
+        "exit_code": 0,
+        "stdout": "[2026-10-22T08:13:17.786755Z] Queue manager started with 0 jobs\n[2026-10-22T08:13:17.786755Z] All jobs done",
+        "stderr": "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py:101: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  return datetime.utcnow().isoformat() + \"Z\"",
+        "state": {
+          "meta": {
+            "project": "empty_synthetic",
+            "started": "2026-10-22T08:13:17.782385Z",
+            "manifest_path": "<TEMP>\\empty-manifest.json"
+          },
+          "phases": [],
+          "jobs": []
+        }
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM13",
+      "title": "CLI resume repeats existing-state replacement failure on Windows",
+      "classification": "platform_failure",
+      "operation": "canonical CLI (no jobs and no scheduler step)",
+      "input": {
+        "fixture": "empty-manifest.json",
+        "existing_state": "empty-cli-state.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py",
+          "--manifest",
+          "<TEMP>\\empty-manifest.json",
+          "--state",
+          "<TEMP>\\empty-cli-state.json",
+          "--log-dir",
+          "<TEMP>\\empty-logs",
+          "--poll",
+          "0"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Traceback (most recent call last):\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py\", line 433, in <module>\n    main()\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py\", line 416, in main\n    save_state(state, args.state)\n  File \"<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py\", line 191, in save_state\n    os.rename(tmp, state_file)\nFileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: '<TEMP>\\\\empty-cli-state.json.tmp' -> '<TEMP>\\\\empty-cli-state.json'"
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "QM14",
+      "title": "Top-level jobs without phases are silently ignored",
+      "classification": "input_validation_gap",
+      "operation": "canonical CLI (all_done before loop)",
+      "input": {
+        "fixture": "flat-manifest.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py",
+          "--manifest",
+          "<TEMP>\\flat-manifest.json",
+          "--state",
+          "<TEMP>\\flat-state.json",
+          "--log-dir",
+          "<TEMP>\\flat-logs",
+          "--poll",
+          "0"
+        ],
+        "exit_code": 0,
+        "stdout": "[2026-10-22T08:13:18.377991Z] Queue manager started with 0 jobs\n[2026-10-22T08:13:18.377991Z] All jobs done",
+        "stderr": "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\queue_manager.py:101: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n  return datetime.utcnow().isoformat() + \"Z\"",
+        "state_job_count": 0
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "DP01",
+      "title": "Copying only legacy builder leaves canonical implementation missing",
+      "classification": "deployment_failure",
+      "operation": "copied legacy CLI",
+      "input": {
+        "copy_sources": [
+          "modules\\idea-discovery\\01_ARIS\\upstream\\tools\\experiment_queue\\build_manifest.py",
+          "modules\\idea-discovery\\01_ARIS\\upstream\\tools\\experiment_queue\\queue_manager.py"
+        ],
+        "fixture": "valid-grid.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<TEMP>\\copied-legacy\\build_manifest.py",
+          "--config",
+          "<TEMP>\\valid-grid.json",
+          "--output",
+          "<TEMP>\\copied-shim-out.json"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "ERROR: canonical build_manifest.py not found at <TEMP_PARENT>\\skills\\experiment-queue\\scripts\\build_manifest.py.\n       Phase 3.3 moved this helper into the\n       /experiment-queue SKILL ('skills/experiment-queue/scripts/').\n       Your local checkout may be incomplete — try `git pull`\n       or rerun `bash tools/install_aris.sh` to refresh the\n       project-local symlink chain."
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "DP02",
+      "title": "Copying only legacy scheduler leaves canonical implementation missing",
+      "classification": "deployment_failure",
+      "operation": "copied legacy CLI",
+      "input": {
+        "fixture": "empty-manifest.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<TEMP>\\copied-legacy\\queue_manager.py",
+          "--manifest",
+          "<TEMP>\\empty-manifest.json",
+          "--state",
+          "<TEMP>\\copied-queue-state.json",
+          "--log-dir",
+          "<TEMP>\\copied-logs"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "ERROR: canonical queue_manager.py not found at <TEMP_PARENT>\\skills\\experiment-queue\\scripts\\queue_manager.py.\n       Phase 3.3 moved this helper into the\n       /experiment-queue SKILL ('skills/experiment-queue/scripts/').\n       Your local checkout may be incomplete — try `git pull`\n       or rerun `bash tools/install_aris.sh` to refresh the\n       project-local symlink chain."
+      },
+      "observation_confirmed": true
+    },
+    {
+      "id": "DP03",
+      "title": "Copied canonical builder works independently",
+      "classification": "passed",
+      "operation": "copied canonical CLI",
+      "input": {
+        "copy_source": "modules\\idea-discovery\\01_ARIS\\upstream\\skills\\experiment-queue\\scripts\\build_manifest.py",
+        "fixture": "valid-grid.json"
+      },
+      "actual": {
+        "command_argv": [
+          "<PYTHON>",
+          "-B",
+          "-X",
+          "utf8",
+          "<TEMP>\\copied-canonical\\build_manifest.py",
+          "--config",
+          "<TEMP>\\valid-grid.json",
+          "--output",
+          "<TEMP>\\copied-canonical-out.json"
+        ],
+        "exit_code": 0,
+        "stdout": "Built manifest with 2 phases, 7 total jobs\nSaved to <TEMP>\\copied-canonical-out.json",
+        "stderr": "",
+        "same_as_original": true
+      },
+      "observation_confirmed": true
+    }
+  ],
+  "reproduction": {
+    "runner_command": [
+      "py",
+      "-3.12",
+      "-B",
+      "-X",
+      "utf8",
+      "<TEMP>/bridge_component_probe.py",
+      "--repo",
+      "<REPO>",
+      "--work",
+      "<TEMP>/probe-output"
+    ],
+    "runner_source": "import argparse, copy, hashlib, importlib.util, json, os, platform, shutil, subprocess, sys, traceback\nfrom collections import Counter\nfrom pathlib import Path\nap=argparse.ArgumentParser(); ap.add_argument('--repo',required=True); ap.add_argument('--work',required=True); args=ap.parse_args()\nrepo=Path(args.repo).resolve(); work=Path(args.work).resolve(); work.mkdir(parents=True,exist_ok=True)\nsys.dont_write_bytecode=True\nprefix=Path('modules/idea-discovery/01_ARIS/upstream')\npaths={\n 'builder':prefix/'skills/experiment-queue/scripts/build_manifest.py',\n 'queue':prefix/'skills/experiment-queue/scripts/queue_manager.py',\n 'builder_shim':prefix/'tools/experiment_queue/build_manifest.py',\n 'queue_shim':prefix/'tools/experiment_queue/queue_manager.py',\n 'bridge_skill':prefix/'skills/skills-codex/experiment-bridge/SKILL.md',\n 'run_skill':prefix/'skills/skills-codex/run-experiment/SKILL.md',\n 'queue_skill':prefix/'skills/experiment-queue/SKILL.md',\n 'compute_contract':prefix/'skills/skills-codex/shared-references/compute-env-contract.md',\n 'legacy_readme':prefix/'tools/experiment_queue/README.md'}\nbefore={k:hashlib.sha256((repo/v).read_bytes()).hexdigest() for k,v in paths.items()}\ndef imp(name,path):\n s=importlib.util.spec_from_file_location(name,path); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); return m\nb=imp('aris_bridge_build_manifest',repo/paths['builder']); q=imp('aris_bridge_queue_manager',repo/paths['queue'])\nrecords=[]; fixtures={}\ndef write_fixture(name,obj,raw=False):\n path=work/name; path.parent.mkdir(parents=True,exist_ok=True); path.write_text(obj if raw else json.dumps(obj,ensure_ascii=True,indent=2),encoding='utf-8'); fixtures[name]=obj; return path\n\ndef cli(script, argv):\n cmd=[sys.executable,'-B','-X','utf8',str(script),*map(str,argv)]\n p=subprocess.run(cmd,cwd=work,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=15,env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1','PYTHONUTF8':'1'})\n return {'command_argv':cmd,'exit_code':p.returncode,'stdout':p.stdout.strip(),'stderr':p.stderr.strip()}\n\ndef add(tid,title,classification,operation,input_data,actual,assertion):\n if not assertion: raise AssertionError(f'harness observation mismatch: {tid}: {actual}')\n records.append({'id':tid,'title':title,'classification':classification,'operation':operation,'input':input_data,'actual':actual,'observation_confirmed':True})\n\nvalid={'project':'synthetic_component_probe','cwd':str(work/'synthetic-project'),'conda':'synthetic-not-executed','gpus':[],'max_parallel':0,'phases':[{'name':'grid','grid':{'seed':[11,23,47],'variant':['raw','scaled']},'template':{'id':'${variant}_s${seed}','cmd':'python synthetic_not_executed.py --seed ${seed} --variant ${variant} --gpu ${GPU}','expected_output':'results/${variant}_s${seed}.json'}},{'name':'summary','depends_on':'grid','template':{'id':'summary','cmd':'python synthetic_not_executed_summary.py','expected_output':'summary.json'}}]}\nvalid_path=write_fixture('valid-grid.json',valid); manifest_path=work/'valid-manifest.json'\nr=cli(repo/paths['builder'],['--config',valid_path,'--output',manifest_path]); manifest=json.loads(manifest_path.read_text()); jobs=[j for p in manifest['phases'] for j in p['jobs']]\nadd('BM01','JSON Cartesian grid expansion and GPU placeholder preservation','passed','canonical CLI',{'fixture':'valid-grid.json'}, {**r,'jobs':jobs,'phase_count':len(manifest['phases'])},r['exit_code']==0 and len(jobs)==7 and len({j['id'] for j in jobs})==7 and all('${seed}' not in j['cmd'] for j in jobs) and '${GPU}' in jobs[0]['cmd'])\nr=cli(repo/paths['builder_shim'],['--config',valid_path,'--output',work/'shim-manifest.json']); same=json.loads((work/'shim-manifest.json').read_text())==manifest\nadd('BM02','Legacy shim works inside intact upstream tree','passed','legacy CLI',{'fixture':'valid-grid.json'},{**r,'same_as_canonical':same},r['exit_code']==0 and same)\np=write_fixture('malformed.json','{\"phases\":',True); r=cli(repo/paths['builder'],['--config',p,'--output',work/'malformed-out.json'])\nadd('BM03','Malformed JSON rejected','expected_rejection','canonical CLI',{'fixture':'malformed.json'},r,r['exit_code']!=0 and 'JSONDecodeError' in r['stderr'] and not (work/'malformed-out.json').exists())\np=write_fixture('missing-cmd.json',{'phases':[{'name':'broken','template':{'id':'broken'}}]}); r=cli(repo/paths['builder'],['--config',p,'--output',work/'missing-cmd-out.json'])\nadd('BM04','Missing required command rejected with traceback','expected_rejection','canonical CLI',{'fixture':'missing-cmd.json'},r,r['exit_code']!=0 and 'KeyError' in r['stderr'] and not (work/'missing-cmd-out.json').exists())\nunknown={'phases':[{'name':'unknown','grid':{'seed':[11]},'template':{'id':'s${seed}','cmd':'python synthetic.py --seed ${sead}'}}]}; p=write_fixture('unknown-placeholder.json',unknown); out=work/'unknown-out.json'; r=cli(repo/paths['builder'],['--config',p,'--output',out]); m=json.loads(out.read_text())\nadd('BM05','Misspelled non-GPU placeholder silently retained','input_validation_gap','canonical CLI',{'fixture':'unknown-placeholder.json'},{**r,'manifest':m},r['exit_code']==0 and '${sead}' in m['phases'][0]['jobs'][0]['cmd'])\ndup={'phases':[{'name':'duplicate','grid':{'seed':[11,23]},'template':{'id':'same-id','cmd':'python synthetic.py --seed ${seed}'}}]}; p=write_fixture('duplicate-id.json',dup); out=work/'duplicate-out.json'; r=cli(repo/paths['builder'],['--config',p,'--output',out]); m=json.loads(out.read_text()); state=q.load_state(str(work/'duplicate-state.json'),m); q.assign_jobs_to_phases(m,state)\nadd('BM06','Duplicate generated IDs collapse two jobs into one queue state job','input_validation_gap','canonical CLI + load_state + assign_jobs_to_phases',{'fixture':'duplicate-id.json'},{**r,'manifest_jobs':m['phases'][0]['jobs'],'state_jobs':state['jobs']},r['exit_code']==0 and len(m['phases'][0]['jobs'])==2 and len(state['jobs'])==1)\np=write_fixture('string-grid.json',{'phases':[{'name':'chars','grid':{'seed':'12'},'template':{'id':'s${seed}','cmd':'python synthetic.py --seed ${seed}'}}]}); out=work/'string-out.json'; r=cli(repo/paths['builder'],['--config',p,'--output',out]); m=json.loads(out.read_text())\nadd('BM07','String grid value is expanded character by character','input_validation_gap','canonical CLI',{'fixture':'string-grid.json'},{**r,'manifest':m},r['exit_code']==0 and [j['id'] for j in m['phases'][0]['jobs']]==['s1','s2'])\np=write_fixture('empty-axis.json',{'phases':[{'name':'empty','grid':{'seed':[]},'template':{'id':'s${seed}','cmd':'python synthetic.py'}}]}); out=work/'empty-axis-out.json'; r=cli(repo/paths['builder'],['--config',p,'--output',out]); m=json.loads(out.read_text())\nadd('BM08','Empty grid axis produces zero jobs without warning','input_validation_gap','canonical CLI',{'fixture':'empty-axis.json'},{**r,'manifest':m},r['exit_code']==0 and m['phases'][0]['jobs']==[])\np=write_fixture('valid-grid.yaml','project: synthetic_yaml\\nphases:\\n  - name: single\\n    template:\\n      id: single\\n      cmd: python synthetic.py\\n',True); out=work/'yaml-out.json'; r=cli(repo/paths['builder'],['--config',p,'--output',out]); yaml_available=importlib.util.find_spec('yaml') is not None\nadd('BM09','YAML dependency branch','blocked_missing_dependency' if not yaml_available else 'passed','canonical CLI',{'fixture':'valid-grid.yaml'},r,(r['exit_code']==1 and 'PyYAML not available' in r['stdout'] and not out.exists()) if not yaml_available else r['exit_code']==0)\nopts=copy.deepcopy(valid); opts['conda_hook']='/synthetic/conda'; opts['gpu_free_threshold_mib']=123; p=write_fixture('optional-settings.json',opts); out=work/'options-out.json'; r=cli(repo/paths['builder'],['--config',p,'--output',out]); m=json.loads(out.read_text())\nadd('BM10','Builder does not forward optional scheduler settings','known_boundary','canonical CLI',{'fixture':'optional-settings.json'},{**r,'conda_hook_present':'conda_hook' in m,'gpu_free_threshold_mib_present':'gpu_free_threshold_mib' in m},r['exit_code']==0 and 'conda_hook' not in m and 'gpu_free_threshold_mib' not in m)\n\nstate=q.load_state(str(work/'fresh-state.json'),manifest); q.assign_jobs_to_phases(manifest,state)\nadd('QM01','Initialize jobs and normalize string phase dependency','passed','load_state + assign_jobs_to_phases',{'fixture':'valid-grid.json'},{'phase_dependencies':state['phases'][1]['depends_on'],'job_count':len(state['jobs']),'statuses':sorted({j['status'] for j in state['jobs']})},state['phases'][1]['depends_on']==['grid'] and len(state['jobs'])==7 and all(j['status']=='pending' for j in state['jobs']))\nstate_before=copy.deepcopy(state); q.assign_jobs_to_phases(manifest,state)\nadd('QM02','Repeated job assignment is idempotent for unique IDs','passed','assign_jobs_to_phases twice',{'manifest':'valid-manifest.json'},{'unchanged':state==state_before,'job_count':len(state['jobs'])},state==state_before)\ninitial=[j['id'] for j in q.pending_jobs_in_active_phases(state,manifest)]\nfor j in state['jobs']:\n if j['phase']=='grid': j['status']='completed'\nstate['phases'][0]['status']='completed'; later=[j['id'] for j in q.pending_jobs_in_active_phases(state,manifest)]\nadd('QM03','Pending dependency blocks child phase until parent phase is completed','passed','pending_jobs_in_active_phases',{'states':'synthetic pending then completed'},{'initial_ids':initial,'after_parent_completed_ids':later},len(initial)==6 and later==['summary'])\nstuck=copy.deepcopy(state)\nfor j in stuck['jobs']:\n if j['phase']=='grid': j['status']='stuck'\nparent_terminal=q.phase_complete('grid',stuck); stuck['phases'][0]['status']='completed' if parent_terminal else 'pending'; child_ready=q.phase_ready('summary',stuck)\nadd('QM04','Documented terminal-state dependency includes stuck jobs','known_boundary','phase_complete + phase_ready',{'parent_job_status':'stuck'},{'parent_phase_complete':parent_terminal,'child_phase_ready':child_ready,'all_parent_jobs_successful':False},parent_terminal and child_ready)\nstate_file=str(work/'persist-state.json'); q.save_state(state,state_file); first=json.loads(Path(state_file).read_text()); changed=copy.deepcopy(state); changed['meta']['probe_revision']=2\ntry:\n q.save_state(changed,state_file); error=None\nexcept Exception as exc: error={'type':type(exc).__name__,'message':str(exc)}\nafter=json.loads(Path(state_file).read_text())\nadd('QM05','Existing state cannot be atomically replaced on Windows','platform_failure' if error else 'passed','save_state twice',{'first_state':'valid initialized state','second_state':'meta.probe_revision = 2'},{'first_write_matches':first==state,'second_error':error,'original_state_preserved':after==state,'temporary_state_exists':Path(state_file+'.tmp').exists()},(first==state and error and error['type']=='FileExistsError' and after==state) if os.name=='nt' else (error is None and after==changed))\np=write_fixture('invalid-state.json','not-json',True)\ntry: q.load_state(str(p),manifest); error=None\nexcept Exception as exc: error={'type':type(exc).__name__,'message':str(exc)}\nadd('QM06','Malformed persisted state rejected','expected_rejection','load_state',{'fixture':'invalid-state.json'},error,error and error['type']=='JSONDecodeError')\nold=copy.deepcopy(state); old['phases'][1]['depends_on']='grid'; p=write_fixture('old-shape-state.json',old); loaded=q.load_state(str(p),manifest)\nadd('QM07','Existing older dependency string normalized on load','passed','load_state',{'fixture':'old-shape-state.json'},{'depends_on':loaded['phases'][1]['depends_on']},loaded['phases'][1]['depends_on']==['grid'])\nproject=work/'outputs'; project.mkdir(); (project/'valid.json').write_text('{\"synthetic\": true, \"metric\": 0.5}',encoding='utf-8'); (project/'invalid.json').write_text('not a JSON result',encoding='utf-8'); (project/'looks-like-result.json').mkdir()\nfor tid,title,filename,kind in [('QM08','Existing synthetic JSON recognized as completed','valid.json','passed'),('QM09','Malformed result content still recognized as completed','invalid.json','known_boundary'),('QM10','Directory matching output pattern still recognized as completed','looks-like-result.json','known_boundary')]:\n job={'id':'synthetic-job','expected_output':filename,'screen_name':None,'pid':None}; result=q.job_status_check(job,str(work/'nonexistent-logs'),str(project))\n add(tid,title,kind,'job_status_check (early output branch, no subprocess)',{'synthetic_output':filename,'screen_name':None},{'status':result[0],'error':result[1],'is_file':(project/filename).is_file()},result==('completed',None))\njob={'id':'synthetic-job','expected_output':'missing.json','screen_name':None,'pid':None}; result=q.job_status_check(job,str(work/'nonexistent-logs'),str(project))\nadd('QM11','Missing output with no known screen is not completed','passed','job_status_check (missing log and absent screen)',job,{'status':result[0],'error':result[1]},result[0]=='failed_other')\nempty={'project':'empty_synthetic','cwd':str(work/'empty-project'),'gpus':[],'max_parallel':0,'phases':[]}; p=write_fixture('empty-manifest.json',empty); empty_state=work/'empty-cli-state.json'; r=cli(repo/paths['queue'],['--manifest',p,'--state',empty_state,'--log-dir',work/'empty-logs','--poll','0']); es=json.loads(empty_state.read_text())\nadd('QM12','Empty queue CLI exits zero without executing any jobs','known_boundary','canonical CLI (all_done before loop)',{'fixture':'empty-manifest.json'},{**r,'state':es},r['exit_code']==0 and es['jobs']==[] and 'All jobs done' in r['stdout'])\nr=cli(repo/paths['queue'],['--manifest',p,'--state',empty_state,'--log-dir',work/'empty-logs','--poll','0'])\nadd('QM13','CLI resume repeats existing-state replacement failure on Windows','platform_failure' if os.name=='nt' else 'passed','canonical CLI (no jobs and no scheduler step)',{'fixture':'empty-manifest.json','existing_state':'empty-cli-state.json'},r,(r['exit_code']!=0 and 'FileExistsError' in r['stderr']) if os.name=='nt' else r['exit_code']==0)\nflat={'project':'flat_synthetic','cwd':str(work/'flat-project'),'gpus':[],'max_parallel':0,'jobs':[{'id':'must-not-execute','cmd':'python synthetic_not_executed.py'}]}; p=write_fixture('flat-manifest.json',flat); st=work/'flat-state.json'; r=cli(repo/paths['queue'],['--manifest',p,'--state',st,'--log-dir',work/'flat-logs','--poll','0']); fs=json.loads(st.read_text())\nadd('QM14','Top-level jobs without phases are silently ignored','input_validation_gap','canonical CLI (all_done before loop)',{'fixture':'flat-manifest.json'},{**r,'state_job_count':len(fs['jobs'])},r['exit_code']==0 and fs['jobs']==[])\n\ncopydir=work/'copied-legacy'; copydir.mkdir()\nfor key in ['builder_shim','queue_shim']: shutil.copyfile(repo/paths[key],copydir/Path(paths[key]).name)\nr=cli(copydir/'build_manifest.py',['--config',valid_path,'--output',work/'copied-shim-out.json'])\nadd('DP01','Copying only legacy builder leaves canonical implementation missing','deployment_failure','copied legacy CLI',{'copy_sources':[str(paths['builder_shim']),str(paths['queue_shim'])],'fixture':'valid-grid.json'},r,r['exit_code']==1 and 'canonical build_manifest.py not found' in r['stderr'])\nr=cli(copydir/'queue_manager.py',['--manifest',work/'empty-manifest.json','--state',work/'copied-queue-state.json','--log-dir',work/'copied-logs'])\nadd('DP02','Copying only legacy scheduler leaves canonical implementation missing','deployment_failure','copied legacy CLI',{'fixture':'empty-manifest.json'},r,r['exit_code']==1 and 'canonical queue_manager.py not found' in r['stderr'])\ncopycanon=work/'copied-canonical'; copycanon.mkdir(); shutil.copyfile(repo/paths['builder'],copycanon/'build_manifest.py'); r=cli(copycanon/'build_manifest.py',['--config',valid_path,'--output',work/'copied-canonical-out.json']); m=json.loads((work/'copied-canonical-out.json').read_text())\nadd('DP03','Copied canonical builder works independently','passed','copied canonical CLI',{'copy_source':str(paths['builder']),'fixture':'valid-grid.json'},{**r,'same_as_original':m==manifest},r['exit_code']==0 and m==manifest)\nafter_hashes={k:hashlib.sha256((repo/v).read_bytes()).hexdigest() for k,v in paths.items()}\nresult={'schema_version':1,'test_date':'2026-10-22','scope':'Original ARIS queue helper components only; synthetic manifest/state/file fixtures; zero launched training jobs, no scheduler loop, no GPU/SSH/network/configuration/notifications.','runtime_tested_full_upstream_workflow':False,'mocked_source_functions':False,'scheduler_step_called':False,'training_jobs_launched':0,'environment':{'python':sys.version,'platform':platform.platform(),'python_packages_added':[],'pyyaml_available':yaml_available,'executables_present':{n:shutil.which(n) is not None for n in ['screen','bash','nvidia-smi','conda','tail','ssh','rsync']}},'sources':[{'role':k,'path':v.as_posix(),'sha256_before':before[k],'sha256_after':after_hashes[k],'unchanged':before[k]==after_hashes[k]} for k,v in paths.items()],'summary':{'case_count':len(records),'classification_counts':dict(Counter(r['classification'] for r in records)),'all_observations_confirmed':all(r['observation_confirmed'] for r in records),'all_upstream_sources_unchanged':before==after_hashes},'fixtures':fixtures,'tests':records,'reproduction':{'runner_command':['py','-3.12','-B','-X','utf8','<TEMP>/bridge_component_probe.py','--repo','<REPO>','--work','<TEMP>/probe-output'],'runner_source':Path(__file__).read_text(encoding='utf-8'),'requirements':'Python 3.8+ per upstream; actually tested 3.12.10 Windows. Standard library only for JSON. YAML case reports missing dependency unless PyYAML installed. Use a newly created empty temporary work directory.'}}\nassert before==after_hashes\n# Sanitize artifact data, including repr-escaped Windows exception paths.\ndef redact(value):\n if isinstance(value,dict): return {k:redact(v) for k,v in value.items()}\n if isinstance(value,list): return [redact(v) for v in value]\n if not isinstance(value,str): return value\n replacements=[(str(repo),'<REPO>'),(str(work),'<TEMP>'),(str(work.parent),'<TEMP_PARENT>'),(str(sys.executable),'<PYTHON>'),(str(Path(sys.executable).parent),'<PYTHON_DIR>')]\n for original,label in sorted(replacements,key=lambda pair:-len(pair[0])):\n  for spelling in [original.replace('\\\\','\\\\\\\\'),original,original.replace('\\\\','/')]:\n   value=value.replace(spelling,label)\n return value\nclean=redact({k:v for k,v in result.items() if k!='reproduction'}); clean['reproduction']=result['reproduction']\n(work/'bridge-components-results.json').write_text(json.dumps(clean,ensure_ascii=False,indent=2)+'\\n',encoding='utf-8')\nprint(json.dumps(clean['summary'],ensure_ascii=False,indent=2))\n",
+    "requirements": "Python 3.8+ per upstream; actually tested 3.12.10 Windows. Standard library only for JSON. YAML case reports missing dependency unless PyYAML installed. Use a newly created empty temporary work directory."
+  }
+}

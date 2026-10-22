@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "module_id": "literature-review",
+  "title": "文献检索与综述",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/literature-review/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 4,
+  "number_of_source_snapshots": 5,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 5,
+  "entrypoint_files": 8,
+  "runtime_tested": false,
+  "upstream_code_executed": true,
+  "agent_configuration_changed": false,
+  "scope_note": "Five core skill names and eight branch/host entry files remain unchanged. Limited Codex host web/abstract/citation workflows and selected original components were executed; successes, failures, dependency constraints and defects are recorded separately. Full upstream workflows and real Zotero/Obsidian integration remain unverified. Supporting files pin the original bytes executed in place or in byte-identical isolated copies. This directory is not a standalone installation package.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/research-lit/SKILL.md",
+        "skills/skills-codex/research-lit/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": true,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/research-lit/SKILL.md",
+          "bytes": 43992,
+          "git_blob_sha1": "f76d4db7a9cda6147c27febfc2c6d42998ebbad3",
+          "sha256": "00d9f549e4db72f3b02d55b9f6dcd61b20403f5a7e25cf3396160423140b9183",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/research-lit/SKILL.md",
+          "bytes": 27777,
+          "git_blob_sha1": "d5c604376a38de164a96e6cc5194ad2a33814f02",
+          "sha256": "d6293c58a6d6319b7ae5075ee9a1587ae83368400fbe15ff89a338e52e549c61",
+          "mode": "100644"
+        },
+        {
+          "path": "tools/arxiv_fetch.py",
+          "bytes": 11762,
+          "git_blob_sha1": "8a30c6a8fcf8f32266b23b40e92c4c721a8bf45f",
+          "sha256": "30446596ca9aeb66a0a2f20fc0919d5f473fbee34dd611fee5c3613fadf5e7fa",
+          "mode": "100644"
+        }
+      ],
+      "supporting_files": [
+        "tools/arxiv_fetch.py"
+      ]
+    },
+    {
+      "id": "03_ResearchStudio_Idea",
+      "repository": "https://github.com/microsoft/ResearchStudio",
+      "branch": "main",
+      "commit": "063f10088af49909e1a4a7ea8d29efe19633f34e",
+      "tree_sha": "2ffbb2cc23a25abc2f52a0ba692a4126b274ed8a",
+      "commit_date": "2026-09-21T17:18:54Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.353273+00:00",
+      "bundle_relative_path": "../idea-discovery/03_ResearchStudio_Idea/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "03_ResearchStudio_Idea",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "ResearchStudio-Idea/skills/paper_search/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": true,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1062,
+          "git_blob_sha1": "e5e946a0371af9920be22ea4adb584000fface8c",
+          "sha256": "db60a6df93f1786929a223558ca0c202ef61095600785cf7503fbcd4bac1bd02",
+          "mode": "100644"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/SKILL.md",
+          "bytes": 17046,
+          "git_blob_sha1": "e840090d3a87d08c7ea2a6772673fe4bf4bccb38",
+          "sha256": "9249f89d84d8d6ba86419898376841e19ed531885c91ff1b5290d7c92af07159",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/_env.py",
+          "bytes": 2105,
+          "git_blob_sha1": "08a87526951218c353b7fc3c6c01eca525695e82",
+          "sha256": "d050425ca84a2bc32f9ceb05b035d708f68b7cc1c1ea1ac330b43051336632dc",
+          "mode": "100644"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/_http_runtime.py",
+          "bytes": 6528,
+          "git_blob_sha1": "19af540319d3474ddacb2e195e7d8f354b13a0b9",
+          "sha256": "bfbbf76a8bb4c7bb0b0f1eb68d2c7a1c8b307449aa2a645435e7c67a96907604",
+          "mode": "100644"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/postprocess.py",
+          "bytes": 6013,
+          "git_blob_sha1": "2399446376560d7654424677f0f85102e555da5f",
+          "sha256": "cc91b05c55f06832483a655a0cdcf0980da6b3c1102342c4020e379927b0f036",
+          "mode": "100644"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers.py",
+          "bytes": 16690,
+          "git_blob_sha1": "1bb3d2ca452d743db2c266ba8de9fe03225e1270",
+          "sha256": "2d32c4f8f3e74a55ac2ffde17cee5a00649d62ed6eca0add4fdcd29f6e45de43",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_arxiv.py",
+          "bytes": 6077,
+          "git_blob_sha1": "4ebf1d1dbb6c3b3453402398fcc9a1cea5c41f81",
+          "sha256": "d7b8ace270f3893c4e5f1b6a844390f0902107aca517043ee59ae96d479eaf11",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_crossref.py",
+          "bytes": 3840,
+          "git_blob_sha1": "5cc1e62b32abc3da1bf95e3c03ffc8c7bad1a360",
+          "sha256": "f6bd334a7aa95ba3597b66b8a39a3c92210272877f8c5dc5ab554b180cab2768",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_dblp.py",
+          "bytes": 4521,
+          "git_blob_sha1": "c448ae235340806f9e8b4befbd1098eeddcd3fa9",
+          "sha256": "678789a0dd1afad500bb114dd4c54eae6d06612ec6a87e90e6798c79e2e58009",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_open_alex.py",
+          "bytes": 3977,
+          "git_blob_sha1": "2429a01681626794546a33411ce01e20ae0b9425",
+          "sha256": "df12ed36f22eb67233840b154278b94578a3ea5781056c597794778915848eb3",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_openreview.py",
+          "bytes": 6750,
+          "git_blob_sha1": "3e3980cee501ad85be804c60f6ca441a67293c1a",
+          "sha256": "3ed426d514814a847554ea324c374c94c8a2856550ebf2ae3afcdf00cfc326b4",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_semantic_scholar.py",
+          "bytes": 3414,
+          "git_blob_sha1": "53169f587b30322fa6032c36754c5e5222efe44d",
+          "sha256": "87c3c6ec0799b6a6a26da5fa3c07d09c3e275544580bf7e07175e170ef093d5b",
+          "mode": "100755"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/selftest_postprocess.py",
+          "bytes": 4523,
+          "git_blob_sha1": "489582fd558e9404960f0195aa027c354c9a4aee",
+          "sha256": "b94ee238de608e42a3d3f53841170b04b3d59e0c01c77d881b092f6ec39c4a47",
+          "mode": "100644"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/selftest_runtime.py",
+          "bytes": 17292,
+          "git_blob_sha1": "7f0c4828df5de4d1ecfcfdf8e2154f4b5e2effc0",
+          "sha256": "b3afda2daa0149d41a0fe81fd6b72cf78dbda0da64b6a1a74abdc1785e2cdd2f",
+          "mode": "100644"
+        },
+        {
+          "path": "ResearchStudio-Idea/skills/paper_search/scripts/source_worker.py",
+          "bytes": 3499,
+          "git_blob_sha1": "d7b1554c9864f909d8029f66198070bf7b847ab0",
+          "sha256": "073588655b61f80bcce27d6e7ac4a61f057f2beca2ad7736c2f3555eeeff3493",
+          "mode": "100644"
+        }
+      ],
+      "supporting_files": [
+        "ResearchStudio-Idea/skills/paper_search/scripts/_env.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/_http_runtime.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/postprocess.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_arxiv.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_crossref.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_dblp.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_open_alex.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_openreview.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_semantic_scholar.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/selftest_postprocess.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/selftest_runtime.py",
+        "ResearchStudio-Idea/skills/paper_search/scripts/source_worker.py"
+      ]
+    },
+    {
+      "id": "04_KDense",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "branch": "main",
+      "commit": "92ace75ac21efe19a620434e0ca4e356081fe807",
+      "tree_sha": "9a2d8a9b7d7cf9a89fcf31a25e826838f735d764",
+      "commit_date": "2026-10-05T09:39:10Z",
+      "retrieved_at_utc": "2026-10-11T04:01:08.124946+00:00",
+      "bundle_relative_path": "../idea-discovery/04_KDense/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "04_KDense",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/literature-review/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "license_path": "LICENSE.md",
+      "upstream_modified": false,
+      "executed_upstream_code": true,
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 1068,
+          "git_blob_sha1": "eb246475fd5a66b9bb56176f3a718984632dd98d",
+          "sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/literature-review/SKILL.md",
+          "bytes": 12869,
+          "git_blob_sha1": "5178dce6419cee412155e7b9dd523d5b2ef703f5",
+          "sha256": "16a9e85bcdcb9bb859e1646bf836e51b22900445ba2e367d8d75be05b5a5cba8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/literature-review/scripts/generate_pdf.py",
+          "bytes": 4990,
+          "git_blob_sha1": "dea8d556e808c006c911131ee761b2bd1ae8ecc0",
+          "sha256": "0ba1b16b196b64d4966e5f055a289f0c17e3579a84254abe47ff63be95b4f136",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/literature-review/scripts/search_databases.py",
+          "bytes": 8769,
+          "git_blob_sha1": "d14e3202055844ea47a4d19b8b5ceeb4321dceab",
+          "sha256": "76f47fd18ca28df4985ffc6d30d5ad659e67c8058bb3de8f385c2443752f4eaf",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/literature-review/scripts/verify_citations.py",
+          "bytes": 9960,
+          "git_blob_sha1": "39fb278f7896e275784f7ea23ba395b1929863e5",
+          "sha256": "4c8e8377718ddd47e9cd7cef706935b04910af5d13bfd920970dcf41d4ef3706",
+          "mode": "100644"
+        }
+      ],
+      "supporting_files": [
+        "skills/literature-review/scripts/generate_pdf.py",
+        "skills/literature-review/scripts/search_databases.py",
+        "skills/literature-review/scripts/verify_citations.py"
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "main",
+      "commit": "903787345d6aec134086afa2b97715a78fbde519",
+      "tree_sha": "d7f61d97768bcaa4442e2481da680073da7528bc",
+      "commit_date": "2026-09-23T07:23:56Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.953825+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_main",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/obsidian-literature-workflow/SKILL.md",
+        "skills/citation-verification/SKILL.md"
+      ],
+      "optional_related_entrypoints": [
+        "skills/zotero-obsidian-bridge/SKILL.md"
+      ],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/citation-verification/SKILL.md",
+          "bytes": 7593,
+          "git_blob_sha1": "04b91fc947f0373f2c5678c8b5ce6608ff2f8352",
+          "sha256": "c98a1be776ee4301425e01e4ed46488aba293487c8b572de8963cadf805f929a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-literature-workflow/SKILL.md",
+          "bytes": 1724,
+          "git_blob_sha1": "cdcbf31c2904374006a778be6ab0025144ea5617",
+          "sha256": "63f63a1a1465d450e53c3cd8baa970391fefdf5617db9ba63e724553f5e83ad7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/zotero-obsidian-bridge/SKILL.md",
+          "bytes": 2056,
+          "git_blob_sha1": "85cd04fcce4c8e916f3b22d0efc08ca4e8979213",
+          "sha256": "7d89742d4db187eb8ef93032a9b39470c41fb560ce4ff661b69ea946176b477a",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar_Codex",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "codex",
+      "commit": "b672e80951a2348dd6136316d096603bf2dc5b83",
+      "tree_sha": "09aed09c52f6498c11a4ec8fa711f4e913973e48",
+      "commit_date": "2026-09-23T07:02:54Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.860336+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_codex",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar_Codex",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/obsidian-literature-workflow/SKILL.md",
+        "skills/citation-verification/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": true,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/citation-verification/SKILL.md",
+          "bytes": 7975,
+          "git_blob_sha1": "9828b9e172357c05f248543972f5950c3c6fcabd",
+          "sha256": "62e7eaed943d3773896f0e9af58913ec7950b34b8c939f3e8e984427a77a91ab",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/citation-verification/scripts/format-checker.py",
+          "bytes": 18560,
+          "git_blob_sha1": "c22270227711cb4247040ccf9e0c4a6a01d1dacc",
+          "sha256": "33329dc03a4573af4166b254b809787d07d884808aacd196a5f89d3812971cc9",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/citation-verification/scripts/verify-citations.py",
+          "bytes": 21742,
+          "git_blob_sha1": "ea092be0ce00dd6e929ef114ab1ff40817de2c6f",
+          "sha256": "f2ab99b2ed19b4ff3ab66885294485a2bf13d5318ff5c673198779a924561038",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-literature-workflow/SKILL.md",
+          "bytes": 1724,
+          "git_blob_sha1": "cdcbf31c2904374006a778be6ab0025144ea5617",
+          "sha256": "63f63a1a1465d450e53c3cd8baa970391fefdf5617db9ba63e724553f5e83ad7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-literature-workflow/scripts/build_literature_canvas.py",
+          "bytes": 23178,
+          "git_blob_sha1": "3efc39e74ed5fc128bb7285fef6dd4069b807740",
+          "sha256": "909a6bbd8239b27c4ef004452eb4d12fcf3cade949b6933226c4f48038ed0eb4",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-project-kb-core/scripts/kb_common.py",
+          "bytes": 31365,
+          "git_blob_sha1": "17fe410e5bceb9f4e2a937c898a1736712c24be4",
+          "sha256": "8e394b296dbccfbece64b488fdbdccd2fd21938214e88a792ad35435e30c645e",
+          "mode": "100755"
+        }
+      ],
+      "supporting_files": [
+        "skills/citation-verification/scripts/format-checker.py",
+        "skills/citation-verification/scripts/verify-citations.py",
+        "skills/obsidian-literature-workflow/scripts/build_literature_canvas.py",
+        "skills/obsidian-project-kb-core/scripts/kb_common.py"
+      ]
+    }
+  ],
+  "runtime_status": "partially-tested",
+  "runtime_validation_record": "runtime-tests/2026-10-22/README.md",
+  "component_runtime_tested": true,
+  "component_validation_record": "runtime-tests/2026-10-22/README.md",
+  "host_workflow_tested": true
+}

@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "module_id": "experiment-design",
+  "title": "实验设计与复现",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/experiment-design/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 2,
+  "number_of_source_snapshots": 2,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 6,
+  "entrypoint_files": 12,
+  "runtime_tested": false,
+  "example_runtime_tested": true,
+  "upstream_code_executed": true,
+  "agent_configuration_changed": false,
+  "scope_note": "Six ARIS core names and twelve main/Codex entry files; optional monitor entries, ClaudeScholar main reproducibility rule, and pinned support references. Bounded planning and synthetic monitoring exercises plus queue component tests are recorded; full deployment, fresh result audit and the current CPU rerun are incomplete. Original snapshots remain unchanged.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/experiment-plan/SKILL.md",
+        "skills/ablation-planner/SKILL.md",
+        "skills/experiment-bridge/SKILL.md",
+        "skills/run-experiment/SKILL.md",
+        "skills/training-check/SKILL.md",
+        "skills/experiment-audit/SKILL.md",
+        "skills/skills-codex/experiment-plan/SKILL.md",
+        "skills/skills-codex/ablation-planner/SKILL.md",
+        "skills/skills-codex/experiment-bridge/SKILL.md",
+        "skills/skills-codex/run-experiment/SKILL.md",
+        "skills/skills-codex/training-check/SKILL.md",
+        "skills/skills-codex/experiment-audit/SKILL.md"
+      ],
+      "optional_related_entrypoints": [
+        "skills/monitor-experiment/SKILL.md",
+        "skills/skills-codex/monitor-experiment/SKILL.md"
+      ],
+      "supporting_files": [
+        "skills/experiment-queue/SKILL.md",
+        "skills/experiment-queue/scripts/build_manifest.py",
+        "skills/experiment-queue/scripts/queue_manager.py",
+        "skills/skills-codex/shared-references/compute-env-contract.md",
+        "skills/skills-codex/shared-references/experiment-integrity.md",
+        "skills/skills-codex/shared-references/integration-contract.md",
+        "skills/skills-codex/shared-references/review-tracing.md",
+        "skills/skills-codex/shared-references/reviewer-independence.md",
+        "tools/experiment_queue/README.md",
+        "tools/experiment_queue/build_manifest.py",
+        "tools/experiment_queue/queue_manager.py",
+        "tools/save_trace.sh",
+        "tools/verify_paper_audits.sh"
+      ],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": true,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ablation-planner/SKILL.md",
+          "bytes": 5137,
+          "git_blob_sha1": "bd5960d5b9a6f05f2fe8f6160b44154a2cf11092",
+          "sha256": "ce51bfff265e5f0a6e8fd03333bfa8dee679e728e0d325830988ca5bd31307da",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/experiment-audit/SKILL.md",
+          "bytes": 12732,
+          "git_blob_sha1": "f942b8e08f3e44548e8aa3763ae8a5670e519d0e",
+          "sha256": "dd5c2405aaae472cf2020f16fbd1b02b431874d8353a65a8aa4c102a65f5aef2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/experiment-bridge/SKILL.md",
+          "bytes": 18600,
+          "git_blob_sha1": "dd8d595df77f4481cb828d7c3a2583e7e499c7c9",
+          "sha256": "595d41fee920c7dafb920e89d8e33c0c3967704f84457786432aaadc920767a0",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/experiment-plan/SKILL.md",
+          "bytes": 9728,
+          "git_blob_sha1": "bc7021bcc7a1a081c02cd02bc14f0ccd774292e2",
+          "sha256": "c5b53692ff95b0b55e80702e33afc79d9fe8d4f55a69e2a39714013f97ac595e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/experiment-queue/SKILL.md",
+          "bytes": 20108,
+          "git_blob_sha1": "d9cddd766f06b766535c29af15e004ce2fcc8a8e",
+          "sha256": "6da32285f905d77664334bba7f7bbc2c069814ff5c3bc266ecc00f6c77d77208",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/experiment-queue/scripts/build_manifest.py",
+          "bytes": 4562,
+          "git_blob_sha1": "ec52fb749d0c1e25908f54a90759e1d438579057",
+          "sha256": "2fe0d13d2bba863e9bbde65f8a746f1c0f46b7e2c08e16107786fad6980a5820",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/experiment-queue/scripts/queue_manager.py",
+          "bytes": 15116,
+          "git_blob_sha1": "5c5d09420b3f9e4aad82d55ddbb69a5fcb9f5d82",
+          "sha256": "9b53e554bda3fec88d9d293e323e26f531d8c074b7544a8ca7b4c3b529ab0129",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/monitor-experiment/SKILL.md",
+          "bytes": 5050,
+          "git_blob_sha1": "49037f88f9caedecc7851bb3a5e22b79c3893cc9",
+          "sha256": "0527977308bb7b26139ffb56cd2d45ecc72a9dd2961073ad51fac4aac106961d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/run-experiment/SKILL.md",
+          "bytes": 12848,
+          "git_blob_sha1": "ebc54d6196433a702c609e232dfbad5e20d8f6da",
+          "sha256": "4d481ce95d8bcadb93b095c3dd9bda51d68b6edea6b710316d6c0c74bb5bcfa8",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/ablation-planner/SKILL.md",
+          "bytes": 5416,
+          "git_blob_sha1": "9d67c03d33271541de35a111396fb582eacf5ddf",
+          "sha256": "8383bc55d53adb29a36e07cc7da560337ddb32140e268fe737d4c36f94110e7b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/experiment-audit/SKILL.md",
+          "bytes": 10987,
+          "git_blob_sha1": "e0d1e125567bec682d1085cd9be6db60033d5c01",
+          "sha256": "cc660aaf2bb9d28e07270af8cf30ce96a6bbd1490cbe0d6e4ef97442e2be19ad",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/experiment-bridge/SKILL.md",
+          "bytes": 16817,
+          "git_blob_sha1": "0aa1b3e957b93c6075af0a5b0657f651d6b042d2",
+          "sha256": "8325b87f1bb3c5293f5f52365f1be31b47fd79e1dc7dcde4e8986d5363e0c798",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/experiment-plan/SKILL.md",
+          "bytes": 9665,
+          "git_blob_sha1": "e80f4ace42eae57ae5c908d97c707807e9ba1bdd",
+          "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/monitor-experiment/SKILL.md",
+          "bytes": 3378,
+          "git_blob_sha1": "b1485768c86abbaeb128eaeb3830f5b01126c6eb",
+          "sha256": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/run-experiment/SKILL.md",
+          "bytes": 8909,
+          "git_blob_sha1": "48c69e8afa1004138a9130d4a76896e85a6fde70",
+          "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/shared-references/compute-env-contract.md",
+          "bytes": 10577,
+          "git_blob_sha1": "784d2d86ea8d1c2610cbd00b13f8808d7add743b",
+          "sha256": "27aee2eee75a705a7d3ed72086b05ae2aa499104489376596ecb5b683807eeb5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/shared-references/experiment-integrity.md",
+          "bytes": 2355,
+          "git_blob_sha1": "bc27a74ae7731497c080183cb7bc25c2ba663482",
+          "sha256": "22150fbdc5867e7790c88f968bccb367079c2db4c190ddce980709aea7e76f60",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/shared-references/integration-contract.md",
+          "bytes": 18658,
+          "git_blob_sha1": "e9fb1f3874ffc3487fcb3595c7ee356d7e41407d",
+          "sha256": "5d393c31b36e98ae99c17ab9cf5879853c0cb595bbd9f4973ffe7bcd6549f4e7",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/shared-references/review-tracing.md",
+          "bytes": 4435,
+          "git_blob_sha1": "3a84188adf3fe9b8780c9781eba8ea5e6fb324ac",
+          "sha256": "d8c202147c1876a5fd014fcd9e5c73bfd398863a05ae45633e0159fa16bbc71d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/shared-references/reviewer-independence.md",
+          "bytes": 1809,
+          "git_blob_sha1": "7f37ea7e63e216392e11cc52a4cccad33862604e",
+          "sha256": "326a2ed68aa25dd5ff7fbb74b34fcce7a595eb27cd0daf565890c208076206db",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/training-check/SKILL.md",
+          "bytes": 4593,
+          "git_blob_sha1": "e5c60759dd7a8b06225ea54aadc669cc14d9c662",
+          "sha256": "c48dc4b1e5bcfcb025d48c90a03de7caa6cd02908b6c2c5d0148c6ec394b391e",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/training-check/SKILL.md",
+          "bytes": 5770,
+          "git_blob_sha1": "c1d69e77f8f081011ff5557e79f650ff8edc6ea8",
+          "sha256": "b4f27bbc58aaae314d8c51fe309fb41e42f47dce4f69ba07fac1ce7f0080c789",
+          "mode": "100644"
+        },
+        {
+          "path": "tools/experiment_queue/README.md",
+          "bytes": 4238,
+          "git_blob_sha1": "fd4e6839317bb4008a3d918155486f94fed1378b",
+          "sha256": "df7757d1b2cec27a52fd655a233948c5a031b846ea93e2167811a668877924b3",
+          "mode": "100644"
+        },
+        {
+          "path": "tools/experiment_queue/build_manifest.py",
+          "bytes": 1542,
+          "git_blob_sha1": "ad930d33b275166fde8f35aa8212282d9669eb27",
+          "sha256": "e1daa4116e24a36f970e5fddf6d1493e6a7396933c4e21468c85593ca35d4a25",
+          "mode": "100755"
+        },
+        {
+          "path": "tools/experiment_queue/queue_manager.py",
+          "bytes": 1574,
+          "git_blob_sha1": "ee18c28e59823dc30d007e27009cb744ad32a80e",
+          "sha256": "eac75a1285c81eb1683906cc979486f14bbba612c7cf434c753dfacec1f79dda",
+          "mode": "100755"
+        },
+        {
+          "path": "tools/save_trace.sh",
+          "bytes": 23122,
+          "git_blob_sha1": "1def610edd688a98b0e308ecedaef1daf14bf5bd",
+          "sha256": "052896125aa6f655ff1b6c5f8262766fa6f3c3f758cb5b0ec142f46ee38a9de0",
+          "mode": "100755"
+        },
+        {
+          "path": "tools/verify_paper_audits.sh",
+          "bytes": 20876,
+          "git_blob_sha1": "a076167d8e511eefd386574c0813966a44067337",
+          "sha256": "7dd8c07a6e9458077a202c3075c4207985b2bba7a196b10687d286b9c9dd455d",
+          "mode": "100755"
+        }
+      ],
+      "executed_files": [
+        "skills/experiment-queue/scripts/build_manifest.py",
+        "skills/experiment-queue/scripts/queue_manager.py",
+        "tools/experiment_queue/build_manifest.py",
+        "tools/experiment_queue/queue_manager.py"
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "main",
+      "commit": "903787345d6aec134086afa2b97715a78fbde519",
+      "tree_sha": "d7f61d97768bcaa4442e2481da680073da7528bc",
+      "commit_date": "2026-09-23T07:23:56Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.953825+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_main",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [],
+      "optional_related_entrypoints": [],
+      "supporting_files": [
+        "rules/experiment-reproducibility.md"
+      ],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "rules/experiment-reproducibility.md",
+          "bytes": 3210,
+          "git_blob_sha1": "26613dda0da3c66464c87481beb7fd7dc8222523",
+          "sha256": "b15be4237843e6a484153cae8e542639ec0e854f944e13638637c9516164cb3c",
+          "mode": "100644"
+        }
+      ]
+    }
+  ],
+  "example_validation_record": "examples/toy-reproducibility/VALIDATION.md",
+  "runtime_status": "partially-tested",
+  "runtime_validation_in_progress": true,
+  "runtime_validation_record": "runtime-tests/2026-10-22/README.md",
+  "host_workflow_tested": true,
+  "component_runtime_tested": true,
+  "component_validation_record": "runtime-tests/2026-10-22/README.md"
+}

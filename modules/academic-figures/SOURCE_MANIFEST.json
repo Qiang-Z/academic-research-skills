@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "module_id": "academic-figures",
+  "title": "学术绘图与可视化",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/academic-figures/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 1,
+  "number_of_source_snapshots": 1,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 3,
+  "entrypoint_files": 6,
+  "runtime_tested": false,
+  "example_runtime_tested": true,
+  "example_validation_record": "examples/VALIDATION.md",
+  "component_runtime_tested": true,
+  "component_validation_record": "examples/VALIDATION.md",
+  "upstream_code_executed": true,
+  "agent_configuration_changed": false,
+  "scope_note": "Full skill workflows remain untested. Only the preserved single-file FigureSpec renderer validate/render paths were executed on known teaching inputs; no preview conversion or reviewer backend. Original Matplotlib example is tested separately.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/paper-figure/SKILL.md",
+        "skills/skills-codex/paper-figure/SKILL.md",
+        "skills/figure-spec/SKILL.md",
+        "skills/skills-codex/figure-spec/SKILL.md",
+        "skills/mermaid-diagram/SKILL.md",
+        "skills/skills-codex/mermaid-diagram/SKILL.md"
+      ],
+      "optional_related_entrypoints": [
+        "skills/paper-illustration/SKILL.md",
+        "skills/skills-codex/paper-illustration/SKILL.md"
+      ],
+      "supporting_files": [
+        "skills/figure-spec/scripts/figure_renderer.py"
+      ],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": true,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/figure-spec/SKILL.md",
+          "bytes": 10979,
+          "git_blob_sha1": "a2a681b6b5a8c958382237276ae2bb441cb78054",
+          "sha256": "090a28a1b6464d3b88cf32b9bf59f6a1008e7e63d638801070f0b888c3ef9c5b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/figure-spec/scripts/figure_renderer.py",
+          "bytes": 29876,
+          "git_blob_sha1": "11e226560961262587c76d6e1a8ce1d1ac48c754",
+          "sha256": "02b4e01e46b51aeca12722ddd7b21bb7da3c3b175bba5d129c45d671fb07a0bc",
+          "mode": "100755"
+        },
+        {
+          "path": "skills/mermaid-diagram/SKILL.md",
+          "bytes": 16323,
+          "git_blob_sha1": "5b970ad1e4d95b5a2397476500256115a43923d0",
+          "sha256": "8f42b38a1deaa7b98d782136cadbd5142aeb02ed773f08aa8c0df8af0631b5a0",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-figure/SKILL.md",
+          "bytes": 13677,
+          "git_blob_sha1": "99b81c00937997ea9332f556fbce42535a6b2713",
+          "sha256": "1bcc797faf94af2bb06b1627d686c110c04fc358fed97225776a8128eb1c0ac6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-illustration/SKILL.md",
+          "bytes": 33241,
+          "git_blob_sha1": "49df2234b086e0c514ab5309daf19c477b948bbe",
+          "sha256": "af9307d178b8242c9a8d2e94c1264add91d5aa2bbc6444556b51b501c1918e65",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/figure-spec/SKILL.md",
+          "bytes": 10950,
+          "git_blob_sha1": "4506c353d508c05aefbc789264a3618df48bd152",
+          "sha256": "f5a23ca71f1264b05949b036ea0fb61e6f35690850dd86409c28a3ffdbd026ea",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/mermaid-diagram/SKILL.md",
+          "bytes": 12163,
+          "git_blob_sha1": "33521214460ed361181d4443e288df30aa095152",
+          "sha256": "6476810ed42334da342f763651f988450488db5c94de37e2f8ead9c99544b766",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/paper-figure/SKILL.md",
+          "bytes": 13555,
+          "git_blob_sha1": "87471e77330cd61cf66fc40ef8557249968286fc",
+          "sha256": "8f3a60d565d293a831c502726be3722dc10b17a0643a90c9eaee593401fe4719",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/paper-illustration/SKILL.md",
+          "bytes": 30036,
+          "git_blob_sha1": "6dd660ea13d9767b8d8e50a8ab74b9d10812baa6",
+          "sha256": "1c876e39d880781bc5d6f51c616e02f4e5858750867f027968d5b91564179643",
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}

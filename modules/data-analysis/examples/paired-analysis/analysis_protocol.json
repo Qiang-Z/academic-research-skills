@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "analysis_id": "toy-paired-analysis-v1",
+  "analysis_status": "post-hoc teaching; not preregistered or confirmatory",
+  "baseline": "raw_1nn",
+  "comparison": "scaled_1nn",
+  "evaluation_split": "test",
+  "fixed_split_seed": 11,
+  "bootstrap_resamples": 5000,
+  "bootstrap_seed": 20261022,
+  "confidence_level": 0.95,
+  "interval_method": "percentile-linear"
+}

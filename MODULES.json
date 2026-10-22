@@ -2,7 +2,7 @@
   "schema_version": 1,
   "repository": "Qiang-Z/academic-research-skills",
   "title": "学术技能库",
-  "updated_at": "2026-10-11",
+  "updated_at": "2026-10-22",
   "scope": "Modular collection of academic research skills; idea discovery is one module, not the entire repository.",
   "modules": [
     {
@@ -17,38 +17,191 @@
       "source_snapshots": 6,
       "highlighted_skill_entrypoints": 18,
       "runtime_tested": false
-    }
-  ],
-  "planned_modules": [
+    },
     {
       "id": "literature-review",
       "title": "文献检索与综述",
-      "status": "planned",
-      "content_included": false
+      "status": "curated",
+      "path": "modules/literature-review",
+      "readme": "modules/literature-review/README.md",
+      "skill_index": "modules/literature-review/SKILL_INDEX.md",
+      "usage": "modules/literature-review/USAGE.md",
+      "manifest": "modules/literature-review/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery"
+      ],
+      "source_projects": 4,
+      "source_snapshots": 5,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 5,
+      "entrypoint_files": 8,
+      "runtime_tested": false,
+      "runtime_status": "partially-tested",
+      "runtime_validation_record": "modules/literature-review/runtime-tests/2026-10-22/README.md",
+      "component_runtime_tested": true,
+      "component_validation_record": "modules/literature-review/runtime-tests/2026-10-22/README.md",
+      "host_workflow_tested": true,
+      "upstream_code_executed": true
     },
     {
       "id": "experiment-design",
       "title": "实验设计与复现",
-      "status": "planned",
-      "content_included": false
+      "status": "curated",
+      "path": "modules/experiment-design",
+      "readme": "modules/experiment-design/README.md",
+      "skill_index": "modules/experiment-design/SKILL_INDEX.md",
+      "usage": "modules/experiment-design/USAGE.md",
+      "manifest": "modules/experiment-design/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery"
+      ],
+      "source_projects": 2,
+      "source_snapshots": 2,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 6,
+      "entrypoint_files": 12,
+      "runtime_tested": false,
+      "example_runtime_tested": true,
+      "example_validation_record": "modules/experiment-design/examples/toy-reproducibility/VALIDATION.md",
+      "runtime_status": "partially-tested",
+      "runtime_validation_in_progress": true,
+      "runtime_validation_record": "modules/experiment-design/runtime-tests/2026-10-22/README.md",
+      "host_workflow_tested": true,
+      "component_runtime_tested": true,
+      "component_validation_record": "modules/experiment-design/runtime-tests/2026-10-22/README.md",
+      "upstream_code_executed": true
+    },
+    {
+      "id": "data-analysis",
+      "title": "数据分析与统计",
+      "status": "curated",
+      "path": "modules/data-analysis",
+      "readme": "modules/data-analysis/README.md",
+      "skill_index": "modules/data-analysis/SKILL_INDEX.md",
+      "usage": "modules/data-analysis/USAGE.md",
+      "manifest": "modules/data-analysis/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery",
+        "experiment-design"
+      ],
+      "source_projects": 3,
+      "source_snapshots": 4,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 5,
+      "entrypoint_files": 9,
+      "runtime_tested": false,
+      "example_runtime_tested": true,
+      "example_validation_record": "modules/data-analysis/examples/paired-analysis/VALIDATION.md"
     },
     {
       "id": "paper-writing",
       "title": "论文写作与润色",
-      "status": "planned",
-      "content_included": false
+      "status": "curated",
+      "path": "modules/paper-writing",
+      "readme": "modules/paper-writing/README.md",
+      "skill_index": "modules/paper-writing/SKILL_INDEX.md",
+      "usage": "modules/paper-writing/USAGE.md",
+      "manifest": "modules/paper-writing/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery",
+        "experiment-design",
+        "data-analysis"
+      ],
+      "source_projects": 2,
+      "source_snapshots": 3,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 6,
+      "entrypoint_files": 12,
+      "runtime_tested": false,
+      "example_runtime_tested": false,
+      "example_validation_record": "modules/paper-writing/examples/VALIDATION.md"
     },
     {
       "id": "academic-figures",
       "title": "学术绘图与可视化",
-      "status": "planned",
-      "content_included": false
+      "status": "curated",
+      "path": "modules/academic-figures",
+      "readme": "modules/academic-figures/README.md",
+      "skill_index": "modules/academic-figures/SKILL_INDEX.md",
+      "usage": "modules/academic-figures/USAGE.md",
+      "manifest": "modules/academic-figures/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery",
+        "experiment-design",
+        "data-analysis"
+      ],
+      "source_projects": 1,
+      "source_snapshots": 1,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 3,
+      "entrypoint_files": 6,
+      "runtime_tested": false,
+      "example_runtime_tested": true,
+      "example_validation_record": "modules/academic-figures/examples/VALIDATION.md",
+      "component_runtime_tested": true,
+      "component_validation_record": "modules/academic-figures/examples/VALIDATION.md"
     },
     {
       "id": "submission-rebuttal",
       "title": "投稿与审稿回复",
-      "status": "planned",
-      "content_included": false
+      "status": "curated",
+      "path": "modules/submission-rebuttal",
+      "readme": "modules/submission-rebuttal/README.md",
+      "skill_index": "modules/submission-rebuttal/SKILL_INDEX.md",
+      "usage": "modules/submission-rebuttal/USAGE.md",
+      "manifest": "modules/submission-rebuttal/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery",
+        "experiment-design",
+        "data-analysis",
+        "paper-writing"
+      ],
+      "source_projects": 2,
+      "source_snapshots": 3,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 3,
+      "entrypoint_files": 6,
+      "runtime_tested": false,
+      "example_runtime_tested": false,
+      "example_validation_record": "modules/submission-rebuttal/VALIDATION.md"
+    },
+    {
+      "id": "research-knowledge",
+      "title": "科研知识管理",
+      "status": "curated",
+      "path": "modules/research-knowledge",
+      "readme": "modules/research-knowledge/README.md",
+      "skill_index": "modules/research-knowledge/SKILL_INDEX.md",
+      "usage": "modules/research-knowledge/USAGE.md",
+      "manifest": "modules/research-knowledge/SOURCE_MANIFEST.json",
+      "collection_mode": "reference-existing-snapshots",
+      "depends_on_modules": [
+        "idea-discovery",
+        "experiment-design",
+        "data-analysis"
+      ],
+      "source_projects": 2,
+      "source_snapshots": 3,
+      "new_source_snapshots": 0,
+      "highlighted_skill_entrypoints": 4,
+      "entrypoint_files": 8,
+      "runtime_tested": false,
+      "example_runtime_tested": false,
+      "example_validation_record": "modules/research-knowledge/VALIDATION.md"
     }
-  ]
+  ],
+  "planned_modules": [],
+  "guides": {
+    "getting_started": "docs/GETTING_STARTED.md",
+    "workflow": "docs/RESEARCH_WORKFLOW.md",
+    "evidence_checks": "docs/EVIDENCE_CHECKS.md",
+    "runtime_status": "docs/RUNTIME_STATUS.md",
+    "continuous_example": "examples/research-workflow/README.md"
+  }
 }

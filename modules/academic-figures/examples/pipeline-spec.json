@@ -1,0 +1,19 @@
+{
+  "title": "Original synthetic experiment teaching workflow",
+  "canvas": {"width": 1000, "height": 230},
+  "style": {"font_size": 15, "font_family": "Arial, Helvetica, sans-serif"},
+  "nodes": [
+    {"id": "data", "label": "Synthetic data\n240 samples", "x": 130, "y": 110, "width": 180, "height": 70},
+    {"id": "experiment", "label": "3 split seeds\n3 conditions", "x": 375, "y": 110, "width": 180, "height": 70},
+    {"id": "analysis", "label": "Paired analysis\nFixed split 11", "x": 625, "y": 110, "width": 180, "height": 70},
+    {"id": "writing", "label": "Figures + writing\nBounded claims", "x": 870, "y": 110, "width": 180, "height": 70}
+  ],
+  "edges": [
+    {"from": "data", "to": "experiment"},
+    {"from": "experiment", "to": "analysis"},
+    {"from": "analysis", "to": "writing"}
+  ],
+  "labels": [
+    {"text": "Teaching workflow; post-hoc analysis; not a replicated research claim", "x": 500, "y": 200, "font_size": 15}
+  ]
+}

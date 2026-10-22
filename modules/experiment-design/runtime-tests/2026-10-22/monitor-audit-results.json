@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "module": "experiment-design",
+  "validation_date": "2026-10-22",
+  "scope": "Codex Markdown training-check / monitor-experiment bounded local host exercises; experiment-audit dependency and helper inspection only",
+  "upstream_snapshot": {
+    "project": "ARIS",
+    "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8"
+  },
+  "execution_kind": "host_workflow_fixture_exercise",
+  "environment": {
+    "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "executable": "<PYTHON>"
+  },
+  "temporary_directory": "<TEMP>",
+  "generated_at": "2026-10-22T08:10:49.318734+00:00",
+  "dependencies": [
+    {
+      "name": "Codex host with file read/write and reasoning",
+      "required_for": [
+        "training-check",
+        "monitor-experiment",
+        "experiment-audit"
+      ],
+      "status": "available for bounded local exercises"
+    },
+    {
+      "name": "Python standard library",
+      "version": "3.12.10",
+      "required_for": [
+        "fixture generation and extraction"
+      ],
+      "status": "used; this fixture tooling is not an upstream monitor classifier"
+    },
+    {
+      "name": "Bash + POSIX utilities",
+      "required_for": [
+        "save_trace.sh"
+      ],
+      "status": "missing in command lookup; CLI invocation FileNotFoundError WinError 2"
+    },
+    {
+      "name": "python3 executable accessible from Bash",
+      "required_for": [
+        "save_trace.sh"
+      ],
+      "status": "not validated; WindowsApps python3 alias observed, not invoked"
+    },
+    {
+      "name": "fresh reviewer host capability",
+      "required_for": [
+        "experiment-audit"
+      ],
+      "status": "not exercised in this report; fresh review of rerun artifacts is a separate result"
+    },
+    {
+      "name": "W&B SDK/API/auth, SSH/cloud/scheduler",
+      "required_for": [
+        "optional remote/online paths"
+      ],
+      "status": "not configured/contacted/exercised"
+    }
+  ],
+  "fixture_creation_and_probe_command": {
+    "shell": "PowerShell",
+    "working_directory": "repository root",
+    "command": "@'\nimport sys, json, hashlib, tempfile, subprocess, shutil\nfrom pathlib import Path\nfrom datetime import datetime, timezone\nroot = Path.cwd()\nbase = Path(tempfile.mkdtemp(prefix=\"aris-monitor-audit-20261022-\"))\nlogs = {\n\"healthy\": \"run=synthetic-healthy config=toy-v1 dataset=synthetic split=test\\nstep=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4\\nstep=20 train_loss=0.61 eval_accuracy=0.72 lr=0.01 grad_norm=1.1\\nstep=30 train_loss=0.44 eval_accuracy=0.76 lr=0.01 grad_norm=0.9\\n\",\n\"transient_noise\": \"run=synthetic-noisy config=toy-v1 dataset=synthetic split=test\\nstep=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4\\nstep=20 train_loss=0.89 eval_accuracy=0.66 lr=0.01 grad_norm=1.6\\nstep=30 train_loss=0.59 eval_accuracy=0.72 lr=0.01 grad_norm=1.1\\n\",\n\"nan_failure\": \"run=synthetic-nan config=toy-v1 dataset=synthetic split=test\\nstep=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4\\nstep=20 train_loss=nan eval_accuracy=0.50 lr=0.01 grad_norm=nan\\nstep=30 train_loss=nan eval_accuracy=0.50 lr=0.01 grad_norm=nan\\n\",\n\"inf_failure\": \"run=synthetic-inf config=toy-v1 dataset=synthetic split=test\\nstep=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4\\nstep=20 train_loss=inf eval_accuracy=0.50 lr=0.01 grad_norm=inf\\nstep=30 train_loss=inf eval_accuracy=0.50 lr=0.01 grad_norm=inf\\n\"\n}\nobservations = []\nfor name, content in logs.items():\n    path = base / (name + \".log\")\n    path.write_text(content, encoding=\"utf-8\")\n    readback = path.read_text(encoding=\"utf-8\")\n    observations.append({\"case\":name,\"input_path\":str(path),\"sha256\":hashlib.sha256(path.read_bytes()).hexdigest(),\"lines\":readback.splitlines(),\"read_ok\":readback==content})\nmissing_path = base/\"missing.log\"\ntry:\n    missing_path.read_text(encoding=\"utf-8\")\nexcept FileNotFoundError as e:\n    observations.append({\"case\":\"unreachable\",\"input_path\":str(missing_path),\"read_ok\":False,\"error_type\":type(e).__name__,\"wandb_status\":\"not_configured_or_contacted\"})\nresults = {\n \"baseline\":{\"dataset\":\"synthetic\",\"split\":\"test\",\"config\":\"toy-v1\",\"eval_accuracy\":0.70,\"evaluation_type\":\"simulation_only\"},\n \"current\":{\"dataset\":\"synthetic\",\"split\":\"test\",\"config\":\"toy-v1\",\"eval_accuracy\":0.76,\"evaluation_type\":\"simulation_only\"},\n \"pending\":{\"dataset\":\"synthetic\",\"split\":\"test\",\"config\":\"toy-v1\",\"status\":\"running\"}\n}\nresult_path = base/\"monitor_results.json\"\nresult_path.write_text(json.dumps(results,indent=2),encoding=\"utf-8\")\nobserved_results = json.loads(result_path.read_text(encoding=\"utf-8\"))\nscript = root/\"modules/idea-discovery/01_ARIS/upstream/tools/save_trace.sh\"\ntrace_attempt_command = [\"bash\",str(script),\"--skill\",\"experiment-audit\",\"--purpose\",\"synthetic-local-smoke\",\"--model\",\"gpt-6-astra\",\"--executor\",\"codex\",\"--executor-model\",\"codex-gpt-6-astra\",\"--thread-id\",\"synthetic-no-reviewer-called\",\"--prompt\",\"SYNTHETIC fixture; no reviewer called\",\"--response\",\"SYNTHETIC fixture; no scientific audit performed\"]\ntry:\n    cp = subprocess.run(trace_attempt_command,cwd=base,text=True,capture_output=True,timeout=20,check=False)\n    trace = {\"status\":\"executed\",\"returncode\":cp.returncode,\"stdout\":cp.stdout,\"stderr\":cp.stderr}\nexcept FileNotFoundError as e:\n    trace = {\"status\":\"blocked_missing_dependency\",\"error_type\":type(e).__name__,\"winerror\":e.winerror,\"message\":str(e)}\ntrace[\"command\"] = trace_attempt_command\ntrace[\"working_directory\"] = str(base)\npaths = [\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/training-check/SKILL.md\",\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/monitor-experiment/SKILL.md\",\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/experiment-audit/SKILL.md\",\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/review-tracing.md\",\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/reviewer-independence.md\",\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/experiment-integrity.md\",\n\"modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/integration-contract.md\",\n\"modules/idea-discovery/01_ARIS/upstream/tools/save_trace.sh\",\n\"modules/idea-discovery/01_ARIS/upstream/tools/verify_paper_audits.sh\"]\npayload = {\n\"generated_at\":datetime.now(timezone.utc).isoformat(),\n\"python\":{\"version\":sys.version,\"executable\":sys.executable},\n\"temporary_directory\":str(base),\n\"observations\":observations,\n\"monitor_results\":{\"input_path\":str(result_path),\"sha256\":hashlib.sha256(result_path.read_bytes()).hexdigest(),\"content\":observed_results,\"computed_accuracy_delta\":observed_results[\"current\"][\"eval_accuracy\"]-observed_results[\"baseline\"][\"eval_accuracy\"]},\n\"trace_helper_attempt\":trace,\n\"bash_path\":shutil.which(\"bash\"),\n\"source_hashes\":{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths},\n\"upstream_hashes_after\":{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths}\n}\n(base/\"probe-results.json\").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding=\"utf-8\")\nprint(json.dumps(payload,ensure_ascii=False,indent=2))\n'@ | py -3.12 -B -X utf8 -",
+    "exit_code": 0,
+    "meaning": "Fixture writer completed and caught expected missing-file/missing-Bash errors; not evidence that save_trace.sh or a full workflow succeeded."
+  },
+  "fixtures": [
+    {
+      "case": "healthy",
+      "input_path": "<TEMP>\\healthy.log",
+      "sha256": "30d02103798e2de11007400d9ccda03a6d20d56a66b5b7f56e21d12626f92815",
+      "lines": [
+        "run=synthetic-healthy config=toy-v1 dataset=synthetic split=test",
+        "step=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4",
+        "step=20 train_loss=0.61 eval_accuracy=0.72 lr=0.01 grad_norm=1.1",
+        "step=30 train_loss=0.44 eval_accuracy=0.76 lr=0.01 grad_norm=0.9"
+      ],
+      "read_ok": true
+    },
+    {
+      "case": "transient_noise",
+      "input_path": "<TEMP>\\transient_noise.log",
+      "sha256": "a8507e7ce995715c93c0b9a006e8b33b99dd9a667515d453a2ffe699f76f23d2",
+      "lines": [
+        "run=synthetic-noisy config=toy-v1 dataset=synthetic split=test",
+        "step=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4",
+        "step=20 train_loss=0.89 eval_accuracy=0.66 lr=0.01 grad_norm=1.6",
+        "step=30 train_loss=0.59 eval_accuracy=0.72 lr=0.01 grad_norm=1.1"
+      ],
+      "read_ok": true
+    },
+    {
+      "case": "nan_failure",
+      "input_path": "<TEMP>\\nan_failure.log",
+      "sha256": "6f597115d1a5383faed5fa267c11b758df6950b63022034d5ac430e2bd3856f8",
+      "lines": [
+        "run=synthetic-nan config=toy-v1 dataset=synthetic split=test",
+        "step=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4",
+        "step=20 train_loss=nan eval_accuracy=0.50 lr=0.01 grad_norm=nan",
+        "step=30 train_loss=nan eval_accuracy=0.50 lr=0.01 grad_norm=nan"
+      ],
+      "read_ok": true
+    },
+    {
+      "case": "inf_failure",
+      "input_path": "<TEMP>\\inf_failure.log",
+      "sha256": "f0bb5e5d4afb4f05fb2db013f074162cbfd74efd7fd5df344cc9a03776ee6bce",
+      "lines": [
+        "run=synthetic-inf config=toy-v1 dataset=synthetic split=test",
+        "step=10 train_loss=0.82 eval_accuracy=0.68 lr=0.01 grad_norm=1.4",
+        "step=20 train_loss=inf eval_accuracy=0.50 lr=0.01 grad_norm=inf",
+        "step=30 train_loss=inf eval_accuracy=0.50 lr=0.01 grad_norm=inf"
+      ],
+      "read_ok": true
+    },
+    {
+      "case": "unreachable",
+      "input_path": "<TEMP>\\missing.log",
+      "read_ok": false,
+      "error_type": "FileNotFoundError",
+      "wandb_status": "not_configured_or_contacted"
+    }
+  ],
+  "single_round_decisions": [
+    {
+      "case": "healthy",
+      "decision": "CONTINUE",
+      "data_source": "log_fallback",
+      "evidence": [
+        "healthy.log:2-4: loss 0.82 → 0.61 → 0.44",
+        "healthy.log:2-4: eval_accuracy 0.68 → 0.72 → 0.76, grad_norm 1.4 → 1.1 → 0.9"
+      ],
+      "reason": "三次记录中损失下降、准确率上升，未见非有限值或持续恶化。",
+      "assessment_status": "host_single_round_completed",
+      "assessor": "current Codex host agent; judgment after reading actual fixture file output",
+      "timestamp": "2026-10-22T08:10:49.318734+00:00",
+      "action_taken": "recommendation_only; no training process exists or was stopped",
+      "next_check": null,
+      "next_check_reason": "bounded one-round validation; no recurring poll or scheduler"
+    },
+    {
+      "case": "transient_noise",
+      "decision": "CONTINUE",
+      "data_source": "log_fallback",
+      "evidence": [
+        "transient_noise.log:3: loss 0.89 / eval_accuracy 0.66",
+        "transient_noise.log:4: loss 0.59 / eval_accuracy 0.72"
+      ],
+      "reason": "中途短暂变差，最后恢复；单次普通波动不足以判定训练失败。",
+      "assessment_status": "host_single_round_completed",
+      "assessor": "current Codex host agent; judgment after reading actual fixture file output",
+      "timestamp": "2026-10-22T08:10:49.318734+00:00",
+      "action_taken": "recommendation_only; no training process exists or was stopped",
+      "next_check": null,
+      "next_check_reason": "bounded one-round validation; no recurring poll or scheduler"
+    },
+    {
+      "case": "nan_failure",
+      "decision": "STOP",
+      "data_source": "log_fallback",
+      "evidence": [
+        "nan_failure.log:3-4: train_loss=nan, grad_norm=nan"
+      ],
+      "reason": "连续两次损失及梯度范数为 NaN，属于明确数值失败；STOP 仅建议。",
+      "assessment_status": "host_single_round_completed",
+      "assessor": "current Codex host agent; judgment after reading actual fixture file output",
+      "timestamp": "2026-10-22T08:10:49.318734+00:00",
+      "action_taken": "recommendation_only; no training process exists or was stopped",
+      "next_check": null,
+      "next_check_reason": "bounded one-round validation; no recurring poll or scheduler"
+    },
+    {
+      "case": "inf_failure",
+      "decision": "STOP",
+      "data_source": "log_fallback",
+      "evidence": [
+        "inf_failure.log:3-4: train_loss=inf, grad_norm=inf"
+      ],
+      "reason": "连续两次损失及梯度范数为 Inf，属于明确数值失败；STOP 仅建议。",
+      "assessment_status": "host_single_round_completed",
+      "assessor": "current Codex host agent; judgment after reading actual fixture file output",
+      "timestamp": "2026-10-22T08:10:49.318734+00:00",
+      "action_taken": "recommendation_only; no training process exists or was stopped",
+      "next_check": null,
+      "next_check_reason": "bounded one-round validation; no recurring poll or scheduler"
+    },
+    {
+      "case": "unreachable",
+      "decision": "WAIT",
+      "data_source": "unreachable",
+      "evidence": [
+        "missing.log: FileNotFoundError",
+        "W&B: not configured or contacted"
+      ],
+      "reason": "没有可用日志或 W&B 证据，不能把不可达推断为训练失败。",
+      "assessment_status": "host_single_round_completed",
+      "assessor": "current Codex host agent; judgment after reading actual fixture file output",
+      "timestamp": "2026-10-22T08:10:49.318734+00:00",
+      "action_taken": "recommendation_only; no training process exists or was stopped",
+      "next_check": null,
+      "next_check_reason": "bounded one-round validation; no recurring poll or scheduler"
+    }
+  ],
+  "monitor_comparison": {
+    "input_path": "<TEMP>\\monitor_results.json",
+    "sha256": "44d91fc482f127661698a0b58c49cddf539f16cd04d1df4202d2a8f320a6286e",
+    "content": {
+      "baseline": {
+        "dataset": "synthetic",
+        "split": "test",
+        "config": "toy-v1",
+        "eval_accuracy": 0.7,
+        "evaluation_type": "simulation_only"
+      },
+      "current": {
+        "dataset": "synthetic",
+        "split": "test",
+        "config": "toy-v1",
+        "eval_accuracy": 0.76,
+        "evaluation_type": "simulation_only"
+      },
+      "pending": {
+        "dataset": "synthetic",
+        "split": "test",
+        "config": "toy-v1",
+        "status": "running"
+      }
+    },
+    "computed_accuracy_delta": 0.06000000000000005,
+    "assessment": "completed local result extraction",
+    "table": [
+      {
+        "run": "baseline",
+        "status": "available",
+        "eval_accuracy": 0.7,
+        "delta_from_baseline": 0
+      },
+      {
+        "run": "current",
+        "status": "available",
+        "eval_accuracy": 0.76,
+        "delta_from_baseline": 0.06
+      },
+      {
+        "run": "pending",
+        "status": "running; no accuracy field",
+        "eval_accuracy": null,
+        "delta_from_baseline": null
+      }
+    ],
+    "interpretation": "Only a synthetic snapshot comparison. Current minus baseline is +0.06 accuracy (6 percentage points); no significance, generalization or real model-performance conclusion.",
+    "identity_check": "Both compared rows declare dataset=synthetic, split=test, config=toy-v1; metadata checked only, no real experiment provenance proven."
+  },
+  "trace_helper_attempt": {
+    "status": "blocked_missing_dependency",
+    "error_type": "FileNotFoundError",
+    "winerror": 2,
+    "message": "[WinError 2] 系统找不到指定的文件。",
+    "command": [
+      "bash",
+      "<REPO>\\modules\\idea-discovery\\01_ARIS\\upstream\\tools\\save_trace.sh",
+      "--skill",
+      "experiment-audit",
+      "--purpose",
+      "synthetic-local-smoke",
+      "--model",
+      "gpt-6-astra",
+      "--executor",
+      "codex",
+      "--executor-model",
+      "codex-gpt-6-astra",
+      "--thread-id",
+      "synthetic-no-reviewer-called",
+      "--prompt",
+      "SYNTHETIC fixture; no reviewer called",
+      "--response",
+      "SYNTHETIC fixture; no scientific audit performed"
+    ],
+    "working_directory": "<TEMP>"
+  },
+  "experiment_audit": {
+    "status": "not_executed_in_this_report",
+    "reason": "No actual experiment-result audit was performed here. Fresh review of separately generated CPU rerun artifacts is managed separately.",
+    "independence": "not_applicable_no_semantic_review",
+    "verdict": null
+  },
+  "excluded_components": [
+    {
+      "path": "modules/idea-discovery/01_ARIS/upstream/tools/verify_paper_audits.sh",
+      "reason": "Checks PROOF_AUDIT, PAPER_CLAIM_AUDIT, CITATION_AUDIT, KILL_ARGUMENT only; does not validate EXPERIMENT_AUDIT.json. Read-only inspection, not run."
+    },
+    {
+      "path": "modules/idea-discovery/01_ARIS/upstream/tools/review_gate.py",
+      "reason": "auto-review-loop transition helper, not experiment-audit integrity checker; not executed."
+    }
+  ],
+  "issues": [
+    {
+      "id": "MA-01",
+      "kind": "missing_dependency",
+      "severity": "blocked_component",
+      "summary": "save_trace.sh cannot start because Bash is not available."
+    },
+    {
+      "id": "MA-02",
+      "kind": "validation_limit",
+      "summary": "training-check / monitor-experiment are host workflows, not standalone executable classifiers. These scenarios show one host following the instructions; no full process-control or periodic monitoring validation."
+    },
+    {
+      "id": "MA-03",
+      "kind": "static_contract_difference",
+      "summary": "review-tracing.md describes review_independence and acceptance_status fields; inspected save_trace.sh emits family_relation and independence_verified instead. CLI not run; compatibility requires explicit handling in artifact/trace adapter, not assumed."
+    },
+    {
+      "id": "MA-04",
+      "kind": "scope_limit",
+      "summary": "No experiment-audit deterministic verifier discovered in referenced path; paper-audit verifier does not cover experiment-audit."
+    },
+    {
+      "id": "MA-05",
+      "kind": "upstream_wording_difference",
+      "summary": "experiment-integrity.md says reviewer from a different family; Codex experiment-audit explicitly allows same-family/provisional base route. Follow variant-specific provisional limitation and do not claim cross-family acceptance."
+    }
+  ],
+  "source_hashes": {
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/training-check/SKILL.md": "c48dc4b1e5bcfcb025d48c90a03de7caa6cd02908b6c2c5d0148c6ec394b391e",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/monitor-experiment/SKILL.md": "66a42b21a7ec5a9c4ee2d4da6babfd533764d6c4188dcc178d5bcbd1d8a31072",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/experiment-audit/SKILL.md": "cc660aaf2bb9d28e07270af8cf30ce96a6bbd1490cbe0d6e4ef97442e2be19ad",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/review-tracing.md": "d8c202147c1876a5fd014fcd9e5c73bfd398863a05ae45633e0159fa16bbc71d",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/reviewer-independence.md": "326a2ed68aa25dd5ff7fbb74b34fcce7a595eb27cd0daf565890c208076206db",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/experiment-integrity.md": "22150fbdc5867e7790c88f968bccb367079c2db4c190ddce980709aea7e76f60",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/shared-references/integration-contract.md": "5d393c31b36e98ae99c17ab9cf5879853c0cb595bbd9f4973ffe7bcd6549f4e7",
+    "modules/idea-discovery/01_ARIS/upstream/tools/save_trace.sh": "052896125aa6f655ff1b6c5f8262766fa6f3c3f758cb5b0ec142f46ee38a9de0",
+    "modules/idea-discovery/01_ARIS/upstream/tools/verify_paper_audits.sh": "7dd8c07a6e9458077a202c3075c4207985b2bba7a196b10687d286b9c9dd455d"
+  },
+  "hash_capture_note": "Source hashes captured after the bounded probe for identification. Repository-wide before/after upstream preservation check belongs to parent validation; this report does not infer that from duplicate post-run hashes.",
+  "limitations": [
+    "No upstream skill installation.",
+    "No actual training loop, GPU, remote backend, private data, W&B API, notifications or scheduled monitoring exercised.",
+    "No actual STOP action; STOP entries are recommendations only.",
+    "Synthetic input logs/metrics are authored fixtures, not run_demo.py logs or empirical training observations.",
+    "No external reviewer API or semantic audit PASS in this report.",
+    "No upstream snapshot file edited."
+  ],
+  "path_redaction_note": "Machine-specific paths normalized: <REPO> is this repository root; <TEMP> is the newly created isolated fixture directory; <PYTHON> is the actual CPython 3.12.10 executable. trace_helper_attempt.command preserves argv structure with these substitutions. fixture_creation_and_probe_command is independently runnable from the repository root."
+}

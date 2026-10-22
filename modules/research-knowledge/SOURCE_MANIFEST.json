@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "module_id": "research-knowledge",
+  "title": "科研知识管理",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/research-knowledge/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 2,
+  "number_of_source_snapshots": 3,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 4,
+  "entrypoint_files": 8,
+  "runtime_tested": false,
+  "example_runtime_tested": false,
+  "example_type": "manual-markdown-walkthrough",
+  "example_validation_record": "VALIDATION.md",
+  "upstream_code_executed": false,
+  "agent_configuration_changed": false,
+  "scope_note": "Four core skill names, eight main/Codex entry files and three root licenses form eleven pinned references. Reuses original snapshots without installing or executing their code. Ordinary-file templates and the hand-curated teaching notebook are not ARIS/Scholar import schemas. The example cites existing experiment and analysis validation documents and does not claim a new execution or live Obsidian/Zotero integration.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/research-wiki/SKILL.md",
+        "skills/skills-codex/research-wiki/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/research-wiki/SKILL.md",
+          "bytes": 20511,
+          "git_blob_sha1": "46279548983860725a49557af8e4c84b7182cefe",
+          "sha256": "3bd314f83f2db97fcfafb74495f1ca23bebad37a69d355bc61aaea8cbb519552",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/research-wiki/SKILL.md",
+          "bytes": 17970,
+          "git_blob_sha1": "7d2ed21645052a2dcb9c505e4efc80db4d0f3154",
+          "sha256": "c3e9acaf94402cb7648763772ee6c2d41a4f76328595354fb658647d4b2f7ca9",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "main",
+      "commit": "903787345d6aec134086afa2b97715a78fbde519",
+      "tree_sha": "d7f61d97768bcaa4442e2481da680073da7528bc",
+      "commit_date": "2026-09-23T07:23:56Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.953825+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_main",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/obsidian-project-kb-core/SKILL.md",
+        "skills/obsidian-source-ingestion/SKILL.md",
+        "skills/zotero-obsidian-bridge/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-project-kb-core/SKILL.md",
+          "bytes": 2204,
+          "git_blob_sha1": "0e5fb224e208f0e89f4a187c6c0a18c39be59cd4",
+          "sha256": "236346e0126dace9845e36a07273284da3948ade4f83835ceeb3f1783075bb2f",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-source-ingestion/SKILL.md",
+          "bytes": 1017,
+          "git_blob_sha1": "0ef429d7638995cbcaac83b28f480e4c301c2b5f",
+          "sha256": "c55bedd1b18ec410b6499d3776df5074a5a12a04f8829292e5174fd13aa86a2b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/zotero-obsidian-bridge/SKILL.md",
+          "bytes": 2056,
+          "git_blob_sha1": "85cd04fcce4c8e916f3b22d0efc08ca4e8979213",
+          "sha256": "7d89742d4db187eb8ef93032a9b39470c41fb560ce4ff661b69ea946176b477a",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar_Codex",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "codex",
+      "commit": "b672e80951a2348dd6136316d096603bf2dc5b83",
+      "tree_sha": "09aed09c52f6498c11a4ec8fa711f4e913973e48",
+      "commit_date": "2026-09-23T07:02:54Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.860336+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_codex",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar_Codex",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/obsidian-project-kb-core/SKILL.md",
+        "skills/obsidian-source-ingestion/SKILL.md",
+        "skills/zotero-obsidian-bridge/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-project-kb-core/SKILL.md",
+          "bytes": 2202,
+          "git_blob_sha1": "2724b051d6436bfa8bf4fb0d1326c7fa87e5c3c8",
+          "sha256": "ca7d8571259c7c395a94e20e28b3a029f7c246b333a324f2dc54636ec7fc6093",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/obsidian-source-ingestion/SKILL.md",
+          "bytes": 1017,
+          "git_blob_sha1": "0ef429d7638995cbcaac83b28f480e4c301c2b5f",
+          "sha256": "c55bedd1b18ec410b6499d3776df5074a5a12a04f8829292e5174fd13aa86a2b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/zotero-obsidian-bridge/SKILL.md",
+          "bytes": 2056,
+          "git_blob_sha1": "85cd04fcce4c8e916f3b22d0efc08ca4e8979213",
+          "sha256": "7d89742d4db187eb8ef93032a9b39470c41fb560ce4ff661b69ea946176b477a",
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "schema_version": 1,
+  "test_date": "2026-10-22",
+  "module": "literature-review",
+  "source": "04_KDense",
+  "source_commit": "92ace75ac21efe19a620434e0ca4e356081fe807",
+  "full_workflow_tested": false,
+  "upstream_modified": false,
+  "environment": {
+    "platform": "Windows",
+    "python": "3.12.10",
+    "initial_requests_available": false,
+    "isolated_dependency_versions": {
+      "certifi": "2026.10.19",
+      "charset-normalizer": "3.5.2",
+      "idna": "3.20",
+      "requests": "2.34.2",
+      "urllib3": "2.8.0"
+    },
+    "initial_commands_available": {
+      "pandoc": false,
+      "xelatex": false,
+      "parallel-cli": false,
+      "uv": true
+    },
+    "installation_command": "py -3.12 -m pip install --disable-pip-version-check --no-input --only-binary=:all: --target <TEMP>/deps requests==2.34.2",
+    "installation_observation": "Initial SSL EOF retries; cached/downloaded wheels then installed successfully using current pip configuration. No global package or host setting changed."
+  },
+  "executed_source_sha256": {
+    "modules/idea-discovery/04_KDense/upstream/skills/literature-review/scripts/verify_citations.py": "4c8e8377718ddd47e9cd7cef706935b04910af5d13bfd920970dcf41d4ef3706",
+    "modules/idea-discovery/04_KDense/upstream/skills/literature-review/scripts/search_databases.py": "76f47fd18ca28df4985ffc6d30d5ad659e67c8058bb3de8f385c2443752f4eaf",
+    "modules/idea-discovery/04_KDense/upstream/skills/literature-review/scripts/generate_pdf.py": "0ba1b16b196b64d4966e5f055a289f0c17e3579a84254abe47ff63be95b4f136"
+  },
+  "fixtures": {
+    "note": "Normalized records are synthetic test fixtures, not search results or real studies. Two DOI Markdown inputs are public bibliographic records and test DOI registration only.",
+    "normalized_records": [
+      {
+        "id": "doi-first",
+        "title": "Synthetic Alpha",
+        "doi": "10.1000/abc",
+        "first_author": "Doe",
+        "authors": "Doe, A.",
+        "year": 2020,
+        "citations": 10,
+        "source": "fixture-a"
+      },
+      {
+        "id": "doi-duplicate",
+        "title": "Same DOI alternate metadata",
+        "doi": "HTTPS://DOI.ORG/10.1000%2FABC",
+        "year": 2020,
+        "citations": 99,
+        "source": "fixture-b"
+      },
+      {
+        "id": "different-doi-same-title",
+        "title": "Synthetic Alpha",
+        "doi": "10.1000/def",
+        "first_author": "Doe",
+        "authors": "Doe, B.",
+        "year": "2020",
+        "citations": "20",
+        "source": "fixture-a"
+      },
+      {
+        "id": "title-first",
+        "title": "Synthetic Alpha",
+        "first_author": "Doe",
+        "authors": "Doe, C.",
+        "year": 2021,
+        "citations": 5,
+        "source": "fixture-b"
+      },
+      {
+        "id": "title-duplicate",
+        "title": " synthetic alpha ",
+        "year": 2021,
+        "source": "fixture-c"
+      },
+      {
+        "id": "unknown-year",
+        "title": "Synthetic Beta",
+        "first_author": "Roe",
+        "authors": "Roe, A.",
+        "year": "unknown",
+        "citations": null,
+        "source": "fixture-c"
+      },
+      {
+        "id": "too-old",
+        "title": "Older synthetic record",
+        "year": 2018,
+        "source": "fixture-a"
+      },
+      {
+        "id": "too-new",
+        "title": "Newer synthetic record",
+        "year": 2025,
+        "source": "fixture-a"
+      }
+    ],
+    "raw_provider_envelope": {
+      "results": []
+    },
+    "malformed_json": "[",
+    "public_acl_markdown": "# Public DOI check\n\nDense Passage Retrieval for Open-Domain Question Answering.\nhttps://doi.org/10.18653/v1/2020.emnlp-main.550\n",
+    "public_arxiv_markdown": "# Public arXiv DOI check\nRetrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.\nhttps://doi.org/10.48550/arXiv.2005.11401\n",
+    "no_doi_markdown": "# No DOI fixture\nNo references supplied.\n",
+    "records_file_sha256": "56834391faa86838cf221e87d7a65646e304a11869f0a4da94064471a98f919a"
+  },
+  "expected_offline_result_ids": [
+    "different-doi-same-title",
+    "doi-first",
+    "title-first",
+    "unknown-year"
+  ],
+  "checks": [
+    {
+      "id": "baseline-citation-dependency",
+      "script": "verify_citations.py",
+      "args": [
+        "--help"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<UPSTREAM_SCRIPTS>\\verify_citations.py\", line 16, in <module>\n    import requests\nModuleNotFoundError: No module named 'requests'\n",
+      "number": 1,
+      "assertion_passed": true
+    },
+    {
+      "id": "pdf-dependency-check",
+      "script": "generate_pdf.py",
+      "args": [
+        "--check-deps"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "[FAIL] pandoc is NOT installed\n[FAIL] xelatex is NOT installed\n",
+      "stderr": "",
+      "number": 2,
+      "assertion_passed": true
+    },
+    {
+      "id": "pdf-real-attempt",
+      "script": "generate_pdf.py",
+      "args": [
+        "review.md",
+        "--output",
+        "review.pdf"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "[FAIL] pandoc is NOT installed\n[FAIL] xelatex is NOT installed\n",
+      "stderr": "",
+      "number": 3,
+      "assertion_passed": true
+    },
+    {
+      "id": "records-deduplicate-filter-rank",
+      "script": "search_databases.py",
+      "args": [
+        "records.json",
+        "--deduplicate",
+        "--year-start",
+        "2019",
+        "--year-end",
+        "2024",
+        "--rank",
+        "citations",
+        "--format",
+        "json",
+        "--summary",
+        "--output",
+        "normalized.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "{\n  \"total_results\": 4,\n  \"sources\": {\n    \"fixture-a\": 2,\n    \"fixture-b\": 1,\n    \"fixture-c\": 1\n  },\n  \"year_distribution\": {\n    \"2020\": 1,\n    \"2020\": 1,\n    \"2021\": 1,\n    \"unknown\": 1\n  },\n  \"avg_citations\": 11.666666666666666,\n  \"total_citations\": 35\n}\n[OK] Results saved to: normalized.json\n",
+      "number": 4,
+      "assertion_passed": true
+    },
+    {
+      "id": "markdown-export",
+      "script": "search_databases.py",
+      "args": [
+        "normalized.json",
+        "--format",
+        "markdown",
+        "--output",
+        "records.md"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "[OK] Results saved to: records.md\n",
+      "number": 5,
+      "assertion_passed": true
+    },
+    {
+      "id": "bibtex-export",
+      "script": "search_databases.py",
+      "args": [
+        "normalized.json",
+        "--format",
+        "bibtex",
+        "--output",
+        "records.bib"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "[OK] Results saved to: records.bib\n",
+      "number": 6,
+      "assertion_passed": true
+    },
+    {
+      "id": "reject-raw-envelope",
+      "script": "search_databases.py",
+      "args": [
+        "envelope.json"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "[FAIL] input must be a normalized JSON array of record objects, not a provider response\n",
+      "number": 7,
+      "assertion_passed": true
+    },
+    {
+      "id": "reject-inverted-year-range",
+      "script": "search_databases.py",
+      "args": [
+        "records.json",
+        "--year-start",
+        "2024",
+        "--year-end",
+        "2019"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: search_databases.py [-h] [--format {json,markdown,bibtex}]\n                           [--output OUTPUT]\n                           [--rank {citations,year,relevance}]\n                           [--year-start YEAR_START] [--year-end YEAR_END]\n                           [--deduplicate] [--summary]\n                           results_file\nsearch_databases.py: error: --year-start must not exceed --year-end\n",
+      "number": 8,
+      "assertion_passed": true
+    },
+    {
+      "id": "reject-unknown-option",
+      "script": "search_databases.py",
+      "args": [
+        "records.json",
+        "--search",
+        "RAG"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: search_databases.py [-h] [--format {json,markdown,bibtex}]\n                           [--output OUTPUT]\n                           [--rank {citations,year,relevance}]\n                           [--year-start YEAR_START] [--year-end YEAR_END]\n                           [--deduplicate] [--summary]\n                           results_file\nsearch_databases.py: error: unrecognized arguments: --search RAG\n",
+      "number": 9,
+      "assertion_passed": true
+    },
+    {
+      "id": "reject-malformed-json",
+      "script": "search_databases.py",
+      "args": [
+        "malformed.json"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "stdout": "",
+      "stderr": "[FAIL] Expecting value: line 1 column 2 (char 1)\n",
+      "number": 10,
+      "assertion_passed": true
+    },
+    {
+      "id": "citation-help-after-isolated-dependency",
+      "script": "verify_citations.py",
+      "args": [
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: verify_citations.py [-h] [--email EMAIL] [-o OUTPUT] markdown_file\n\nCheck DOI registration and retrieve Crossref metadata for manual citation\nreview. Registration does not establish that a citation supports a claim.\nCrossref does not cover all DOI registration agencies; unavailable metadata\nneeds manual review.\n\npositional arguments:\n  markdown_file\n\noptions:\n  -h, --help            show this help message and exit\n  --email EMAIL         Your contact email for the Crossref polite pool\n  -o OUTPUT, --output OUTPUT\n                        JSON report path\n",
+      "stderr": "",
+      "expected_exit_code": 0,
+      "number": 11,
+      "assertion_passed": true
+    },
+    {
+      "id": "citation-empty-input",
+      "script": "verify_citations.py",
+      "args": [
+        "doi-none.md",
+        "-o",
+        "doi-none-report.json"
+      ],
+      "exit_code": 0,
+      "stdout": "Registered: 0; unresolved: 0; metadata unavailable: 0\n[OK] Report: doi-none-report.json\n[WARN] No DOIs found; review references manually.\n",
+      "stderr": "",
+      "expected_exit_code": 0,
+      "number": 12,
+      "assertion_passed": true
+    },
+    {
+      "id": "citation-reject-input-overwrite",
+      "script": "verify_citations.py",
+      "args": [
+        "doi-none.md",
+        "-o",
+        "doi-none.md"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: verify_citations.py [-h] [--email EMAIL] [-o OUTPUT] markdown_file\nverify_citations.py: error: report path must differ from the input file\n",
+      "expected_exit_code": 2,
+      "number": 13,
+      "assertion_passed": true
+    },
+    {
+      "id": "citation-live-acl-doi",
+      "script": "verify_citations.py",
+      "args": [
+        "review.md",
+        "-o",
+        "dpr-report.json"
+      ],
+      "exit_code": 0,
+      "stdout": "Checking DOI: 10.18653/v1/2020.emnlp-main.550\nRegistered: 1; unresolved: 0; metadata unavailable: 1\n[OK] Report: dpr-report.json\n",
+      "stderr": "",
+      "report": {
+        "total_dois": 1,
+        "verified": [
+          "10.18653/v1/2020.emnlp-main.550"
+        ],
+        "failed": [],
+        "metadata_unavailable": [
+          "10.18653/v1/2020.emnlp-main.550"
+        ],
+        "errors": {},
+        "missing": [],
+        "inconclusive": [],
+        "verification_scope": "DOI registration and Crossref metadata, not claim support or retraction screening",
+        "metadata": {
+          "10.18653/v1/2020.emnlp-main.550": {
+            "doi": "10.18653/v1/2020.emnlp-main.550",
+            "status": "registered",
+            "metadata_status": "unavailable",
+            "error": "('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+          }
+        }
+      },
+      "number": 14
+    },
+    {
+      "id": "citation-live-arxiv-doi",
+      "script": "verify_citations.py",
+      "args": [
+        "rag-doi.md",
+        "-o",
+        "rag-report.json"
+      ],
+      "exit_code": 1,
+      "stdout": "Checking DOI: 10.48550/arxiv.2005.11401\nRegistered: 0; unresolved: 1; metadata unavailable: 0\n[OK] Report: rag-report.json\n",
+      "stderr": "",
+      "report": {
+        "total_dois": 1,
+        "verified": [],
+        "failed": [
+          "10.48550/arxiv.2005.11401"
+        ],
+        "metadata_unavailable": [],
+        "errors": {
+          "10.48550/arxiv.2005.11401": {
+            "doi": "10.48550/arxiv.2005.11401",
+            "status": "inconclusive",
+            "error": "('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))"
+          }
+        },
+        "missing": [],
+        "inconclusive": [
+          "10.48550/arxiv.2005.11401"
+        ],
+        "verification_scope": "DOI registration and Crossref metadata, not claim support or retraction screening",
+        "metadata": {}
+      },
+      "number": 15
+    },
+    {
+      "id": "doi-extraction-dedup-punctuation",
+      "result": [
+        "10.18653/v1/2020.emnlp-main.550",
+        "10.1000/test(foo)"
+      ],
+      "number": 16,
+      "assertion_passed": true
+    },
+    {
+      "id": "invalid-doi-syntax-offline",
+      "result": {
+        "doi": "not-a-doi",
+        "status": "invalid_syntax"
+      },
+      "number": 17,
+      "assertion_passed": true
+    },
+    {
+      "id": "citation-live-acl-doi-retry",
+      "script": "verify_citations.py",
+      "args": [
+        "review.md",
+        "-o",
+        "dpr-retry-report.json"
+      ],
+      "exit_code": 0,
+      "stdout": "Checking DOI: 10.18653/v1/2020.emnlp-main.550\nRegistered: 1; unresolved: 0; metadata unavailable: 0\n[OK] Report: dpr-retry-report.json\n",
+      "stderr": "",
+      "report": {
+        "total_dois": 1,
+        "verified": [
+          "10.18653/v1/2020.emnlp-main.550"
+        ],
+        "failed": [],
+        "metadata_unavailable": [],
+        "errors": {},
+        "missing": [],
+        "inconclusive": [],
+        "verification_scope": "DOI registration and Crossref metadata, not claim support or retraction screening",
+        "metadata": {
+          "10.18653/v1/2020.emnlp-main.550": {
+            "doi": "10.18653/v1/2020.emnlp-main.550",
+            "status": "registered",
+            "metadata_status": "retrieved",
+            "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+            "authors": "Karpukhin, Vladimir; Oguz, Barlas; Min, Sewon; Lewis, Patrick; Wu, Ledell; Edunov, Sergey; Chen, Danqi; Yih, Wen-tau",
+            "year": "2020",
+            "journal": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+          }
+        }
+      },
+      "number": 18
+    },
+    {
+      "id": "citation-live-arxiv-doi-retry",
+      "script": "verify_citations.py",
+      "args": [
+        "rag-doi.md",
+        "-o",
+        "rag-retry-report.json"
+      ],
+      "exit_code": 0,
+      "stdout": "Checking DOI: 10.48550/arxiv.2005.11401\nRegistered: 1; unresolved: 0; metadata unavailable: 1\n[OK] Report: rag-retry-report.json\n",
+      "stderr": "",
+      "report": {
+        "total_dois": 1,
+        "verified": [
+          "10.48550/arxiv.2005.11401"
+        ],
+        "failed": [],
+        "metadata_unavailable": [
+          "10.48550/arxiv.2005.11401"
+        ],
+        "errors": {},
+        "missing": [],
+        "inconclusive": [],
+        "verification_scope": "DOI registration and Crossref metadata, not claim support or retraction screening",
+        "metadata": {
+          "10.48550/arxiv.2005.11401": {
+            "doi": "10.48550/arxiv.2005.11401",
+            "status": "registered",
+            "metadata_status": "unavailable",
+            "crossref_http_status": 404
+          }
+        }
+      },
+      "number": 19
+    }
+  ],
+  "summary": {
+    "record_processing": "tested-successfully-on-synthetic-fixtures",
+    "doi_registration": "both public DOI registration checks succeeded on bounded retry",
+    "crossref_metadata": "ACL metadata retrieved on retry; arXiv DOI returned 404",
+    "pdf_export": "blocked: pandoc and xelatex absent; actual export failed with no PDF output",
+    "full_literature_review": "not-executed"
+  }
+}

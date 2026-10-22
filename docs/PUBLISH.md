@@ -1,4 +1,14 @@
-# 首次公开发布
+# 发布与日常同步
+
+## 当前仓库的日常更新
+
+目标为 [Qiang-Z/academic-research-skills](https://github.com/Qiang-Z/academic-research-skills)。2026-10-22 实际读取到远程默认分支为 `main`，已有初始提交。更新应保留远程历史，通过正常提交和推送完成；不再使用仅支持空仓库的首次发布脚本。
+
+如果当前工作目录是没有 `.git` 的下载快照，可在独立目录克隆目标仓库，核对差异后按 `PUBLISH_FILES.txt` 同步当前交付文件。排除百度同步标记、依赖目录、缓存和私人材料；将已被旧提交跟踪的同步标记从新版中移除。保留上游原字节，使用 `scripts/verify_bundle.py` 核对交付清单和摘要，再检查暂存差异。提交使用 GitHub noreply 邮箱。
+
+推送前再次核对远程分支；如出现新提交，先处理差异再更新，不能强制推送。推送后读取远程提交，只有确认它与本次提交一致，才能报告同步成功。本地准备完成或 Git 提交成功都不能代替远程核验。
+
+## 历史首次发布方式
 
 本次默认目标为 `Qiang-Z/academic-research-skills`。它是学术技能总库，创新点探索在 `modules/idea-discovery/` 下。
 
@@ -18,4 +28,4 @@
 - [GitHub CLI：浏览器登录](https://cli.github.com/manual/gh_auth_login)
 - [GitHub CLI：安装](https://github.com/cli/cli#installation)
 
-此处记录发布方式，不声称目标仓库当前已经存在。
+本节保留首次发布工具的原使用条件；目标仓库的已存在状态以本文当前同步说明为准。

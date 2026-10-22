@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "tested_on": "2026-10-22",
+  "scope": "ResearchStudio paper_search components; not the full skill workflow",
+  "source_commit": "063f10088af49909e1a4a7ea8d29efe19633f34e",
+  "python_version": "3.12.10",
+  "platform": "Windows",
+  "dependencies": {
+    "requests": "2.34.2",
+    "urllib3": "2.8.0",
+    "certifi": "2026.10.19",
+    "charset_normalizer": "3.5.2",
+    "idna": "3.20"
+  },
+  "initially_missing": [
+    "requests",
+    "openreview-py"
+  ],
+  "dependency_preparation": "Two local attempts to install requests from official PyPI failed with SSL EOF; reused the already prepared isolated requests directory from the concurrent K-Dense test. No global install.",
+  "credential_handling": "Only basic OS environment passed; blank controlled .env stopped ancestor scanning; NETRC pointed to controlled empty file; no API keys or user credentials supplied.",
+  "query": "retrieval augmented generation",
+  "year_range": [
+    2020,
+    2026
+  ],
+  "max_results_per_source": 2,
+  "live_http_settings": {
+    "connect_timeout_seconds": 8,
+    "read_idle_timeout_seconds": 15,
+    "max_attempts": 1
+  },
+  "executed_upstream_files": [
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/_env.py",
+      "sha256": "d050425ca84a2bc32f9ceb05b035d708f68b7cc1c1ea1ac330b43051336632dc",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/_http_runtime.py",
+      "sha256": "bfbbf76a8bb4c7bb0b0f1eb68d2c7a1c8b307449aa2a645435e7c67a96907604",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/postprocess.py",
+      "sha256": "cc91b05c55f06832483a655a0cdcf0980da6b3c1102342c4020e379927b0f036",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers.py",
+      "sha256": "2d32c4f8f3e74a55ac2ffde17cee5a00649d62ed6eca0add4fdcd29f6e45de43",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_arxiv.py",
+      "sha256": "d7b8ace270f3893c4e5f1b6a844390f0902107aca517043ee59ae96d479eaf11",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_crossref.py",
+      "sha256": "f6bd334a7aa95ba3597b66b8a39a3c92210272877f8c5dc5ab554b180cab2768",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_dblp.py",
+      "sha256": "678789a0dd1afad500bb114dd4c54eae6d06612ec6a87e90e6798c79e2e58009",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_open_alex.py",
+      "sha256": "df12ed36f22eb67233840b154278b94578a3ea5781056c597794778915848eb3",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_openreview.py",
+      "sha256": "3ed426d514814a847554ea324c374c94c8a2856550ebf2ae3afcdf00cfc326b4",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/search_papers_by_semantic_scholar.py",
+      "sha256": "87c3c6ec0799b6a6a26da5fa3c07d09c3e275544580bf7e07175e170ef093d5b",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/selftest_postprocess.py",
+      "sha256": "b94ee238de608e42a3d3f53841170b04b3d59e0c01c77d881b092f6ec39c4a47",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/selftest_runtime.py",
+      "sha256": "b3afda2daa0149d41a0fe81fd6b72cf78dbda0da64b6a1a74abdc1785e2cdd2f",
+      "execution": "byte-identical isolated copy"
+    },
+    {
+      "path": "modules/idea-discovery/03_ResearchStudio_Idea/upstream/ResearchStudio-Idea/skills/paper_search/scripts/source_worker.py",
+      "sha256": "073588655b61f80bcce27d6e7ac4a61f057f2beca2ad7736c2f3555eeeff3493",
+      "execution": "byte-identical isolated copy"
+    }
+  ],
+  "checks": [
+    {
+      "test": "missing_requests_help",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<TEST_WORKDIR>\\scripts\\search_papers.py\", line 26, in <module>\n    from _http_runtime import validate_environment\n  File \"<TEST_WORKDIR>\\scripts\\_http_runtime.py\", line 20, in <module>\n    import requests\nModuleNotFoundError: No module named 'requests'\n"
+    },
+    {
+      "test": "postprocess_selftest",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "  ok title_norm strips case/punct\n  ok norm_doi strips url prefixes\n  ok norm_arxiv strips version + prefix\n  ok survey titles tagged\n  ok term_words drops stopwords/short\n  ok stemming via startswith\n  ok irrelevant paper scores 0\n  ok dedup collapses doi+title matches to one record\n  ok dedup keeps priority source + provenance\n  ok dedup max citations + fills missing fields\n  ok distinct papers not merged\n  ok title bridges doi-less duplicate into the doi cluster\n  ok rank keeps everything by default\n  ok most relevant first, survey sunk despite citations\n  ok min_score drops and counts\n\n[GREEN] selftest_postprocess: 15/15 passed\n"
+    },
+    {
+      "test": "help_with_requests",
+      "script": "search_papers.py",
+      "args": [
+        "--help"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.66,
+      "stdout": "usage: search_papers.py [-h] [--query QUERY] [--queries QUERIES] --start-year\n                        START_YEAR --end-year END_YEAR\n                        [--max-papers MAX_PAPERS]\n                        [--sources {arxiv,dblp,open_alex,openreview,semantic_scholar,crossref} [{arxiv,dblp,open_alex,openreview,semantic_scholar,crossref} ...]]\n                        [--no-parallel] [--start-date START_DATE]\n                        [--end-date END_DATE] [--raw] [--min-score MIN_SCORE]\n\nSearch papers across multiple academic sources\n\noptions:\n  -h, --help            show this help message and exit\n  --query QUERY         Search query\n  --queries QUERIES     Pipe-separated multi-query union (e.g. 'a|b|c');\n                        alternative to --query\n  --start-year START_YEAR\n                        Start year\n  --end-year END_YEAR   End year\n  --max-papers MAX_PAPERS\n                        Max number of papers per source (default: 10)\n  --sources {arxiv,dblp,open_alex,openreview,semantic_scholar,crossref} [{arxiv,dblp,open_alex,openreview,semantic_scholar,crossref} ...]\n                        Sources to search (default: all). Choices: arxiv,\n                        dblp, open_alex, openreview, semantic_scholar,\n                        crossref\n  --no-parallel         Disable parallel querying of sources\n  --start-date START_DATE\n                        Optional YYYY-MM-DD lower bound; applied as a post-\n                        filter (finer than --start-year)\n  --end-date END_DATE   Optional YYYY-MM-DD inclusive upper bound; applied as\n                        a post-filter\n  --raw                 Legacy per-source view: no dedup, no ranking (full raw\n                        output)\n  --min-score MIN_SCORE\n                        OPT-IN noise filter: drop papers with relevance score\n                        below N (the number dropped is always printed;\n                        default: keep everything)\n",
+      "stderr": ""
+    },
+    {
+      "test": "documented_json_option",
+      "script": "search_papers.py",
+      "args": [
+        "--query",
+        "retrieval augmented generation",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-papers",
+        "2",
+        "--sources",
+        "arxiv",
+        "--json",
+        "<TEST_WORKDIR>\\expected.json"
+      ],
+      "exit_code": 2,
+      "elapsed_seconds": 0.7,
+      "stdout": "",
+      "stderr": "usage: search_papers.py [-h] [--query QUERY] [--queries QUERIES] --start-year\n                        START_YEAR --end-year END_YEAR\n                        [--max-papers MAX_PAPERS]\n                        [--sources {arxiv,dblp,open_alex,openreview,semantic_scholar,crossref} [{arxiv,dblp,open_alex,openreview,semantic_scholar,crossref} ...]]\n                        [--no-parallel] [--start-date START_DATE]\n                        [--end-date END_DATE] [--raw] [--min-score MIN_SCORE]\nsearch_papers.py: error: unrecognized arguments: --json <TEST_WORKDIR>\\expected.json\n"
+    },
+    {
+      "test": "runtime_selftest",
+      "script": "selftest_runtime.py",
+      "args": [],
+      "exit_code": 1,
+      "elapsed_seconds": 3.31,
+      "stdout": "",
+      "stderr": "test_mock_response_matches_legacy_fixture_output (__main__.ArxivSchemaTests.test_mock_response_matches_legacy_fixture_output) ... ok\ntest_clients_are_configured_before_explicit_login (__main__.OpenReviewTests.test_clients_are_configured_before_explicit_login) ... FAIL\ntest_full_recall_path_still_uses_get_all_notes (__main__.OpenReviewTests.test_full_recall_path_still_uses_get_all_notes) ... ok\ntest_connection_failure_is_bounded_by_connect_timeout (__main__.RuntimeTests.test_connection_failure_is_bounded_by_connect_timeout) ... ok\ntest_external_session_gets_timeout_and_finite_adapter (__main__.RuntimeTests.test_external_session_gets_timeout_and_finite_adapter) ... ok\ntest_read_timeout_is_idle_not_total_duration (__main__.RuntimeTests.test_read_timeout_is_idle_not_total_duration) ... ----------------------------------------\nException occurred during processing of request from ('127.0.0.1', 54571)\nTraceback (most recent call last):\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 697, in process_request_thread\n    self.finish_request(request, client_address)\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 362, in finish_request\n    self.RequestHandlerClass(request, client_address, self)\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 766, in __init__\n    self.handle()\n  File \"<PYTHON_ROOT>\\Lib\\http\\server.py\", line 436, in handle\n    self.handle_one_request()\n  File \"<PYTHON_ROOT>\\Lib\\http\\server.py\", line 424, in handle_one_request\n    method()\n  File \"<TEST_WORKDIR>\\scripts\\selftest_runtime.py\", line 150, in do_GET\n    self.wfile.write(bytes([byte]))\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 845, in write\n    self._sock.sendall(b)\nConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。\n----------------------------------------\nok\ntest_retry_is_bounded_and_passes_timeout_tuple (__main__.RuntimeTests.test_retry_is_bounded_and_passes_timeout_tuple) ... [crossref] HTTP 429; retrying in 3s (attempt 2/4)\n[crossref] HTTP 429; retrying in 6s (attempt 3/4)\n[crossref] HTTP 429; retrying in 12s (attempt 4/4)\nok\ntest_timeout_defaults_override_and_validation (__main__.RuntimeTests.test_timeout_defaults_override_and_validation) ... ok\ntest_timeout_environment_rejects_every_non_positive_or_malformed_value (__main__.RuntimeTests.test_timeout_environment_rejects_every_non_positive_or_malformed_value) ... ok\ntest_atomic_result_envelope (__main__.WorkerTests.test_atomic_result_envelope) ... ok\ntest_interrupt_terminates_all_started_workers (__main__.WorkerTests.test_interrupt_terminates_all_started_workers) ... ok\ntest_invalid_runtime_configuration_fails_before_starting_workers (__main__.WorkerTests.test_invalid_runtime_configuration_fails_before_starting_workers) ... ok\ntest_public_api_keeps_order_and_applies_date_filter_after_workers (__main__.WorkerTests.test_public_api_keeps_order_and_applies_date_filter_after_workers) ... ok\ntest_sources_overlap_in_parallel_and_serialize_when_disabled (__main__.WorkerTests.test_sources_overlap_in_parallel_and_serialize_when_disabled) ... ok\ntest_worker_crash_and_invalid_json_do_not_cancel_other_sources (__main__.WorkerTests.test_worker_crash_and_invalid_json_do_not_cancel_other_sources) ... [arxiv] worker exited with status 7; skipping this source.\n[dblp] invalid worker result: Expecting value: line 1 column 1 (char 0); skipping this source.\n[open_alex] worker produced no result file; skipping this source.\nok\ntest_worker_preserves_query_order_and_continues_after_error (__main__.WorkerTests.test_worker_preserves_query_order_and_continues_after_error) ... [arxiv] Error on query 'bad': boom\nok\n\n======================================================================\nFAIL: test_clients_are_configured_before_explicit_login (__main__.OpenReviewTests.test_clients_are_configured_before_explicit_login)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<TEST_WORKDIR>\\scripts\\selftest_runtime.py\", line 350, in test_clients_are_configured_before_explicit_login\n    self.assertTrue(\nAssertionError: False is not true\n\n----------------------------------------------------------------------\nRan 16 tests in 2.314s\n\nFAILED (failures=1)\n",
+      "interpretation": "15/16 passed with test-specific HTTP timeout overrides; default-value assertion was rerun separately in default environment."
+    },
+    {
+      "test": "aggregator_missing_openreview",
+      "script": "search_papers.py",
+      "args": [
+        "--query",
+        "retrieval augmented generation",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-papers",
+        "2",
+        "--sources",
+        "openreview"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.5,
+      "stdout": "\nper-source hits: openreview=0\nunique papers: 0 (0 cross-source duplicate records merged)\n============================================================\nTotal: 0 unique papers (ranked; surveys sunk to the bottom).\n",
+      "stderr": "[openreview] Error on query 'retrieval augmented generation': openreview not installed. pip install openreview-py\n"
+    },
+    {
+      "test": "worker_arxiv",
+      "script": "source_worker.py",
+      "args": [
+        "--source",
+        "arxiv",
+        "--queries-json",
+        "[\"retrieval augmented generation\"]",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-results",
+        "2",
+        "--out",
+        "<TEST_WORKDIR>\\arxiv-results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.78,
+      "stdout": "",
+      "stderr": "",
+      "result_file": "arxiv-results.json",
+      "paper_count": 2,
+      "errors": [],
+      "paper_metadata": [
+        {
+          "title": "AR-RAG: Autoregressive Retrieval Augmentation for Image Generation",
+          "year": 2025,
+          "url": "http://arxiv.org/abs/2506.06962v3",
+          "doi": null,
+          "arxiv_id": "2506.06962",
+          "source": "arxiv",
+          "abstract_characters": 1398,
+          "abstract_sha256": "6c3a420ce1db82d4b75333161f7ac5a65f743771701c3238bb06846ff0f4ce71"
+        },
+        {
+          "title": "Intelligent Interaction Strategies for Context-Aware Cognitive Augmentation",
+          "year": 2025,
+          "url": "http://arxiv.org/abs/2504.13684v1",
+          "doi": null,
+          "arxiv_id": "2504.13684",
+          "source": "arxiv",
+          "abstract_characters": 1119,
+          "abstract_sha256": "f0014becd63b382ee186478f1b2e26c2b1c9d087950b4e7da0eb7ece73b9a927"
+        }
+      ],
+      "payload_sha256": "69ae38c8335e55444252741caf5215399617869f6978f5c8bc2ae3b323cc2512"
+    },
+    {
+      "test": "worker_dblp",
+      "script": "source_worker.py",
+      "args": [
+        "--source",
+        "dblp",
+        "--queries-json",
+        "[\"retrieval augmented generation\"]",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-results",
+        "2",
+        "--out",
+        "<TEST_WORKDIR>\\dblp-results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.59,
+      "stdout": "",
+      "stderr": "[dblp] Error on query 'retrieval augmented generation': Expecting value: line 1 column 1 (char 0)\n",
+      "result_file": "dblp-results.json",
+      "paper_count": 0,
+      "errors": [
+        {
+          "query": "retrieval augmented generation",
+          "type": "JSONDecodeError",
+          "message": "Expecting value: line 1 column 1 (char 0)"
+        }
+      ],
+      "paper_metadata": [],
+      "payload_sha256": "9beaeba35d4414c9ef7c87c63d701c84d968f861fbc1b1d01a1c82bb1d89153a"
+    },
+    {
+      "test": "worker_open_alex",
+      "script": "source_worker.py",
+      "args": [
+        "--source",
+        "open_alex",
+        "--queries-json",
+        "[\"retrieval augmented generation\"]",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-results",
+        "2",
+        "--out",
+        "<TEST_WORKDIR>\\open_alex-results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.17,
+      "stdout": "",
+      "stderr": "",
+      "result_file": "open_alex-results.json",
+      "paper_count": 2,
+      "errors": [],
+      "paper_metadata": [
+        {
+          "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+          "year": 2020,
+          "url": "https://openalex.org/W3098425262",
+          "doi": null,
+          "arxiv_id": null,
+          "source": "open_alex",
+          "abstract_characters": 1630,
+          "abstract_sha256": "766b22c091b5e3c8cdd736cd8c8d1529a5abe2f4895f6bd8f01df31f93851d55"
+        },
+        {
+          "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+          "year": 2023,
+          "url": "https://doi.org/10.48550/arxiv.2312.10997",
+          "doi": "10.48550/arxiv.2312.10997",
+          "arxiv_id": null,
+          "source": "open_alex",
+          "abstract_characters": 1319,
+          "abstract_sha256": "290a04b1f1d265787a73ce1eabc1a8a3a30baa177b58da39d3f6d2486c54bc73"
+        }
+      ],
+      "payload_sha256": "0a3f908ffd84ce4ebbb6c0fdc8154b4ac57f8d61a522c9695632c3302f403ebc"
+    },
+    {
+      "test": "worker_openreview",
+      "script": "source_worker.py",
+      "args": [
+        "--source",
+        "openreview",
+        "--queries-json",
+        "[\"retrieval augmented generation\"]",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-results",
+        "2",
+        "--out",
+        "<TEST_WORKDIR>\\openreview-results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.67,
+      "stdout": "",
+      "stderr": "[openreview] Error on query 'retrieval augmented generation': openreview not installed. pip install openreview-py\n",
+      "result_file": "openreview-results.json",
+      "paper_count": 0,
+      "errors": [
+        {
+          "query": "retrieval augmented generation",
+          "type": "RuntimeError",
+          "message": "openreview not installed. pip install openreview-py"
+        }
+      ],
+      "paper_metadata": [],
+      "payload_sha256": "9f0dfbe7e4974295bbce57d3b96e68c6d42d145f8004e82f1ff17dc27cf29427"
+    },
+    {
+      "test": "worker_semantic_scholar",
+      "script": "source_worker.py",
+      "args": [
+        "--source",
+        "semantic_scholar",
+        "--queries-json",
+        "[\"retrieval augmented generation\"]",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-results",
+        "2",
+        "--out",
+        "<TEST_WORKDIR>\\semantic_scholar-results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.45,
+      "stdout": "",
+      "stderr": "[semantic_scholar] Error on query 'retrieval augmented generation': 429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=retrieval+augmented+generation&offset=0&limit=2&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2020-2026\n",
+      "result_file": "semantic_scholar-results.json",
+      "paper_count": 0,
+      "errors": [
+        {
+          "query": "retrieval augmented generation",
+          "type": "HTTPError",
+          "message": "429 Client Error:  for url: https://api.semanticscholar.org/graph/v1/paper/search?query=retrieval+augmented+generation&offset=0&limit=2&fields=title%2Cauthors%2Cyear%2Cabstract%2CcitationCount%2Curl%2Cvenue%2CpublicationDate%2CexternalIds&year=2020-2026"
+        }
+      ],
+      "paper_metadata": [],
+      "payload_sha256": "6d8c7db982a191579eceefe06fca2f8de5122c1794fc553a3d278176c3687f17"
+    },
+    {
+      "test": "worker_crossref",
+      "script": "source_worker.py",
+      "args": [
+        "--source",
+        "crossref",
+        "--queries-json",
+        "[\"retrieval augmented generation\"]",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-results",
+        "2",
+        "--out",
+        "<TEST_WORKDIR>\\crossref-results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 12.66,
+      "stdout": "",
+      "stderr": "",
+      "result_file": "crossref-results.json",
+      "paper_count": 2,
+      "errors": [],
+      "paper_metadata": [
+        {
+          "title": "Retrieval‐Augmented Generation",
+          "year": 2026,
+          "url": "https://doi.org/10.1002/9781394374717.ch03",
+          "doi": "10.1002/9781394374717.ch03",
+          "arxiv_id": null,
+          "source": "crossref",
+          "abstract_characters": 0,
+          "abstract_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "title": "Graph‐based Retrieval‐augmented Generation",
+          "year": 2026,
+          "url": "https://doi.org/10.1002/9781394374717.ch07",
+          "doi": "10.1002/9781394374717.ch07",
+          "arxiv_id": null,
+          "source": "crossref",
+          "abstract_characters": 0,
+          "abstract_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "payload_sha256": "5797dec22b6ce1c6575e23da9ccd4e544ee29507630987549766122a48fc0c75"
+    },
+    {
+      "test": "runtime_selftest_default_environment",
+      "script": "selftest_runtime.py",
+      "args": [],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_mock_response_matches_legacy_fixture_output (__main__.ArxivSchemaTests.test_mock_response_matches_legacy_fixture_output) ... ok\ntest_clients_are_configured_before_explicit_login (__main__.OpenReviewTests.test_clients_are_configured_before_explicit_login) ... ok\ntest_full_recall_path_still_uses_get_all_notes (__main__.OpenReviewTests.test_full_recall_path_still_uses_get_all_notes) ... ok\ntest_connection_failure_is_bounded_by_connect_timeout (__main__.RuntimeTests.test_connection_failure_is_bounded_by_connect_timeout) ... ok\ntest_external_session_gets_timeout_and_finite_adapter (__main__.RuntimeTests.test_external_session_gets_timeout_and_finite_adapter) ... ok\ntest_read_timeout_is_idle_not_total_duration (__main__.RuntimeTests.test_read_timeout_is_idle_not_total_duration) ... ----------------------------------------\nException occurred during processing of request from ('127.0.0.1', 56760)\nTraceback (most recent call last):\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 697, in process_request_thread\n    self.finish_request(request, client_address)\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 362, in finish_request\n    self.RequestHandlerClass(request, client_address, self)\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 766, in __init__\n    self.handle()\n  File \"<PYTHON_ROOT>\\Lib\\http\\server.py\", line 436, in handle\n    self.handle_one_request()\n  File \"<PYTHON_ROOT>\\Lib\\http\\server.py\", line 424, in handle_one_request\n    method()\n  File \"<TEST_WORKDIR>\\scripts\\selftest_runtime.py\", line 150, in do_GET\n    self.wfile.write(bytes([byte]))\n  File \"<PYTHON_ROOT>\\Lib\\socketserver.py\", line 845, in write\n    self._sock.sendall(b)\nConnectionAbortedError: [WinError 10053] 你的主机中的软件中止了一个已建立的连接。\n----------------------------------------\nok\ntest_retry_is_bounded_and_passes_timeout_tuple (__main__.RuntimeTests.test_retry_is_bounded_and_passes_timeout_tuple) ... [crossref] HTTP 429; retrying in 3s (attempt 2/4)\n[crossref] HTTP 429; retrying in 6s (attempt 3/4)\n[crossref] HTTP 429; retrying in 12s (attempt 4/4)\nok\ntest_timeout_defaults_override_and_validation (__main__.RuntimeTests.test_timeout_defaults_override_and_validation) ... ok\ntest_timeout_environment_rejects_every_non_positive_or_malformed_value (__main__.RuntimeTests.test_timeout_environment_rejects_every_non_positive_or_malformed_value) ... ok\ntest_atomic_result_envelope (__main__.WorkerTests.test_atomic_result_envelope) ... ok\ntest_interrupt_terminates_all_started_workers (__main__.WorkerTests.test_interrupt_terminates_all_started_workers) ... ok\ntest_invalid_runtime_configuration_fails_before_starting_workers (__main__.WorkerTests.test_invalid_runtime_configuration_fails_before_starting_workers) ... ok\ntest_public_api_keeps_order_and_applies_date_filter_after_workers (__main__.WorkerTests.test_public_api_keeps_order_and_applies_date_filter_after_workers) ... ok\ntest_sources_overlap_in_parallel_and_serialize_when_disabled (__main__.WorkerTests.test_sources_overlap_in_parallel_and_serialize_when_disabled) ... ok\ntest_worker_crash_and_invalid_json_do_not_cancel_other_sources (__main__.WorkerTests.test_worker_crash_and_invalid_json_do_not_cancel_other_sources) ... [arxiv] worker exited with status 7; skipping this source.\n[dblp] invalid worker result: Expecting value: line 1 column 1 (char 0); skipping this source.\n[open_alex] worker produced no result file; skipping this source.\nok\ntest_worker_preserves_query_order_and_continues_after_error (__main__.WorkerTests.test_worker_preserves_query_order_and_continues_after_error) ... [arxiv] Error on query 'bad': boom\nok\n\n----------------------------------------------------------------------\nRan 16 tests in 2.249s\n\nOK\n",
+      "interpretation": "16/16 passed; Windows local timeout fixture also emitted ConnectionAbortedError diagnostics, without a unittest failure."
+    },
+    {
+      "test": "aggregator_live_openalex",
+      "script": "search_papers.py",
+      "args": [
+        "--query",
+        "retrieval augmented generation",
+        "--start-year",
+        "2020",
+        "--end-year",
+        "2026",
+        "--max-papers",
+        "2",
+        "--sources",
+        "open_alex"
+      ],
+      "exit_code": 0,
+      "stdout": "\nper-source hits: open_alex=2\nunique papers: 2 (0 cross-source duplicate records merged)\n============================================================\n  [1] (score 3) Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks\n      Authors: Patrick Lewis, Ethan Perez, Aleksandra Piktus...\n      Year: 2020  Citations: 1187  Venue: UCL Discovery (University College London)\n      Sources: open_alex\n      URL: https://openalex.org/W3098425262\n\n  [2] (score 3) [survey] Retrieval-Augmented Generation for Large Language Models: A Survey\n      Authors: Yunfan Gao, Yun Xiong, Xinyu Gao...\n      Year: 2023  Citations: 873  Venue: arXiv (Cornell University)\n      Sources: open_alex  doi:10.48550/arxiv.2312.10997\n      URL: https://doi.org/10.48550/arxiv.2312.10997\n\nTotal: 2 unique papers (ranked; surveys sunk to the bottom).\n",
+      "stderr": ""
+    }
+  ],
+  "dependency_install_attempts": [
+    {
+      "exit_code": 1,
+      "stdout": "Could not fetch URL https://pypi.org/simple/requests/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/requests/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))) - skipping\n",
+      "stderr": "WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))': /simple/requests/\nWARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))': /simple/requests/\nWARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))': /simple/requests/\nWARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))': /simple/requests/\nWARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))': /simple/requests/\nERROR: Could not find a version that satisfies the requirement requests (from versions: none)\nERROR: No matching distribution found for requests\n"
+    },
+    {
+      "exit_code": 1,
+      "stdout": "Could not fetch URL https://pypi.org/simple/requests/: There was a problem confirming the ssl certificate: HTTPSConnectionPool(host='pypi.org', port=443): Max retries exceeded with url: /simple/requests/ (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)'))) - skipping\n",
+      "stderr": "ERROR: Could not find a version that satisfies the requirement requests (from versions: none)\nERROR: No matching distribution found for requests\n"
+    }
+  ],
+  "raw_results_location": "Temporary test directory only; repository keeps metadata, abstract lengths/hashes, and sanitized logs, not full abstracts or PDFs."
+}

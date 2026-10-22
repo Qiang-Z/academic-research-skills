@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "method": "Current host applied the preserved Codex citation-verification guide using web.open on two canonical arXiv version pages. This host-based check did not use the upstream Python API; separate script attempts are recorded in claudescholar-component-results.json.",
+  "scope": ["canonical metadata", "version dates", "abstract-level claim check", "deliberate identifier-title mismatch"],
+  "not_checked": ["full text", "PDF parsing", "BibTeX export", "bibliography integration", "Zotero sync", "Obsidian UI"],
+  "cases": [
+    {
+      "id": "rag-correct",
+      "input_title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "input_arxiv_id": "2005.11401v4",
+      "official_url": "https://arxiv.org/abs/2005.11401v4",
+      "page_access": "succeeded",
+      "authors": ["Patrick Lewis", "Ethan Perez", "Aleksandra Piktus", "Fabio Petroni", "Vladimir Karpukhin", "Naman Goyal", "Heinrich Küttler", "Mike Lewis", "Wen-tau Yih", "Tim Rocktäschel", "Sebastian Riedel", "Douwe Kiela"],
+      "first_submitted": "2020-05-22",
+      "selected_version_date": "2021-04-12",
+      "venue_note_on_page": "Accepted at NeurIPS 2020",
+      "identity_result": "matched",
+      "claim_check_locator": "Abstract",
+      "claim_check_result": "Abstract describes combining parametric generation with non-parametric retrieval memory; full-text details and outcomes were not verified."
+    },
+    {
+      "id": "self-rag-correct",
+      "input_title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "input_arxiv_id": "2310.11511v1",
+      "official_url": "https://arxiv.org/abs/2310.11511v1",
+      "page_access": "succeeded",
+      "authors": ["Akari Asai", "Zeqiu Wu", "Yizhong Wang", "Avirup Sil", "Hannaneh Hajishirzi"],
+      "first_submitted": "2023-10-17",
+      "selected_version_date": "2023-10-17",
+      "venue_note_on_page": null,
+      "identity_result": "matched",
+      "claim_check_locator": "Abstract",
+      "claim_check_result": "Abstract describes on-demand retrieval and reflection tokens; no universal performance or full-text support claim was made."
+    },
+    {
+      "id": "deliberate-title-id-mismatch",
+      "fixture_is_deliberately_incorrect": true,
+      "input_title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+      "input_arxiv_id": "2005.11401v4",
+      "official_url": "https://arxiv.org/abs/2005.11401v4",
+      "canonical_record_reused_from_case": "rag-correct",
+      "expected_result": "reject",
+      "actual_result": "rejected",
+      "reason": "Identifier resolves to a different title, first author and version year. No verified bibliography entry produced."
+    }
+  ]
+}

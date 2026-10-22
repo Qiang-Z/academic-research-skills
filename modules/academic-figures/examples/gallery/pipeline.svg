@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 230" width="1000" height="230" font-family="Arial, Helvetica, sans-serif">
+  <rect width="1000" height="230" fill="#FFFFFF"/>
+  <defs>
+    <marker id="arrow-default" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#555555"/>
+    </marker>
+    <marker id="arrow-c0" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#2563EB"/>
+    </marker>
+    <marker id="arrow-c1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#10B981"/>
+    </marker>
+    <marker id="arrow-c2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#7C3AED"/>
+    </marker>
+    <marker id="arrow-c3" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#EA580C"/>
+    </marker>
+    <marker id="arrow-c4" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#C62828"/>
+    </marker>
+    <marker id="arrow-c5" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#0D47A1"/>
+    </marker>
+    <marker id="arrow-c6" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#1B5E20"/>
+    </marker>
+    <marker id="arrow-c7" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#4A148C"/>
+    </marker>
+    <marker id="arrow-c8" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#BF360C"/>
+    </marker>
+    <marker id="arrow-c9" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0 0, 8 4, 0 8" fill="#37474F"/>
+    </marker>
+  </defs>
+  <path d="M 220.0,110.0 L 285.0,110.0" stroke="#555555" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 465.0,110.0 L 535.0,110.0" stroke="#555555" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <path d="M 715.0,110.0 L 780.0,110.0" stroke="#555555" stroke-width="2" fill="none" marker-end="url(#arrow-default)"/>
+  <rect x="40.0" y="75.0" width="180.0" height="70.0" fill="#dee7fc" stroke="#2563EB" stroke-width="2" rx="8"/>
+  <text x="130.0" y="106.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">Synthetic data</text>
+  <text x="130.0" y="123.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">240 samples</text>
+  <rect x="285.0" y="75.0" width="180.0" height="70.0" fill="#dbf4ec" stroke="#10B981" stroke-width="2" rx="8"/>
+  <text x="375.0" y="106.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">3 split seeds</text>
+  <text x="375.0" y="123.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">3 conditions</text>
+  <rect x="535.0" y="75.0" width="180.0" height="70.0" fill="#ebe1fc" stroke="#7C3AED" stroke-width="2" rx="8"/>
+  <text x="625.0" y="106.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">Paired analysis</text>
+  <text x="625.0" y="123.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">Fixed split 11</text>
+  <rect x="780.0" y="75.0" width="180.0" height="70.0" fill="#fbe5da" stroke="#EA580C" stroke-width="2" rx="8"/>
+  <text x="870.0" y="106.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">Figures + writing</text>
+  <text x="870.0" y="123.8" font-size="15" fill="#333333" text-anchor="middle" font-weight="bold">Bounded claims</text>
+  <text x="500.0" y="200.0" font-size="15" fill="#555555" text-anchor="middle">Teaching workflow; post-hoc analysis; not a replicated research claim</text>
+</svg>

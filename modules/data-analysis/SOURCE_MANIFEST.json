@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "module_id": "data-analysis",
+  "title": "数据分析与统计",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/data-analysis/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 3,
+  "number_of_source_snapshots": 4,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 5,
+  "entrypoint_files": 9,
+  "runtime_tested": false,
+  "example_runtime_tested": true,
+  "example_validation_record": "examples/paired-analysis/VALIDATION.md",
+  "upstream_code_executed": false,
+  "agent_configuration_changed": false,
+  "scope_note": "Five core skill names, nine main/Codex entry files and four root licenses form thirteen pinned references. Reuses existing snapshots without installing or executing their code. Statistical workflow guidance is distinct from an installed general statistics engine. The original teaching example consumes experiment-design teaching outputs and has separate validation; post-hoc conditional intervals do not establish general effects.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/analyze-results/SKILL.md",
+        "skills/skills-codex/analyze-results/SKILL.md",
+        "skills/result-to-claim/SKILL.md",
+        "skills/skills-codex/result-to-claim/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/analyze-results/SKILL.md",
+          "bytes": 1660,
+          "git_blob_sha1": "3e800880394f27441edb2c64604e12bcb9de1135",
+          "sha256": "2b97b8ae1a279ac8a7db14e7d7bea67934c88352d55c95e20fcfb681a8640930",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/result-to-claim/SKILL.md",
+          "bytes": 16705,
+          "git_blob_sha1": "248e59d32015870c71531f3a760a4c500d1c3e76",
+          "sha256": "ba53865e333fb05271ad116b94879d567d1e681f592dec2a7e8ae7eac6ef13d6",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/analyze-results/SKILL.md",
+          "bytes": 1568,
+          "git_blob_sha1": "06614fea27ed673c97a8e599c8520d7f9a5af952",
+          "sha256": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/result-to-claim/SKILL.md",
+          "bytes": 12067,
+          "git_blob_sha1": "265778dcbaecee1a2f9507a41446e4f348eddd50",
+          "sha256": "ef20f93859c8d28a610dc76d18fd1ce68055f22761e8a73cb67774d6b102dbca",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "04_KDense",
+      "repository": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "branch": "main",
+      "commit": "92ace75ac21efe19a620434e0ca4e356081fe807",
+      "tree_sha": "9a2d8a9b7d7cf9a89fcf31a25e826838f735d764",
+      "commit_date": "2026-10-05T09:39:10Z",
+      "retrieved_at_utc": "2026-10-11T04:01:08.124946+00:00",
+      "bundle_relative_path": "../idea-discovery/04_KDense/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "04_KDense",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/scientific-critical-thinking/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE.md",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "bytes": 1068,
+          "git_blob_sha1": "eb246475fd5a66b9bb56176f3a718984632dd98d",
+          "sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/scientific-critical-thinking/SKILL.md",
+          "bytes": 13146,
+          "git_blob_sha1": "2a2fc151b5b13e4e11ece7410f21a14d5b25e30d",
+          "sha256": "563af70571b7dcd6a96bf2e303bedfdcba623b4e9f082d58f04aacbc961fdae4",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "main",
+      "commit": "903787345d6aec134086afa2b97715a78fbde519",
+      "tree_sha": "d7f61d97768bcaa4442e2481da680073da7528bc",
+      "commit_date": "2026-09-23T07:23:56Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.953825+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_main",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/results-analysis/SKILL.md",
+        "skills/results-report/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/results-analysis/SKILL.md",
+          "bytes": 9498,
+          "git_blob_sha1": "22e34019d8bef9bc8d1a0f86528f61c0288e3cb1",
+          "sha256": "2232f74d141fad4a3e23635be0109217713d34bf0cb7be8d120e6296f4b79782",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/results-report/SKILL.md",
+          "bytes": 6374,
+          "git_blob_sha1": "785b4046ca9b952f54ff189832d330dc4b975d84",
+          "sha256": "d35cdde436ba72d50fc5aec260bbd6df701557851174654d099fe64e5a5333dc",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar_Codex",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "codex",
+      "commit": "b672e80951a2348dd6136316d096603bf2dc5b83",
+      "tree_sha": "09aed09c52f6498c11a4ec8fa711f4e913973e48",
+      "commit_date": "2026-09-23T07:02:54Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.860336+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_codex",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar_Codex",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/results-analysis/SKILL.md",
+        "skills/results-report/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/results-analysis/SKILL.md",
+          "bytes": 9498,
+          "git_blob_sha1": "22e34019d8bef9bc8d1a0f86528f61c0288e3cb1",
+          "sha256": "2232f74d141fad4a3e23635be0109217713d34bf0cb7be8d120e6296f4b79782",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/results-report/SKILL.md",
+          "bytes": 6373,
+          "git_blob_sha1": "f3050d39742b74b36a773479c8118b9ea646caad",
+          "sha256": "b7dc9d1bda3f6cc4c844ae5a9354e7a8b3ad38fb704ff7e5a4301ae4a7a27e4f",
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "module_id": "paper-writing",
+  "title": "论文写作与润色",
+  "curated_at": "2026-10-22",
+  "collection_mode": "reference-existing-snapshots",
+  "path_base": "Directory containing this manifest: modules/paper-writing/",
+  "collection_repository": "Qiang-Z/academic-research-skills",
+  "number_of_projects": 2,
+  "number_of_source_snapshots": 3,
+  "new_source_snapshots": 0,
+  "highlighted_skill_entrypoints": 6,
+  "entrypoint_files": 12,
+  "runtime_tested": false,
+  "example_runtime_tested": false,
+  "example_validation_record": "examples/VALIDATION.md",
+  "upstream_code_executed": false,
+  "agent_configuration_changed": false,
+  "scope_note": "Six core skill names, twelve main/Codex entry files and three root licenses form fifteen pinned references. Original snapshots remain unchanged. The manually authored teaching manuscript and language-revision example are checked against the preceding original experiment and analysis artifacts; this is documentation and numerical verification, not execution of an upstream writing workflow or a runnable writing example.",
+  "sources": [
+    {
+      "id": "01_ARIS",
+      "repository": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "branch": "main",
+      "commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+      "tree_sha": "e48813247f47270ad443ef11359129fda79b3af9",
+      "commit_date": "2026-10-07T07:46:15Z",
+      "retrieved_at_utc": "2026-10-11T04:00:17.194268+00:00",
+      "bundle_relative_path": "../idea-discovery/01_ARIS/upstream",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "01_ARIS",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/paper-plan/SKILL.md",
+        "skills/paper-write/SKILL.md",
+        "skills/paper-claim-audit/SKILL.md",
+        "skills/skills-codex/paper-plan/SKILL.md",
+        "skills/skills-codex/paper-write/SKILL.md",
+        "skills/skills-codex/paper-claim-audit/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1067,
+          "git_blob_sha1": "8fe03d26d87a5e5d4934ee50039ff255eb67406a",
+          "sha256": "e30cf5dd5f49b4f9b656590e23d782b4756c924a9f0ff0162b3e7b5d87006bf5",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-claim-audit/SKILL.md",
+          "bytes": 14255,
+          "git_blob_sha1": "9bc2e4242391d551e502db74c88cc7d296d9b736",
+          "sha256": "9bc3eabfe3ec2d3125d4d94e8c6689ba4f0d6ed9021e3d86489a96086bba1a16",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-plan/SKILL.md",
+          "bytes": 20630,
+          "git_blob_sha1": "da498681106b7d5afa5bc201c01b42a84a2a4807",
+          "sha256": "3c51d646b575416f2b91da80f22ccf92e4bb08d299f1c136e74a9b9497772b46",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/paper-write/SKILL.md",
+          "bytes": 38112,
+          "git_blob_sha1": "d05ba12c01668e8e2a65be993498195199f8f2e4",
+          "sha256": "dc4f4024d6cdcb639d8bf75b796132408f75d14a4b4b316f388c884e35a62366",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/paper-claim-audit/SKILL.md",
+          "bytes": 13923,
+          "git_blob_sha1": "6418bd0873ec6fe65321e49529a8b385cea7c461",
+          "sha256": "53bc00ee13d861e76e4f5a1a5d4f0ab40544ca563ee328af4c38bcb19b64a95b",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/paper-plan/SKILL.md",
+          "bytes": 12555,
+          "git_blob_sha1": "6f220df059a4021767b1470e9a34a79358ebdf4d",
+          "sha256": "f57db68d201585c238522fdc38d7db16007638821f5f202faea723bdbcb8ff6d",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/skills-codex/paper-write/SKILL.md",
+          "bytes": 27038,
+          "git_blob_sha1": "5852b9bb9e1d65bac7fe0f618a25251ffa5dbade",
+          "sha256": "83ce11957792c6a63cbadc092a2c41556a5997333e8eba5729e4f2c2d0663583",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "main",
+      "commit": "903787345d6aec134086afa2b97715a78fbde519",
+      "tree_sha": "d7f61d97768bcaa4442e2481da680073da7528bc",
+      "commit_date": "2026-09-23T07:23:56Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.953825+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_main",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/ml-paper-writing/SKILL.md",
+        "skills/nature-writing/SKILL.md",
+        "skills/nature-polishing/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ml-paper-writing/SKILL.md",
+          "bytes": 44243,
+          "git_blob_sha1": "e982dbdc6b64630ef291ccb93bbc63fdcaf61052",
+          "sha256": "325669f584242c14a470f8bf5779850ffd8999191c20191528f2cdbbbc39c248",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/nature-polishing/SKILL.md",
+          "bytes": 14337,
+          "git_blob_sha1": "991a708fba92cc5d88b0099d6ebea79e62d8272e",
+          "sha256": "b32217058d42f7f6a056506e746801ae420e299c01127c5387f76ee47996b900",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/nature-writing/SKILL.md",
+          "bytes": 7520,
+          "git_blob_sha1": "dcc3a5a489e09edf6c3ff0b10ac599583636e56e",
+          "sha256": "f156e70f990df6ec155e25893e6641c2c831a3b9c7d5a3720eea2c4985665bf6",
+          "mode": "100644"
+        }
+      ]
+    },
+    {
+      "id": "05_ClaudeScholar_Codex",
+      "repository": "https://github.com/Galaxy-Dawn/claude-scholar",
+      "branch": "codex",
+      "commit": "b672e80951a2348dd6136316d096603bf2dc5b83",
+      "tree_sha": "09aed09c52f6498c11a4ec8fa711f4e913973e48",
+      "commit_date": "2026-09-23T07:02:54Z",
+      "retrieved_at_utc": "2026-10-11T04:00:16.860336+00:00",
+      "bundle_relative_path": "../idea-discovery/05_ClaudeScholar/upstream_codex",
+      "reused_from_manifest": "../idea-discovery/SOURCE_MANIFEST.json",
+      "reused_source_id": "05_ClaudeScholar_Codex",
+      "scope": "existing-snapshot-reference",
+      "core_entrypoints": [
+        "skills/ml-paper-writing/SKILL.md",
+        "skills/nature-writing/SKILL.md",
+        "skills/nature-polishing/SKILL.md"
+      ],
+      "optional_related_entrypoints": [],
+      "supporting_files": [],
+      "license_path": "LICENSE",
+      "upstream_modified": false,
+      "executed_upstream_code": false,
+      "files": [
+        {
+          "path": "LICENSE",
+          "bytes": 1069,
+          "git_blob_sha1": "c19f3b4a3de7c50a83629bbf88f1efa3fcaf4bbf",
+          "sha256": "5a1e92b9b489ec750c774555a7840af3978bc574e1395f6796695ffc67a62bef",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/ml-paper-writing/SKILL.md",
+          "bytes": 44243,
+          "git_blob_sha1": "e982dbdc6b64630ef291ccb93bbc63fdcaf61052",
+          "sha256": "325669f584242c14a470f8bf5779850ffd8999191c20191528f2cdbbbc39c248",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/nature-polishing/SKILL.md",
+          "bytes": 14337,
+          "git_blob_sha1": "991a708fba92cc5d88b0099d6ebea79e62d8272e",
+          "sha256": "b32217058d42f7f6a056506e746801ae420e299c01127c5387f76ee47996b900",
+          "mode": "100644"
+        },
+        {
+          "path": "skills/nature-writing/SKILL.md",
+          "bytes": 7520,
+          "git_blob_sha1": "dcc3a5a489e09edf6c3ff0b10ac599583636e56e",
+          "sha256": "f156e70f990df6ec155e25893e6641c2c831a3b9c7d5a3720eea2c4985665bf6",
+          "mode": "100644"
+        }
+      ]
+    }
+  ]
+}

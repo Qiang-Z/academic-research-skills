@@ -1,0 +1,127 @@
+{
+  "python": "3.12.10",
+  "script_sha256": "30446596ca9aeb66a0a2f20fc0919d5f473fbee34dd611fee5c3613fadf5e7fa",
+  "checks": [
+    {
+      "check": "help",
+      "args": [
+        "--help"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.45,
+      "stderr_tail": ""
+    },
+    {
+      "check": "arxiv_keyword",
+      "args": [
+        "search",
+        "ti:\"Retrieval-Augmented Generation\" AND submittedDate:[202001010000 TO 202312312359]",
+        "--max",
+        "3"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 23.97,
+      "stderr_tail": "RuntimeError: arXiv API fetch failed: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    }
+  ],
+  "date": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "upstream_file": "modules/idea-discovery/01_ARIS/upstream/tools/arxiv_fetch.py",
+  "invocation": "py -3.12 -B -X utf8 <upstream_file> <args>",
+  "execution_location": "repository-external temporary working directory",
+  "ARIS_VERIFY_EMAIL": "removed from child environment for test; no contact transmitted",
+  "version_probe": [
+    {
+      "input": "id:2005.11401v4",
+      "actual_id_list": "2005.11401",
+      "requested_version_retained": false
+    },
+    {
+      "input": "2005.11401v4",
+      "actual_id_list": "2005.11401",
+      "requested_version_retained": false
+    },
+    {
+      "input": "id:2310.11511v1",
+      "actual_id_list": "2310.11511",
+      "requested_version_retained": false
+    }
+  ],
+  "alternate_client_probe": {
+    "client": "curl.exe",
+    "url": "https://export.arxiv.org/api/query?search_query=ti%3A%22Retrieval-Augmented+Generation%22+AND+submittedDate%3A%5B202001010000+TO+202312312359%5D&start=0&max_results=3&sortBy=relevance&sortOrder=descending",
+    "exit_code": 0,
+    "stdout_bytes": 8129,
+    "stderr": ""
+  },
+  "host_web_attempts": [
+    {
+      "tool": "web__run",
+      "status": "transport_error",
+      "message": "Fatal error: connection failed: error sending request"
+    },
+    {
+      "tool": "mcp__codex_apps__search_service_web_run",
+      "status": "success",
+      "cards": 9,
+      "selected_abstracts": 3,
+      "trace": "search-records.json"
+    }
+  ],
+  "alternate_client_atom_validation": {
+    "client": "curl.exe",
+    "exit_code": 0,
+    "stderr": "",
+    "interpretation": "Supplemental transport diagnostic, not a successful invocation of arxiv_fetch.py search and not part of the three-paper web synthesis corpus.",
+    "atom_valid": true,
+    "records": [
+      {
+        "id": "2305.06983",
+        "title": "Active Retrieval Augmented Generation",
+        "authors": [
+          "Zhengbao Jiang",
+          "Frank F. Xu",
+          "Luyu Gao",
+          "Zhiqing Sun",
+          "Qian Liu",
+          "Jane Dwivedi-Yu",
+          "Yiming Yang",
+          "Jamie Callan",
+          "Graham Neubig"
+        ],
+        "published": "2023-05-11",
+        "updated": "2023-10-22",
+        "abs_url": "https://arxiv.org/abs/2305.06983"
+      },
+      {
+        "id": "2312.08976",
+        "title": "Dynamic Retrieval-Augmented Generation",
+        "authors": [
+          "Anton Shapkin",
+          "Denis Litvinov",
+          "Yaroslav Zharov",
+          "Egor Bogomolov",
+          "Timur Galimzyanov",
+          "Timofey Bryksin"
+        ],
+        "published": "2023-12-14",
+        "updated": "2024-02-20",
+        "abs_url": "https://arxiv.org/abs/2312.08976"
+      },
+      {
+        "id": "2312.05708",
+        "title": "Context Tuning for Retrieval Augmented Generation",
+        "authors": [
+          "Raviteja Anantha",
+          "Tharun Bethi",
+          "Danil Vodianik",
+          "Srinivas Chappidi"
+        ],
+        "published": "2023-12-09",
+        "updated": "2023-12-09",
+        "abs_url": "https://arxiv.org/abs/2312.05708"
+      }
+    ],
+    "count": 3
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "study_id": "toy-feature-scale-v1",
+  "data_seed": 1729,
+  "n_samples": 240,
+  "label_flip_every": 10,
+  "split_seeds": [11, 23, 47],
+  "train_size": 144,
+  "validation_size": 48,
+  "conditions": ["raw_1nn", "scaled_1nn", "scaled_1nn_without_x0"],
+  "metric": "accuracy",
+  "selection_rule": "none; all conditions and seeds are fixed before evaluation"
+}

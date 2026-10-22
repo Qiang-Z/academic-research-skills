@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "platform": "Windows",
+  "python": "3.12.10",
+  "scope": "Untouched Codex snapshot scripts; temporary isolated dependencies and synthetic local vault; no Obsidian UI or connector; bounded upstream citation API attempts recorded separately.",
+  "packages": {
+    "bibtexparser": {
+      "available_in_test_interpreter": false,
+      "version": null
+    },
+    "requests": {
+      "available_in_test_interpreter": false,
+      "version": null
+    },
+    "semanticscholar": {
+      "available_in_test_interpreter": false,
+      "version": null
+    },
+    "arxiv": {
+      "available_in_test_interpreter": false,
+      "version": null
+    },
+    "yaml": {
+      "available_in_test_interpreter": false,
+      "version": null
+    }
+  },
+  "new_packages_installed": true,
+  "source_files": {
+    "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/obsidian-literature-workflow/scripts/build_literature_canvas.py": "909a6bbd8239b27c4ef004452eb4d12fcf3cade949b6933226c4f48038ed0eb4",
+    "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/obsidian-project-kb-core/scripts/kb_common.py": "8e394b296dbccfbece64b488fdbdccd2fd21938214e88a792ad35435e30c645e",
+    "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/citation-verification/scripts/verify-citations.py": "f2ab99b2ed19b4ff3ab66885294485a2bf13d5318ff5c673198779a924561038",
+    "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/citation-verification/scripts/format-checker.py": "33329dc03a4573af4166b254b809787d07d884808aacd196a5f89d3812971cc9"
+  },
+  "tests": [
+    {
+      "test": "citation-reference-script-help",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "--help"
+      ],
+      "exit_code": 1,
+      "stdout": "错误: 需要安装 bibtexparser\n运行: pip install bibtexparser\n",
+      "stderr": ""
+    },
+    {
+      "test": "canvas-help",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\obsidian-literature-workflow\\scripts\\build_literature_canvas.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "stdout": "usage: build_literature_canvas.py [-h] [--cwd CWD] [--project-id PROJECT_ID]\n                                  [--output OUTPUT]\n\nBuild a default literature canvas for the bound Obsidian project.\n\noptions:\n  -h, --help            show this help message and exit\n  --cwd CWD\n  --project-id PROJECT_ID\n  --output OUTPUT\n",
+      "stderr": ""
+    },
+    {
+      "test": "canvas-without-binding",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\obsidian-literature-workflow\\scripts\\build_literature_canvas.py",
+        "--cwd",
+        "<temp>"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "No registered projects found in .codex/project-memory/registry.yaml\n"
+    },
+    {
+      "test": "canvas-basic",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\obsidian-literature-workflow\\scripts\\build_literature_canvas.py",
+        "--cwd",
+        "<temp>",
+        "--project-id",
+        "test",
+        "--output",
+        "Maps/control.canvas"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"project_id\": \"test\", \"output\": \"<temporary-vault>/Research/test/Maps/control.canvas\", \"paper_count\": 2, \"knowledge_count\": 0}\n",
+      "stderr": "",
+      "observed": {
+        "input_papers": 2,
+        "file_nodes": [
+          "Research/test/Sources/Papers/a.md",
+          "Research/test/Sources/Papers/b.md"
+        ],
+        "file_node_count": 2,
+        "edge_count": 1,
+        "valid_edge_endpoints": true,
+        "canvas_sha256": "497fa68f5e6999395a85e99240f6fcd539244eabe8f7aa57aec8f3ab82b27452"
+      },
+      "fixture": {
+        "paper_a_subfield": "other",
+        "paper_b_subfield": "other",
+        "paper_a_related_papers": [
+          "Papers/b"
+        ],
+        "binding_file": ".claude/project-memory/registry.yaml (JSON content)",
+        "knowledge_notes": 0
+      }
+    },
+    {
+      "test": "canvas-source-prefixed-link",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\obsidian-literature-workflow\\scripts\\build_literature_canvas.py",
+        "--cwd",
+        "<temp>",
+        "--project-id",
+        "test",
+        "--output",
+        "Maps/source-link.canvas"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"project_id\": \"test\", \"output\": \"<temporary-vault>/Research/test/Maps/source-link.canvas\", \"paper_count\": 2, \"knowledge_count\": 0}\n",
+      "stderr": "",
+      "observed": {
+        "input_papers": 2,
+        "file_nodes": [
+          "Research/test/Sources/Papers/a.md",
+          "Research/test/Sources/Papers/b.md"
+        ],
+        "file_node_count": 2,
+        "edge_count": 0,
+        "valid_edge_endpoints": true,
+        "canvas_sha256": "e1ec12696fd69b253c1b33cced2281d46861026c9d18a95ade699db8ec92fe04"
+      },
+      "fixture": {
+        "paper_a_subfield": "other",
+        "paper_b_subfield": "other",
+        "paper_a_related_papers": [
+          "Sources/Papers/b"
+        ],
+        "binding_file": ".claude/project-memory/registry.yaml (JSON content)",
+        "knowledge_notes": 0
+      }
+    },
+    {
+      "test": "canvas-mixed-subfields",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\obsidian-literature-workflow\\scripts\\build_literature_canvas.py",
+        "--cwd",
+        "<temp>",
+        "--project-id",
+        "test",
+        "--output",
+        "Maps/mixed.canvas"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"project_id\": \"test\", \"output\": \"<temporary-vault>/Research/test/Maps/mixed.canvas\", \"paper_count\": 2, \"knowledge_count\": 0}\n",
+      "stderr": "",
+      "observed": {
+        "input_papers": 2,
+        "file_nodes": [
+          "Research/test/Sources/Papers/a.md"
+        ],
+        "file_node_count": 1,
+        "edge_count": 0,
+        "valid_edge_endpoints": true,
+        "canvas_sha256": "03487ed7a273d993bc196b24f5c4e6695f610b0de85c7ce4c3b9c6b4d1f62084"
+      },
+      "fixture": {
+        "paper_a_subfield": "other",
+        "paper_b_subfield": "rag",
+        "paper_a_related_papers": [
+          "Papers/b"
+        ],
+        "binding_file": ".claude/project-memory/registry.yaml (JSON content)",
+        "knowledge_notes": 0
+      }
+    },
+    {
+      "test": "format-checker-cli-valid.bib",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\format-checker.py",
+        "<temp>\\valid.bib",
+        "--strict"
+      ],
+      "timeout_seconds": 35,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "test": "format-checker-cli-invalid.bib",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\format-checker.py",
+        "<temp>\\invalid.bib",
+        "--strict"
+      ],
+      "timeout_seconds": 35,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "test": "format-checker-functions-valid.bib",
+      "invocation": "import preserved module; load_bibtex_file; check_entry_structure; check_field_formats; check_consistency",
+      "entry_count": 1,
+      "error_count": 0,
+      "errors": []
+    },
+    {
+      "test": "verify-format-only-valid.bib",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\valid.bib",
+        "--format-only",
+        "--verbose",
+        "--output",
+        "<temp>\\valid.bib.report.md"
+      ],
+      "timeout_seconds": 35,
+      "exit_code": 0,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\valid.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 good... ❌\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 0 (0.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 0 (0.0%)\n============================================================\n\n详细结果:\n\n[good]\n  状态: 仅格式检查\n  匹配分数: 0.00\n\n\n报告已保存到: <temp>\\valid.bib.report.md\n",
+      "stderr": "",
+      "report_contains_format_errors": false
+    },
+    {
+      "test": "format-checker-functions-invalid.bib",
+      "invocation": "import preserved module; load_bibtex_file; check_entry_structure; check_field_formats; check_consistency",
+      "entry_count": 2,
+      "error_count": 6,
+      "errors": [
+        {
+          "level": "error",
+          "field": "author",
+          "message": "缺少必填字段: author"
+        },
+        {
+          "level": "error",
+          "field": "title",
+          "message": "缺少必填字段: title"
+        },
+        {
+          "level": "error",
+          "field": "journal",
+          "message": "缺少必填字段: journal"
+        },
+        {
+          "level": "error",
+          "field": "year",
+          "message": "年份格式错误: 20x0 (应为4位数字)"
+        },
+        {
+          "level": "error",
+          "field": "doi",
+          "message": "DOI 格式错误: invalid"
+        },
+        {
+          "level": "error",
+          "field": "ID",
+          "message": "重复的 citation key: bad"
+        }
+      ]
+    },
+    {
+      "test": "verify-format-only-invalid.bib",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\invalid.bib",
+        "--format-only",
+        "--verbose",
+        "--output",
+        "<temp>\\invalid.bib.report.md"
+      ],
+      "timeout_seconds": 35,
+      "exit_code": 0,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\invalid.bib\n找到 2 个引用条目\n\n开始验证引用...\n[1/2] 验证 bad... ❌\n[2/2] 验证 bad... ❌\n\n============================================================\n验证摘要\n============================================================\n总引用数: 2\n✅ 验证通过: 0 (0.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 0 (0.0%)\n============================================================\n\n详细结果:\n\n[bad]\n  状态: 仅格式检查\n  匹配分数: 0.00\n  格式错误: 缺少必填字段: author, 缺少必填字段: title, 缺少必填字段: journal, 年份格式错误: 20x0, DOI 格式错误: invalid\n\n[bad]\n  状态: 仅格式检查\n  匹配分数: 0.00\n\n\n报告已保存到: <temp>\\invalid.bib.report.md\n",
+      "stderr": "",
+      "report_contains_format_errors": false
+    },
+    {
+      "test": "verify-api-rag-correct",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\rag-correct.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "exit_code": null,
+      "timed_out": true,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\rag-correct.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 rag-correct... arXiv API 错误: 'Search' object has no attribute 'results'\n",
+      "stderr": ""
+    },
+    {
+      "test": "verify-api-self-rag-correct",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\self-rag-correct.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "exit_code": null,
+      "timed_out": true,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\self-rag-correct.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 self-rag-correct... arXiv API 错误: 'Search' object has no attribute 'results'\n",
+      "stderr": ""
+    },
+    {
+      "test": "verify-api-arxiv2-rag-correct",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\rag-correct.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "pythonpath_order": [
+        "<temp>/compat-deps",
+        "<temp>/deps"
+      ],
+      "exit_code": 0,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\rag-correct.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 rag-correct... ✅\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 1 (100.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 0 (0.0%)\n============================================================\n\n详细结果:\n\n[rag-correct]\n  状态: ✅ 验证通过 - 信息完全匹配\n  匹配分数: 1.00\n  验证源: arxiv\n\n",
+      "stderr": "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py:266: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead\n  paper = next(search.results())\n"
+    },
+    {
+      "test": "verify-api-arxiv2-self-rag-correct",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\self-rag-correct.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "pythonpath_order": [
+        "<temp>/compat-deps",
+        "<temp>/deps"
+      ],
+      "exit_code": 0,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\self-rag-correct.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 self-rag-correct... ✅\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 1 (100.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 0 (0.0%)\n============================================================\n\n详细结果:\n\n[self-rag-correct]\n  状态: ✅ 验证通过 - 信息完全匹配\n  匹配分数: 1.00\n  验证源: arxiv\n\n",
+      "stderr": "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py:266: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead\n  paper = next(search.results())\n"
+    },
+    {
+      "test": "verify-api-arxiv2-deliberate-mismatch",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\mismatch.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "pythonpath_order": [
+        "<temp>/compat-deps",
+        "<temp>/deps"
+      ],
+      "fixture": "Self-RAG metadata with RAG eprint; deliberately wrong",
+      "exit_code": 1,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\mismatch.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 deliberate-mismatch... ❌\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 0 (0.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 1 (100.0%)\n============================================================\n\n详细结果:\n\n[deliberate-mismatch]\n  状态: ❌ 验证失败 - 信息严重不匹配或论文不存在\n  匹配分数: 0.13\n  验证源: arxiv\n\n",
+      "stderr": "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py:266: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead\n  paper = next(search.results())\n"
+    },
+    {
+      "test": "credential-isolated-api-rag-correct",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\rag-correct.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "pythonpath_order": [
+        "<temp>/compat-deps",
+        "<temp>/deps"
+      ],
+      "credential_environment": "allowlisted Windows process variables; home/config/netrc redirected to new empty temp directory; no API key variables passed",
+      "exit_code": 0,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\rag-correct.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 rag-correct... ✅\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 1 (100.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 0 (0.0%)\n============================================================\n\n详细结果:\n\n[rag-correct]\n  状态: ✅ 验证通过 - 信息完全匹配\n  匹配分数: 1.00\n  验证源: arxiv\n\n",
+      "stderr": "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py:266: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead\n  paper = next(search.results())\n"
+    },
+    {
+      "test": "credential-isolated-api-self-rag-correct",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\self-rag-correct.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "pythonpath_order": [
+        "<temp>/compat-deps",
+        "<temp>/deps"
+      ],
+      "credential_environment": "allowlisted Windows process variables; home/config/netrc redirected to new empty temp directory; no API key variables passed",
+      "exit_code": 0,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\self-rag-correct.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 self-rag-correct... ✅\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 1 (100.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 0 (0.0%)\n============================================================\n\n详细结果:\n\n[self-rag-correct]\n  状态: ✅ 验证通过 - 信息完全匹配\n  匹配分数: 1.00\n  验证源: arxiv\n\n",
+      "stderr": "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py:266: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead\n  paper = next(search.results())\n"
+    },
+    {
+      "test": "credential-isolated-api-mismatch",
+      "command": [
+        "<user-home>\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py",
+        "<temp>\\mismatch.bib",
+        "--api-only",
+        "--verbose"
+      ],
+      "timeout_seconds": 35,
+      "pythonpath_order": [
+        "<temp>/compat-deps",
+        "<temp>/deps"
+      ],
+      "credential_environment": "allowlisted Windows process variables; home/config/netrc redirected to new empty temp directory; no API key variables passed",
+      "exit_code": 1,
+      "stdout": "正在加载 BibTeX 文件: <temp>\\mismatch.bib\n找到 1 个引用条目\n\n开始验证引用...\n[1/1] 验证 deliberate-mismatch... ❌\n\n============================================================\n验证摘要\n============================================================\n总引用数: 1\n✅ 验证通过: 0 (0.0%)\n⚠️  部分匹配: 0 (0.0%)\n❌ 匹配度低: 0 (0.0%)\n❌ 验证失败: 1 (100.0%)\n============================================================\n\n详细结果:\n\n[deliberate-mismatch]\n  状态: ❌ 验证失败 - 信息严重不匹配或论文不存在\n  匹配分数: 0.13\n  验证源: arxiv\n\n",
+      "stderr": "<repo>\\modules\\idea-discovery\\05_ClaudeScholar\\upstream_codex\\skills\\citation-verification\\scripts\\verify-citations.py:266: DeprecationWarning: The 'Search.results' method is deprecated, use 'Client.results' instead\n  paper = next(search.results())\n"
+    }
+  ],
+  "dependency_retry": {
+    "install_scope": "new temporary target directory, no global site-packages installation",
+    "pip_exit_code": 0,
+    "direct_packages": [
+      "bibtexparser==1.4.3",
+      "arxiv",
+      "semanticscholar"
+    ],
+    "resolved_versions": {
+      "anyio": "4.15.1",
+      "arxiv": "4.0.1",
+      "bibtexparser": "1.4.3",
+      "certifi": "2026.10.19",
+      "charset-normalizer": "3.5.2",
+      "h11": "0.16.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "idna": "3.20",
+      "lxml": "6.1.3",
+      "pyparsing": "3.3.3",
+      "requests": "2.34.2",
+      "semanticscholar": "0.12.0",
+      "tenacity": "9.2.1",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.8.0"
+    },
+    "fixture_bibtex_exported_from_authority": false,
+    "fixtures": {
+      "valid.bib": "@misc{good, title={Synthetic format fixture}, author={Test, Alice}, year={2020}}\n",
+      "invalid.bib": "@article{bad, year={20x0}, doi={invalid}}\n@misc{bad, title={Duplicate test key}}\n"
+    },
+    "online_fixture_source": "Metadata from claudescholar-citation-results.json, serialized to test BibTeX; not a canonical BibTeX export"
+  },
+  "compatibility_retry": {
+    "install_scope": "second temporary target, placed before initial dependency directory",
+    "pip_exit_code": 0,
+    "requested_package": "arxiv==2.1.3",
+    "resolved_versions": {
+      "arxiv": "2.1.3",
+      "certifi": "2026.10.19",
+      "charset-normalizer": "3.5.2",
+      "feedparser": "6.0.14",
+      "feedparser-sgmllib": "2.1.0",
+      "idna": "3.20",
+      "requests": "2.32.5",
+      "urllib3": "2.8.0"
+    },
+    "full_workflow_tested": false
+  },
+  "credential_isolation": {
+    "recheck_count": 3,
+    "inherited_environment_names": [
+      "SystemRoot",
+      "WINDIR",
+      "COMSPEC",
+      "PATH",
+      "TEMP",
+      "TMP"
+    ],
+    "home_and_config_directories": "new empty temporary directory",
+    "netrc": "explicit nonexistent path under temporary directory",
+    "api_key_environment_passed": false,
+    "private_credentials_inspected": false,
+    "initial_runs": "Inherited normal process environment; automatic network library credential lookup was not traced. Final three reruns use the isolated environment."
+  }
+}
