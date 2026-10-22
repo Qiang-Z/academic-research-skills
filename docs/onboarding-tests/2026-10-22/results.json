@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "baseline_revision": "e8a286c2594efd1cbacbf9f4268e61b0ed73e997",
+  "execution": "bounded host text responses, recorded by one fresh worker context per card and phase; cases within each context sequential",
+  "cases_file": "cases.json",
+  "cards": [
+    {
+      "path": "prompts/read-paper.md",
+      "baseline_sha256": "3743fcc20c86ec66face160b4f604cbea0c233bbb2c15be6c755722551fb289d",
+      "retest_sha256": "021e85f6d478995c6c38e787fc6807815caf1a64b8b93272e6e4edc0dac4fc44",
+      "baseline_report": "read-paper-baseline.md",
+      "retest_report": "read-paper-retest.md",
+      "ready_example_matches_report_input_after_newline_normalization": true
+    },
+    {
+      "path": "prompts/develop-idea.md",
+      "baseline_sha256": "7dc8b045abb21465025a840cf30bad4a8e27ea91f34b6bd59a741e14bb0edd49",
+      "retest_sha256": "88cab9ca9f9526557ce8e2d5639dd33774f1fa4c13b664cea24f31662442ea8a",
+      "baseline_report": "develop-idea-baseline.md",
+      "retest_report": "develop-idea-retest.md",
+      "ready_example_matches_report_input_after_newline_normalization": true
+    },
+    {
+      "path": "prompts/polish-text.md",
+      "baseline_sha256": "b3037c11f019cf8daf2cd15c3d9b73662f7264c33582f669583f5b454a0e5972",
+      "retest_sha256": "d0e520b0898799d4d2bc0e74dc12e147ed59a481cf9359a5594b7953c9f095d4",
+      "baseline_report": "polish-text-baseline.md",
+      "retest_report": "polish-text-retest.md",
+      "ready_example_matches_report_input_after_newline_normalization": true
+    }
+  ],
+  "summary": {
+    "baseline_responses": 9,
+    "retest_responses": 12,
+    "retest_content_deliveries": 7,
+    "retest_expected_material_requests": 3,
+    "retest_expected_clarification_requests": 1,
+    "retest_simulated_fallback_responses": 1
+  },
+  "baseline_results": [
+    {
+      "id": "R1",
+      "outcome": "delivered"
+    },
+    {
+      "id": "R2",
+      "outcome": "needs_material"
+    },
+    {
+      "id": "R3",
+      "outcome": "simulated_fallback"
+    },
+    {
+      "id": "I1",
+      "outcome": "delivered_with_friction"
+    },
+    {
+      "id": "I2",
+      "outcome": "friction_unscoped_suggestions"
+    },
+    {
+      "id": "I3",
+      "outcome": "needs_material"
+    },
+    {
+      "id": "P1",
+      "outcome": "delivered_with_friction"
+    },
+    {
+      "id": "P2",
+      "outcome": "delivered"
+    },
+    {
+      "id": "P3",
+      "outcome": "needs_material"
+    }
+  ],
+  "retest_results": [
+    {
+      "id": "R0",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "R1",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "R2",
+      "outcome": "needs_material",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "R3",
+      "outcome": "simulated_fallback",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "I0",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "I1",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "I2",
+      "outcome": "needs_clarification",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "I3",
+      "outcome": "needs_material",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "P0",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "P1",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "P2",
+      "outcome": "delivered",
+      "meets_case_expectations": true
+    },
+    {
+      "id": "P3",
+      "outcome": "needs_material",
+      "meets_case_expectations": true
+    }
+  ],
+  "scope_limits": {
+    "human_user_study": false,
+    "live_browser_or_account_test": false,
+    "upstream_code_executed": false,
+    "network_or_installation_performed": false,
+    "full_upstream_workflow_verified": false,
+    "ready_examples_reuse_material_from": [
+      "R1",
+      "I1",
+      "P1"
+    ],
+    "claims": "The recorded responses meet the listed case checks; missing/unclear inputs are not counted as completed content tasks."
+  }
+}

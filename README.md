@@ -27,7 +27,7 @@
 | 整理一个研究想法 | 一个兴趣、困惑或观察 | [复制想法任务卡](prompts/develop-idea.md) |
 | 改好一段学术文字 | 一段中文或英文原稿 | [复制文字任务卡](prompts/polish-text.md) |
 
-任务卡里只需填自己的材料，先在对话中看结果。助手会选择所需技能；需要保存、联网或运行代码时，再补充相关条件。
+每张任务卡都带有可直接复制的练习样例。先在对话中试一次，再把材料换成自己的；助手会选择所需技能，需要保存、联网或运行代码时再补充条件。
 
 ## 第一次完成后，再往前走一步
 
@@ -58,7 +58,7 @@
 
 文献模块有部分实测，实验模块本轮验证仍在进行；完整上游工作流尚未全部验证。按[运行状态](docs/RUNTIME_STATUS.md)查看具体范围。
 
-[来源与许可](THIRD_PARTY_NOTICES.md) · [研究交接](docs/RESEARCH_WORKFLOW.md) · [证据检查](docs/EVIDENCE_CHECKS.md) · [收录规范](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) · [发布说明](docs/PUBLISH.md)
+[来源与许可](THIRD_PARTY_NOTICES.md) · [研究交接](docs/RESEARCH_WORKFLOW.md) · [证据检查](docs/EVIDENCE_CHECKS.md) · [收录规范](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) · [任务卡实测](docs/onboarding-tests/2026-10-22/README.md) · [发布说明](docs/PUBLISH.md)
 
 维护者可运行 `python3 scripts/verify_bundle.py`（Windows：`py -3.12 scripts/verify_bundle.py`）核对发布清单、摘要及来源。上游快照保持原目录和原文件；本轮整理日期为 2026-10-22。
 

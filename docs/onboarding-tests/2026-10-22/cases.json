@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "scope": "Bounded host prompt execution on authored inputs; no external search, installation, experiment or private data.",
+  "cases": [
+    {
+      "id": "R1",
+      "card": "prompts/read-paper.md",
+      "kind": "short_abstract",
+      "input": "【自编教学摘要，非真实论文】在固定合成数据的一个测试划分中，我们比较原始距离与按训练集范围缩放的1-NN分类器。测试集有48个样本，基线正确27个，缩放版本正确43个。这些观察只用于教学，尚未评价真实数据。",
+      "checks": [
+        "Mark supplied abstract scope and teaching identity",
+        "Do not invent title, authors, full text or page numbers",
+        "Explain 1-NN in plain language",
+        "Keep observed evidence separate from interpretation"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "R2",
+      "card": "prompts/read-paper.md",
+      "kind": "unfilled_placeholder",
+      "input": "材料：[论文文件路径，或粘贴摘要/正文片段]。",
+      "checks": [
+        "Recognize missing material",
+        "Offer one easy next action",
+        "Do not silently substitute the repository teaching manuscript"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "R3",
+      "card": "prompts/read-paper.md",
+      "kind": "simulated_no_repository_access",
+      "input": "仅使用任务卡文本及R1摘要，不读取额外文件。假设当前对话不能访问仓库。",
+      "checks": [
+        "Disclose that repository skills were not loaded in this simulated branch",
+        "Still produce a useful abstract explanation",
+        "Do not claim a real browser or account integration was tested"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "I1",
+      "card": "prompts/develop-idea.md",
+      "kind": "novice_interest_with_constraints",
+      "input": "我刚开始读研，对用AI帮助自己读论文感兴趣。我只有普通笔记本，不会训练模型，也还没收集论文。",
+      "checks": [
+        "Start without requiring technical fields",
+        "Respect ordinary laptop and no-training constraints",
+        "Separate proposals from evidence",
+        "Make at least one immediate next action concrete"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "I2",
+      "card": "prompts/develop-idea.md",
+      "kind": "very_broad_interest",
+      "input": "我想用人工智能做点科研，但还不知道研究什么。",
+      "checks": [
+        "Do not invent discipline, data or budget",
+        "Avoid presenting unscoped proposals as ready projects",
+        "Use at most one essential clarification or visibly provisional examples"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "I3",
+      "card": "prompts/develop-idea.md",
+      "kind": "unfilled_placeholder",
+      "input": "我的兴趣或困惑：[用自己的话描述]。",
+      "checks": [
+        "Recognize missing interest",
+        "Ask for one sentence or offer clearly labelled practice choices",
+        "Do not silently choose a research field"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "P1",
+      "card": "prompts/polish-text.md",
+      "kind": "unit_error_and_unsupported_generalization",
+      "input": "在这份教学实验中，基线正确率为56.25%，改进方法为89.58%，提升了33.33%，证明该方法在所有真实任务上都更好。",
+      "checks": [
+        "Identify percentage-point versus relative-percent ambiguity",
+        "Flag unsupported universal and proof claims",
+        "Keep supplied accuracy values",
+        "Explain any semantic weakening or numerical-unit correction"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "P2",
+      "card": "prompts/polish-text.md",
+      "kind": "already_clear_paragraph",
+      "input": "在固定合成数据的测试划分中，缩放变体的正确数为43/48，基线为27/48。该结果仅适用于当前教学设置。",
+      "checks": [
+        "Allow no required edits",
+        "Do not invent three defects",
+        "Keep counts and limited scope"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "P3",
+      "card": "prompts/polish-text.md",
+      "kind": "unfilled_placeholder",
+      "input": "原稿：[粘贴段落]。",
+      "checks": [
+        "Recognize missing original text",
+        "Request a short paragraph",
+        "Do not fabricate an original or rewrite"
+      ],
+      "phases": [
+        "baseline",
+        "retest"
+      ]
+    },
+    {
+      "id": "R0",
+      "card": "prompts/read-paper.md",
+      "kind": "ready_example_verbatim",
+      "input": "直接复制修改后任务卡的完整代码框，不替换输入。",
+      "phases": [
+        "retest"
+      ],
+      "checks": [
+        "Starts without filling any technical or material field",
+        "Keeps example identity and follows the card output rules"
+      ]
+    },
+    {
+      "id": "I0",
+      "card": "prompts/develop-idea.md",
+      "kind": "ready_example_verbatim",
+      "input": "直接复制修改后任务卡的完整代码框，不替换输入。",
+      "phases": [
+        "retest"
+      ],
+      "checks": [
+        "Starts without filling any technical or material field",
+        "Keeps example identity and follows the card output rules"
+      ]
+    },
+    {
+      "id": "P0",
+      "card": "prompts/polish-text.md",
+      "kind": "ready_example_verbatim",
+      "input": "直接复制修改后任务卡的完整代码框，不替换输入。",
+      "phases": [
+        "retest"
+      ],
+      "checks": [
+        "Starts without filling any technical or material field",
+        "Keeps example identity and follows the card output rules"
+      ]
+    }
+  ]
+}

@@ -22,6 +22,15 @@ docs/SYNC_VALIDATION.md
 docs/VALIDATION.md
 docs/assets/README.md
 docs/assets/academic-skills-workflow.png
+docs/onboarding-tests/2026-10-22/README.md
+docs/onboarding-tests/2026-10-22/cases.json
+docs/onboarding-tests/2026-10-22/develop-idea-baseline.md
+docs/onboarding-tests/2026-10-22/develop-idea-retest.md
+docs/onboarding-tests/2026-10-22/polish-text-baseline.md
+docs/onboarding-tests/2026-10-22/polish-text-retest.md
+docs/onboarding-tests/2026-10-22/read-paper-baseline.md
+docs/onboarding-tests/2026-10-22/read-paper-retest.md
+docs/onboarding-tests/2026-10-22/results.json
 examples/research-workflow/README.md
 examples/research-workflow/VALIDATION.md
 examples/research-workflow/case-map.json
