@@ -205,6 +205,8 @@
     "continuous_example": "examples/research-workflow/README.md",
     "beginner_tasks": "prompts/README.md",
     "skill_catalog": "docs/SKILL_CATALOG.md",
-    "beginner_validation": "docs/onboarding-tests/2026-10-22/README.md"
+    "beginner_validation": "docs/onboarding-tests/2026-10-22/README.md",
+    "starter_pipeline": "workflows/research-starter/README.md",
+    "skill_discovery": "docs/discovery/2026-10-22/README.md"
   }
 }

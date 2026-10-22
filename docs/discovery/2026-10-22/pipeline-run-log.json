@@ -1,0 +1,26 @@
+[
+  {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "Created 4 output files; 3 seeds x 3 conditions. No network or upstream code used.",
+    "step": "experiment"
+  },
+  {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "Created 4 analysis files: all seeds/conditions retained; one fixed-seed paired bootstrap. Teaching only.",
+    "step": "analysis"
+  },
+  {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "Created 6 figure artifacts from verified inputs; no upstream skill workflow executed.",
+    "step": "figures"
+  },
+  {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "PASS: figure provenance, hashes, plotted data and file formats; visual/scientific review is separate.",
+    "step": "figure verification"
+  }
+]

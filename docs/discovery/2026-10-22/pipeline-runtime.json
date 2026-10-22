@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "scope": "Original teaching workflow execution, independent CSV recount, and two negative input checks. Literature sourcing and a new report are recorded separately by the parent task.",
+  "run_directory_logical_name": "ars-starter-pipeline-20261022-1ca876a0",
+  "environment": {
+    "python": "3.12.10",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.4",
+    "dependencies": "Reused previously isolated figure dependencies via process-scoped PYTHONPATH; no new package installation or global setting change."
+  },
+  "commands": [
+    {
+      "step": "default_workflow",
+      "argv": [
+        "examples/research-workflow/run_workflow.py",
+        "--output",
+        "$RUN_DIR"
+      ],
+      "exit_code": 0,
+      "stdout": "experiment: PASS\nanalysis: PASS\nfigures: PASS\nfigure verification: PASS\nTeaching chain completed. Authored documents indexed; no real peer review, Zotero sync or submission performed.\n",
+      "stderr": ""
+    },
+    {
+      "step": "workflow_verifier",
+      "argv": [
+        "examples/research-workflow/verify_workflow.py",
+        "--input",
+        "$RUN_DIR"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: complete teaching artifact chain and authored document versions checked. Scientific interpretation and external workflows remain separate.\n",
+      "stderr": ""
+    }
+  ],
+  "independent_recount": {
+    "status": "passed",
+    "input": "experiment/runs.json",
+    "csv_rows": 864,
+    "csv_sha256": "21b8001241e96227ad226ffc436e358c0a72f8bdb49e6d0cae32d78148e11881",
+    "groups": [
+      {
+        "split_seed": 11,
+        "condition": "raw_1nn",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 27,
+        "accuracy": 0.5625
+      },
+      {
+        "split_seed": 11,
+        "condition": "raw_1nn",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 30,
+        "accuracy": 0.625
+      },
+      {
+        "split_seed": 11,
+        "condition": "scaled_1nn",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 43,
+        "accuracy": 0.8958333333333334
+      },
+      {
+        "split_seed": 11,
+        "condition": "scaled_1nn",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 39,
+        "accuracy": 0.8125
+      },
+      {
+        "split_seed": 11,
+        "condition": "scaled_1nn_without_x0",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 22,
+        "accuracy": 0.4583333333333333
+      },
+      {
+        "split_seed": 11,
+        "condition": "scaled_1nn_without_x0",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 25,
+        "accuracy": 0.5208333333333334
+      },
+      {
+        "split_seed": 23,
+        "condition": "raw_1nn",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 33,
+        "accuracy": 0.6875
+      },
+      {
+        "split_seed": 23,
+        "condition": "raw_1nn",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 27,
+        "accuracy": 0.5625
+      },
+      {
+        "split_seed": 23,
+        "condition": "scaled_1nn",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 44,
+        "accuracy": 0.9166666666666666
+      },
+      {
+        "split_seed": 23,
+        "condition": "scaled_1nn",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 41,
+        "accuracy": 0.8541666666666666
+      },
+      {
+        "split_seed": 23,
+        "condition": "scaled_1nn_without_x0",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 26,
+        "accuracy": 0.5416666666666666
+      },
+      {
+        "split_seed": 23,
+        "condition": "scaled_1nn_without_x0",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 25,
+        "accuracy": 0.5208333333333334
+      },
+      {
+        "split_seed": 47,
+        "condition": "raw_1nn",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 34,
+        "accuracy": 0.7083333333333334
+      },
+      {
+        "split_seed": 47,
+        "condition": "raw_1nn",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 31,
+        "accuracy": 0.6458333333333334
+      },
+      {
+        "split_seed": 47,
+        "condition": "scaled_1nn",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 42,
+        "accuracy": 0.875
+      },
+      {
+        "split_seed": 47,
+        "condition": "scaled_1nn",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 41,
+        "accuracy": 0.8541666666666666
+      },
+      {
+        "split_seed": 47,
+        "condition": "scaled_1nn_without_x0",
+        "evaluation_split": "test",
+        "n": 48,
+        "correct": 27,
+        "accuracy": 0.5625
+      },
+      {
+        "split_seed": 47,
+        "condition": "scaled_1nn_without_x0",
+        "evaluation_split": "validation",
+        "n": 48,
+        "correct": 25,
+        "accuracy": 0.5208333333333334
+      }
+    ],
+    "seed_11_pairing": {
+      "n_pairs": 48,
+      "gained": 18,
+      "lost": 2,
+      "both_correct": 25,
+      "both_wrong": 3,
+      "point_difference_pp": 33.33333333333333
+    },
+    "code": "import csv, json\nfrom collections import defaultdict\nfrom pathlib import Path\n# Supply run_dir (original workflow output) and csv_path (a new sibling file).\nruns = json.loads((run_dir / 'experiment/runs.json').read_bytes())\nanalysis = json.loads((run_dir / 'analysis/analysis.json').read_bytes())\nfields = ['split_seed','condition','evaluation_split','sample_id','target','prediction']\nwith csv_path.open('x',encoding='utf-8',newline='') as stream:\n    writer=csv.DictWriter(stream,fieldnames=fields); writer.writeheader()\n    for run in runs:\n        for condition in run['conditions']:\n            for part in ('validation','test'):\n                for item in condition[part]['predictions']:\n                    writer.writerow(dict(split_seed=run['split_seed'],condition=condition['condition'],evaluation_split=part,**item))\nwith csv_path.open(encoding='utf-8',newline='') as stream:\n    records=list(csv.DictReader(stream))\nassert len(records)==864\nby_group=defaultdict(dict)\nfor row in records:\n    key=(int(row['split_seed']),row['condition'],row['evaluation_split'])\n    sample_id=int(row['sample_id']); assert sample_id not in by_group[key]\n    by_group[key][sample_id]=(int(row['target']),int(row['prediction']))\nassert len(by_group)==18\nrecount_rows=[]\nfor (seed,condition,part),pairs in sorted(by_group.items()):\n    correct=sum(target==prediction for target,prediction in pairs.values())\n    assert len(pairs)==48\n    stored=next(c[part] for r in runs if r['split_seed']==seed for c in r['conditions'] if c['condition']==condition)\n    derived=next(x for x in analysis['descriptive_rows'] if x['split_seed']==seed and x['condition']==condition and x['evaluation_split']==part)\n    assert stored['n']==derived['n']==len(pairs)\n    assert stored['correct']==derived['correct']==correct\n    assert stored['accuracy']==derived['accuracy']==correct/len(pairs)\n    recount_rows.append(dict(split_seed=seed,condition=condition,evaluation_split=part,n=len(pairs),correct=correct,accuracy=correct/len(pairs)))\na=by_group[(11,'raw_1nn','test')]; b=by_group[(11,'scaled_1nn','test')]\nassert set(a)==set(b)\ngained=lost=both_correct=both_wrong=0\nfor sample_id,(target,prediction) in a.items():\n    other_target,other_prediction=b[sample_id]; assert target==other_target\n    ac=target==prediction; bc=target==other_prediction\n    gained += not ac and bc; lost += ac and not bc\n    both_correct += ac and bc; both_wrong += not ac and not bc\nindependent_pairing=dict(n_pairs=len(a),gained=gained,lost=lost,both_correct=both_correct,both_wrong=both_wrong,point_difference_pp=(gained-lost)/len(a)*100)\nassert abs(independent_pairing['point_difference_pp']-analysis['paired_bootstrap']['point_difference_pp'])<1e-12\n",
+    "code_sha256": "eb98471486a828effae71d728ccaa7878f5b0b9eaa36a95cf11d814a727783a5",
+    "scope": "CSV serialization and independent standard-library counts, sample pairing and metric comparison; no generator or analyzer functions imported, no independent algorithm correctness or CI regeneration claim."
+  },
+  "analysis_observed": {
+    "baseline": "raw_1nn",
+    "comparison": "scaled_1nn",
+    "confidence_level": 0.95,
+    "evaluation_split": "test",
+    "interval_method": "percentile-linear",
+    "interval_pp": [
+      18.75,
+      47.916666666666664
+    ],
+    "n_pairs": 48,
+    "point_difference_pp": 33.333333333333336,
+    "random_seed": 20261022,
+    "resamples": 5000,
+    "split_seed": 11
+  },
+  "negative_checks": {
+    "fixture_change": {
+      "split_seed": 11,
+      "condition": "raw_1nn",
+      "evaluation_split": "test",
+      "sample_id": 118,
+      "target": 1,
+      "original_prediction": 1,
+      "modified_prediction": 0
+    },
+    "logs": [
+      {
+        "step": "tampered_prediction_original_hash",
+        "argv": [
+          "modules/experiment-design/examples/toy-reproducibility/verify_demo.py",
+          "$RUN_DIR-tampered-experiment"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Verification failed: Artifact hash mismatch: runs.json\n"
+      },
+      {
+        "step": "tampered_prediction_rehashed_fixture",
+        "argv": [
+          "modules/experiment-design/examples/toy-reproducibility/verify_demo.py",
+          "$RUN_DIR-tampered-experiment"
+        ],
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Verification failed: Prediction differs from recorded method\n"
+      }
+    ],
+    "status": "both_rejected_as_expected",
+    "original_artifacts_unchanged": true,
+    "scope": "First rejects byte mismatch; second updates only the intentionally corrupted fixture manifest to test semantic prediction checking. The real run is never altered."
+  },
+  "source_sha256": {
+    "examples/research-workflow/run_workflow.py": "9b2da831a0463f3825bd403a36010f4ce7b68a4227387e28eaad6bc8a543cde6",
+    "examples/research-workflow/verify_workflow.py": "3b64c35874825c9b8dd81cb11638ec396023709584e39d2368b0cbae4464f672",
+    "examples/research-workflow/case-map.json": "a434bfe3b3823f38a13cd39990f972231a2c4a7b3a213a3219e1d2e59e2ef3ad",
+    "modules/experiment-design/examples/toy-reproducibility/run_demo.py": "f6ad6aaa5a1aef2e1367e8a0f9b41b7eacc6a2ecfe47c74e1dee544409a38b17",
+    "modules/experiment-design/examples/toy-reproducibility/verify_demo.py": "7dcbb6643c068c81f67622ff12a302e46a1d692af3aa14441115938e3957682e",
+    "modules/experiment-design/examples/toy-reproducibility/protocol.json": "09cc380edfb40570ed647e9caf53a90a8356f34258831a8002bdbe5ae349319d",
+    "modules/data-analysis/examples/paired-analysis/analyze_demo.py": "aff573729accfcf5e229281836d55261325f274d380b4aef10467ece0ff1aa8f",
+    "modules/data-analysis/examples/paired-analysis/verify_analysis.py": "20844a3a529a786e01be57c63753d11f9d87ce37b3defc899c8e0eff890963aa",
+    "modules/data-analysis/examples/paired-analysis/analysis_protocol.json": "4e935c10c0290efb14ae663c25e5199cc0462eda06fe54136bd9c1d9f3967157",
+    "modules/academic-figures/examples/plot_results.py": "518f36a8ae2151de1dc80ded9d098caf50fa5c36f298e0f81c76c5bfe21766c1",
+    "modules/academic-figures/examples/verify_figures.py": "2d10bbbea45aae230c0289dc4d8101edb368d2f16f5565200dfe6a9cb7d13506",
+    "modules/academic-figures/examples/requirements.txt": "24f61dfd7fc051bcf610fd6cf295d7c7843c79324999aa40f8221afff73f6599"
+  },
+  "artifact_sha256": {
+    "handoff.json": "d76eb72423a740e3863a3a0a19cf60f813eb326293dcdd2a2b34ef2a91ee48a7",
+    "run-log.json": "291082432db9fd121893a0f1c24a400bad9c7780283578560f461fa89ac55217",
+    "analysis/analysis.json": "b2fa4ed155337da6e8e337bfde23186d842c80efda2b1a5db5b214bed3c7d8c0",
+    "analysis/analysis_protocol.json": "4e935c10c0290efb14ae663c25e5199cc0462eda06fe54136bd9c1d9f3967157",
+    "analysis/input_manifest.json": "fd4b5e2629580d6773526f3fb672eb10e8ff87ff0ab8f9c590f7fdc9fd9f2256",
+    "analysis/manifest.json": "ba502ffd964d0c0edc485939f4263d304c7268fd1b3d539614cc2e82c00bb1c6",
+    "experiment/dataset.json": "82d74fb1ce7390636bb2fb2b56ee171cf3de68564e75ab86be742d2c0b127ec3",
+    "experiment/manifest.json": "fd4b5e2629580d6773526f3fb672eb10e8ff87ff0ab8f9c590f7fdc9fd9f2256",
+    "experiment/protocol.json": "09cc380edfb40570ed647e9caf53a90a8356f34258831a8002bdbe5ae349319d",
+    "experiment/runs.json": "62a795aac1134c9caf6760447bcb758dadbcb585fbdccfda36977d3a229179e4",
+    "figures/caption.md": "fda79086f58b31f661f0e146767c3130f4b3f5b0320dcc315f824a6452e68d85",
+    "figures/comparison.pdf": "58ae6177a6c43155641bc0f4e454b5f94fb874c1e01cc693d080c0928c3fb08e",
+    "figures/comparison.png": "5beaaef48388e62be9e5a118aabacf72eeb00618ca541e906a908bdd1c183b82",
+    "figures/comparison.svg": "2162df648f423d77720639ca5b2e48420d00949ff49bb80f998be6614d67446d",
+    "figures/manifest.json": "bc405463c19c65e987d53c3fb3aa18a204fa748e42ab4e7a09741b6b41385d5a",
+    "figures/plotted-data.json": "9a82e1811acb892f44de68bfdbc3ffa6422bdee499955fc1f7c7e5998c28ce31"
+  },
+  "upstream_component_executed": false,
+  "full_upstream_workflow_validated": false,
+  "writing_review_knowledge": "Existing authored teaching documents were only indexed and version-checked by the runner. New host-authored report and literature evidence are outside this execution record.",
+  "not_covered": [
+    "True external dataset or reproduction of a published experiment",
+    "Scientific novelty, general effectiveness, preregistration or confirmatory inference",
+    "Independent reimplementation of nearest-neighbor predictions or bootstrap interval",
+    "Cross-platform repeatability or all dependency environments",
+    "New upstream skill installation, external reviewer backend, Zotero/Obsidian integration or real submission",
+    "Visual image inspection (to be recorded separately if performed by the parent)"
+  ]
+}

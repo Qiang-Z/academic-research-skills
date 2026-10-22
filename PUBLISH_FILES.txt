@@ -22,6 +22,18 @@ docs/SYNC_VALIDATION.md
 docs/VALIDATION.md
 docs/assets/README.md
 docs/assets/academic-skills-workflow.png
+docs/discovery/2026-10-22/README.md
+docs/discovery/2026-10-22/candidate-search.md
+docs/discovery/2026-10-22/component-probe.json
+docs/discovery/2026-10-22/component-probe.md
+docs/discovery/2026-10-22/pipeline-analysis.json
+docs/discovery/2026-10-22/pipeline-evidence.json
+docs/discovery/2026-10-22/pipeline-review.json
+docs/discovery/2026-10-22/pipeline-review.md
+docs/discovery/2026-10-22/pipeline-run-log.json
+docs/discovery/2026-10-22/pipeline-runtime.json
+docs/discovery/2026-10-22/pipeline-runtime.md
+docs/discovery/2026-10-22/pipeline-walkthrough.md
 docs/onboarding-tests/2026-10-22/README.md
 docs/onboarding-tests/2026-10-22/cases.json
 docs/onboarding-tests/2026-10-22/develop-idea-baseline.md
@@ -2214,3 +2226,4 @@ prompts/read-paper.md
 scripts/verify_bundle.py
 templates/module-template/README.md
 templates/module-template/module.json
+workflows/research-starter/README.md

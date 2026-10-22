@@ -1,0 +1,242 @@
+{
+  "tested_at": "2026-10-22",
+  "repository": "https://github.com/AlveeeRahman/research-hound",
+  "commit": "abf4bb77bfa9935977d7ed6ee6e277623a21ad2d",
+  "license": "MIT",
+  "runtime": {
+    "python": "3.12.10",
+    "implementation": "CPython",
+    "platform": "Windows",
+    "dependencies": "Python standard library only; no install performed"
+  },
+  "scope": "Offline structural audit of authored synthetic fixtures, not citation or semantic verification. verified flags below are fixture tokens only; no human attestation was made.",
+  "source_manifest_fixture": {
+    "fixture_only": true,
+    "human_verification_performed": false,
+    "sources": [
+      {
+        "evidence_id": "E001",
+        "verification": {
+          "status": "verified",
+          "source_opened": true
+        }
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "421049313e634ac4fcc4b94fb525a6a1534a5aca12a646e78128668f6b2ad8a2"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "f7de89e8033a70d0a14c228aa3c17f6a0d838aa576fa17604a3327f28edf313c"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "35552aaa5c2e1d5d57ade55cd20c7f787cf81152c892ca23397baa816d42a11b"
+    },
+    {
+      "path": "scripts/writing/audit_claims.py",
+      "sha256": "6457413cfdc12317852f35cecaacb3e11e821d25d5925125f1a9af886eeb6d9a"
+    },
+    {
+      "path": "scripts/writing/_common.py",
+      "sha256": "6032d14d0739c82918766f9fd19c703c3d6cf570543381b1fad7053cf22b32cb"
+    },
+    {
+      "path": "scripts/_shared/safe_io.py",
+      "sha256": "8e11ed29a582a879e6586017625185dde2bef88237fedf83e81c962660da3cf8"
+    },
+    {
+      "path": "assets/writing/claim_evidence_template.csv",
+      "sha256": "cfb7a9f44cd1e5ef47ccdb3e32ac0a25b72d30e51343faace9bf07c00e3a0659"
+    },
+    {
+      "path": "assets/writing/source_manifest_template.json",
+      "sha256": "fc6f65a8571b717691ac717f325825a608190f271e8b79650b711cc95f5b0a36"
+    },
+    {
+      "path": "references/writing/evidence_workflow.md",
+      "sha256": "fb125053c287cfffb6786727def0fb0a2c6d260a9e1d437add63e4fd458cc19a"
+    }
+  ],
+  "command_template": "python -B scripts/writing/audit_claims.py <case>/manuscript.md <case>/claims.csv probe/sources.json",
+  "cases": [
+    {
+      "case": "valid_registered_claim",
+      "input_manuscript": "In this authored fixture, 43 of 48 synthetic predictions were correct. [claim:C001] [evidence:E001]\n",
+      "claim_registry_row": {
+        "claim_id": "C001",
+        "section": "Results",
+        "claim_kind": "result",
+        "claim_text_sha256": "2f5dd43165280b203864ee9b7230938853ba943a31388722c78a807aca2e93c7",
+        "evidence_ids": "E001",
+        "verification_status": "verified",
+        "uncertainty": "not_estimated",
+        "analysis_intent": "descriptive"
+      },
+      "exit_code": 0,
+      "stdout_json": {
+        "issues": [],
+        "status": "pass",
+        "summary": {
+          "claims_registered": 1,
+          "claims_used": 1,
+          "errors": 0,
+          "sources_registered": 1,
+          "warnings": 0
+        },
+        "tool": "audit_claims"
+      },
+      "stderr": "",
+      "observed_interpretation": "valid_structure_accepted"
+    },
+    {
+      "case": "unknown_evidence",
+      "input_manuscript": "In this authored fixture, 43 of 48 synthetic predictions were correct. [claim:C001] [evidence:E999]\n",
+      "claim_registry_row": {
+        "claim_id": "C001",
+        "section": "Results",
+        "claim_kind": "result",
+        "claim_text_sha256": "2f5dd43165280b203864ee9b7230938853ba943a31388722c78a807aca2e93c7",
+        "evidence_ids": "E999",
+        "verification_status": "verified",
+        "uncertainty": "not_estimated",
+        "analysis_intent": "descriptive"
+      },
+      "exit_code": 1,
+      "stdout_json": {
+        "issues": [
+          {
+            "code": "UNKNOWN_CITATION_MARKER",
+            "item_id": "E999",
+            "location": "line:1",
+            "severity": "error"
+          },
+          {
+            "code": "UNKNOWN_CLAIM_EVIDENCE",
+            "item_id": "C001",
+            "severity": "error"
+          }
+        ],
+        "status": "fail",
+        "summary": {
+          "claims_registered": 1,
+          "claims_used": 1,
+          "errors": 2,
+          "sources_registered": 1,
+          "warnings": 0
+        },
+        "tool": "audit_claims"
+      },
+      "stderr": "",
+      "observed_interpretation": "broken_evidence_reference_detected"
+    },
+    {
+      "case": "untagged_numeric",
+      "input_manuscript": "In this authored fixture, 43 of 48 synthetic predictions were correct.\n",
+      "claim_registry_row": {
+        "claim_id": "C001",
+        "section": "Results",
+        "claim_kind": "result",
+        "claim_text_sha256": "2f5dd43165280b203864ee9b7230938853ba943a31388722c78a807aca2e93c7",
+        "evidence_ids": "E001",
+        "verification_status": "verified",
+        "uncertainty": "not_estimated",
+        "analysis_intent": "descriptive"
+      },
+      "exit_code": 1,
+      "stdout_json": {
+        "issues": [
+          {
+            "code": "UNTAGGED_NUMERIC_CONTENT",
+            "location": "line:1",
+            "severity": "error"
+          },
+          {
+            "code": "CLAIM_NOT_USED_IN_MANUSCRIPT",
+            "item_id": "C001",
+            "severity": "warning"
+          }
+        ],
+        "status": "fail",
+        "summary": {
+          "claims_registered": 1,
+          "claims_used": 0,
+          "errors": 1,
+          "sources_registered": 1,
+          "warnings": 1
+        },
+        "tool": "audit_claims"
+      },
+      "stderr": "",
+      "observed_interpretation": "untagged_numeric_content_detected"
+    },
+    {
+      "case": "changed_number_same_hash",
+      "input_manuscript": "In this authored fixture, 48 of 48 synthetic predictions were correct. [claim:C001] [evidence:E001]\n",
+      "claim_registry_row": {
+        "claim_id": "C001",
+        "section": "Results",
+        "claim_kind": "result",
+        "claim_text_sha256": "2f5dd43165280b203864ee9b7230938853ba943a31388722c78a807aca2e93c7",
+        "evidence_ids": "E001",
+        "verification_status": "verified",
+        "uncertainty": "not_estimated",
+        "analysis_intent": "descriptive"
+      },
+      "exit_code": 0,
+      "stdout_json": {
+        "issues": [],
+        "status": "pass",
+        "summary": {
+          "claims_registered": 1,
+          "claims_used": 1,
+          "errors": 0,
+          "sources_registered": 1,
+          "warnings": 0
+        },
+        "tool": "audit_claims"
+      },
+      "stderr": "",
+      "observed_interpretation": "known_gap_text_hash_not_recomputed"
+    },
+    {
+      "case": "unregistered_nonnumeric_claim",
+      "input_manuscript": "In this authored fixture, 43 of 48 synthetic predictions were correct. [claim:C001] [evidence:E001]\nThe method works better on every real task.\n",
+      "claim_registry_row": {
+        "claim_id": "C001",
+        "section": "Results",
+        "claim_kind": "result",
+        "claim_text_sha256": "2f5dd43165280b203864ee9b7230938853ba943a31388722c78a807aca2e93c7",
+        "evidence_ids": "E001",
+        "verification_status": "verified",
+        "uncertainty": "not_estimated",
+        "analysis_intent": "descriptive"
+      },
+      "exit_code": 0,
+      "stdout_json": {
+        "issues": [],
+        "status": "pass",
+        "summary": {
+          "claims_registered": 1,
+          "claims_used": 1,
+          "errors": 0,
+          "sources_registered": 1,
+          "warnings": 0
+        },
+        "tool": "audit_claims"
+      },
+      "stderr": "",
+      "observed_interpretation": "known_gap_unregistered_nonnumeric_claim_not_detected"
+    }
+  ],
+  "summary": {
+    "case_count": 5,
+    "valid_structure_cases": 1,
+    "detected_defect_cases": 2,
+    "undetected_defect_cases": 2,
+    "full_workflow_verified": false
+  }
+}

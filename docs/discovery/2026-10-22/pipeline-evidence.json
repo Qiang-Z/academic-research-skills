@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-22",
+  "topic": "特征尺度怎样影响最近邻分类：合成教学复跑",
+  "scope": "Bounded web discovery and selected section reading; not a systematic literature review or novelty search.",
+  "queries": [
+    "site:scikit-learn.org stable importance feature scaling nearest neighbors leakage train test",
+    "nearest neighbor pattern classification Cover Hart 1967 original paper"
+  ],
+  "selection": {
+    "include": "可打开的一手论文或官方技术文档；与最近邻定义、特征尺度或训练测试隔离直接相关。",
+    "exclude": "转载、维基、二手聚合条目和无对应主题证据的结果未进入证据表。",
+    "coverage": "只选取三个来源用于教学设计依据，不声称完整覆盖检索结果或保存系统综述筛选流水。"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Nearest Neighbor Pattern Classification",
+      "authors": ["T. M. Cover", "P. E. Hart"],
+      "year": 1967,
+      "venue": "IEEE Transactions on Information Theory 13(1), 21–27",
+      "url": "https://isl.stanford.edu/~cover/papers/transIT/0021cove.pdf",
+      "metadata_url": "https://isl.stanford.edu/people/cover/cover-papers.html",
+      "source_type": "original_paper_author_institution_copy",
+      "read_scope": "PDF 第1页（印刷页21）标题、摘要与引言；未审阅后续数学证明。",
+      "identity_check": "标题与两位作者从论文首页核对；作者机构出版目录列出年份、期刊、卷期页码。",
+      "locator": "印刷页21，摘要首句与 I. INTRODUCTION 中 NN rule 定义",
+      "supports": "最近邻分类按已标记样本中最近者的类别给新样本分类。",
+      "does_not_support": "本例缩放后的准确率、缩放总能提高表现或本例是新方法。",
+      "human_read_attestation": false
+    },
+    {
+      "id": "S2",
+      "title": "Importance of Feature Scaling",
+      "authors": ["The scikit-learn developers"],
+      "url": "https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html",
+      "source_type": "official_documentation",
+      "observed_version": "1.9.1",
+      "version_note": "stable 是可变地址，本轮记录访问日期及页面显示版本；不声称固定源代码快照。",
+      "read_scope": "简介、Load and prepare data、Effect of rescaling on a k-neighbors models 的说明与代码。",
+      "locator": "Effect of rescaling on a k-neighbors models，决策边界图后的解释段",
+      "identity_check": "scikit-learn 官方文档页面可打开并有标题与开发者署名。",
+      "supports": "量纲差异会影响距离及近邻结构，缩放会改变该示例的分类边界。",
+      "does_not_support": "原例是 Wine 的两个特征、k=20、StandardScaler；不等同于本库合成数据、k=1、按训练集极差缩放。未执行网页代码。",
+      "human_read_attestation": false
+    },
+    {
+      "id": "S3",
+      "title": "Common pitfalls and recommended practices",
+      "authors": ["The scikit-learn developers"],
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "source_type": "official_documentation",
+      "observed_version": "1.9.1",
+      "version_note": "stable 是可变地址，记录本次观察版本。",
+      "read_scope": "12.2 Data leakage 与 12.2.1 How to avoid data leakage。",
+      "locator": "12.2 中关于变换只从训练数据学习的段落；12.2.1 的先划分再拟合建议",
+      "identity_check": "scikit-learn 官方文档页面可打开，标题与章节一致。",
+      "supports": "先划分训练测试集，预处理参数只从训练数据学习，再对其他子集应用同一变换。",
+      "does_not_support": "文档本身不能证明本库代码已正确执行，也不验证本例数值。",
+      "human_read_attestation": false
+    }
+  ],
+  "source_vs_inference": "S1给定义、S2给动机、S3约束设计；合成实验数值由本轮实际运行产生，不能写成外部文献的结果。",
+  "missing": ["未完成相关研究的全面查新", "未精读S1证明", "未验证真实数据上的效果", "没有真人阅读签署"]
+}

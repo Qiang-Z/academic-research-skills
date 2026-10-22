@@ -65,6 +65,7 @@
 - 对一个词还不懂：继续解释它。
 - 想记下来：整理成一页阅读笔记，再保存到自己的研究目录。
 - 想找研究问题：转到[想法任务卡](../prompts/develop-idea.md)。
+- 想把读文献和一个小实验连起来：试[六步入门流程](../workflows/research-starter/README.md)。
 - 已经需要更多论文、真实实验或数据分析：再看[模块索引](../MODULE_INDEX.md)。
 
 <a id="faq"></a>

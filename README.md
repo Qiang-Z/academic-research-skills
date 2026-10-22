@@ -40,7 +40,7 @@
 | 稿件或审稿意见 | [检查稿件、准备逐条回复](modules/submission-rebuttal/USAGE.md) |
 | 越来越多的笔记和文件 | [建立项目记录与知识库](modules/research-knowledge/USAGE.md) |
 
-想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)；想实际运行代码时，再看[连续教学案例](examples/research-workflow/README.md)。
+想把阅读和实验连起来？试试[从问题到有证据的小报告](workflows/research-starter/README.md)，附已实跑案例。想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)。
 
 <details>
 <summary><strong>展开八个模块的全流程地图</strong></summary>

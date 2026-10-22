@@ -32,6 +32,8 @@
 
 ## 一条连续教学路径
 
+新手可从[六步入门 pipeline](../workflows/research-starter/README.md)开始：它在下方计算链之前补上同题公开证据与问题记录，之后根据本轮产物形成新短报告。[实测案例](discovery/2026-10-22/pipeline-walkthrough.md)明确区分来源阅读、原创程序运行、旧文档登记和宿主新写报告。
+
 [同一合成实验案例](../examples/research-workflow/README.md) 展示如下衔接：
 
 - 原创 CPU 实验生成一份合成数据、三个共享数据的划分、基线/缩放/消融及逐样本预测。

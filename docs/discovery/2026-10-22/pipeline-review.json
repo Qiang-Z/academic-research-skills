@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-22",
+  "reviewer": "Same-model-family agent in a fresh task context, not the document author",
+  "review_type": "Bounded read-only artifact review plus five direct response exercises",
+  "external_independent_scientific_review": false,
+  "human_attestation": false,
+  "new_experiment_execution": false,
+  "new_installation": false,
+  "external_sources_reopened": false,
+  "overall": "Core copyable path and evidence boundaries accepted within the stated scope; one minor failure-message defect found, then wording fixed and statically reread",
+  "checks": {
+    "descriptive_rows": 18,
+    "recorded_prediction_rows": 864,
+    "matching_recount_groups": 18,
+    "group_mismatches": 0,
+    "paired_observations": 48,
+    "baseline_correct": 27,
+    "scaled_correct": 43,
+    "gained": 18,
+    "lost": 2,
+    "bootstrap_histogram_total": 5000,
+    "analysis_saved_hash_matches_runtime": true,
+    "run_log_saved_hash_matches_runtime": true,
+    "recorded_source_hashes_matched": 12,
+    "local_relative_links_checked": 54,
+    "broken_local_file_targets": 0,
+    "external_urls_or_anchors_checked": false
+  },
+  "cases": [
+    {
+      "id": "A",
+      "input": "本例 split 11 缩放 43/48，基线 27/48。",
+      "judgment": "supported_with_scope",
+      "output": "支持这个有限观察：pipeline-analysis.json 的 descriptive_rows 中，test / split_seed 11 的 scaled_1nn 是 43/48，raw_1nn 是 27/48，即 89.58% 与 56.25%，差 33.33 个百分点。只能写成本次固定合成测试划分的结果；这不是相对提升 33.33%，也不代表真实任务或所有划分。",
+      "evidence": [
+        "pipeline-analysis.json:descriptive_rows test/11/scaled_1nn and raw_1nn",
+        "pipeline-runtime.json:independent_recount.seed_11_pairing"
+      ],
+      "stop_at": null
+    },
+    {
+      "id": "B",
+      "input": "本例 split 11 缩放 48/48。",
+      "judgment": "rejected_numeric_mismatch",
+      "output": "不支持，数字与产物冲突。test / split_seed 11 的 scaled_1nn 实际为 43/48，尚有 5 个错误，不能写成 48/48。应改为“本例 split 11 测试集中，缩放版正确 43/48（89.58%）”。即使结构审计返回 pass，也必须保留这次数字纠正。",
+      "evidence": [
+        "pipeline-analysis.json:descriptive_rows test/11/scaled_1nn",
+        "component-probe.json:changed_number_same_hash"
+      ],
+      "stop_at": "Step 5 numeric check; correct before Step 6"
+    },
+    {
+      "id": "C",
+      "input": "所有真实任务均更好。",
+      "judgment": "rejected_unsupported_generalization",
+      "output": "不支持。当前证据只覆盖一个为尺度教学构造的合成数据集和三个共享数据的固定划分，没有真实任务比较。可收窄为“在本例三个固定测试划分中，缩放版正确数均高于原始距离版”；若要讨论自己的真实任务，需另有数据、基线和实际运行证据。没有数字的句子也必须做此检查。",
+      "evidence": [
+        "pipeline-analysis.json:descriptive_rows test/11,23,47",
+        "pipeline-walkthrough.md:C2 and C4",
+        "component-probe.json:unregistered_nonnumeric_claim"
+      ],
+      "stop_at": "Step 6 semantic check; narrow claim or return to evidence/design"
+    },
+    {
+      "id": "D",
+      "input": "来源超时且没有内容。",
+      "judgment": "synthetic_state_stop_source_evidence",
+      "output": "停在第 2 步的该来源获取与支持核对，记录“获取失败/尚未读到内容”。不能称论文不存在、零命中、引用已验证或有正文支持。可保留问题及已有独立材料，但依赖这份来源的结论不能继续；下一步是重试、使用合法可读替代来源，或由用户提供正文。这是本次合成状态演练，没有制造或观察真实网络超时。",
+      "evidence": [
+        "workflows/research-starter/README.md:Step 2 and network timeout rule"
+      ],
+      "stop_at": "Step 2 for the unavailable source and dependent claims",
+      "synthetic_state": true,
+      "real_network_fault_tested": false
+    },
+    {
+      "id": "E",
+      "input": "没有运行产物。",
+      "judgment": "synthetic_state_stop_actual_execution",
+      "output": "停在第 4 步的实际运行与产物交接。问题、来源和计划可以保存，运行状态必须标“待执行”或“未取得产物”；不能进入本次结果分析、作图或声称得到 43/48。下一步是取得实际运行目录、日志、预测与必要配置，检查完整性后再进入第 5 步。已有教学数字只能作为已知示例注明引用。这是合成缺产物状态演练，本次审阅没有另开实验来制造故障。",
+      "evidence": [
+        "workflows/research-starter/README.md:Step 4 and ordinary-chat fallback"
+      ],
+      "stop_at": "Step 4 before Step 5",
+      "synthetic_state": true,
+      "real_run_failure_tested": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "low",
+      "status": "wording_fixed_and_statically_reread",
+      "title": "初始化失败时，统一指向可能不存在的日志",
+      "path": "workflows/research-starter/README.md",
+      "original_line": 94,
+      "original_sha256": "aef50c2ac30976ba986cdd941b7d0adf977b150f259a7f96957de1d35cc81d83",
+      "evidence": "PowerShell 块对任何运行器非零退出都提示查看输出目录日志；run_workflow.py:60 在缺少 Matplotlib 时退出，而目录到 :64 才创建、run-log.json 到 :72 才写入。路径初始化失败同样可能没有日志。",
+      "impact": "发生初始化失败的新手会被指向尚不存在的文件；正常成功路径不受影响。",
+      "fix": "执行前打印计划输出路径；失败提示先查看上方错误，再于已生成输出目录时查看 run-log.json。",
+      "reread_sha256": "c79ec13641034dcf593352a3370adf13d7bd928e068e9a7bd1aa25a259de5023",
+      "verification": "Static rereading of the modified command block against runner control flow only; no missing-Matplotlib environment or real dependency failure was triggered."
+    }
+  ],
+  "scope_separation": [
+    "Six main candidate systems: static review only, no whole-system execution claimed",
+    "Research Hound: one offline component with five synthetic fixtures, including two misses; full_workflow_verified=false",
+    "Original chain: recorded experiment, analysis, plotting, verification, CSV recount and two corrupted-copy checks",
+    "Host-authored source synthesis and report: separate from runner-generated artifacts",
+    "All eight complete upstream runtime_tested fields remain false"
+  ],
+  "not_covered": [
+    "No rerun of the experiment, original verifier or Research Hound component",
+    "No independent reproduction of nearest-neighbor predictions or bootstrap interval",
+    "No reopening of raw temporary experiment directory or image visual inspection by this reviewer",
+    "No external source identity/content re-verification or real network-failure test",
+    "No human novice usability study, real research task, preregistration or human reading signature",
+    "No external independent scientific peer review, complete upstream workflows, cross-platform or external integration tests"
+  ],
+  "read_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "e28f236f52d36edfbfa89605eaa148db6ef15bd171039d760e01630b094d1577"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c30b1eba46488bc059d94bf9d0957b54b341841c6c0ac099534f8570d7e19e6c"
+    },
+    {
+      "path": "MODULE_INDEX.md",
+      "sha256": "e2dce00480136ac3fe724ea8b684395687eaa9208cde734a911760c60ab6afe6"
+    },
+    {
+      "path": "MODULES.json",
+      "sha256": "cc5b89bb479130b080fc79c63aed5838cd93f094d8012a9082772465c3f373de"
+    },
+    {
+      "path": "docs/GETTING_STARTED.md",
+      "sha256": "74a01178e340545a2ee1543ea32e2b59635d962ecf362787cf69ab0d96cd1bcf"
+    },
+    {
+      "path": "docs/RUNTIME_STATUS.md",
+      "sha256": "d2fd28e7bdd7f01f8754d5337b20945f5c4a95301193659f39ad9c9265eceafa"
+    },
+    {
+      "path": "workflows/research-starter/README.md",
+      "sha256": "c79ec13641034dcf593352a3370adf13d7bd928e068e9a7bd1aa25a259de5023"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/README.md",
+      "sha256": "3e265568ba0a2fff1ac79e807a06a438a99f069b60556ea8bbcd9a19f55880f6"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/pipeline-walkthrough.md",
+      "sha256": "d2c8e49d7072d0b76f239b433a0e8aa1b64dd3faafdf4c68d9669ef6a842be3e"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/pipeline-evidence.json",
+      "sha256": "617172f385da0faa8ed78c785e9c5a41f61b118d46086f63cebb5e276c82324e"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/pipeline-runtime.md",
+      "sha256": "c959ec256bb244f83cb1a5dd4e8622e7155fb7419d562e0d064f5ed16811b836"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/pipeline-runtime.json",
+      "sha256": "b3c15e007e77bbd6c1ce65143de5df9072f83df9286824d12b7a0c0fdeda4093"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/pipeline-analysis.json",
+      "sha256": "b2fa4ed155337da6e8e337bfde23186d842c80efda2b1a5db5b214bed3c7d8c0"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/component-probe.md",
+      "sha256": "37e029522d26fe1b0006995c72ea341acabaa1d920490bd4134b74543076a5e5"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/component-probe.json",
+      "sha256": "19a18988cafbec0145a895e6d7c33eb1493a25437f2f30e3d79868b6b4504180"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/candidate-search.md",
+      "sha256": "8626ae0756dc25386a04dad8896066a7808f6daeb900da8483908e01e54f48a9"
+    },
+    {
+      "path": "examples/research-workflow/run_workflow.py",
+      "sha256": "9b2da831a0463f3825bd403a36010f4ce7b68a4227387e28eaad6bc8a543cde6"
+    },
+    {
+      "path": "examples/research-workflow/verify_workflow.py",
+      "sha256": "3b64c35874825c9b8dd81cb11638ec396023709584e39d2368b0cbae4464f672"
+    },
+    {
+      "path": "modules/academic-figures/examples/README.md",
+      "sha256": "50fc51971f320b24ca3b6f391c08e0a8c787818e6abd6f513beac4e93aaa92c0"
+    },
+    {
+      "path": "modules/academic-figures/examples/requirements.txt",
+      "sha256": "24f61dfd7fc051bcf610fd6cf295d7c7843c79324999aa40f8221afff73f6599"
+    },
+    {
+      "path": "docs/discovery/2026-10-22/pipeline-run-log.json",
+      "sha256": "291082432db9fd121893a0f1c24a400bad9c7780283578560f461fa89ac55217"
+    }
+  ],
+  "final_reread": {
+    "files": [
+      "docs/discovery/2026-10-22/README.md",
+      "workflows/research-starter/README.md"
+    ],
+    "overview_sha256": "3e265568ba0a2fff1ac79e807a06a438a99f069b60556ea8bbcd9a19f55880f6",
+    "guide_sha256": "c79ec13641034dcf593352a3370adf13d7bd928e068e9a7bd1aa25a259de5023",
+    "scope": "Read overview additions and repaired guide. Parent artifact/image/external-file checks remain attributed to parent; no extra runtime test by this reviewer."
+  },
+  "publication_format_reread": {
+    "date": "2026-10-22",
+    "author_reported_change": "Restore previous LF line-ending style only before publication; text unchanged from the immediately preceding publication draft",
+    "reviewer_action": "Reread the final three navigation files, verify current LF style, and update snapshot hashes",
+    "cases_rerun": false,
+    "experiments_rerun": false,
+    "components_rerun": false,
+    "main_guide_modified_by_reviewer": false,
+    "files": [
+      {
+        "path": "README.md",
+        "previous_review_snapshot_sha256": "7d28cedbf8374dc888a09b45051777896d2aba8bedb75c6eb1011ec71e78a36d",
+        "final_sha256": "c30b1eba46488bc059d94bf9d0957b54b341841c6c0ac099534f8570d7e19e6c",
+        "contains_crlf": false,
+        "contains_lf": true
+      },
+      {
+        "path": "MODULES.json",
+        "previous_review_snapshot_sha256": "9340194ed22b8d21e96d2d45199a5d1e75c07696b02cbcc5c0a8310eb2139c66",
+        "final_sha256": "cc5b89bb479130b080fc79c63aed5838cd93f094d8012a9082772465c3f373de",
+        "contains_crlf": false,
+        "contains_lf": true
+      },
+      {
+        "path": "docs/GETTING_STARTED.md",
+        "previous_review_snapshot_sha256": "9bd14997ab9e430003c7f94c45113cb6ebbbf68010dcb5696c0522758302f067",
+        "final_sha256": "74a01178e340545a2ee1543ea32e2b59635d962ecf362787cf69ab0d96cd1bcf",
+        "contains_crlf": false,
+        "contains_lf": true
+      }
+    ]
+  }
+}
