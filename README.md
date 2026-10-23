@@ -40,7 +40,9 @@
 | 稿件或审稿意见 | [检查稿件、准备逐条回复](modules/submission-rebuttal/USAGE.md) |
 | 越来越多的笔记和文件 | [建立项目记录与知识库](modules/research-knowledge/USAGE.md) |
 
-想让助手连续推进研究？使用[自动化科研 pipeline](workflows/automated-research/README.md)：一句话启动真实案例，或带着自己的课题按阶段推进，保存进度并支持中断恢复。[热门仓库如何组合](workflows/automated-research/COMPOSITION.md)
+已有自己的研究问题、论文和数据？从[通用新手入口](workflows/automated-research/START_HERE.md)开始：助手自动检查材料与当前所需依赖，生成中文检查页，说明缺口和下一步。暂时缺材料也可以开始，不必填写JSON或先选择技能。[三个可复制示例](workflows/automated-research/EXAMPLES.md)
+
+需要了解完整衔接方式时，再看[自动化科研 pipeline](workflows/automated-research/README.md)与[技能组合说明](workflows/automated-research/COMPOSITION.md)。
 
 想看自己的课题怎样接入？跟做[企鹅体重预测：真实自定义课题](examples/real-penguins/README.md)，查看六步完整记录、代码版本固定、独立复算，以及保留的反向结果。只需 Python 标准库即可复跑这个实例。
 

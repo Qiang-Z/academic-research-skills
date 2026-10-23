@@ -23,6 +23,7 @@
 
 | 入口 | 用途 |
 |---|---|
+| [自定义课题新手入口](workflows/automated-research/START_HERE.md) | 提供问题、论文和数据，自动材料/依赖盘点、中文缺口提示、补材料重查，再接入六步流程。 |
 | [自动化科研 pipeline](workflows/automated-research/README.md) | 基于热门项目选型与本地已有技能，提供环境检查、真实案例实跑、阶段交接与断点恢复。 |
 | [真实自定义课题：企鹅体重预测](examples/real-penguins/README.md) | 真实论文与CC0公开数据，custom六步完整交接、699条预测独立复算、代码固定及负结果记录。 |
 | [六步入门 pipeline](workflows/research-starter/README.md) | 一个问题串起检索、设计、运行、分析和短报告，附限定实测。 |

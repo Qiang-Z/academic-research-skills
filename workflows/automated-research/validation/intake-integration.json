@@ -1,0 +1,350 @@
+{
+  "date": "2026-10-23T07:52:58+00:00",
+  "scope": "Real intake -> host prepares reused Penguins protocol -> six-stage actual execution -> numeric verifier. No fresh paper retrieval or arbitrary-topic automation claim.",
+  "helper_sha256": "2c9b3e2c6d3ea4b543683d362eec5f874653f1f8c6d994814ff58eaa8ab5a194",
+  "runner_sha256": "60d84712adcbd08ad99be688a86f18b6be69e78c458494222c97f12594640f14",
+  "initial_check_status": "ready_for_review",
+  "initial_research_stage": "question",
+  "final_check_status": "pipeline_complete",
+  "source_reading": "reused notes, not full-text newly read",
+  "steps": [
+    {
+      "label": "intake-question",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "advance",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:53+00:00",
+        "finished_at": "2026-10-23T07:52:53+00:00",
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "BLOCKED: evidence: Missing file: evidence.json\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-evidence",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "advance",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:53+00:00",
+        "finished_at": "2026-10-23T07:52:54+00:00",
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "BLOCKED: protocol: Missing file: protocol.json\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-protocol",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "advance",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:54+00:00",
+        "finished_at": "2026-10-23T07:52:54+00:00",
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "BLOCKED: experiment: Missing file: experiment.json\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-at-experiment",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\start_research.py",
+          "check",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:54+00:00",
+        "finished_at": "2026-10-23T07:52:55+00:00",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "项目目录：<run>\n材料检查完成，可以开始阅读与定题；研究尚未完成。\n- 先由助手检查所选代码的必要环境并做小范围功能验证，再按已固定协议实际运行和保留日志。\n中文检查页：<run>\\START_HERE.md\n",
+      "stderr": ""
+    },
+    {
+      "label": "experiment",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<run>\\code\\run_case.py",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:55+00:00",
+        "finished_at": "2026-10-23T07:52:55+00:00",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "{\"status\": \"measured\", \"predictions\": 699, \"models\": 6, \"output\": \"results\", \"protocol_sha256\": \"18bda301834cb389c15a95a8e926071a563242fe321c3288c70fd79422fda228\"}\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-results",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "advance",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:55+00:00",
+        "finished_at": "2026-10-23T07:52:55+00:00",
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "BLOCKED: analysis: Missing file: analysis.json\n",
+      "stderr": ""
+    },
+    {
+      "label": "numeric",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<run>\\code\\verify_case.py",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:55+00:00",
+        "finished_at": "2026-10-23T07:52:56+00:00",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "{\n  \"passed\": true,\n  \"check_count\": 7591,\n  \"counts\": {\n    \"raw_rows\": 344,\n    \"usable_rows\": 342,\n    \"excluded_record_ids\": [\n      4,\n      272\n    ],\n    \"predictions\": 699,\n    \"models\": 6,\n    \"metric_rows\": 6,\n    \"species_metric_rows\": 18,\n    \"split_records\": 2,\n    \"data_audit_records\": 1,\n    \"splits\": {\n      \"primary\": {\n        \"train_n\": 223,\n        \"test_n\": 119,\n        \"test_species_n\": {\n          \"Adelie\": 52,\n          \"Chinstrap\": 24,\n          \"Gentoo\": 43\n        }\n      },\n      \"secondary\": {\n        \"train_n\": 109,\n        \"test_n\": 114,\n        \"test_species_n\": {\n          \"Adelie\": 50,\n          \"Chinstrap\": 18,\n          \"Gentoo\": 46\n        }\n      }\n    }\n  },\n  \"method\": \"independent scalar OLS and within-species centered common-slope fit\",\n  \"numeric_tolerance\": {\n    \"absolute\": 1e-07,\n    \"relative\": 1e-11\n  },\n  \"scope\": \"fixed Penguins protocol, pinned data bytes, train/test membership, all fitted coefficients, targets, predictions, MAE and RMSE\",\n  \"does_not_establish\": [\n    \"independent observations or absence of repeated individuals\",\n    \"causality, external validity or statistical significance\",\n    \"general validation of arbitrary custom research or upstream workflows\"\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-analysis",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "advance",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:56+00:00",
+        "finished_at": "2026-10-23T07:52:56+00:00",
+        "exit_code": 2,
+        "expected_exit_code": 2,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "BLOCKED: report: Missing file: claims.json\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-report",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "advance",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:56+00:00",
+        "finished_at": "2026-10-23T07:52:57+00:00",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "COMPLETE: six stages accepted; mode=custom; report=<run>\\REPORT.md\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-integrity",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\research_pipeline.py",
+          "verify",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:57+00:00",
+        "finished_at": "2026-10-23T07:52:58+00:00",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "PASS: structure and reference integrity only\n",
+      "stderr": ""
+    },
+    {
+      "label": "intake-complete-check",
+      "command": {
+        "argv": [
+          "<python>",
+          "-B",
+          "-X",
+          "utf8",
+          "<repo>\\scripts\\start_research.py",
+          "check",
+          "--run",
+          "<run>"
+        ],
+        "started_at": "2026-10-23T07:52:58+00:00",
+        "finished_at": "2026-10-23T07:52:58+00:00",
+        "exit_code": 0,
+        "expected_exit_code": 0,
+        "timeout_seconds": 120,
+        "python": "3.12.10",
+        "platform": "Windows"
+      },
+      "stdout": "项目目录：<run>\n已有六步交接完成记录；材料检查不增加科学验证范围。\n- 阅读REPORT.md并核对实际验证范围；如换问题、材料或实现，创建新运行。\n中文检查页：<run>\\START_HERE.md\n",
+      "stderr": ""
+    }
+  ],
+  "numeric": {
+    "passed": true,
+    "check_count": 7591,
+    "counts": {
+      "raw_rows": 344,
+      "usable_rows": 342,
+      "excluded_record_ids": [
+        4,
+        272
+      ],
+      "predictions": 699,
+      "models": 6,
+      "metric_rows": 6,
+      "species_metric_rows": 18,
+      "split_records": 2,
+      "data_audit_records": 1,
+      "splits": {
+        "primary": {
+          "train_n": 223,
+          "test_n": 119,
+          "test_species_n": {
+            "Adelie": 52,
+            "Chinstrap": 24,
+            "Gentoo": 43
+          }
+        },
+        "secondary": {
+          "train_n": 109,
+          "test_n": 114,
+          "test_species_n": {
+            "Adelie": 50,
+            "Chinstrap": 18,
+            "Gentoo": 46
+          }
+        }
+      }
+    },
+    "method": "independent scalar OLS and within-species centered common-slope fit",
+    "numeric_tolerance": {
+      "absolute": 1e-07,
+      "relative": 1e-11
+    },
+    "scope": "fixed Penguins protocol, pinned data bytes, train/test membership, all fitted coefficients, targets, predictions, MAE and RMSE",
+    "does_not_establish": [
+      "independent observations or absence of repeated individuals",
+      "causality, external validity or statistical significance",
+      "general validation of arbitrary custom research or upstream workflows"
+    ]
+  },
+  "science_byte_equal_to_recorded_case": true,
+  "all_passed": true,
+  "final_helper_recheck": {
+    "helper_sha256": "d3cfdfd3eaf5f1fbbee67cc2ebbe94121955def203ec9a1d9a7590fffbf91de4",
+    "exit_code": 0,
+    "status": "pipeline_complete",
+    "handoff_notes": [
+      "材料检查不会修改已接受的问题范围；若新材料改变范围或停止条件，请另开运行。",
+      "已接受证据仍是原evidence.json；这里接收的补充论文未自动纳入已固定证据。若阅读后改变来源、主张或方案，请另开运行。"
+    ],
+    "stdout": "项目目录：<run>\n已有六步交接完成记录；材料检查不增加科学验证范围。\n- 阅读REPORT.md并核对实际验证范围；如换问题、材料或实现，创建新运行。\n- 材料预览状态与六步进度独立；宿主已读PDF或已获取链接不会自动改变检查器的预览标签，请以evidence的实际记录核对。\n中文检查页：<run>\\START_HERE.md\n",
+    "stderr": ""
+  },
+  "latest_ui_recheck": {
+    "checked_at": "2026-10-23T08:10:02.431235+00:00",
+    "helper_sha256": "5ea0fbede1ed5f98ef47779cefcdcacccf6fac905333848ed8040d53f2d66f82",
+    "exit_code": 0,
+    "status": "pipeline_complete",
+    "state_and_events_unchanged": true,
+    "scope": "Rechecked completed material intake after final Chinese wording and launcher changes; no scientific experiment rerun.",
+    "stdout": "项目目录：<run>\n已有六步交接完成记录；材料检查不增加科学验证范围。\n- 阅读REPORT.md并核对实际验证范围；如换问题、材料或实现，创建新运行。\n- 材料预览状态与六步进度独立；宿主已读PDF或已获取链接不会自动改变检查器的预览标签，请以evidence的实际记录核对。\n中文检查页：<run>\\START_HERE.md\n",
+    "stderr": "",
+    "handoff_notes": [
+      "材料检查不会修改已接受的问题范围；若新材料改变范围或停止条件，请另开运行。",
+      "已接受证据仍是原evidence.json；这里接收的补充论文未自动纳入已固定证据。若阅读后改变来源、主张或方案，请另开运行。"
+    ]
+  }
+}

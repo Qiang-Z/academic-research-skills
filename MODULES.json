@@ -211,7 +211,8 @@
     "real_data_case": "examples/real-wine/README.md",
     "automated_pipeline": "workflows/automated-research/README.md",
     "current_skill_comparison": "docs/discovery/2026-10-23/README.md",
-    "custom_real_data_case": "examples/real-penguins/README.md"
+    "custom_real_data_case": "examples/real-penguins/README.md",
+    "custom_topic_start": "workflows/automated-research/START_HERE.md"
   },
   "workflows": [
     {
@@ -226,8 +227,10 @@
       "custom_handoff_structurally_tested": true,
       "external_candidate_workflows_tested": false,
       "bounded_custom_case_runtime_tested": true,
-      "custom_case_validation_record": "examples/real-penguins/VALIDATION.md"
+      "custom_case_validation_record": "examples/real-penguins/VALIDATION.md",
+      "beginner_intake": "scripts/start_research.py",
+      "intake_validation_record": "workflows/automated-research/INTAKE_VALIDATION.md"
     }
   ],
-  "version": "0.6.1"
+  "version": "0.6.2"
 }

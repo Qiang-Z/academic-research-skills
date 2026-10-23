@@ -1,0 +1,1038 @@
+{
+  "schema_version": 1,
+  "title": "通用新手入口独立代理走查",
+  "checked_at": "2026-10-23T07:55:55+00:00",
+  "validation_scope": "Independent agent walkthrough of offline material intake and a minimal Chinese next-step answer. This is not a human novice study, paper reading validation, scientific validity assessment, or full upstream workflow validation.",
+  "simulated_user_request": "我想研究企鹅的喙长、喙深能否帮助区分物种。论文是 https://journal.r-project.org/articles/RJ-2022-020/；数据在 examples/real-penguins/data/penguins.csv。我不懂模型和环境，请先帮我检查材料，告诉我缺什么和下一步。",
+  "constraints": {
+    "network_calls": 0,
+    "package_installs": 0,
+    "model_training_runs": 0,
+    "upstream_files_changed": 0,
+    "evidence_read_declarations_written": 0,
+    "repo_write_allowlist": [
+      "workflows/automated-research/validation/intake-walkthrough.json"
+    ],
+    "prior_walkthrough_results_read": false,
+    "note": "仅发现过原案例历史产物的路径，未读取历史验证、预测、模型或报告；读取 CSV 附带 data/README.md 作为历史来源/单位说明，并明确非本轮外部核验。"
+  },
+  "environment": {
+    "platform": "Windows",
+    "shell": "PowerShell",
+    "python": "3.12.10",
+    "launcher": "py -3.12 -B -X utf8",
+    "execution_mode": "require_escalated used because task states sandbox launcher is unavailable",
+    "project_root": "<run>",
+    "project_location_class": "fresh GUID-named child of system TEMP",
+    "repository_root": "<repo>"
+  },
+  "outcome": {
+    "can_start_as_documented": true,
+    "intake_command_exit_code": 2,
+    "intake_status": "needs_attention",
+    "paper_status": "pending_retrieval",
+    "data_status": "table_preview",
+    "pipeline_status": "blocked",
+    "current_stage": "question",
+    "pipeline_problem": "Fill nonempty field: scope",
+    "interpretation": "材料检查及项目创建成功；返回 2 表示有待处理材料，并非失败或完成研究。未填写 scope/resources/stopping_condition，未 advance。",
+    "source_and_copy_hash_match": true,
+    "first_read_scope": "论文未获取、未读；CSV 全 344 行仅作结构/值类型/缺失核对；本地数据说明为历史元数据。"
+  },
+  "commands": [
+    {
+      "command": "Get-Content -LiteralPath 'AGENTS.md'; Get-Content -LiteralPath 'workflows/automated-research/SKILL.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "read full local instructions; fingerprints included"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'README.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'MODULE_INDEX.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'MODULES.json'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'docs/GETTING_STARTED.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'docs/RUNTIME_STATUS.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'prompts/README.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'workflows/automated-research/README.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'workflows/automated-research/START_HERE.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'workflows/automated-research/EXAMPLES.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'workflows/automated-research/skill-routing.json'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'modules/idea-discovery/SKILL_INDEX.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath '<run>/START_HERE.md' -Encoding UTF8\nGet-Content -LiteralPath '<run>/CHECKS.json' -Encoding UTF8\nGet-Content -LiteralPath '<run>/NEXT.md' -Encoding UTF8\nGet-Content -LiteralPath '<run>/state.json' -Encoding UTF8",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "rg --files 'examples/real-penguins' -g '!results/**' -g '!output/**'",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "command": "git status --short",
+      "cwd": "<repo>",
+      "exit_code": 1,
+      "output_handling": "complete stdout/stderr retained",
+      "output": "fatal: not a git repository (or any of the parent directories): .git\n"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'examples/real-penguins/data/README.md' -Encoding UTF8",
+      "cwd": "<repo>",
+      "exit_code": 0,
+      "output_handling": "source text read; see source_fingerprints when applicable"
+    },
+    {
+      "role": "intake_start",
+      "cwd": "<repo>",
+      "command": "$intakeWalkRun = Join-Path $env:TEMP ('ars-intake-independent-' + [guid]::NewGuid().ToString('N'))\nWrite-Output \"WALKTHROUGH_RUN=$intakeWalkRun\"\npy -3.12 -B -X utf8 scripts/start_research.py start --question \"企鹅的喙长、喙深能否帮助区分物种？\" --paper \"https://journal.r-project.org/articles/RJ-2022-020/\" --data \"examples/real-penguins/data/penguins.csv\" --output \"$intakeWalkRun\"\nexit $LASTEXITCODE",
+      "exit_code": 2,
+      "output": "WALKTHROUGH_RUN=<run>\r\n项目目录：<run>\r\n已建立/更新项目，以下材料或环境仍需处理。\r\n- 处理M001对应材料后重查；已可读的其他材料可先整理。\r\n- 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\r\n中文检查页：<run>/START_HERE.md\r\n"
+    },
+    {
+      "role": "independent_local_data_check",
+      "cwd": "<repo>",
+      "command": "$intakeWalkScript = @'\nimport csv, hashlib, json\nfrom collections import Counter\nfrom pathlib import Path\np = Path('examples/real-penguins/data/penguins.csv')\nwith p.open(encoding='utf-8-sig', newline='') as f:\n    rows = list(csv.DictReader(f))\nfields = ('bill_length_mm', 'bill_depth_mm')\ninvalid = {field: [] for field in fields}\nmissing = {field: [] for field in fields}\nfor i, row in enumerate(rows, start=1):\n    for field in fields:\n        if row[field].strip() in {'', 'NA'}:\n            missing[field].append(i)\n        else:\n            try:\n                float(row[field])\n            except ValueError:\n                invalid[field].append(i)\nprint(json.dumps({'scope': 'local CSV structure and value-type checks only; no model or predictive statistics', 'sha256': hashlib.sha256(p.read_bytes()).hexdigest(), 'rows': len(rows), 'species_counts': dict(Counter(row['species'] for row in rows)), 'bill_missing_record_numbers_1_based': missing, 'nonmissing_non_numeric_record_numbers_1_based': invalid, 'deleted_rows': 0, 'model_runs': 0}, ensure_ascii=False, indent=2))\n'@\n$intakeWalkScript | py -3.12 -B -X utf8 -\nexit $LASTEXITCODE",
+      "exit_code": 0,
+      "output": "{\r\n  \"scope\": \"local CSV structure and value-type checks only; no model or predictive statistics\",\r\n  \"sha256\": \"f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93\",\r\n  \"rows\": 344,\r\n  \"species_counts\": {\r\n    \"Adelie\": 152,\r\n    \"Gentoo\": 124,\r\n    \"Chinstrap\": 68\r\n  },\r\n  \"bill_missing_record_numbers_1_based\": {\r\n    \"bill_length_mm\": [\r\n      4,\r\n      272\r\n    ],\r\n    \"bill_depth_mm\": [\r\n      4,\r\n      272\r\n    ]\r\n  },\r\n  \"nonmissing_non_numeric_record_numbers_1_based\": {\r\n    \"bill_length_mm\": [],\r\n    \"bill_depth_mm\": []\r\n  },\r\n  \"deleted_rows\": 0,\r\n  \"model_runs\": 0\r\n}\r\n"
+    },
+    {
+      "role": "archive_snapshot_read",
+      "cwd": "<repo>",
+      "command": "$intakeArchiveInspect = @'\nimport hashlib, json\nfrom pathlib import Path\nrepo = Path.cwd()\nrun = Path(r'<run>')\npaths = [\n'AGENTS.md', 'README.md', 'MODULE_INDEX.md', 'MODULES.json', 'docs/GETTING_STARTED.md', 'docs/RUNTIME_STATUS.md', 'prompts/README.md',\n'workflows/automated-research/SKILL.md', 'workflows/automated-research/README.md', 'workflows/automated-research/START_HERE.md', 'workflows/automated-research/EXAMPLES.md', 'workflows/automated-research/skill-routing.json',\n'modules/idea-discovery/SKILL_INDEX.md', 'modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md',\n'examples/real-penguins/data/README.md', 'examples/real-penguins/data/penguins.csv', 'scripts/start_research.py', 'scripts/research_pipeline.py'\n]\nfingerprints = {p: {'sha256': hashlib.sha256((repo / p).read_bytes()).hexdigest(), 'bytes': (repo / p).stat().st_size} for p in paths}\nartifacts = []\nsnapshots = {}\nfor path in sorted(run.rglob('*')):\n    if path.is_file():\n        relative = path.relative_to(run).as_posix()\n        artifacts.append({'path': '<run>/' + relative, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'bytes': path.stat().st_size})\n        if path.suffix in {'.json', '.md', '.jsonl'}:\n            raw = path.read_text(encoding='utf-8')\n            if path.suffix == '.json':\n                snapshots[relative] = json.loads(raw)\n            elif path.suffix == '.jsonl':\n                snapshots[relative] = [json.loads(line) for line in raw.splitlines() if line.strip()]\n            else:\n                snapshots[relative] = raw\nprint(json.dumps({'source_fingerprints': fingerprints, 'generated_files': artifacts, 'snapshots': snapshots}, ensure_ascii=False, indent=2))\n'@\n$intakeArchiveInspect | py -3.12 -B -X utf8 -\nexit $LASTEXITCODE",
+      "exit_code": 0,
+      "output_handling": "parsed output retained below in source_fingerprints, generated_files and generated_snapshots"
+    }
+  ],
+  "local_data_check": {
+    "scope": "local CSV structure and value-type checks only; no model or predictive statistics",
+    "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+    "rows": 344,
+    "species_counts": {
+      "Adelie": 152,
+      "Gentoo": 124,
+      "Chinstrap": 68
+    },
+    "bill_missing_record_numbers_1_based": {
+      "bill_length_mm": [
+        4,
+        272
+      ],
+      "bill_depth_mm": [
+        4,
+        272
+      ]
+    },
+    "nonmissing_non_numeric_record_numbers_1_based": {
+      "bill_length_mm": [],
+      "bill_depth_mm": []
+    },
+    "deleted_rows": 0,
+    "model_runs": 0
+  },
+  "source_fingerprints": {
+    "AGENTS.md": {
+      "sha256": "b16b811ba3aa1c1b978d4e5a24db59dab05f9489e0e9fc4589d12c48aa3671a5",
+      "bytes": 3957
+    },
+    "README.md": {
+      "sha256": "7ce42ae042d2d256a71f655555795d07c668573e5f791e6298f106f8048ca957",
+      "bytes": 5146
+    },
+    "MODULE_INDEX.md": {
+      "sha256": "83b919fc13db253e7437cb9d8d1181f544c348b545af90be05ed2ad7f8bb923a",
+      "bytes": 5267
+    },
+    "MODULES.json": {
+      "sha256": "aed99b0e2f77d171a5d294577bc1542669a49e9c9ffc05b45cb88bf85c2836c6",
+      "bytes": 9549
+    },
+    "docs/GETTING_STARTED.md": {
+      "sha256": "34d2cdec8bf948c7d628794ef5f1356c636cd0ccefa448bb95eb2506d6031164",
+      "bytes": 6340
+    },
+    "docs/RUNTIME_STATUS.md": {
+      "sha256": "a5394f35faa628d882e3bfd8192c761f3fafa0c69075cb6d24a49cc80c031d5e",
+      "bytes": 10074
+    },
+    "prompts/README.md": {
+      "sha256": "6fc31a2b629ad77c99f1128a38aa82dc8435ba561762241da7fc2ffdaf9f50f8",
+      "bytes": 3751
+    },
+    "workflows/automated-research/SKILL.md": {
+      "sha256": "7c24cd4b06334312313a1345b721003e87d386ffa2e649f7a972f13b55a47adb",
+      "bytes": 7152
+    },
+    "workflows/automated-research/README.md": {
+      "sha256": "22cb758fdc2839feda2658dfc6d095691b1544833ea9dce730b4276dfb728183",
+      "bytes": 8447
+    },
+    "workflows/automated-research/START_HERE.md": {
+      "sha256": "b0d4c7d03b048774fbd203b2a634461c79b08f44b6c2e7e720bfabe64a5eb01b",
+      "bytes": 6229
+    },
+    "workflows/automated-research/EXAMPLES.md": {
+      "sha256": "019fb88860a548f3486f0793a1679666a3d68ff6e3a2972ac8028be5756f700a",
+      "bytes": 5959
+    },
+    "workflows/automated-research/skill-routing.json": {
+      "sha256": "8c5655c8a4a066a082c65f28a3e08cd7a90c4f9468f04dc907dac1d5cd414cc0",
+      "bytes": 5911
+    },
+    "modules/idea-discovery/SKILL_INDEX.md": {
+      "sha256": "f928621181df5d9e179dde0828e506d5fac357cf2b022264f255fcaafef563b6",
+      "bytes": 9624
+    },
+    "modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md": {
+      "sha256": "5bccec0437d96d61821ec2095e7e32b61e8634cd8c02f11f42da953121e92719",
+      "bytes": 16622
+    },
+    "examples/real-penguins/data/README.md": {
+      "sha256": "8f0d806781ae2faa81f6713e0d7fc8afc6e854bdf5457fde0c482d913cfbd67f",
+      "bytes": 3080
+    },
+    "examples/real-penguins/data/penguins.csv": {
+      "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+      "bytes": 15241
+    },
+    "scripts/start_research.py": {
+      "sha256": "d3cfdfd3eaf5f1fbbee67cc2ebbe94121955def203ec9a1d9a7590fffbf91de4",
+      "bytes": 22499
+    },
+    "scripts/research_pipeline.py": {
+      "sha256": "60d84712adcbd08ad99be688a86f18b6be69e78c458494222c97f12594640f14",
+      "bytes": 36269
+    }
+  },
+  "generated_files": [
+    {
+      "path": "<run>/CHECKS.json",
+      "sha256": "7e24308de63850f916c552fceeec8f94190251aa45d111ee71b42547497f558c",
+      "bytes": 3182
+    },
+    {
+      "path": "<run>/events.jsonl",
+      "sha256": "40eb18f42746dcc0432da10f5d159e94713905383b39cb1385a0db6e53ffc679",
+      "bytes": 347
+    },
+    {
+      "path": "<run>/intake-checks/0001.json",
+      "sha256": "7e24308de63850f916c552fceeec8f94190251aa45d111ee71b42547497f558c",
+      "bytes": 3182
+    },
+    {
+      "path": "<run>/intake.json",
+      "sha256": "3adf1dddc721ec6e12dd0d5f1ff6a70920bc1470257bac2f3a62446b55df1a2d",
+      "bytes": 710
+    },
+    {
+      "path": "<run>/materials/M002-penguins.csv",
+      "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+      "bytes": 15241
+    },
+    {
+      "path": "<run>/NEXT.md",
+      "sha256": "2689d6c1e637bad4466ccd3c4b8423d64cb3f0a91383b37f3933fae2e398dc52",
+      "bytes": 884
+    },
+    {
+      "path": "<run>/question.json",
+      "sha256": "0433e60cc566b2c9ba09649836124d07c12caad2968576c1a014a0a98c58cbfb",
+      "bytes": 140
+    },
+    {
+      "path": "<run>/START_HERE.md",
+      "sha256": "aa8c6d223832affd8b0448a7091a092dbea1bbe0b37bcfc8e6945ed66376d87c",
+      "bytes": 1813
+    },
+    {
+      "path": "<run>/state.json",
+      "sha256": "61b93cb69da418dc021dae10af0ff83388df6f1af762bb9dc600e42218c1172e",
+      "bytes": 3204
+    }
+  ],
+  "generated_snapshots": {
+    "CHECKS.json": {
+      "schema_version": 1,
+      "checked_at": "2026-10-23T07:55:55+00:00",
+      "status": "needs_attention",
+      "question": "企鹅的喙长、喙深能否帮助区分物种？",
+      "materials": [
+        {
+          "id": "M001",
+          "kind": "paper",
+          "source": "https://journal.r-project.org/articles/RJ-2022-020/",
+          "status": "pending_retrieval",
+          "message": "已登记链接；本检查器未联网、未获取、未阅读。"
+        },
+        {
+          "id": "M002",
+          "kind": "data",
+          "source": "<repo>/examples/real-penguins/data/penguins.csv",
+          "path": "materials/M002-penguins.csv",
+          "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+          "bytes": 15241,
+          "read_scope": "not_read_by_this_checker",
+          "inspection": {
+            "columns": [
+              "species",
+              "island",
+              "bill_length_mm",
+              "bill_depth_mm",
+              "flipper_length_mm",
+              "body_mass_g",
+              "sex",
+              "year"
+            ],
+            "rows_inspected": 344,
+            "complete_scan": true,
+            "ragged_rows_in_sample": 0,
+            "missing_in_sample": {
+              "species": 0,
+              "island": 0,
+              "bill_length_mm": 2,
+              "bill_depth_mm": 2,
+              "flipper_length_mm": 2,
+              "body_mass_g": 2,
+              "sex": 11,
+              "year": 0
+            },
+            "encoding": "utf-8-sig",
+            "delimiter": ",",
+            "sample_limit": 1000,
+            "scope": "结构预览；缺失标记是候选，不删行、不推断变量含义、不选目标。"
+          },
+          "status": "table_preview",
+          "message": "已预览表格结构；不代表数据适合当前研究。"
+        }
+      ],
+      "dependencies": [],
+      "issues": [
+        {
+          "code": "pending_retrieval",
+          "material_id": "M001",
+          "message": "已登记链接；本检查器未联网、未获取、未阅读。",
+          "action": "处理M001对应材料后重查；已可读的其他材料可先整理。"
+        }
+      ],
+      "next_actions": [
+        "处理M001对应材料后重查；已可读的其他材料可先整理。",
+        "请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。"
+      ],
+      "pipeline": {
+        "status": "blocked",
+        "current_stage": "question",
+        "problem": "Fill nonempty field: scope"
+      },
+      "environment": {
+        "python": "3.12.10",
+        "executable": "<python>",
+        "core": "standard library",
+        "platform": "Windows"
+      },
+      "checker_sha256": "d3cfdfd3eaf5f1fbbee67cc2ebbe94121955def203ec9a1d9a7590fffbf91de4",
+      "scope": "材料接收/有限结构预览与包安装元数据；无联网、无全文阅读、无任意代码导入/执行、无安装、无模型/科学有效性判断。",
+      "not_checked": [
+        "实际论文阅读范围和引用支持",
+        "数据的来源/许可、字典、采样单位与研究适用性",
+        "尚未选择的实验代码、GPU/外部服务与模型运行依赖"
+      ],
+      "handoff_notes": []
+    },
+    "events.jsonl": [
+      {
+        "at": "2026-10-23T07:55:55+00:00",
+        "stage": null,
+        "status": "created",
+        "detail": "custom"
+      },
+      {
+        "at": "2026-10-23T07:55:55+00:00",
+        "stage": "question",
+        "status": "started",
+        "detail": "continue without rerunning accepted stages"
+      },
+      {
+        "at": "2026-10-23T07:55:55+00:00",
+        "stage": "question",
+        "status": "blocked",
+        "detail": "Fill nonempty field: scope"
+      }
+    ],
+    "intake-checks/0001.json": {
+      "schema_version": 1,
+      "checked_at": "2026-10-23T07:55:55+00:00",
+      "status": "needs_attention",
+      "question": "企鹅的喙长、喙深能否帮助区分物种？",
+      "materials": [
+        {
+          "id": "M001",
+          "kind": "paper",
+          "source": "https://journal.r-project.org/articles/RJ-2022-020/",
+          "status": "pending_retrieval",
+          "message": "已登记链接；本检查器未联网、未获取、未阅读。"
+        },
+        {
+          "id": "M002",
+          "kind": "data",
+          "source": "<repo>/examples/real-penguins/data/penguins.csv",
+          "path": "materials/M002-penguins.csv",
+          "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+          "bytes": 15241,
+          "read_scope": "not_read_by_this_checker",
+          "inspection": {
+            "columns": [
+              "species",
+              "island",
+              "bill_length_mm",
+              "bill_depth_mm",
+              "flipper_length_mm",
+              "body_mass_g",
+              "sex",
+              "year"
+            ],
+            "rows_inspected": 344,
+            "complete_scan": true,
+            "ragged_rows_in_sample": 0,
+            "missing_in_sample": {
+              "species": 0,
+              "island": 0,
+              "bill_length_mm": 2,
+              "bill_depth_mm": 2,
+              "flipper_length_mm": 2,
+              "body_mass_g": 2,
+              "sex": 11,
+              "year": 0
+            },
+            "encoding": "utf-8-sig",
+            "delimiter": ",",
+            "sample_limit": 1000,
+            "scope": "结构预览；缺失标记是候选，不删行、不推断变量含义、不选目标。"
+          },
+          "status": "table_preview",
+          "message": "已预览表格结构；不代表数据适合当前研究。"
+        }
+      ],
+      "dependencies": [],
+      "issues": [
+        {
+          "code": "pending_retrieval",
+          "material_id": "M001",
+          "message": "已登记链接；本检查器未联网、未获取、未阅读。",
+          "action": "处理M001对应材料后重查；已可读的其他材料可先整理。"
+        }
+      ],
+      "next_actions": [
+        "处理M001对应材料后重查；已可读的其他材料可先整理。",
+        "请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。"
+      ],
+      "pipeline": {
+        "status": "blocked",
+        "current_stage": "question",
+        "problem": "Fill nonempty field: scope"
+      },
+      "environment": {
+        "python": "3.12.10",
+        "executable": "<python>",
+        "core": "standard library",
+        "platform": "Windows"
+      },
+      "checker_sha256": "d3cfdfd3eaf5f1fbbee67cc2ebbe94121955def203ec9a1d9a7590fffbf91de4",
+      "scope": "材料接收/有限结构预览与包安装元数据；无联网、无全文阅读、无任意代码导入/执行、无安装、无模型/科学有效性判断。",
+      "not_checked": [
+        "实际论文阅读范围和引用支持",
+        "数据的来源/许可、字典、采样单位与研究适用性",
+        "尚未选择的实验代码、GPU/外部服务与模型运行依赖"
+      ],
+      "handoff_notes": []
+    },
+    "intake.json": {
+      "schema_version": 1,
+      "question": "企鹅的喙长、喙深能否帮助区分物种？",
+      "created_at": "2026-10-23T07:55:55+00:00",
+      "materials": [
+        {
+          "id": "M001",
+          "kind": "paper",
+          "source": "https://journal.r-project.org/articles/RJ-2022-020/"
+        },
+        {
+          "id": "M002",
+          "kind": "data",
+          "source": "<repo>/examples/real-penguins/data/penguins.csv",
+          "path": "materials/M002-penguins.csv",
+          "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+          "received_at": "2026-10-23T07:55:55+00:00"
+        }
+      ],
+      "requirements": []
+    },
+    "NEXT.md": "# 下一步\n\n模式：custom\n\n当前步骤：question\n\n填写 question.json 的四项：question＝想比较的具体问题；scope＝这次比较的范围；resources＝真实已有材料和可用资源；stopping_condition＝完成什么检查或达到什么限制时结束。四项均用非空文字；未知材料不代填。\n\n补齐后运行：python -B scripts/research_pipeline.py advance --run \"本次输出目录\"\n已接受的输入和产物不可原地更改；改变研究方案时建立新运行目录。\n\n## 助手在此步读取的技能\n\n以下路径均相对仓库根目录；先读模块索引，再读本步主入口。\n\n- 模块索引：`modules/idea-discovery/SKILL_INDEX.md`\n- 主入口：`modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md`；使用条件：由观察形成小问题，区分假设、预测和证据\n",
+    "question.json": {
+      "question": "企鹅的喙长、喙深能否帮助区分物种？",
+      "scope": "",
+      "resources": "",
+      "stopping_condition": ""
+    },
+    "START_HERE.md": "# 从这里继续\n\n企鹅的喙长、喙深能否帮助区分物种？\n\n本页是材料检查结果，不是研究结果。先处理当前缺口；JSON与六步交接由助手维护。\n\n## 已收到\n\n- M001 论文：https://journal.r-project.org/articles/RJ-2022-020/\n  - 已登记链接；本检查器未联网、未获取、未阅读。\n- M002 数据：<repo>/examples/real-penguins/data/penguins.csv\n  - 已预览表格结构；不代表数据适合当前研究。\n  - 项目副本：`materials/M002-penguins.csv`；科学阅读范围：尚未由本检查器阅读。\n  - 列名：species、island、bill_length_mm、bill_depth_mm、flipper_length_mm、body_mass_g、sex、year；检查344行，已扫描当前表全部记录。\n\n## 当前缺口\n\n- 已登记链接；本检查器未联网、未获取、未阅读。\n\n## 当前环境\n\n- 检查器正在Python 3.12.10运行；本入口只用标准库。\n- 模型、GPU和外部服务依赖要在方案选定后检查；不预装整套科研工具。\n\n## 下一步\n\n1. 处理M001对应材料后重查；已可读的其他材料可先整理。\n2. 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n\n\n当前六步阶段：question。具体交付要求见[NEXT.md](NEXT.md)。\n给助手：先读仓库 workflows/automated-research/SKILL.md 当前阶段路由；论文登记不等于evidence中status=read。\n重新检查：`python -B scripts/start_research.py check --run \"本项目目录\"`。它更新检查页、追加检查历史，不推进或改写已接受阶段。\n核对数据字典、来源/许可和样本单位后再定方案；不要自动套用企鹅例子的目标、模型或删缺失规则。\n",
+    "state.json": {
+      "schema_version": 1,
+      "mode": "custom",
+      "created_at": "2026-10-23T07:55:55+00:00",
+      "status": "blocked",
+      "repository_inputs": {
+        "scripts/research_pipeline.py": "60d84712adcbd08ad99be688a86f18b6be69e78c458494222c97f12594640f14",
+        "workflows/automated-research/skill-routing.json": "8c5655c8a4a066a082c65f28a3e08cd7a90c4f9468f04dc907dac1d5cd414cc0",
+        "modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md": "5bccec0437d96d61821ec2095e7e32b61e8634cd8c02f11f42da953121e92719",
+        "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/research-lit/SKILL.md": "d6293c58a6d6319b7ae5075ee9a1587ae83368400fbe15ff89a338e52e549c61",
+        "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/citation-verification/SKILL.md": "62e7eaed943d3773896f0e9af58913ec7950b34b8c939f3e8e984427a77a91ab",
+        "modules/idea-discovery/04_KDense/upstream/skills/literature-review/SKILL.md": "16a9e85bcdcb9bb859e1646bf836e51b22900445ba2e367d8d75be05b5a5cba8",
+        "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/experiment-plan/SKILL.md": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+        "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/run-experiment/SKILL.md": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+        "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/analyze-results/SKILL.md": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2",
+        "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/results-analysis/SKILL.md": "2232f74d141fad4a3e23635be0109217713d34bf0cb7be8d120e6296f4b79782",
+        "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/paper-plan/SKILL.md": "f57db68d201585c238522fdc38d7db16007638821f5f202faea723bdbcb8ff6d",
+        "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/paper-claim-audit/SKILL.md": "53bc00ee13d861e76e4f5a1a5d4f0ab40544ca563ee328af4c38bcb19b64a95b"
+      },
+      "limits": {
+        "subprocess_timeout_seconds": 120,
+        "automatic_retries": 0,
+        "max_stage_attempts": 3,
+        "host_max_searches": 4,
+        "host_max_sources": 8,
+        "network_in_runner": false,
+        "paid_services_in_runner": false,
+        "host_budget_note": "Host must record actual work; runner does not meter external service spending."
+      },
+      "stages": [
+        {
+          "id": "question",
+          "status": "blocked",
+          "inputs": {},
+          "outputs": {},
+          "problem": "Fill nonempty field: scope"
+        },
+        {
+          "id": "evidence",
+          "status": "pending",
+          "inputs": {},
+          "outputs": {}
+        },
+        {
+          "id": "protocol",
+          "status": "pending",
+          "inputs": {},
+          "outputs": {}
+        },
+        {
+          "id": "experiment",
+          "status": "pending",
+          "inputs": {},
+          "outputs": {}
+        },
+        {
+          "id": "analysis",
+          "status": "pending",
+          "inputs": {},
+          "outputs": {}
+        },
+        {
+          "id": "report",
+          "status": "pending",
+          "inputs": {},
+          "outputs": {}
+        }
+      ],
+      "configuration_sha256": "411c7341c9b15ed098788d05e39e2d77cc5e329361e188ae5ba6f3646e014bf9",
+      "updated_at": "2026-10-23T07:55:55+00:00"
+    }
+  },
+  "user_facing_response_zh": "已经完成本地材料检查，可以开始把问题细化。数据有 344 条记录，包含喙长、喙深和三个物种标签；两个喙部字段都只有第 4、272 条记录缺失，其他非缺失值可按数字读取，目前没有删行或训练模型。\n\n论文网址已登记，但本轮未联网，尚未获取或阅读。数据旁的本地说明给出了毫米单位、来源和 CC0 许可记录；这些是历史说明，本轮没有重新核验外部网页。简化表没有个体或巢的编号，因此也不能直接认定 344 条记录彼此独立。\n\n下一步只做三件事：\n1. 补充论文摘要或相关正文，先核对测量和采样背景。\n2. 把小问题限定为“在这份数据内，喙长和喙深是否有助于区分三个物种”，暂不推广到所有企鹅。\n3. 读完材料后，再确定缺失记录如何处理、哪些记录留作最后检验，以及最简单的比较方法。\n\n当前 Python 已能完成这些材料检查，无需先安装模型或准备 GPU。项目检查页保存在 <run>/START_HERE.md；本轮没有产生研究结论。",
+  "findings": [
+    {
+      "id": "F1",
+      "kind": "documentation_friction",
+      "severity": "minor",
+      "status": "resolved_by_parent_documentation_change",
+      "locations": [
+        "workflows/automated-research/SKILL.md",
+        "workflows/automated-research/README.md",
+        "workflows/automated-research/START_HERE.md"
+      ],
+      "observation": "SKILL.md 和通用新手入口要求有课题时先 start_research.py start；技能要求先读的 README.md 在“换成自己的课题”中仍指示助手先 init --topic，再 init/advance。这会让助手在两条入口间回退，可能绕过新增材料清单。",
+      "effect_on_this_walkthrough": "未阻塞；按明确的 SKILL.md + START_HERE.md/EXAMPLES.md 执行 start。",
+      "suggested_fix": "将 README.md 自定义初次入口统一为 start_research.py start，并保留 research_pipeline.py init 为高级或旧项目接口。"
+    },
+    {
+      "id": "F2",
+      "kind": "onboarding_friction",
+      "severity": "minor",
+      "status": "observed",
+      "locations": [
+        "<run>/START_HERE.md",
+        "<run>/NEXT.md"
+      ],
+      "observation": "生成页以“处理M001”描述下一步，且复查示例使用 python 而不是 Windows 文档已验证的 py -3.12 -B -X utf8；命令仍依赖在仓库根目录运行。",
+      "effect_on_this_walkthrough": "未阻塞，因为助手读取 CHECKS.json 并负责解释命令；本次未执行生成页的重查命令，未将它记为失败。",
+      "suggested_fix": "面向新手的提示可直接说补充论文可读文本，并由助手使用已验证解释器；命令标明仓库根目录。"
+    },
+    {
+      "id": "F3",
+      "kind": "expected_material_gap",
+      "severity": "not_a_defect",
+      "status": "preserved",
+      "locations": [
+        "<run>/CHECKS.json",
+        "<run>/state.json"
+      ],
+      "observation": "URL pending_retrieval、question scope 未填以及 needs_attention/blocked 均如实保留，没有因 CSV 可读而宣称论文已读或研究完成。",
+      "effect_on_this_walkthrough": "可以开始检查与细化问题；冻结方案与论文支持判断尚需后续材料。"
+    },
+    {
+      "id": "F4",
+      "kind": "environment_limitation",
+      "severity": "not_a_workflow_defect",
+      "status": "observed",
+      "locations": [
+        "<repo>"
+      ],
+      "observation": "附加 git status --short 返回 1，提示该工作区不是 Git 仓库。",
+      "effect_on_this_walkthrough": "无法以 Git diff 核对修改边界；本代理的唯一仓库写入为本归档文件，运行产物位于 TEMP，来源/代码/数据 SHA256 已保留。"
+    }
+  ],
+  "documentation_recheck": {
+    "scope": "Reread only the current workflows/automated-research/README.md after the parent corrected navigation; no rerun.",
+    "command": "Get-Content -LiteralPath 'workflows/automated-research/README.md' -Encoding UTF8\nGet-FileHash -LiteralPath 'workflows/automated-research/README.md' -Algorithm SHA256 | Select-Object Algorithm,Hash",
+    "exit_code": 0,
+    "initial_observation_retained": "F1 retains the original conflicting init guidance observed during the first read.",
+    "pre_fix_archive_sha256": "22cb758fdc2839feda2658dfc6d095691b1544833ea9dce730b4276dfb728183",
+    "post_fix_sha256": "d77ed45e805e486064049d2167d8343be4b0b09bca3c82cf338c9f867ad98789",
+    "result": "resolved",
+    "verified_changes": [
+      "README现将通用新手入口列为自定义课题优先入口，init仅作为维护者的底层记录方式。",
+      "README分别说明新手入口返回0/2与底层init返回2的含义。",
+      "企鹅示例换课题指向先START_HERE接收材料、再advance交接。"
+    ],
+    "remaining_findings": [
+      "F2仍为未复跑的轻微提示文字/命令展示摩擦，不是本次执行失败。"
+    ],
+    "project_rerun": false
+  },
+  "followup_checks": [
+    {
+      "id": "followup-check-001",
+      "checked_at": "2026-10-23T08:04:32+00:00",
+      "requested_scope": "在原TEMP项目实际执行一次check，确认提示改进；不联网、安装、训练或推进研究。保留原始走查输出，仅追加本记录。",
+      "helper": {
+        "path": "<repo>/scripts/start_research.py",
+        "initial_sha256": "d3cfdfd3eaf5f1fbbee67cc2ebbe94121955def203ec9a1d9a7590fffbf91de4",
+        "followup_sha256": "5ea0fbede1ed5f98ef47779cefcdcacccf6fac905333848ed8040d53f2d66f82",
+        "hash_command": "Get-FileHash -LiteralPath 'scripts/start_research.py' -Algorithm SHA256 | Select-Object Algorithm,Hash",
+        "hash_command_exit_code": 0
+      },
+      "commands": [
+        {
+          "role": "followup_material_check",
+          "cwd": "<repo>",
+          "command": "py -3.12 -B -X utf8 scripts/start_research.py check --run \"<run>\"\nexit $LASTEXITCODE",
+          "exit_code": 2,
+          "output": "项目目录：<run>\r\n已建立/更新项目，以下材料或环境仍需处理。\r\n- 请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。\r\n- 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\r\n中文检查页：<run>/START_HERE.md\r\n"
+        },
+        {
+          "role": "read_followup_snapshots",
+          "cwd": "<repo>",
+          "command": "$intakeFollowupRead = @'\nimport hashlib, json\nfrom pathlib import Path\nrun = Path(r'<run>')\nsnapshots = {}\nfiles = []\nfor path in sorted(run.rglob('*')):\n    if path.is_file():\n        rel = path.relative_to(run).as_posix()\n        files.append({'path': '<run>/' + rel, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(), 'bytes': path.stat().st_size})\n        if path.suffix == '.json':\n            snapshots[rel] = json.loads(path.read_text(encoding='utf-8'))\n        elif path.suffix == '.md':\n            snapshots[rel] = path.read_text(encoding='utf-8')\n        elif path.suffix == '.jsonl':\n            snapshots[rel] = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]\nhelper = Path('scripts/start_research.py')\nprint(json.dumps({'helper_sha256': hashlib.sha256(helper.read_bytes()).hexdigest(), 'generated_files': files, 'snapshots': snapshots}, ensure_ascii=False, indent=2))\n'@\n$intakeFollowupRead | py -3.12 -B -X utf8 -\nexit $LASTEXITCODE",
+          "exit_code": 0,
+          "output_handling": "最新检查和检查页存于 followup_generated_snapshots，文件摘要存于 followup_generated_files。"
+        }
+      ],
+      "outcome": {
+        "status": "pass_with_expected_pending_material",
+        "exit_code": 2,
+        "intake_status": "needs_attention",
+        "paper_status": "pending_retrieval",
+        "current_stage": "question",
+        "pipeline_status": "blocked",
+        "new_history_file": "<run>/intake-checks/0002.json",
+        "research_stage_advanced": false,
+        "network_calls": 0,
+        "package_installs": 0,
+        "model_training_runs": 0,
+        "evidence_read_declarations_written": 0
+      },
+      "finding_resolution": {
+        "finding": "F2",
+        "status": "resolved_for_requested_prompt_and_windows_command_changes",
+        "before": {
+          "next_action": "处理M001对应材料后重查；已可读的其他材料可先整理。",
+          "displayed_stage": "question",
+          "recheck_command": "python -B scripts/start_research.py check --run \"本项目目录\""
+        },
+        "after": {
+          "next_action": "请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。",
+          "displayed_stage": "明确问题",
+          "recheck_command": "py -3.12 -B -X utf8 scripts/start_research.py check --run \"本项目目录\""
+        },
+        "verification": "在原项目真实check后的stdout、CHECKS.json、START_HERE.md均观察到修正；不把首次输出替换成新输出。"
+      },
+      "initial_file_preservation_checks": [
+        {
+          "path": "<run>/CHECKS.json",
+          "before_sha256": "7e24308de63850f916c552fceeec8f94190251aa45d111ee71b42547497f558c",
+          "after_sha256": "ca0e1384ad4122395dc1c0116c57aaa2b056d0ae65270b430b2f639ceda34193",
+          "unchanged": false
+        },
+        {
+          "path": "<run>/events.jsonl",
+          "before_sha256": "40eb18f42746dcc0432da10f5d159e94713905383b39cb1385a0db6e53ffc679",
+          "after_sha256": "40eb18f42746dcc0432da10f5d159e94713905383b39cb1385a0db6e53ffc679",
+          "unchanged": true
+        },
+        {
+          "path": "<run>/intake-checks/0001.json",
+          "before_sha256": "7e24308de63850f916c552fceeec8f94190251aa45d111ee71b42547497f558c",
+          "after_sha256": "7e24308de63850f916c552fceeec8f94190251aa45d111ee71b42547497f558c",
+          "unchanged": true
+        },
+        {
+          "path": "<run>/intake.json",
+          "before_sha256": "3adf1dddc721ec6e12dd0d5f1ff6a70920bc1470257bac2f3a62446b55df1a2d",
+          "after_sha256": "3adf1dddc721ec6e12dd0d5f1ff6a70920bc1470257bac2f3a62446b55df1a2d",
+          "unchanged": true
+        },
+        {
+          "path": "<run>/materials/M002-penguins.csv",
+          "before_sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+          "after_sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+          "unchanged": true
+        },
+        {
+          "path": "<run>/NEXT.md",
+          "before_sha256": "2689d6c1e637bad4466ccd3c4b8423d64cb3f0a91383b37f3933fae2e398dc52",
+          "after_sha256": "2689d6c1e637bad4466ccd3c4b8423d64cb3f0a91383b37f3933fae2e398dc52",
+          "unchanged": true
+        },
+        {
+          "path": "<run>/question.json",
+          "before_sha256": "0433e60cc566b2c9ba09649836124d07c12caad2968576c1a014a0a98c58cbfb",
+          "after_sha256": "0433e60cc566b2c9ba09649836124d07c12caad2968576c1a014a0a98c58cbfb",
+          "unchanged": true
+        },
+        {
+          "path": "<run>/START_HERE.md",
+          "before_sha256": "aa8c6d223832affd8b0448a7091a092dbea1bbe0b37bcfc8e6945ed66376d87c",
+          "after_sha256": "fe270f6a46d45d074e54009fa7782522d076ab0b4ca1b5d6b3844f4f250c58d2",
+          "unchanged": false
+        },
+        {
+          "path": "<run>/state.json",
+          "before_sha256": "61b93cb69da418dc021dae10af0ff83388df6f1af762bb9dc600e42218c1172e",
+          "after_sha256": "61b93cb69da418dc021dae10af0ff83388df6f1af762bb9dc600e42218c1172e",
+          "unchanged": true
+        }
+      ],
+      "followup_generated_files": [
+        {
+          "path": "<run>/CHECKS.json",
+          "sha256": "ca0e1384ad4122395dc1c0116c57aaa2b056d0ae65270b430b2f639ceda34193",
+          "bytes": 3306
+        },
+        {
+          "path": "<run>/events.jsonl",
+          "sha256": "40eb18f42746dcc0432da10f5d159e94713905383b39cb1385a0db6e53ffc679",
+          "bytes": 347
+        },
+        {
+          "path": "<run>/intake-checks/0001.json",
+          "sha256": "7e24308de63850f916c552fceeec8f94190251aa45d111ee71b42547497f558c",
+          "bytes": 3182
+        },
+        {
+          "path": "<run>/intake-checks/0002.json",
+          "sha256": "ca0e1384ad4122395dc1c0116c57aaa2b056d0ae65270b430b2f639ceda34193",
+          "bytes": 3306
+        },
+        {
+          "path": "<run>/intake.json",
+          "sha256": "3adf1dddc721ec6e12dd0d5f1ff6a70920bc1470257bac2f3a62446b55df1a2d",
+          "bytes": 710
+        },
+        {
+          "path": "<run>/materials/M002-penguins.csv",
+          "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+          "bytes": 15241
+        },
+        {
+          "path": "<run>/NEXT.md",
+          "sha256": "2689d6c1e637bad4466ccd3c4b8423d64cb3f0a91383b37f3933fae2e398dc52",
+          "bytes": 884
+        },
+        {
+          "path": "<run>/question.json",
+          "sha256": "0433e60cc566b2c9ba09649836124d07c12caad2968576c1a014a0a98c58cbfb",
+          "bytes": 140
+        },
+        {
+          "path": "<run>/START_HERE.md",
+          "sha256": "fe270f6a46d45d074e54009fa7782522d076ab0b4ca1b5d6b3844f4f250c58d2",
+          "bytes": 1903
+        },
+        {
+          "path": "<run>/state.json",
+          "sha256": "61b93cb69da418dc021dae10af0ff83388df6f1af762bb9dc600e42218c1172e",
+          "bytes": 3204
+        }
+      ],
+      "followup_generated_snapshots": {
+        "CHECKS.json": {
+          "schema_version": 1,
+          "checked_at": "2026-10-23T08:04:32+00:00",
+          "status": "needs_attention",
+          "question": "企鹅的喙长、喙深能否帮助区分物种？",
+          "materials": [
+            {
+              "id": "M001",
+              "kind": "paper",
+              "source": "https://journal.r-project.org/articles/RJ-2022-020/",
+              "status": "pending_retrieval",
+              "message": "已登记链接；本检查器未联网、未获取、未阅读。"
+            },
+            {
+              "id": "M002",
+              "kind": "data",
+              "source": "<repo>/examples/real-penguins/data/penguins.csv",
+              "path": "materials/M002-penguins.csv",
+              "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+              "bytes": 15241,
+              "read_scope": "not_read_by_this_checker",
+              "inspection": {
+                "columns": [
+                  "species",
+                  "island",
+                  "bill_length_mm",
+                  "bill_depth_mm",
+                  "flipper_length_mm",
+                  "body_mass_g",
+                  "sex",
+                  "year"
+                ],
+                "rows_inspected": 344,
+                "complete_scan": true,
+                "ragged_rows_in_sample": 0,
+                "missing_in_sample": {
+                  "species": 0,
+                  "island": 0,
+                  "bill_length_mm": 2,
+                  "bill_depth_mm": 2,
+                  "flipper_length_mm": 2,
+                  "body_mass_g": 2,
+                  "sex": 11,
+                  "year": 0
+                },
+                "encoding": "utf-8-sig",
+                "delimiter": ",",
+                "sample_limit": 1000,
+                "scope": "结构预览；缺失标记是候选，不删行、不推断变量含义、不选目标。"
+              },
+              "status": "table_preview",
+              "message": "已预览表格结构；不代表数据适合当前研究。"
+            }
+          ],
+          "dependencies": [],
+          "issues": [
+            {
+              "code": "pending_retrieval",
+              "material_id": "M001",
+              "message": "已登记链接；本检查器未联网、未获取、未阅读。",
+              "action": "请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。"
+            }
+          ],
+          "next_actions": [
+            "请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。",
+            "请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。"
+          ],
+          "pipeline": {
+            "status": "blocked",
+            "current_stage": "question",
+            "problem": "Fill nonempty field: scope"
+          },
+          "environment": {
+            "python": "3.12.10",
+            "executable": "<python>",
+            "core": "standard library",
+            "platform": "Windows"
+          },
+          "checker_sha256": "5ea0fbede1ed5f98ef47779cefcdcacccf6fac905333848ed8040d53f2d66f82",
+          "scope": "材料接收/有限结构预览与包安装元数据；无联网、无全文阅读、无任意代码导入/执行、无安装、无模型/科学有效性判断。",
+          "not_checked": [
+            "实际论文阅读范围和引用支持",
+            "数据的来源/许可、字典、采样单位与研究适用性",
+            "尚未选择的实验代码、GPU/外部服务与模型运行依赖"
+          ],
+          "handoff_notes": []
+        },
+        "intake-checks/0002.json": {
+          "schema_version": 1,
+          "checked_at": "2026-10-23T08:04:32+00:00",
+          "status": "needs_attention",
+          "question": "企鹅的喙长、喙深能否帮助区分物种？",
+          "materials": [
+            {
+              "id": "M001",
+              "kind": "paper",
+              "source": "https://journal.r-project.org/articles/RJ-2022-020/",
+              "status": "pending_retrieval",
+              "message": "已登记链接；本检查器未联网、未获取、未阅读。"
+            },
+            {
+              "id": "M002",
+              "kind": "data",
+              "source": "<repo>/examples/real-penguins/data/penguins.csv",
+              "path": "materials/M002-penguins.csv",
+              "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+              "bytes": 15241,
+              "read_scope": "not_read_by_this_checker",
+              "inspection": {
+                "columns": [
+                  "species",
+                  "island",
+                  "bill_length_mm",
+                  "bill_depth_mm",
+                  "flipper_length_mm",
+                  "body_mass_g",
+                  "sex",
+                  "year"
+                ],
+                "rows_inspected": 344,
+                "complete_scan": true,
+                "ragged_rows_in_sample": 0,
+                "missing_in_sample": {
+                  "species": 0,
+                  "island": 0,
+                  "bill_length_mm": 2,
+                  "bill_depth_mm": 2,
+                  "flipper_length_mm": 2,
+                  "body_mass_g": 2,
+                  "sex": 11,
+                  "year": 0
+                },
+                "encoding": "utf-8-sig",
+                "delimiter": ",",
+                "sample_limit": 1000,
+                "scope": "结构预览；缺失标记是候选，不删行、不推断变量含义、不选目标。"
+              },
+              "status": "table_preview",
+              "message": "已预览表格结构；不代表数据适合当前研究。"
+            }
+          ],
+          "dependencies": [],
+          "issues": [
+            {
+              "code": "pending_retrieval",
+              "material_id": "M001",
+              "message": "已登记链接；本检查器未联网、未获取、未阅读。",
+              "action": "请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。"
+            }
+          ],
+          "next_actions": [
+            "请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。",
+            "请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。"
+          ],
+          "pipeline": {
+            "status": "blocked",
+            "current_stage": "question",
+            "problem": "Fill nonempty field: scope"
+          },
+          "environment": {
+            "python": "3.12.10",
+            "executable": "<python>",
+            "core": "standard library",
+            "platform": "Windows"
+          },
+          "checker_sha256": "5ea0fbede1ed5f98ef47779cefcdcacccf6fac905333848ed8040d53f2d66f82",
+          "scope": "材料接收/有限结构预览与包安装元数据；无联网、无全文阅读、无任意代码导入/执行、无安装、无模型/科学有效性判断。",
+          "not_checked": [
+            "实际论文阅读范围和引用支持",
+            "数据的来源/许可、字典、采样单位与研究适用性",
+            "尚未选择的实验代码、GPU/外部服务与模型运行依赖"
+          ],
+          "handoff_notes": []
+        },
+        "START_HERE.md": "# 从这里继续\n\n最初提供的问题：企鹅的喙长、喙深能否帮助区分物种？\n\n本页是材料检查结果，不是研究结果。先处理当前缺口；JSON与六步交接由助手维护。\n\n## 已收到\n\n- 论文：https://journal.r-project.org/articles/RJ-2022-020/\n  - 已登记链接；本检查器未联网、未获取、未阅读。\n- 数据：<repo>/examples/real-penguins/data/penguins.csv\n  - 已预览表格结构；不代表数据适合当前研究。\n  - 项目副本：`materials/M002-penguins.csv`；科学阅读范围：尚未由本检查器阅读。\n  - 列名：species、island、bill_length_mm、bill_depth_mm、flipper_length_mm、body_mass_g、sex、year；检查344行，已扫描当前表全部记录。\n\n## 当前缺口\n\n- 已登记链接；本检查器未联网、未获取、未阅读。\n\n## 当前环境\n\n- 检查器正在Python 3.12.10运行；本入口只用标准库。\n- 模型、GPU和外部服务依赖要在方案选定后检查；不预装整套科研工具。\n\n## 下一步\n\n1. 请助手实际获取论文：https://journal.r-project.org/articles/RJ-2022-020/；完成后重查，其他可读材料可先整理。\n2. 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n\n\n当前六步阶段：明确问题。具体交付要求见[NEXT.md](NEXT.md)。\n给助手：先读仓库 workflows/automated-research/SKILL.md 当前阶段路由；论文登记不等于evidence中status=read。\n重新检查：`py -3.12 -B -X utf8 scripts/start_research.py check --run \"本项目目录\"`。它更新检查页、追加检查历史，不推进或改写已接受阶段。\n核对数据字典、来源/许可和样本单位后再定方案；不要自动套用企鹅例子的目标、模型或删缺失规则。\n"
+      },
+      "remaining_nonblocking_observations": [
+        "生成检查页中的重查命令仍以仓库根目录为工作目录；该约定已在通用入口说明中给出，助手可负责执行，本次未造成阻塞。"
+      ],
+      "short_response_zh": "已完成原项目离线重查：提示直接指出待获取论文的网址，阶段显示为“明确问题”，Windows命令也已正确显示。返回2仍是因为论文尚未获取，并非程序失败；研究没有推进。首次记录完整保留，新增第二次检查历史。"
+    }
+  ],
+  "validation_limits": [
+    "仅本次 Windows/Python 3.12.10 的一条 URL + 一份本地 CSV 首轮路径",
+    "未联网、未验证论文身份或具体支持句子",
+    "本地来源/许可说明不等于本轮重新核验上游门户",
+    "没有真实人类新手参与；不推断用户完成率或可用性",
+    "没有执行任何研究模型、指标估计、数值科研核验或完整六阶段流程",
+    "source_fingerprints 为归档时读取版本；checker_sha256 和 state.repository_inputs 同时保留运行时版本"
+  ]
+}

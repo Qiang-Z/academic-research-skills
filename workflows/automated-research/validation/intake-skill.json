@@ -1,0 +1,9 @@
+{
+  "scope": "Official skill-creator format validation only, not runtime or scientific validation",
+  "command": "Python skill-creator/scripts/quick_validate.py workflows/automated-research",
+  "skill_sha256": "7c24cd4b06334312313a1345b721003e87d386ffa2e649f7a972f13b55a47adb",
+  "exit_code": 0,
+  "stdout": "Skill is valid!\n",
+  "stderr": "",
+  "dependency": "Existing isolated PyYAML validator environment; not a user intake runtime dependency"
+}

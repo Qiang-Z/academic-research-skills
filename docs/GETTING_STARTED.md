@@ -1,6 +1,6 @@
 # 第一次使用：先完成一个小任务
 
-已经想做完整小项目？直接用[自动化科研 pipeline](../workflows/automated-research/README.md)：复制一句任务即可先体验真实数据流程，或由助手按你的材料继续推进。首次只想读论文或改文字，仍按下方三个小任务开始。
+已经有研究问题、论文或数据，想做完整小项目？直接用[自定义课题新手入口](../workflows/automated-research/START_HERE.md)：助手先检查材料和依赖，说明缺口，再按你的问题继续推进。首次只想读论文或改文字，仍按下方三个小任务开始。
 
 [返回首页](../README.md) · [任务卡](../prompts/README.md) · [完整技能速查](SKILL_CATALOG.md)
 

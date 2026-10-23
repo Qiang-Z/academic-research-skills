@@ -1,6 +1,6 @@
 ---
 name: automated-research
-description: Coordinate a bounded research project from question and sources to a frozen protocol, actual experiment, analysis, and traceable report using this repository. Use for a connected research pipeline or resuming a research run; single-paper reading and paragraph polishing use the beginner task cards.
+description: Start or resume a bounded research project from a user's question, papers and data. Check supplied materials and relevant dependencies, explain the next step, then route through protocol, execution, analysis and reporting. Single-paper reading and paragraph polishing use the beginner task cards.
 ---
 
 # 自动化科研流程
@@ -10,10 +10,20 @@ description: Coordinate a bounded research project from question and sources to 
 ## 先选最短路径
 
 - 用户想先体验、没有自己的数据：运行根目录 `scripts/research_pipeline.py doctor`，然后 `demo --output <仓库外新目录>`。读取本次 `REPORT.md` 和 `state.json`。前三步是复用既有研究材料，实验和数值核验是本次实际执行；报告是根据本次产物生成的模板报告。
-- 用户已有课题：`init --topic <用户题目> --output <仓库外新目录>`，按 `NEXT.md` 补齐当前阶段，再调用 `advance --run <该目录>`。初始化只登记题目，不把未知资源写成已具备。不要替用户填科学判断或结果。
-- 用户要继续：先 `status --run`，再 `advance --run`；若完成材料或代码摘要改变，另开一个版本，不编辑历史状态来强行恢复。
+- 用户已有课题：用根目录 `scripts/start_research.py start --question <问题>`，按实际提供内容加 `--paper <文件或链接>`、`--data <文件或链接>`；多份材料重复参数。默认创建仓库外临时目录，不必让新手先选路径。读取生成的 `START_HERE.md` 和 `CHECKS.json`，先用中文说明已有材料、关键缺口和最多三个下一步。详细选项与例子见[通用新手入口](START_HERE.md)和[使用示例](EXAMPLES.md)。
+- 用户要继续：有 `intake.json` 的项目先运行 `start_research.py check --run`，需要补材料时添加对应参数；旧项目直接使用 `research_pipeline.py status --run`。随后按 `NEXT.md` 准备当前交付物，调用 `advance --run`。已接受材料、方案或代码改变时另开版本，不编辑历史摘要。
 
 新手只需说题目、提供材料和可用资源；JSON、路径和命令由助手维护。能从文件确定的信息直接读取，不反复让用户选择技能。缺少决定性信息时只问一项，并继续不依赖它的工作。
+
+## 把材料检查转成科研工作
+
+- 检查器只做本地接收、有限结构预览和安装元数据查询。文本存在不等于已读论文；链接未联网不等于已获取；CSV列名不能决定目标变量。由当前助手实际读取并记录范围，再填 `evidence.json`，不将接收清单直接标成 `status=read`。
+- PDF/Excel等可用宿主现有工具实际读取；工具不可用时给出正文片段或CSV替代路径。包元数据存在不等于解析成功；未导入包、不自动安装。模型、GPU和外部服务依赖应在方案明确后，依据实际代码检查；不要为所有课题预装科研工具。
+- 已有材料足够界定问题时，提出最小可回答范围并填 `question.json`；不因表格可读就自动沿用企鹅或Wine的模型、划分、删缺失规则。论文、数据字典、来源/许可、观测单位中仍缺的部分分清：哪些可稍后补，哪些会阻止冻结方案。
+- 对需要的Python包可用 `check --require 包名` 或 `包名==确切版本`登记元数据检查；在协议接受前完成真实环境功能检查，并将实际运行、核验程序和依赖配置登记到 `protocol.code`。缺包时先判断是否确需该包或可用现有工具，再在当前授权范围内准备环境。
+- `check`追加材料检查历史但不推进研究；`advance`才接受六步交接。协议固定后不能通过补材料入口改变研究输入。首次只有问题也可以建项目；解释缺口，不擅自换题或复制示例结果。
+
+若当前宿主不能运行Python，先在对话中按同样三项做人工材料盘点，说明自动检查尚未运行；仍可先阅读可用文字。不要把聊天整理记为脚本测试成功。
 
 ## 每次只加载当前阶段
 

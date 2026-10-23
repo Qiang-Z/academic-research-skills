@@ -1,0 +1,57 @@
+{
+  "scope": "Verbatim documented PowerShell examples, runtime paths normalized, no retrieval or model execution",
+  "document_sha256": "7e7a1037e500179e04cd627d1455c97e7557ab8dde23f7e4655ed08f74a14e0e",
+  "helper_sha256": "d3cfdfd3eaf5f1fbbee67cc2ebbe94121955def203ec9a1d9a7590fffbf91de4",
+  "examples": [
+    {
+      "example": 1,
+      "script": "$runOut = Join-Path $env:TEMP ('ars-intake-local-' + [guid]::NewGuid().ToString('N'))\npy -3.12 -B -X utf8 scripts/start_research.py start --question \"已知物种是否有助于用企鹅鳍长预测体重？\" --paper \"examples/real-penguins/SOURCES.md\" --data \"examples/real-penguins/data/penguins.csv\" --output \"$runOut\"\nif ($LASTEXITCODE -notin @(0, 2)) { throw '检查调用失败，请先处理报错。' }\nGet-Content -LiteralPath (Join-Path $runOut 'START_HERE.md') -Encoding UTF8",
+      "shell_exit_code": 0,
+      "status": "ready_for_review",
+      "pipeline": {
+        "status": "blocked",
+        "current_stage": "question",
+        "problem": "Fill nonempty field: scope"
+      },
+      "material_statuses": [
+        "text_available",
+        "table_preview"
+      ],
+      "stdout": "项目目录：<run>\n材料检查完成，可以开始阅读与定题；研究尚未完成。\n- 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n中文检查页：<run>\\START_HERE.md\n# 从这里继续\n\n已知物种是否有助于用企鹅鳍长预测体重？\n\n本页是材料检查结果，不是研究结果。先处理当前缺口；JSON与六步交接由助手维护。\n\n## 已收到\n\n- M001 论文：<repo>\\examples\\real-penguins\\SOURCES.md\n  - 已接收文本，检查了开头至多65536字符的编码；未做论文阅读、身份或结论核验。\n  - 项目副本：`materials/M001-SOURCES.md`；科学阅读范围：尚未由本检查器阅读。\n- M002 数据：<repo>\\examples\\real-penguins\\data\\penguins.csv\n  - 已预览表格结构；不代表数据适合当前研究。\n  - 项目副本：`materials/M002-penguins.csv`；科学阅读范围：尚未由本检查器阅读。\n  - 列名：species、island、bill_length_mm、bill_depth_mm、flipper_length_mm、body_mass_g、sex、year；检查344行，已扫描当前表全部记录。\n\n## 当前缺口\n\n- 自动材料检查未发现阻塞项；仍需实际阅读与研究设计。\n\n## 当前环境\n\n- 检查器正在Python 3.12.10运行；本入口只用标准库。\n- 模型、GPU和外部服务依赖要在方案选定后检查；不预装整套科研工具。\n\n## 下一步\n\n1. 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n\n\n当前六步阶段：question。具体交付要求见[NEXT.md](NEXT.md)。\n给助手：先读仓库 workflows/automated-research/SKILL.md 当前阶段路由；论文登记不等于evidence中status=read。\n重新检查：`python -B scripts/start_research.py check --run \"本项目目录\"`。它更新检查页、追加检查历史，不推进或改写已接受阶段。\n核对数据字典、来源/许可和样本单位后再定方案；不要自动套用企鹅例子的目标、模型或删缺失规则。\nCHECK_RECORD:<run>\\CHECKS.json\n",
+      "stderr": ""
+    },
+    {
+      "example": 2,
+      "script": "$runOut = Join-Path $env:TEMP ('ars-intake-question-' + [guid]::NewGuid().ToString('N'))\npy -3.12 -B -X utf8 scripts/start_research.py start --question \"同样的肥料会改变不同品种植物的生长吗？\" --output \"$runOut\"\nif ($LASTEXITCODE -notin @(0, 2)) { throw '检查调用失败，请先处理报错。' }\nGet-Content -LiteralPath (Join-Path $runOut 'START_HERE.md') -Encoding UTF8",
+      "shell_exit_code": 0,
+      "status": "needs_attention",
+      "pipeline": {
+        "status": "blocked",
+        "current_stage": "question",
+        "problem": "Fill nonempty field: scope"
+      },
+      "material_statuses": [],
+      "stdout": "项目目录：<run>\n已建立/更新项目，以下材料或环境仍需处理。\n- 补充论文文件/链接；暂时没有也可先由助手收窄问题与寻找材料。\n- 补充数据文件/链接；暂时没有也可先由助手收窄问题与寻找材料。\n- 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n中文检查页：<run>\\START_HERE.md\n# 从这里继续\n\n同样的肥料会改变不同品种植物的生长吗？\n\n本页是材料检查结果，不是研究结果。先处理当前缺口；JSON与六步交接由助手维护。\n\n## 已收到\n\n尚未提供论文或数据；可以先与助手收窄问题。\n\n## 当前缺口\n\n- 尚未提供论文。\n- 尚未提供数据。\n\n## 当前环境\n\n- 检查器正在Python 3.12.10运行；本入口只用标准库。\n- 模型、GPU和外部服务依赖要在方案选定后检查；不预装整套科研工具。\n\n## 下一步\n\n1. 补充论文文件/链接；暂时没有也可先由助手收窄问题与寻找材料。\n2. 补充数据文件/链接；暂时没有也可先由助手收窄问题与寻找材料。\n3. 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n\n\n当前六步阶段：question。具体交付要求见[NEXT.md](NEXT.md)。\n给助手：先读仓库 workflows/automated-research/SKILL.md 当前阶段路由；论文登记不等于evidence中status=read。\n重新检查：`python -B scripts/start_research.py check --run \"本项目目录\"`。它更新检查页、追加检查历史，不推进或改写已接受阶段。\n核对数据字典、来源/许可和样本单位后再定方案；不要自动套用企鹅例子的目标、模型或删缺失规则。\nCHECK_RECORD:<run>\\CHECKS.json\n",
+      "stderr": ""
+    },
+    {
+      "example": 3,
+      "script": "$runOut = Join-Path $env:TEMP ('ars-intake-links-' + [guid]::NewGuid().ToString('N'))\npy -3.12 -B -X utf8 scripts/start_research.py start --question \"已知物种是否有助于用企鹅鳍长预测体重？\" --paper \"https://journal.r-project.org/articles/RJ-2022-020/\" --paper \"https://doi.org/10.1371/journal.pone.0090081\" --data \"examples/real-penguins/data/penguins.csv\" --output \"$runOut\"\nif ($LASTEXITCODE -notin @(0, 2)) { throw '检查调用失败，请先处理报错。' }\nGet-Content -LiteralPath (Join-Path $runOut 'START_HERE.md') -Encoding UTF8",
+      "shell_exit_code": 0,
+      "status": "needs_attention",
+      "pipeline": {
+        "status": "blocked",
+        "current_stage": "question",
+        "problem": "Fill nonempty field: scope"
+      },
+      "material_statuses": [
+        "pending_retrieval",
+        "pending_retrieval",
+        "table_preview"
+      ],
+      "stdout": "项目目录：<run>\n已建立/更新项目，以下材料或环境仍需处理。\n- 处理M001对应材料后重查；已可读的其他材料可先整理。\n- 处理M002对应材料后重查；已可读的其他材料可先整理。\n- 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n中文检查页：<run>\\START_HERE.md\n# 从这里继续\n\n已知物种是否有助于用企鹅鳍长预测体重？\n\n本页是材料检查结果，不是研究结果。先处理当前缺口；JSON与六步交接由助手维护。\n\n## 已收到\n\n- M001 论文：https://journal.r-project.org/articles/RJ-2022-020/\n  - 已登记链接；本检查器未联网、未获取、未阅读。\n- M002 论文：https://doi.org/10.1371/journal.pone.0090081\n  - 已登记链接；本检查器未联网、未获取、未阅读。\n- M003 数据：<repo>\\examples\\real-penguins\\data\\penguins.csv\n  - 已预览表格结构；不代表数据适合当前研究。\n  - 项目副本：`materials/M003-penguins.csv`；科学阅读范围：尚未由本检查器阅读。\n  - 列名：species、island、bill_length_mm、bill_depth_mm、flipper_length_mm、body_mass_g、sex、year；检查344行，已扫描当前表全部记录。\n\n## 当前缺口\n\n- 已登记链接；本检查器未联网、未获取、未阅读。\n- 已登记链接；本检查器未联网、未获取、未阅读。\n\n## 当前环境\n\n- 检查器正在Python 3.12.10运行；本入口只用标准库。\n- 模型、GPU和外部服务依赖要在方案选定后检查；不预装整套科研工具。\n\n## 下一步\n\n1. 处理M001对应材料后重查；已可读的其他材料可先整理。\n2. 处理M002对应材料后重查；已可读的其他材料可先整理。\n3. 请助手读取现有材料，明确研究范围、观测单位和停止条件，再按NEXT.md推进。\n\n\n当前六步阶段：question。具体交付要求见[NEXT.md](NEXT.md)。\n给助手：先读仓库 workflows/automated-research/SKILL.md 当前阶段路由；论文登记不等于evidence中status=read。\n重新检查：`python -B scripts/start_research.py check --run \"本项目目录\"`。它更新检查页、追加检查历史，不推进或改写已接受阶段。\n核对数据字典、来源/许可和样本单位后再定方案；不要自动套用企鹅例子的目标、模型或删缺失规则。\nCHECK_RECORD:<run>\\CHECKS.json\n",
+      "stderr": ""
+    }
+  ],
+  "all_passed": true
+}
