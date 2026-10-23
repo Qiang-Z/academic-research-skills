@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-23",
+  "numpy_cross_check": {
+    "numpy": "2.5.4",
+    "prediction_records": 540,
+    "scope": "two kNN conditions, six fixed splits; no sklearn implementation invoked",
+    "state": "pass"
+  },
+  "original_artifacts_unchanged": true,
+  "scope": "Same-author programs and controlled corruptions; not external scientific review or arbitrary dataset support.",
+  "source_sha256": {
+    "protocol.json": "db7bc2257afa38c6b547ba02b2918ebf078744d1ed9d2043eee635190f26ca75",
+    "run_case.py": "3962c71ac38ab0289c5bac019fe3f2ce0230e3ebf6888c01d16e99223f3a4867",
+    "verify_case.py": "363cafddd5de64d3c84d3fc48113c08512c50eb0012f73a43edc312f1e27d4bf"
+  },
+  "test_source_sha256": "0739a9828d19c0dee644768d557c4293ef23b589b507b23776d713f3a0308a04",
+  "tests": [
+    {
+      "arguments": [
+        "--input",
+        "$RUN_DIR"
+      ],
+      "case": "original_semantic_verification",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "script": "verify_case.py",
+      "stderr": "",
+      "stdout": "PASS: independent prediction, train-only scaling, metrics and paired interval checks: {\"prediction_records\": 810, \"groups\": 18, \"pairing\": {\"gained\": 14, \"lost\": 0, \"both_correct\": 31, \"both_wrong\": 0}, \"difference_pp\": 31.11111111111111}"
+    },
+    {
+      "arguments": [
+        "--output",
+        "$TEST_DIR\\repeat"
+      ],
+      "case": "second_actual_run",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "script": "run_case.py",
+      "stderr": "",
+      "stdout": "PASS: measured Wine experiment; 178 rows, six splits, 18 conditions, 810 prediction records.\nPrimary difference (pp): 31.11111111111111"
+    },
+    {
+      "arguments": [
+        "--input",
+        "$TEST_DIR\\repeat"
+      ],
+      "case": "second_semantic_verification",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "script": "verify_case.py",
+      "stderr": "",
+      "stdout": "PASS: independent prediction, train-only scaling, metrics and paired interval checks: {\"prediction_records\": 810, \"groups\": 18, \"pairing\": {\"gained\": 14, \"lost\": 0, \"both_correct\": 31, \"both_wrong\": 0}, \"difference_pp\": 31.11111111111111}"
+    },
+    {
+      "case": "repeatable_scientific_artifacts",
+      "excluded": [
+        "run.json elapsed time",
+        "manifest.json containing run.json digest",
+        "optional figures not rerendered"
+      ],
+      "files": [
+        "data-audit.json",
+        "splits.json",
+        "scalers.json",
+        "predictions.csv",
+        "metrics.json",
+        "paired-analysis.json",
+        "results.md"
+      ],
+      "passed": true
+    },
+    {
+      "arguments": [
+        "--input",
+        "$TEST_DIR\\wrong_prediction"
+      ],
+      "case": "changed_prediction_with_refreshed_hash",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "script": "verify_case.py",
+      "stderr": "Wine verification failed: Prediction does not match independent calculation",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "--input",
+        "$TEST_DIR\\all_data_scaler"
+      ],
+      "case": "all_data_scaling_with_refreshed_hash",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "script": "verify_case.py",
+      "stderr": "Wine verification failed: Mean mismatch",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "--output",
+        "$TEST_DIR\\should_not_exist"
+      ],
+      "case": "altered_dataset",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "script": "run_case.py",
+      "stderr": "Wine case failed: Dataset SHA-256 mismatch; use the documented UCI Wine snapshot, not Wine Quality.",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "--output",
+        "$RUN_DIR"
+      ],
+      "case": "existing_output_rejected",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "script": "run_case.py",
+      "stderr": "Wine case failed: Output exists; choose a NEW directory. Existing results are never overwritten.",
+      "stdout": ""
+    },
+    {
+      "arguments": [
+        "--input",
+        "$TEST_DIR\\missing"
+      ],
+      "case": "missing_results_rejected",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "script": "verify_case.py",
+      "stderr": "Wine verification failed: [Errno 2] No such file or directory: '$TEST_DIR\\\\missing\\\\manifest.json'",
+      "stdout": ""
+    }
+  ]
+}

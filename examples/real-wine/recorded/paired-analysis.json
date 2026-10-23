@@ -1,0 +1,396 @@
+{
+  "bootstrap_net_correct_histogram": [
+    {
+      "count": 1,
+      "net_correct": 2
+    },
+    {
+      "count": 2,
+      "net_correct": 4
+    },
+    {
+      "count": 4,
+      "net_correct": 5
+    },
+    {
+      "count": 22,
+      "net_correct": 6
+    },
+    {
+      "count": 54,
+      "net_correct": 7
+    },
+    {
+      "count": 145,
+      "net_correct": 8
+    },
+    {
+      "count": 334,
+      "net_correct": 9
+    },
+    {
+      "count": 512,
+      "net_correct": 10
+    },
+    {
+      "count": 824,
+      "net_correct": 11
+    },
+    {
+      "count": 1115,
+      "net_correct": 12
+    },
+    {
+      "count": 1340,
+      "net_correct": 13
+    },
+    {
+      "count": 1444,
+      "net_correct": 14
+    },
+    {
+      "count": 1298,
+      "net_correct": 15
+    },
+    {
+      "count": 1056,
+      "net_correct": 16
+    },
+    {
+      "count": 747,
+      "net_correct": 17
+    },
+    {
+      "count": 529,
+      "net_correct": 18
+    },
+    {
+      "count": 299,
+      "net_correct": 19
+    },
+    {
+      "count": 148,
+      "net_correct": 20
+    },
+    {
+      "count": 75,
+      "net_correct": 21
+    },
+    {
+      "count": 27,
+      "net_correct": 22
+    },
+    {
+      "count": 14,
+      "net_correct": 23
+    },
+    {
+      "count": 8,
+      "net_correct": 24
+    },
+    {
+      "count": 2,
+      "net_correct": 25
+    }
+  ],
+  "difference_pp": 31.11111111111111,
+  "interval_pp": [
+    20.0,
+    44.44444444444444
+  ],
+  "method": {
+    "confidence_level": 0.95,
+    "method": "class-stratified paired percentile bootstrap",
+    "not_covered": [
+      "training variation",
+      "model choice",
+      "future regions or vintages",
+      "independent validation across datasets"
+    ],
+    "population": "primary split test observations conditional on fitted training models and fixed empirical class proportions",
+    "quantile": "linear interpolation",
+    "resamples": 10000,
+    "seed": 731,
+    "supplementary": "descriptive only; shared observations across splits; no pooled inference"
+  },
+  "n_pairs": 45,
+  "paired_counts": {
+    "both_correct": 31,
+    "both_wrong": 0,
+    "gained": 14,
+    "lost": 0
+  },
+  "pairs": [
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 4,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 6,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 7,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 15,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 18,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 21,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 0,
+      "row_id": 22,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 29,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 31,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 36,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 42,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 0,
+      "row_id": 45,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 49,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 53,
+      "scaled_correct": 1
+    },
+    {
+      "label": 1,
+      "raw_correct": 1,
+      "row_id": 56,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 61,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 0,
+      "row_id": 63,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 67,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 81,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 0,
+      "row_id": 82,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 86,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 0,
+      "row_id": 90,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 93,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 0,
+      "row_id": 97,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 107,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 108,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 109,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 0,
+      "row_id": 113,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 115,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 124,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 126,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 127,
+      "scaled_correct": 1
+    },
+    {
+      "label": 2,
+      "raw_correct": 1,
+      "row_id": 128,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 1,
+      "row_id": 131,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 1,
+      "row_id": 137,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 1,
+      "row_id": 143,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 146,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 1,
+      "row_id": 148,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 152,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 153,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 1,
+      "row_id": 160,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 162,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 167,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 177,
+      "scaled_correct": 1
+    },
+    {
+      "label": 3,
+      "raw_correct": 0,
+      "row_id": 178,
+      "scaled_correct": 1
+    }
+  ],
+  "seed": 20261023
+}

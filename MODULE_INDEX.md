@@ -24,6 +24,7 @@
 | 入口 | 用途 |
 |---|---|
 | [六步入门 pipeline](workflows/research-starter/README.md) | 一个问题串起检索、设计、运行、分析和短报告，附限定实测。 |
+| [真实论文与公开数据案例](examples/real-wine/README.md) | UCI Wine的六步实跑、810条预测、来源记录、问题修复与复跑命令。 |
 | [新技能检索与比较](docs/discovery/2026-10-22/README.md) | 固定版本候选、增量能力、依赖、缺陷和组合验证。 |
 | [研究流程与交接](docs/RESEARCH_WORKFLOW.md) | 每步接收什么、交付什么、缺证据时回到哪里。 |
 | [公共证据检查](docs/EVIDENCE_CHECKS.md) | 区分实验完整性、主张支持、稿件追溯和引用核验。 |

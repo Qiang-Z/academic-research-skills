@@ -2,7 +2,7 @@
   "schema_version": 1,
   "repository": "Qiang-Z/academic-research-skills",
   "title": "学术技能库",
-  "updated_at": "2026-10-22",
+  "updated_at": "2026-10-23",
   "scope": "Modular collection of academic research skills; idea discovery is one module, not the entire repository.",
   "modules": [
     {
@@ -207,6 +207,7 @@
     "skill_catalog": "docs/SKILL_CATALOG.md",
     "beginner_validation": "docs/onboarding-tests/2026-10-22/README.md",
     "starter_pipeline": "workflows/research-starter/README.md",
-    "skill_discovery": "docs/discovery/2026-10-22/README.md"
+    "skill_discovery": "docs/discovery/2026-10-22/README.md",
+    "real_data_case": "examples/real-wine/README.md"
   }
 }

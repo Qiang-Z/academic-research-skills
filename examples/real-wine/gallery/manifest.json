@@ -1,0 +1,14 @@
+{
+  "artifacts": {
+    "comparison.pdf": "1a08da2d31fac2a552a03651813819d9a7f45bb6be97e33c5e2e52adefe59e9d",
+    "comparison.png": "b15294fefc1309d8c7bc3817750dfed0b1bdc33d8c3874ddf874654598ed2d66",
+    "comparison.svg": "4d8e18b19d9f05681f11676756b4cdd5209ab6897a8924a52b2009dc49056b2a",
+    "plotted-data.json": "66badbf39a7bdcd81d05f7d50e8b396c2a78a3b97d63a886cb50d356b3d69367"
+  },
+  "inputs": {
+    "metrics.json": "758d80ae63001485d59c67e302899f4f65385847981e9f2377a8b3a6b2e6fec1",
+    "paired-analysis.json": "67462ed7f09e75a8aac4c746a5a3661cab9dce71114d08c742c91ef9a329c6a8"
+  },
+  "matplotlib": "3.11.2",
+  "plot_source_sha256": "f1908b6c5ad309398dfa12e6a855398ac89ab171f4bee354dd6f1e50371716f1"
+}

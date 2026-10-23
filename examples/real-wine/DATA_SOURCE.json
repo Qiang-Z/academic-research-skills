@@ -1,0 +1,22 @@
+{
+  "downloaded_at_utc": "2026-10-23T02:50:58.950050+00:00",
+  "source_url": "https://archive.ics.uci.edu/static/public/109/wine.zip",
+  "landing_page": "https://archive.ics.uci.edu/dataset/109/wine",
+  "doi": "10.24432/C5PC7J",
+  "citation": "Aeberhard, S. & Forina, M. (1992). Wine [Dataset]. UCI Machine Learning Repository.",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "zip_sha256": "2bae62c4481220623579d4c4fb36b55652b6b75e06e49fa1981b8198362dfdab",
+  "zip_bytes": 6038,
+  "files": {
+    "wine.data": {
+      "sha256": "6be6b1203f3d51df0b553a70e57b8a723cd405683958204f96d23d7cd6aea659",
+      "bytes": 10782
+    },
+    "wine.names": {
+      "sha256": "f1b84f2ef845e0bdebf13e14fa7a213e56de4f1baa40c5974dbd1ee51c5ae710",
+      "bytes": 3036
+    }
+  },
+  "modifications": "none; raw bytes extracted by exact allowlisted member names; no other archive paths written"
+}

@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-23",
+  "scope": "Bounded research reading for one real-data learning study; not a systematic review or novelty claim.",
+  "queries": [
+    "site:archive.ics.uci.edu wine dataset 178 13 license",
+    "Cover Hart nearest neighbor pattern classification 1967 Stanford pdf",
+    "feature scaling nearest neighbor classification wine normalization research paper"
+  ],
+  "records": [
+    {
+      "id": "P1",
+      "type": "journal_paper_author_institution_copy",
+      "citation": "Cover, T. M. & Hart, P. E. (1967). Nearest Neighbor Pattern Classification. IEEE Transactions on Information Theory, 13(1), 21–27.",
+      "doi": "10.1109/TIT.1967.1053964",
+      "url": "https://isl.stanford.edu/~cover/papers/transIT/0021cove.pdf",
+      "metadata_url": "https://isl.stanford.edu/~cover/papers/cover",
+      "read_scope": "PDF页面1–2（印刷21–22页）的标题、摘要、引言及近邻/k近邻定义；未核对后续证明。",
+      "locator": "印刷页21的NN规则定义、页22引言中多数近邻类别的kNN描述",
+      "supports": "说明近邻分类的基本规则，为固定k=5的比较提供方法背景。",
+      "does_not_support": "不保证本例准确率或标准化收益；不是原论文定理与全部数值的复现。",
+      "identity": "论文首页核对标题与两作者，作者机构目录核对卷期页码。",
+      "human_read_attestation": false
+    },
+    {
+      "id": "P2",
+      "type": "arxiv_preprint_v1",
+      "citation": "de Amorim, L. B. V., Cavalcanti, G. D. C. & Cruz, R. M. O. (2022). The choice of scaling technique matters for classification performance. arXiv:2212.12343v1.",
+      "url": "https://arxiv.org/abs/2212.12343v1",
+      "full_text_url": "https://arxiv.org/pdf/2212.12343v1",
+      "version_note": "实际阅读2022年预印本v1；arXiv页面另列2023年Applied Soft Computing 133,109924及DOI 10.1016/j.asoc.2022.109924，未读取期刊最终全文。",
+      "read_scope": "摘要、引言、缩放方法中平移/尺度与z-score说明、4.2所读片段、结尾讨论片段；未通读37页或复核其全部实验。",
+      "locator": "摘要、缩放方法的式(1)及z-score说明、4.2数据缩放段落",
+      "supports": "缩放选择是需要明确记录的设计因素；收益依赖数据和模型，不能预设永远更好。",
+      "does_not_support": "本例只比较固定5-NN的一种标准化，不能复现其82数据集/20分类器的研究，也不能证明哪种缩放普遍最优。",
+      "identity": "arXiv官方元数据核对三位作者、标题、v1日期与PDF首页。",
+      "human_read_attestation": false
+    },
+    {
+      "id": "D1",
+      "type": "official_dataset",
+      "citation": "Aeberhard, S. & Forina, M. (1992). Wine [Dataset]. UCI Machine Learning Repository.",
+      "doi": "10.24432/C5PC7J",
+      "url": "https://archive.ics.uci.edu/dataset/109/wine",
+      "locator": "Additional Information、Additional Variable Information、Citation、License；原始wine.names的Relevant Information与属性表",
+      "read_scope": "数据页的任务、维度、标签、缺失、引用与许可，以及解压出的原始说明。",
+      "supports": "178样本、13特征、三种cultivar类别；首列是标签；数据许可为CC BY 4.0。",
+      "does_not_support": "不能用于质量评分、葡萄园/年份泛化或生化因果解释。没有可用批次/采收组ID以验证独立性。",
+      "version_note": "页面捐赠日期1991，与推荐引用年份1992分别保留；原始说明更新于1998，不混作论文发表年。",
+      "human_read_attestation": false
+    },
+    {
+      "id": "G1",
+      "type": "official_software_documentation",
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "observed_version": "1.9.1",
+      "read_scope": "12.2与12.2.1，关于先划分和仅训练集拟合变换的段落。",
+      "locator": "12.2.1 How to avoid data leakage",
+      "supports": "预处理参数只从训练子集计算，再应用相同变换。",
+      "does_not_support": "文档不能证明当前实现没有泄漏，仍需对实际fit_ids和参数重新计算。",
+      "human_read_attestation": false
+    },
+    {
+      "id": "G2",
+      "type": "official_software_example",
+      "url": "https://scikit-learn.org/stable/auto_examples/preprocessing/plot_scaling_importance.html",
+      "observed_version": "1.9.1",
+      "read_scope": "数据准备、近邻边界图代码和解释段。",
+      "locator": "Effect of rescaling on a k-neighbors models",
+      "supports": "解释特征尺度对距离及邻域结构的影响。",
+      "does_not_support": "该示例为两个特征、k=20的可视化；不将其全数据画边界代码当作本例留出集评价协议。",
+      "human_read_attestation": false
+    }
+  ],
+  "other_candidates": [
+    {"title": "Comparative analysis of statistical pattern recognition methods in high dimensional settings", "url": "https://www.sciencedirect.com/science/article/abs/pii/0031320394901457", "state": "publisher open returned HTTP403; only search metadata/abstract visible; no full-text evidence used"},
+    {"title": "Investigating the impact of data normalization on classification performance", "url": "https://www.sciencedirect.com/science/article/pii/S1568494619302947", "state": "publisher open returned HTTP403; not used for substantive conclusions"},
+    {"title": "Scikit-learn: Machine Learning in Python", "url": "https://www.jmlr.org/papers/v12/pedregosa11a.html", "state": "identity and selected PDF sections checked; software background only; core case does not depend on sklearn"},
+    {"title": "Comparison of Data Normalization for Wine Classification Using K-NN Algorithm", "url": "https://ijiis.org/index.php/IJIIS/article/view/145/0", "state": "publisher abstract read; exact dataset identity and evaluation comparability not established; no numeric comparison used"}
+  ],
+  "problems_observed": [
+    "UCI web-tool download click returned an internal error; direct official ZIP download through Python HTTPS succeeded with normal certificate validation.",
+    "Two publisher pages returned HTTP403; no bypass or fabricated full-text reading.",
+    "Wine recognition and Wine Quality search hits have different targets and must not be merged.",
+    "Software example plotting all rows is not the same task as held-out performance evaluation."
+  ],
+  "publication_policy": "Original paraphrases, metadata and links only; paper PDFs are not redistributed. Dataset bytes have separate CC BY attribution. No human reading signature is inferred."
+}

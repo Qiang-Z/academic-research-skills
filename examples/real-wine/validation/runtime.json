@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-23",
+  "run_logical_name": "ars-real-wine-3f373117f9",
+  "commands": [
+    {
+      "script": "run_case.py",
+      "arguments": [
+        "--output",
+        "$RUN_DIR"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: measured Wine experiment; 178 rows, six splits, 18 conditions, 810 prediction records.\nPrimary difference (pp): 31.11111111111111",
+      "stderr": ""
+    },
+    {
+      "script": "verify_case.py",
+      "arguments": [
+        "--input",
+        "$RUN_DIR"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: independent prediction, train-only scaling, metrics and paired interval checks: {\"prediction_records\": 810, \"groups\": 18, \"pairing\": {\"gained\": 14, \"lost\": 0, \"both_correct\": 31, \"both_wrong\": 0}, \"difference_pp\": 31.11111111111111}",
+      "stderr": ""
+    },
+    {
+      "script": "plot_case.py",
+      "arguments": [
+        "--input",
+        "$RUN_DIR"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: measured accuracy, paired interval and two confusion matrices plotted.",
+      "stderr": "",
+      "environment_note": "existing isolated Matplotlib dependencies, current process only; no new installation"
+    }
+  ],
+  "core_dependencies": "CPython 3.12.10 standard library only",
+  "protocol_sha256": "db7bc2257afa38c6b547ba02b2918ebf078744d1ed9d2043eee635190f26ca75"
+}

@@ -1,0 +1,25 @@
+{
+  "artifact_sha256": {
+    "data-audit.json": "0ee221f671864ebaac457f2e4e13a5d9c4d72cc3496cb3264b6b780629ff820c",
+    "metrics.json": "758d80ae63001485d59c67e302899f4f65385847981e9f2377a8b3a6b2e6fec1",
+    "paired-analysis.json": "67462ed7f09e75a8aac4c746a5a3661cab9dce71114d08c742c91ef9a329c6a8",
+    "predictions.csv": "c37419048d5eeed3bae9e3a351fab3bb15a77bd1e055952af13459f0e614d038",
+    "results.md": "8c6819f3a9624e733ea72ac30d063650d75d69e6a86c3afd8935d436a8fb2bfe",
+    "run.json": "ba0b91fb0dabf05731584f773af3db73ba856938088ba2cc32ae53f41cd19b3e",
+    "scalers.json": "21e147bb22ca49c5de6d1e045e46bb0fbeadefad109b4c81b21d9893d8895020",
+    "splits.json": "8f01f03c01c688ab101ae50aae821940865f58d3beeec80eb21b6732355eb4f8"
+  },
+  "input_sha256": {
+    "DATA_SOURCE.json": "e3c2af3b1483f5aa25b7259b22475db0fdcf77c2500af372d08848e0e117efab",
+    "data/wine.data": "6be6b1203f3d51df0b553a70e57b8a723cd405683958204f96d23d7cd6aea659",
+    "data/wine.names": "f1b84f2ef845e0bdebf13e14fa7a213e56de4f1baa40c5974dbd1ee51c5ae710",
+    "protocol.json": "db7bc2257afa38c6b547ba02b2918ebf078744d1ed9d2043eee635190f26ca75",
+    "sources.json": "3c3abbd64bf657881567d165854ede0e18e81ea070346fb95ff29ca0d41e2a6d"
+  },
+  "schema_version": 1,
+  "source_sha256": {
+    "run_case.py": "3962c71ac38ab0289c5bac019fe3f2ce0230e3ebf6888c01d16e99223f3a4867",
+    "verify_case.py": "363cafddd5de64d3c84d3fc48113c08512c50eb0012f73a43edc312f1e27d4bf"
+  },
+  "study_id": "uci-wine-scaling-v1"
+}

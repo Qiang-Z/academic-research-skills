@@ -1,0 +1,13 @@
+{
+  "class_counts": {
+    "1": 59,
+    "2": 71,
+    "3": 48
+  },
+  "duplicate_feature_vectors": 0,
+  "features": 13,
+  "group_information": "no harvest/vineyard/batch/group IDs available in the supplied file; row splitting cannot rule out group dependence",
+  "missing_or_nonfinite": 0,
+  "rows": 178,
+  "target": "cultivar class; NOT wine quality, geographic region, or chemical causation"
+}

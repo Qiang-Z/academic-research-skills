@@ -1,0 +1,568 @@
+{
+  "metrics": [
+    {
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.3333333333333333,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "majority_train",
+      "confusion_matrix": [
+        [
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "correct": 18,
+      "n": 45,
+      "seed": 20261023
+    },
+    {
+      "accuracy": 0.6888888888888889,
+      "balanced_accuracy": 0.6685185185185185,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "raw_5nn",
+      "confusion_matrix": [
+        [
+          13,
+          1,
+          1
+        ],
+        [
+          0,
+          13,
+          5
+        ],
+        [
+          2,
+          5,
+          5
+        ]
+      ],
+      "correct": 31,
+      "n": 45,
+      "seed": 20261023
+    },
+    {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "zscore_train_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ],
+      "correct": 45,
+      "n": 45,
+      "seed": 20261023
+    },
+    {
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.3333333333333333,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "majority_train",
+      "confusion_matrix": [
+        [
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "correct": 18,
+      "n": 45,
+      "seed": 11
+    },
+    {
+      "accuracy": 0.7111111111111111,
+      "balanced_accuracy": 0.7148148148148148,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "raw_5nn",
+      "confusion_matrix": [
+        [
+          13,
+          0,
+          2
+        ],
+        [
+          2,
+          11,
+          5
+        ],
+        [
+          2,
+          2,
+          8
+        ]
+      ],
+      "correct": 32,
+      "n": 45,
+      "seed": 11
+    },
+    {
+      "accuracy": 0.9333333333333333,
+      "balanced_accuracy": 0.9444444444444445,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "zscore_train_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          15,
+          3
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ],
+      "correct": 42,
+      "n": 45,
+      "seed": 11
+    },
+    {
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.3333333333333333,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "majority_train",
+      "confusion_matrix": [
+        [
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "correct": 18,
+      "n": 45,
+      "seed": 23
+    },
+    {
+      "accuracy": 0.6666666666666666,
+      "balanced_accuracy": 0.6166666666666667,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "raw_5nn",
+      "confusion_matrix": [
+        [
+          14,
+          0,
+          1
+        ],
+        [
+          0,
+          15,
+          3
+        ],
+        [
+          3,
+          8,
+          1
+        ]
+      ],
+      "correct": 30,
+      "n": 45,
+      "seed": 23
+    },
+    {
+      "accuracy": 0.9777777777777777,
+      "balanced_accuracy": 0.9814814814814815,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "zscore_train_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          1
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ],
+      "correct": 44,
+      "n": 45,
+      "seed": 23
+    },
+    {
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.3333333333333333,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "majority_train",
+      "confusion_matrix": [
+        [
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "correct": 18,
+      "n": 45,
+      "seed": 47
+    },
+    {
+      "accuracy": 0.7777777777777778,
+      "balanced_accuracy": 0.7870370370370371,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "raw_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          1,
+          2,
+          9
+        ]
+      ],
+      "correct": 35,
+      "n": 45,
+      "seed": 47
+    },
+    {
+      "accuracy": 0.9111111111111111,
+      "balanced_accuracy": 0.9259259259259259,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "zscore_train_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          2,
+          14,
+          2
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ],
+      "correct": 41,
+      "n": 45,
+      "seed": 47
+    },
+    {
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.3333333333333333,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "majority_train",
+      "confusion_matrix": [
+        [
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "correct": 18,
+      "n": 45,
+      "seed": 71
+    },
+    {
+      "accuracy": 0.6222222222222222,
+      "balanced_accuracy": 0.6037037037037037,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "raw_5nn",
+      "confusion_matrix": [
+        [
+          13,
+          0,
+          2
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          2,
+          6,
+          4
+        ]
+      ],
+      "correct": 28,
+      "n": 45,
+      "seed": 71
+    },
+    {
+      "accuracy": 0.9555555555555556,
+      "balanced_accuracy": 0.9629629629629629,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "zscore_train_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          16,
+          2
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ],
+      "correct": 43,
+      "n": 45,
+      "seed": 71
+    },
+    {
+      "accuracy": 0.4,
+      "balanced_accuracy": 0.3333333333333333,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "majority_train",
+      "confusion_matrix": [
+        [
+          0,
+          15,
+          0
+        ],
+        [
+          0,
+          18,
+          0
+        ],
+        [
+          0,
+          12,
+          0
+        ]
+      ],
+      "correct": 18,
+      "n": 45,
+      "seed": 101
+    },
+    {
+      "accuracy": 0.6666666666666666,
+      "balanced_accuracy": 0.6666666666666666,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "raw_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          1,
+          9,
+          8
+        ],
+        [
+          3,
+          3,
+          6
+        ]
+      ],
+      "correct": 30,
+      "n": 45,
+      "seed": 101
+    },
+    {
+      "accuracy": 0.9777777777777777,
+      "balanced_accuracy": 0.9814814814814815,
+      "class_order": [
+        1,
+        2,
+        3
+      ],
+      "condition": "zscore_train_5nn",
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0
+        ],
+        [
+          0,
+          17,
+          1
+        ],
+        [
+          0,
+          0,
+          12
+        ]
+      ],
+      "correct": 44,
+      "n": 45,
+      "seed": 101
+    }
+  ],
+  "paired": {
+    "difference_pp": 31.11111111111111,
+    "interval_pp": [
+      20.0,
+      44.44444444444444
+    ],
+    "method": {
+      "confidence_level": 0.95,
+      "method": "class-stratified paired percentile bootstrap",
+      "not_covered": [
+        "training variation",
+        "model choice",
+        "future regions or vintages",
+        "independent validation across datasets"
+      ],
+      "population": "primary split test observations conditional on fitted training models and fixed empirical class proportions",
+      "quantile": "linear interpolation",
+      "resamples": 10000,
+      "seed": 731,
+      "supplementary": "descriptive only; shared observations across splits; no pooled inference"
+    },
+    "n_pairs": 45,
+    "seed": 20261023
+  }
+}

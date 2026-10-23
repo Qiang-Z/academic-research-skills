@@ -40,7 +40,7 @@
 | 稿件或审稿意见 | [检查稿件、准备逐条回复](modules/submission-rebuttal/USAGE.md) |
 | 越来越多的笔记和文件 | [建立项目记录与知识库](modules/research-knowledge/USAGE.md) |
 
-想把阅读和实验连起来？试试[从问题到有证据的小报告](workflows/research-starter/README.md)，附已实跑案例。想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)。
+想把阅读和实验连起来？试试[六步流程](workflows/research-starter/README.md)，或直接跟做[真实论文与公开数据案例：葡萄酒品种分类](examples/real-wine/README.md)。想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)。
 
 <details>
 <summary><strong>展开八个模块的全流程地图</strong></summary>
@@ -60,6 +60,6 @@
 
 [来源与许可](THIRD_PARTY_NOTICES.md) · [研究交接](docs/RESEARCH_WORKFLOW.md) · [证据检查](docs/EVIDENCE_CHECKS.md) · [收录规范](CONTRIBUTING.md) · [更新记录](CHANGELOG.md) · [任务卡实测](docs/onboarding-tests/2026-10-22/README.md) · [发布说明](docs/PUBLISH.md)
 
-维护者可运行 `python3 scripts/verify_bundle.py`（Windows：`py -3.12 scripts/verify_bundle.py`）核对发布清单、摘要及来源。上游快照保持原目录和原文件；本轮整理日期为 2026-10-22。
+维护者可运行 `python3 scripts/verify_bundle.py`（Windows：`py -3.12 scripts/verify_bundle.py`）核对发布清单、摘要及来源。上游快照保持原目录和原文件；最近维护日期为 2026-10-23。
 
 </details>

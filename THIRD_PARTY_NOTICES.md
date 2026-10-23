@@ -17,3 +17,7 @@
 初始整理将原有材料搬入模块目录；文献模块整理时按固定摘要恢复了两份原本缺失文件，后续实验和数据分析模块继续保持上游原始字节。新增的总览、目录登记、维护约定与发布辅助材料不构成对第三方内容的重新授权。本次没有为新整理材料指定额外统一许可证。
 
 实验模块本轮有限测试执行了原始队列组件，监控及审计依赖检查另行记录；已涉及的辅助文件加入模块来源引用。原始快照保持不变，测试产物及本库外围验证入口不替代原许可证。整轮运行验证仍在进行，详见 [阶段快照](modules/experiment-design/runtime-tests/2026-10-22/README.md)。
+
+## 真实案例的独立公开数据许可 · 2026-10-23
+
+`examples/real-wine/data/wine.data` 和 `wine.names` 来自 [UCI Wine](https://archive.ics.uci.edu/dataset/109/wine)，按 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 保留原始字节与署名。推荐引用：Aeberhard, S. & Forina, M. (1992). Wine [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5PC7J 。详见该目录README和DATA_SOURCE.json；不暗示数据作者背书本例。此数据不计入本库的技能来源项目/固定快照数量。论文全文没有随本例再分发。
