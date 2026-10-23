@@ -1,0 +1,107 @@
+{
+  "recorded_at": "2026-10-23T06:29:50.024500+00:00",
+  "walkthrough_kind": "agent walkthrough using published instructions; not a human novice usability study",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows",
+    "shell": "Windows PowerShell",
+    "dependencies": "Python standard library only; existing Python 3.12 launcher"
+  },
+  "document_sha256": {
+    "README.md": "3f9faa7bcfcfdf0d0aeb552c2fef91480c5f4659393ac422032dce7077080377",
+    "VALIDATION.md": "f2f87d0f1cf553a1ff59f4c70934ae6f8f752725528ba36c4fbac389b08cbcc9"
+  },
+  "code_sha256": {
+    "replay.py": "20211afa919c5d58bec56cb5a4edbaeb6e99844db24b8cc1c986872336ff02b1",
+    "run_case.py": "86e569f3a5cc8460e7ee7379f4cbc301aeaaa1616b69fedd0e8036208640d799",
+    "verify_case.py": "1bf7fa6b8875d7097af3a5f8c304e92a75ba6ec3d3b34650d3c43a6c6f4877c2"
+  },
+  "readme_command": {
+    "script": "$runOut = Join-Path $env:TEMP (\"ars-penguins-\" + [guid]::NewGuid().ToString(\"N\"))\npy -3.12 -B -X utf8 examples/real-penguins/replay.py --output $runOut\nif ($LASTEXITCODE -ne 0) { throw \"复跑失败；请保留 $runOut 中的日志并交给助手排查。\" }\nWrite-Host \"报告：$(Join-Path $runOut 'REPORT.md')\"",
+    "exit_code": 0,
+    "stdout": "{\"status\": \"complete\", \"mode\": \"custom\", \"evidence_mode\": \"reused\", \"report\": \"<new-replay>\\\\REPORT.md\", \"numeric_checks\": {\"passed\": true, \"check_count\": 7591, \"counts\": {\"raw_rows\": 344, \"usable_rows\": 342, \"excluded_record_ids\": [4, 272], \"predictions\": 699, \"models\": 6, \"metric_rows\": 6, \"species_metric_rows\": 18, \"split_records\": 2, \"data_audit_records\": 1, \"splits\": {\"primary\": {\"train_n\": 223, \"test_n\": 119, \"test_species_n\": {\"Adelie\": 52, \"Chinstrap\": 24, \"Gentoo\": 43}}, \"secondary\": {\"train_n\": 109, \"test_n\": 114, \"test_species_n\": {\"Adelie\": 50, \"Chinstrap\": 18, \"Gentoo\": 46}}}}, \"method\": \"independent scalar OLS and within-species centered common-slope fit\", \"numeric_tolerance\": {\"absolute\": 1e-07, \"relative\": 1e-11}, \"scope\": \"fixed Penguins protocol, pinned data bytes, train/test membership, all fitted coefficients, targets, predictions, MAE and RMSE\", \"does_not_establish\": [\"independent observations or absence of repeated individuals\", \"causality, external validity or statistical significance\", \"general validation of arbitrary custom research or upstream workflows\"]}}\n报告：<new-replay>\\REPORT.md\n",
+    "stderr": ""
+  },
+  "archived_verification": {
+    "script": "$auditRun = Join-Path $env:TEMP ('ars-penguins-audit-' + [guid]::NewGuid().ToString('N'))\nCopy-Item -LiteralPath 'examples/real-penguins/recorded-run' -Destination $auditRun -Recurse\npy -3.12 -B scripts/research_pipeline.py verify --run \"$auditRun\"\n$structureExit = $LASTEXITCODE\nif ($LASTEXITCODE -ne 0) { throw '交接摘要核验未通过。' }\npy -3.12 -B examples/real-penguins/verify_case.py --run \"$auditRun\"\n$numericExit = $LASTEXITCODE\nif ($LASTEXITCODE -ne 0) { throw '数值核验未通过。' }\nWrite-Output \"AUDIT_PATH=$auditRun\"\nWrite-Output \"STRUCTURE_EXIT=$structureExit\"\nWrite-Output \"NUMERIC_EXIT=$numericExit\"",
+    "structure_exit_code": 0,
+    "numeric_exit_code": 0,
+    "exit_code": 0,
+    "stdout": "PASS: structure and reference integrity only\n{\n  \"passed\": true,\n  \"check_count\": 7591,\n  \"counts\": {\n    \"raw_rows\": 344,\n    \"usable_rows\": 342,\n    \"excluded_record_ids\": [\n      4,\n      272\n    ],\n    \"predictions\": 699,\n    \"models\": 6,\n    \"metric_rows\": 6,\n    \"species_metric_rows\": 18,\n    \"split_records\": 2,\n    \"data_audit_records\": 1,\n    \"splits\": {\n      \"primary\": {\n        \"train_n\": 223,\n        \"test_n\": 119,\n        \"test_species_n\": {\n          \"Adelie\": 52,\n          \"Chinstrap\": 24,\n          \"Gentoo\": 43\n        }\n      },\n      \"secondary\": {\n        \"train_n\": 109,\n        \"test_n\": 114,\n        \"test_species_n\": {\n          \"Adelie\": 50,\n          \"Chinstrap\": 18,\n          \"Gentoo\": 46\n        }\n      }\n    }\n  },\n  \"method\": \"independent scalar OLS and within-species centered common-slope fit\",\n  \"numeric_tolerance\": {\n    \"absolute\": 1e-07,\n    \"relative\": 1e-11\n  },\n  \"scope\": \"fixed Penguins protocol, pinned data bytes, train/test membership, all fitted coefficients, targets, predictions, MAE and RMSE\",\n  \"does_not_establish\": [\n    \"independent observations or absence of repeated individuals\",\n    \"causality, external validity or statistical significance\",\n    \"general validation of arbitrary custom research or upstream workflows\"\n  ]\n}\nAUDIT_PATH=<copied-recorded-run>\nSTRUCTURE_EXIT=0\nNUMERIC_EXIT=0\n",
+    "stderr": ""
+  },
+  "duplicate_output_attempt": {
+    "command": "py -3.12 -B -X utf8 examples/real-penguins/replay.py --output <existing-new-replay>",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"<repository>\\examples\\real-penguins\\replay.py\", line 198, in <module>\n    run_pipeline(args.output, prior)\n  File \"<repository>\\examples\\real-penguins\\replay.py\", line 144, in run_pipeline\n    raise ValueError('Choose a NEW output directory outside repository')\nValueError: Choose a NEW output directory outside repository\n",
+    "files_unchanged": true
+  },
+  "checks": {
+    "readme_complete_replay_exit_zero": true,
+    "report_created": true,
+    "six_stages_accepted": true,
+    "mode_custom": true,
+    "source_mode_reused": true,
+    "zero_new_searches": true,
+    "archived_structure_exit_zero": true,
+    "archived_numeric_exit_zero": true,
+    "duplicate_output_rejected": true,
+    "duplicate_attempt_preserves_every_file": true,
+    "six_scientific_artifacts_identical": true
+  },
+  "scientific_artifact_comparison": [
+    {
+      "path": "results/predictions.csv",
+      "new_replay_sha256": "2cd87e64d2e3f03157539d9ffbc0d0f1c2bfcbee2787602794f9a9062713b93f",
+      "recorded_run_sha256": "2cd87e64d2e3f03157539d9ffbc0d0f1c2bfcbee2787602794f9a9062713b93f",
+      "identical_bytes": true
+    },
+    {
+      "path": "results/models.json",
+      "new_replay_sha256": "67a7a8e85dad0003a4b0eb956b90d6178a7297c77a09da9cd127acd65b366271",
+      "recorded_run_sha256": "67a7a8e85dad0003a4b0eb956b90d6178a7297c77a09da9cd127acd65b366271",
+      "identical_bytes": true
+    },
+    {
+      "path": "results/metrics.json",
+      "new_replay_sha256": "80f51103b5e1176f3f536a2b45edf40afdc6be6f3e2b7f0ac63783ac20891f94",
+      "recorded_run_sha256": "80f51103b5e1176f3f536a2b45edf40afdc6be6f3e2b7f0ac63783ac20891f94",
+      "identical_bytes": true
+    },
+    {
+      "path": "results/species_metrics.json",
+      "new_replay_sha256": "cb5b0367157c87d500896a17b8dd7a5ff8d493f88e6020fc7e6fed1225847b83",
+      "recorded_run_sha256": "cb5b0367157c87d500896a17b8dd7a5ff8d493f88e6020fc7e6fed1225847b83",
+      "identical_bytes": true
+    },
+    {
+      "path": "results/splits.json",
+      "new_replay_sha256": "23265660b3d854556d15d9966789b6616c4829f3a789ea38da0cb5715987491e",
+      "recorded_run_sha256": "23265660b3d854556d15d9966789b6616c4829f3a789ea38da0cb5715987491e",
+      "identical_bytes": true
+    },
+    {
+      "path": "results/data_audit.json",
+      "new_replay_sha256": "42ffd59df5b9b5e9f6769535ddad2fb7d8b6d033477d050e3f8732b083c8c02a",
+      "recorded_run_sha256": "42ffd59df5b9b5e9f6769535ddad2fb7d8b6d033477d050e3f8732b083c8c02a",
+      "identical_bytes": true
+    }
+  ],
+  "usability_findings": [
+    {
+      "id": "duplicate-output-error-presentation",
+      "severity": "minor_nonblocking",
+      "observed": "Reusing an existing output directory is correctly rejected with exit 1 and leaves every file unchanged, but the displayed error is an English Python traceback.",
+      "impact": "A novice can follow the documented fresh-directory command successfully; if manually reusing a path, the error presentation is more technical than the Chinese instructions.",
+      "handling": "Recorded as an error-message usability limitation; no code or archived run was changed in this walkthrough."
+    }
+  ],
+  "usability_summary": "The documented full PowerShell replay and Copy-Item archived-run verification both succeeded without a normal-path blocker. The README explains interim blocked transitions, output location, interpreter prerequisite and reused literature. One minor error-path presentation issue was observed: duplicate-output rejection displays a technical English traceback.",
+  "scope_limitations": [
+    "The reviewer already knows the design and repository; this does not measure first-time human novice usability.",
+    "Only this Windows/Python environment and the fixed Penguins case were exercised; custom new research still requires host preparation.",
+    "The saved six-stage state was checked, and all six science artifacts were byte-identical; this is not peer review or a fresh literature search."
+  ],
+  "stdout_handling": "Actual subprocess stdout/stderr preserved except explicit substitution of private local directory prefixes with <repository>, <new-replay>, <copied-recorded-run>. PowerShell UTF-8 output configuration and exit/path markers were added only to capture logs; documented commands were unchanged. JSON-escaped forms of the same private prefixes were normalized as well."
+}

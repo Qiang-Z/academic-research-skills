@@ -42,6 +42,8 @@
 
 想让助手连续推进研究？使用[自动化科研 pipeline](workflows/automated-research/README.md)：一句话启动真实案例，或带着自己的课题按阶段推进，保存进度并支持中断恢复。[热门仓库如何组合](workflows/automated-research/COMPOSITION.md)
 
+想看自己的课题怎样接入？跟做[企鹅体重预测：真实自定义课题](examples/real-penguins/README.md)，查看六步完整记录、代码版本固定、独立复算，以及保留的反向结果。只需 Python 标准库即可复跑这个实例。
+
 想先了解每一步？试试[六步流程](workflows/research-starter/README.md)，或直接跟做[真实论文与公开数据案例：葡萄酒品种分类](examples/real-wine/README.md)。想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)。
 
 <details>

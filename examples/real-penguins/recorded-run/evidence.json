@@ -1,0 +1,165 @@
+{
+  "mode": "reused",
+  "checked_at": "2026-10-23",
+  "scope": "Offline replay of the 2026-10-23 source reading records; no new retrieval. Original search log: examples/real-penguins/sources.json.",
+  "search_log": [],
+  "sources": [
+    {
+      "id": "P1",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081",
+      "version": "Published Version of Record, 2014-03-05; PLoS ONE 9(3): e90081",
+      "checked_at": "2026-10-23",
+      "status": "read",
+      "title": "Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus Pygoscelis)",
+      "authors": [
+        "Kristen B. Gorman",
+        "Tony D. Williams",
+        "William R. Fraser"
+      ],
+      "doi": "10.1371/journal.pone.0090081",
+      "identity_check": "Publisher title, authors, publication date and DOI matched Crossref /works/10.1371/journal.pone.0090081.",
+      "read_scope": "Publisher HTML: abstract; Materials and Methods / Field methods; Statistical methods; Data management. Selected paragraphs only; supplements, all results and discussion were not fully read.",
+      "locator": "Field methods paragraphs 1–5; Statistical methods paragraphs 2–3 and logistic-regression description; Data management",
+      "supports": "三座岛的成鸟观测来自2007/08、2008/09、2009/10繁殖季；同巢配对成鸟被采样，鳍长单位毫米、体重单位克。物种与岛屿分布不均。原研究问题涉及性别、体型和同位素生态关系。",
+      "does_not_support": "不能据此声称本案例复现了原论文，不能证明所有行独立或跨季节没有重复个体，也不能支持2009留出预测的性能、因果解释或区域外泛化。"
+    },
+    {
+      "id": "P2",
+      "url": "https://journal.r-project.org/articles/RJ-2022-020/",
+      "version": "Published Version of Record, 2022-06-21; The R Journal 14(1): 244–254",
+      "checked_at": "2026-10-23",
+      "status": "read",
+      "title": "Palmer Archipelago Penguins Data in the palmerpenguins R Package - An Alternative to Anderson's Irises",
+      "authors": [
+        "Allison M. Horst",
+        "Alison Presmanes Hill",
+        "Kristen B. Gorman"
+      ],
+      "doi": "10.32614/RJ-2022-020",
+      "identity_check": "Publisher title, authors and date matched Crossref /works/10.32614/RJ-2022-020; author-name display normalized against the publisher.",
+      "read_scope": "Publisher HTML: introductory summary; Data source; The palmerpenguins R package; Data structure and sample size; linear-relationships paragraphs/Figure 4 caption; Penguins data processing; Conclusion. Did not execute supplementary R code or independently reproduce its figures.",
+      "locator": "Data source; eight-variable list; linear relationships and Figure 4; Appendix A / Penguins data processing",
+      "supports": "简化数据保留344行、8变量并采用CC0；year由产卵观测提取。文章已建议比较鳍长—体重回归是否纳入物种，因此本例属于教学延伸。数据来源链为PAL-LTER至EDI。",
+      "does_not_support": "没有给出本案例2007–2008训练、2009测试的模型结果；不支持宣称比较思路是原创发现。本文辛普森悖论示例涉及喙长/喙深，不能直接套用于鳍长/体重。"
+    },
+    {
+      "id": "D1",
+      "url": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/inst/extdata/penguins.csv",
+      "version": "Git commit 8957207b78d6ccd1b4654a9dd9c9041b657478ab; DESCRIPTION package version 0.1.1",
+      "checked_at": "2026-10-23",
+      "status": "read",
+      "commit_date": "2024-09-19T22:17:00Z",
+      "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+      "bytes": 15241,
+      "license": "CC0-1.0",
+      "associated_documents": [
+        "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/DESCRIPTION",
+        "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/README.md",
+        "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/man/penguins.Rd"
+      ],
+      "read_scope": "Official GitHub API resolved main to the pinned commit. Read DESCRIPTION, README License/Additional data use information/Data citations, and man/penguins.Rd. Downloaded CSV bytes into memory for SHA256 and inspected header/sample rows; full data audit is a separate execution artifact.",
+      "locator": "DESCRIPTION Version/License; README License and Additional data use information; man/penguins.Rd format/source; CSV header",
+      "supports": "固定CSV可下载；列含species、island、bill_length_mm、bill_depth_mm、flipper_length_mm、body_mass_g、sex、year。包明确声明CC0。官方说明请求保留研究引用，正式发表研究时建议联系数据作者。",
+      "does_not_support": "文件可下载、校验值稳定不代表统计模型正确；简化CSV不含个体或巢ID，不能验证跨年个体互斥；未声称已联系作者或获得其研究背书。"
+    },
+    {
+      "id": "E1",
+      "url": "https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.219.5",
+      "version": "knb-lter-pal.219.5, Adélie data package, as cited by P2 and D1",
+      "checked_at": "2026-10-23",
+      "status": "unavailable",
+      "doi": "10.6073/pasta/98b16d7d563f265cb52372c8ca99e60f",
+      "read_scope": "Package identity read in P2/D1 references only; direct EDI page request returned an internal retrieval error with no usable page content.",
+      "locator": "P2 Data source; D1 man/penguins.Rd source",
+      "supports": "仅记录上游给出的Adélie数据来源指针。",
+      "does_not_support": "本次未独立读取EDI元数据或重新下载该包；不能标记为EDI原始数据复核成功。"
+    },
+    {
+      "id": "E2",
+      "url": "https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.220.5",
+      "version": "knb-lter-pal.220.5, Gentoo data package, as cited by P2 and D1",
+      "checked_at": "2026-10-23",
+      "status": "unavailable",
+      "doi": "10.6073/pasta/7fca67fb28d56ee2ffa3d9370ebda689",
+      "read_scope": "Package identity read in P2/D1 references only; direct EDI page request returned HTTP 403.",
+      "locator": "P2 Data source; D1 man/penguins.Rd source",
+      "supports": "仅记录上游给出的Gentoo数据来源指针。",
+      "does_not_support": "本次未独立读取EDI元数据或重新下载该包；403不得写成验证通过。"
+    },
+    {
+      "id": "E3",
+      "url": "https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-pal.221.6",
+      "version": "knb-lter-pal.221.6, Chinstrap data package, as cited by P2 and D1",
+      "checked_at": "2026-10-23",
+      "status": "unavailable",
+      "doi": "10.6073/pasta/c14dfcfada8ea13a17536e73eb6fbe9e",
+      "read_scope": "Package identity read in P2/D1 references only; direct EDI page request returned HTTP 403.",
+      "locator": "P2 Data source; D1 man/penguins.Rd source",
+      "supports": "仅记录上游给出的Chinstrap数据来源指针。",
+      "does_not_support": "本次未独立读取EDI元数据或重新下载该包；403不得写成验证通过。"
+    },
+    {
+      "id": "L1",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "version": "CC0 1.0 Universal Deed, retrieved 2026-10-23",
+      "checked_at": "2026-10-23",
+      "status": "read",
+      "read_scope": "Official deed: No Copyright, Other Information and Notice; not a substitute for a dataset-specific license declaration.",
+      "locator": "No Copyright items 1–2; Other Information item 3",
+      "supports": "CC0允许复制、修改与再分发；结合D1具体许可声明，可将该CSV随教学案例公开保存，并保留研究来源。",
+      "does_not_support": "CC0不能代替具体数据的授权声明，也不表示作者认可本案例结论。"
+    },
+    {
+      "id": "L2",
+      "url": "https://lternet.edu/data-access-policy/",
+      "version": "LTER Network Data Access Policy; page states revised 2017-05-19, updated 2020-08-27",
+      "checked_at": "2026-10-23",
+      "status": "read",
+      "read_scope": "Data types, metadata, and Data Use Agreements paragraphs; read online policy text.",
+      "locator": "Data Use Agreements",
+      "supports": "具体数据元数据决定许可；政策可采用CC BY或CC0，并要求恰当学术引用、理解原研究语境，建议在方法/结果有疑问时联系作者。",
+      "does_not_support": "政策本身不能证明所有LTER数据均为CC0；本例许可依据另见D1/P2。"
+    }
+  ],
+  "retrieval_log": [
+    {
+      "resource": "P1 and P2 publisher HTML",
+      "status": "success; selected sections actually read, no paper full-text retrieval failure"
+    },
+    {
+      "resource": "Crossref metadata for P1/P2",
+      "status": "success; title, authors, venue, date, volume/issue/pages and DOI checked"
+    },
+    {
+      "resource": "Official GitHub commit API and D1 associated documents",
+      "status": "success; commit pinned and CSV hash computed independently in memory"
+    },
+    {
+      "resource": "https://raw.githubusercontent.com/allisonhorst/palmerpenguins/8957207b78d6ccd1b4654a9dd9c9041b657478ab/LICENSE",
+      "status": "HTTP 404; use explicit DESCRIPTION/README license declarations, do not invent a LICENSE file"
+    },
+    {
+      "resource": "E1",
+      "status": "failed; web retrieval returned internal error"
+    },
+    {
+      "resource": "E2/E3",
+      "status": "failed; HTTP 403"
+    },
+    {
+      "resource": "CC0 link from official package homepage",
+      "status": "redirected to a 2008 draft discussion page; used canonical CC0 1.0 deed L1 instead"
+    },
+    {
+      "resource": "Local bare python command",
+      "status": "failed; Microsoft Store alias; retried successfully with py -3.12 -B -X utf8; no packages installed"
+    }
+  ],
+  "unresolved": [
+    "EDI package metadata/body content remains unread in this run. The source chain is corroborated by P1/P2/D1, not independently reconstructed from all EDI packages.",
+    "Cross-year individual identity and dependence within nesting pairs are unresolved with the simplified CSV. A year holdout is not proof of an individual-disjoint or site-disjoint test.",
+    "2009 in the curated file is a study-year label derived from clutch observations, corresponding to the 2009/10 austral season described in P1; do not silently relabel the data as complete calendar-year monitoring.",
+    "This is a pre-specified teaching comparison informed by published examples, not novel discovery, clinical use, causal inference or full reproduction of either cited paper.",
+    "Formal scientific publication would need broader source reading, sampling/dependence clarification and uncertainty assessment. This repository publishes a bounded educational workflow; no author contact or endorsement is claimed."
+  ]
+}

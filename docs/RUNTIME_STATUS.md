@@ -8,6 +8,8 @@
 
 新增[自动化科研 pipeline](../workflows/automated-research/README.md)，实际验证范围见[运行记录](../workflows/automated-research/VALIDATION.md)。默认 Wine 适配器复用历史论文阅读与固定协议，重新执行实验和数值核验，生成本次模板报告。自定义课题按结构、摘要和引用关系推进，实际科研执行和语义判断由宿主完成。最新外部热门仓库的检索比较属于静态选型，并未安装或验证这些候选的完整工作流。
 
+新增[Palmer Penguins自定义真实课题](../examples/real-penguins/README.md)：两篇论文限定阅读、官方CC0数据、主/补充时间留出与三个回归条件，实际走完custom六步；699条预测由另一实现复算，负结果和来源失败保留。该例有具体数值验证，不将通用custom结构检查升级为科学验证。见[该例验证范围](../examples/real-penguins/VALIDATION.md)。
+
 ## 五类状态分别记录
 
 | 层次 | 检查的对象 | 通过意味着什么 | 不意味着什么 |

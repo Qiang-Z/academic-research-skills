@@ -1,0 +1,25 @@
+{"at": "2026-10-23T06:20:55+00:00", "stage": null, "status": "created", "detail": "custom"}
+{"at": "2026-10-23T06:20:55+00:00", "stage": "question", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:55+00:00", "stage": "question", "status": "blocked", "detail": "Fill nonempty field: scope"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "question", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "question", "status": "accepted", "detail": "structure_and_reference_integrity"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "evidence", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "evidence", "status": "blocked", "detail": "Missing file: evidence.json"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "evidence", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "evidence", "status": "accepted", "detail": "structure_and_reference_integrity"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "protocol", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:56+00:00", "stage": "protocol", "status": "blocked", "detail": "Missing file: protocol.json"}
+{"at": "2026-10-23T06:20:57+00:00", "stage": "protocol", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:57+00:00", "stage": "protocol", "status": "accepted", "detail": "structure_and_reference_integrity"}
+{"at": "2026-10-23T06:20:57+00:00", "stage": "experiment", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:57+00:00", "stage": "experiment", "status": "blocked", "detail": "Missing file: experiment.json"}
+{"at": "2026-10-23T06:20:58+00:00", "stage": "experiment", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:58+00:00", "stage": "experiment", "status": "accepted", "detail": "structure_and_reference_integrity"}
+{"at": "2026-10-23T06:20:58+00:00", "stage": "analysis", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:58+00:00", "stage": "analysis", "status": "blocked", "detail": "Missing file: analysis.json"}
+{"at": "2026-10-23T06:20:58+00:00", "stage": "analysis", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:59+00:00", "stage": "analysis", "status": "accepted", "detail": "structure_and_reference_integrity"}
+{"at": "2026-10-23T06:20:59+00:00", "stage": "report", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:59+00:00", "stage": "report", "status": "blocked", "detail": "Missing file: claims.json"}
+{"at": "2026-10-23T06:20:59+00:00", "stage": "report", "status": "started", "detail": "continue without rerunning accepted stages"}
+{"at": "2026-10-23T06:20:59+00:00", "stage": "report", "status": "accepted", "detail": "structure_and_reference_integrity"}

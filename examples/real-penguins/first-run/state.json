@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "mode": "custom",
+  "created_at": "2026-10-23T06:20:55+00:00",
+  "status": "complete",
+  "repository_inputs": {
+    "scripts/research_pipeline.py": "60d84712adcbd08ad99be688a86f18b6be69e78c458494222c97f12594640f14",
+    "workflows/automated-research/skill-routing.json": "8c5655c8a4a066a082c65f28a3e08cd7a90c4f9468f04dc907dac1d5cd414cc0",
+    "modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md": "5bccec0437d96d61821ec2095e7e32b61e8634cd8c02f11f42da953121e92719",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/research-lit/SKILL.md": "d6293c58a6d6319b7ae5075ee9a1587ae83368400fbe15ff89a338e52e549c61",
+    "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/citation-verification/SKILL.md": "62e7eaed943d3773896f0e9af58913ec7950b34b8c939f3e8e984427a77a91ab",
+    "modules/idea-discovery/04_KDense/upstream/skills/literature-review/SKILL.md": "16a9e85bcdcb9bb859e1646bf836e51b22900445ba2e367d8d75be05b5a5cba8",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/experiment-plan/SKILL.md": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/run-experiment/SKILL.md": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/analyze-results/SKILL.md": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2",
+    "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/results-analysis/SKILL.md": "2232f74d141fad4a3e23635be0109217713d34bf0cb7be8d120e6296f4b79782",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/paper-plan/SKILL.md": "f57db68d201585c238522fdc38d7db16007638821f5f202faea723bdbcb8ff6d",
+    "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/paper-claim-audit/SKILL.md": "53bc00ee13d861e76e4f5a1a5d4f0ab40544ca563ee328af4c38bcb19b64a95b"
+  },
+  "limits": {
+    "subprocess_timeout_seconds": 120,
+    "automatic_retries": 0,
+    "max_stage_attempts": 3,
+    "host_max_searches": 4,
+    "host_max_sources": 8,
+    "network_in_runner": false,
+    "paid_services_in_runner": false,
+    "host_budget_note": "Host must record actual work; runner does not meter external service spending."
+  },
+  "stages": [
+    {
+      "id": "question",
+      "status": "accepted",
+      "inputs": {},
+      "outputs": {
+        "question.json": "c38714bb5c40abc9177d7e21aebf768fd3397cc8132e43ee972c775f5a134c8c"
+      },
+      "mode": "host_supplied",
+      "validation_scope": "structure_and_reference_integrity"
+    },
+    {
+      "id": "evidence",
+      "status": "accepted",
+      "inputs": {
+        "question.json": "c38714bb5c40abc9177d7e21aebf768fd3397cc8132e43ee972c775f5a134c8c"
+      },
+      "outputs": {
+        "evidence.json": "5140adb0c63e7680737ec68c3745b450ed98e9efe9bf75255c464ac46761bb18"
+      },
+      "mode": "host_supplied",
+      "validation_scope": "structure_and_reference_integrity"
+    },
+    {
+      "id": "protocol",
+      "status": "accepted",
+      "inputs": {
+        "question.json": "c38714bb5c40abc9177d7e21aebf768fd3397cc8132e43ee972c775f5a134c8c",
+        "evidence.json": "5140adb0c63e7680737ec68c3745b450ed98e9efe9bf75255c464ac46761bb18"
+      },
+      "outputs": {
+        "protocol.json": "8f5249d82c2fe67ea8ea3f3d7181fde0e27ca2bcad461e94618b70a4733b4659",
+        "data/penguins.csv": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+        "code/run_case.py": "86e569f3a5cc8460e7ee7379f4cbc301aeaaa1616b69fedd0e8036208640d799",
+        "code/verify_case.py": "1bf7fa6b8875d7097af3a5f8c304e92a75ba6ec3d3b34650d3c43a6c6f4877c2",
+        "code/replay.py": "a987a9b9557d0b216f9feb59ceb6e3cb3cd37ee1436b9f97e419caa9c2bceec4"
+      },
+      "mode": "host_supplied",
+      "validation_scope": "structure_and_reference_integrity",
+      "implementation_binding": "declared_code_hashes"
+    },
+    {
+      "id": "experiment",
+      "status": "accepted",
+      "inputs": {
+        "question.json": "c38714bb5c40abc9177d7e21aebf768fd3397cc8132e43ee972c775f5a134c8c",
+        "evidence.json": "5140adb0c63e7680737ec68c3745b450ed98e9efe9bf75255c464ac46761bb18",
+        "protocol.json": "8f5249d82c2fe67ea8ea3f3d7181fde0e27ca2bcad461e94618b70a4733b4659",
+        "data/penguins.csv": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+        "code/run_case.py": "86e569f3a5cc8460e7ee7379f4cbc301aeaaa1616b69fedd0e8036208640d799",
+        "code/verify_case.py": "1bf7fa6b8875d7097af3a5f8c304e92a75ba6ec3d3b34650d3c43a6c6f4877c2",
+        "code/replay.py": "a987a9b9557d0b216f9feb59ceb6e3cb3cd37ee1436b9f97e419caa9c2bceec4"
+      },
+      "outputs": {
+        "experiment.json": "0b62c8bc58128a928dc3a0d518cb222f8d49d134d409e602ce912e595b6f28da",
+        "results/data_audit.json": "42ffd59df5b9b5e9f6769535ddad2fb7d8b6d033477d050e3f8732b083c8c02a",
+        "results/metrics.json": "80f51103b5e1176f3f536a2b45edf40afdc6be6f3e2b7f0ac63783ac20891f94",
+        "results/models.json": "67a7a8e85dad0003a4b0eb956b90d6178a7297c77a09da9cd127acd65b366271",
+        "results/predictions.csv": "2cd87e64d2e3f03157539d9ffbc0d0f1c2bfcbee2787602794f9a9062713b93f",
+        "results/species_metrics.json": "cb5b0367157c87d500896a17b8dd7a5ff8d493f88e6020fc7e6fed1225847b83",
+        "results/splits.json": "23265660b3d854556d15d9966789b6616c4829f3a789ea38da0cb5715987491e",
+        "logs/experiment.command.json": "568f936d1f8bcb0d1dc509353bf52068064cb946a088949e1ce12b7c92d7ffd9",
+        "logs/experiment.stdout.txt": "4590be79e453c1926918fef00af6267532bec4e1e4387b1fab90275383570b47",
+        "logs/experiment.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "mode": "host_supplied",
+      "validation_scope": "structure_and_reference_integrity"
+    },
+    {
+      "id": "analysis",
+      "status": "accepted",
+      "inputs": {
+        "question.json": "c38714bb5c40abc9177d7e21aebf768fd3397cc8132e43ee972c775f5a134c8c",
+        "evidence.json": "5140adb0c63e7680737ec68c3745b450ed98e9efe9bf75255c464ac46761bb18",
+        "protocol.json": "8f5249d82c2fe67ea8ea3f3d7181fde0e27ca2bcad461e94618b70a4733b4659",
+        "data/penguins.csv": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+        "code/run_case.py": "86e569f3a5cc8460e7ee7379f4cbc301aeaaa1616b69fedd0e8036208640d799",
+        "code/verify_case.py": "1bf7fa6b8875d7097af3a5f8c304e92a75ba6ec3d3b34650d3c43a6c6f4877c2",
+        "code/replay.py": "a987a9b9557d0b216f9feb59ceb6e3cb3cd37ee1436b9f97e419caa9c2bceec4",
+        "experiment.json": "0b62c8bc58128a928dc3a0d518cb222f8d49d134d409e602ce912e595b6f28da",
+        "results/data_audit.json": "42ffd59df5b9b5e9f6769535ddad2fb7d8b6d033477d050e3f8732b083c8c02a",
+        "results/metrics.json": "80f51103b5e1176f3f536a2b45edf40afdc6be6f3e2b7f0ac63783ac20891f94",
+        "results/models.json": "67a7a8e85dad0003a4b0eb956b90d6178a7297c77a09da9cd127acd65b366271",
+        "results/predictions.csv": "2cd87e64d2e3f03157539d9ffbc0d0f1c2bfcbee2787602794f9a9062713b93f",
+        "results/species_metrics.json": "cb5b0367157c87d500896a17b8dd7a5ff8d493f88e6020fc7e6fed1225847b83",
+        "results/splits.json": "23265660b3d854556d15d9966789b6616c4829f3a789ea38da0cb5715987491e",
+        "logs/experiment.command.json": "568f936d1f8bcb0d1dc509353bf52068064cb946a088949e1ce12b7c92d7ffd9",
+        "logs/experiment.stdout.txt": "4590be79e453c1926918fef00af6267532bec4e1e4387b1fab90275383570b47",
+        "logs/experiment.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "outputs": {
+        "analysis.json": "75b45647ef31d8f098820b2e0e0f45de185f981da93e1079f6cf805af5fe041f",
+        "logs/numeric.command.json": "7747b91f0d4f26c5f3fd9131b8cc4c02726c5a1a6d2e5ce6d80a8cdba2fa3b5c",
+        "logs/numeric.stdout.txt": "0518e5a43e1a63ae7aaa9742b412e46d3006a6bc4ce1503576a35ca85b7cc001",
+        "logs/numeric.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "mode": "host_supplied",
+      "validation_scope": "structure_and_reference_integrity"
+    },
+    {
+      "id": "report",
+      "status": "accepted",
+      "inputs": {
+        "question.json": "c38714bb5c40abc9177d7e21aebf768fd3397cc8132e43ee972c775f5a134c8c",
+        "evidence.json": "5140adb0c63e7680737ec68c3745b450ed98e9efe9bf75255c464ac46761bb18",
+        "protocol.json": "8f5249d82c2fe67ea8ea3f3d7181fde0e27ca2bcad461e94618b70a4733b4659",
+        "data/penguins.csv": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+        "code/run_case.py": "86e569f3a5cc8460e7ee7379f4cbc301aeaaa1616b69fedd0e8036208640d799",
+        "code/verify_case.py": "1bf7fa6b8875d7097af3a5f8c304e92a75ba6ec3d3b34650d3c43a6c6f4877c2",
+        "code/replay.py": "a987a9b9557d0b216f9feb59ceb6e3cb3cd37ee1436b9f97e419caa9c2bceec4",
+        "experiment.json": "0b62c8bc58128a928dc3a0d518cb222f8d49d134d409e602ce912e595b6f28da",
+        "results/data_audit.json": "42ffd59df5b9b5e9f6769535ddad2fb7d8b6d033477d050e3f8732b083c8c02a",
+        "results/metrics.json": "80f51103b5e1176f3f536a2b45edf40afdc6be6f3e2b7f0ac63783ac20891f94",
+        "results/models.json": "67a7a8e85dad0003a4b0eb956b90d6178a7297c77a09da9cd127acd65b366271",
+        "results/predictions.csv": "2cd87e64d2e3f03157539d9ffbc0d0f1c2bfcbee2787602794f9a9062713b93f",
+        "results/species_metrics.json": "cb5b0367157c87d500896a17b8dd7a5ff8d493f88e6020fc7e6fed1225847b83",
+        "results/splits.json": "23265660b3d854556d15d9966789b6616c4829f3a789ea38da0cb5715987491e",
+        "logs/experiment.command.json": "568f936d1f8bcb0d1dc509353bf52068064cb946a088949e1ce12b7c92d7ffd9",
+        "logs/experiment.stdout.txt": "4590be79e453c1926918fef00af6267532bec4e1e4387b1fab90275383570b47",
+        "logs/experiment.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "analysis.json": "75b45647ef31d8f098820b2e0e0f45de185f981da93e1079f6cf805af5fe041f",
+        "logs/numeric.command.json": "7747b91f0d4f26c5f3fd9131b8cc4c02726c5a1a6d2e5ce6d80a8cdba2fa3b5c",
+        "logs/numeric.stdout.txt": "0518e5a43e1a63ae7aaa9742b412e46d3006a6bc4ce1503576a35ca85b7cc001",
+        "logs/numeric.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "outputs": {
+        "REPORT.md": "1d7b20b879f809758195eb782bc3ba8b0c8c1bbcd38d90e89257cf629cd8714f",
+        "claims.json": "1221fa60eb6432a4a94981cd7aaaa07020508b39625a802d922bfe6bfadcd184"
+      },
+      "mode": "host_supplied",
+      "validation_scope": "structure_and_reference_integrity"
+    }
+  ],
+  "configuration_sha256": "411c7341c9b15ed098788d05e39e2d77cc5e329361e188ae5ba6f3646e014bf9",
+  "updated_at": "2026-10-23T06:20:59+00:00"
+}

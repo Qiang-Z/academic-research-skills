@@ -1,0 +1,30 @@
+{
+  "study_id": "penguins-temporal-regression-v1",
+  "design": "教学延伸：比较固定的训练均值、鳍长OLS、鳍长加物种截距OLS预测体重。Horst2022已有加/不加物种的回归示例；这里增加预先固定的跨年份留出比较，不主张新发现或复现Gorman整篇论文。",
+  "unit": "简化CSV每行是一条成鸟观测；原研究在巢捕获成对个体。缺少巢ID和跨季节个体追踪核对，不能保证行独立或跨年无个体重叠。仅做描述性预测比较。",
+  "conditions": ["mean_baseline", "flipper_ols", "flipper_species_ols"],
+  "metrics": ["primary: MAE in grams, lower is better", "secondary: RMSE in grams, lower is better", "all three conditions and each species reported for both splits"],
+  "split_or_comparison": "主比较：year2007+2008训练，2009测试。补充比较：2007训练，2008测试。year是简化数据季节起始年份；原始繁殖季跨年。两个划分共享观测，不能当作独立重复合并。",
+  "leakage_control": "按原始数据行号和year划分；仅当鳍长或体重缺失时排除，不按未用性别筛选。全部参数仅由训练记录拟合。物种在预测时被假定已知。x=(flipper_mm-200)/10是事先固定单位变换，不从测试集估计。Adelie为哑变量参照，物种模型共享斜率。不调参、不按测试结果选模型或改方案。",
+  "stopping_rule": "完成两个预定时间划分乘三个条件、逐条预测和独立复算后停止；每个程序120秒上限，失败保存日志，修复后另开运行。无随机种子、无搜索最优模型、无额外事后分析。",
+  "previous_results_known": true,
+  "prior_knowledge": "原始设计已知Horst2022的群间回归教学关系；首次模型执行前仅检查CSV哈希、列、缺失与年份计数。后续复跑已知已公布结果；具体轮次见execution_context。方案是本地记录，不是外部预注册。",
+  "inference": "不作显著性检验、置信区间或因果推断。误差差值是这些固定留出观测上的描述。",
+  "data": [],
+  "code": [],
+  "config": {
+    "data_sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+    "raw_rows": 344,
+    "usable_rows": 342,
+    "excluded_record_ids": [4, 272],
+    "missing_policy": "drop_only_missing_flipper_or_body",
+    "species_order": ["Adelie", "Chinstrap", "Gentoo"],
+    "flipper_center_mm": 200.0,
+    "flipper_scale_mm": 10.0,
+    "splits": [
+      {"id": "primary", "train_years": [2007, 2008], "test_year": 2009},
+      {"id": "secondary", "train_years": [2007], "test_year": 2008}
+    ],
+    "conditions": ["mean_baseline", "flipper_ols", "flipper_species_ols"]
+  }
+}

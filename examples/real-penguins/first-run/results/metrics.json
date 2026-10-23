@@ -1,0 +1,44 @@
+[
+  {
+    "split": "primary",
+    "condition": "mean_baseline",
+    "n": 119,
+    "mae_g": 710.4552134755247,
+    "rmse_g": 819.5467918809177
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_ols",
+    "n": 119,
+    "mae_g": 325.7484793230327,
+    "rmse_g": 398.9188469941134
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_species_ols",
+    "n": 119,
+    "mae_g": 297.0578569047355,
+    "rmse_g": 372.65273847951835
+  },
+  {
+    "split": "secondary",
+    "condition": "mean_baseline",
+    "n": 114,
+    "mae_g": 655.7258973120876,
+    "rmse_g": 798.7440277987822
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_ols",
+    "n": 114,
+    "mae_g": 306.1603272121943,
+    "rmse_g": 385.6284641927496
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_species_ols",
+    "n": 114,
+    "mae_g": 307.69589664659384,
+    "rmse_g": 379.55779308231655
+  }
+]

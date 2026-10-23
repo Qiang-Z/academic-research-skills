@@ -77,6 +77,41 @@ def safe(base, name, exists=True):
     return path
 
 
+class ValidationFiles:
+    """Keep the exact bytes inspected by one stage until their hashes are accepted."""
+    def __init__(self, run):
+        self.run = run
+        self.contents = {}
+        self.hashes = {}
+        self.outputs = {}
+        self.implementation_binding = None
+
+    def content(self, name):
+        if name not in self.contents:
+            value = safe(self.run, name).read_bytes()
+            self.contents[name] = value
+            self.hashes[name] = hashlib.sha256(value).hexdigest()
+        return self.contents[name]
+
+    def digest(self, name):
+        self.content(name)
+        return self.hashes[name]
+
+    def text(self, name):
+        return self.content(name).decode('utf-8')
+
+    def object(self, name):
+        value = json.loads(self.text(name))
+        if not isinstance(value, dict):
+            raise ValueError('Expected a JSON object: ' + name)
+        return value
+
+    def unchanged(self):
+        for name, expected in self.hashes.items():
+            if digest(safe(self.run, name)) != expected:
+                raise ValueError('File changed during stage validation: ' + name + '. Retry after writing has finished.')
+
+
 def external(path, new=False):
     if any(p.is_symlink() for p in (path, *path.parents)):
         raise ValueError('Run path cannot contain symbolic links')
@@ -187,14 +222,14 @@ def integrity(run, state):
                 raise ValueError('Accepted input/output changed: ' + name + '. Start a new run.')
 
 
-def refs(run, items, *, sources=None):
-    unique_ids(items) if sources is None else None
+def refs(files, items, *, sources=None, require_ids=True):
+    unique_ids(items) if sources is None and require_ids else None
     names = []
     for item in items:
         name = text_field(item, 'path')
         if name in ('state.json', 'state.json.tmp', 'events.jsonl', 'NEXT.md', '.pipeline.lock'):
             raise ValueError('Artifact refers to runner control file')
-        if digest(safe(run, name)) != text_field(item, 'sha256'):
+        if files.digest(name) != text_field(item, 'sha256'):
             raise ValueError('Artifact SHA-256 mismatch: ' + name)
         if sources is not None:
             if text_field(item, 'source_id') not in sources:
@@ -206,8 +241,8 @@ def refs(run, items, *, sources=None):
     return names
 
 
-def source_ids(run):
-    return {x['id'] for x in read(safe(run, 'evidence.json'))['sources'] if x['status'] == 'read'}
+def source_ids(files):
+    return {x['id'] for x in files.object('evidence.json')['sources'] if x['status'] == 'read'}
 
 
 def validate_claims(claims, sources, artifacts):
@@ -226,10 +261,10 @@ def validate_claims(claims, sources, artifacts):
 
 def validate_stage(run, stage, mode, limits=None):
     """Custom checks are structural/provenance checks, never scientific endorsement."""
+    files = ValidationFiles(run)
     names = [FILES[stage]]
-    path = safe(run, names[0])
     limits = limits or {'host_max_searches': 4, 'host_max_sources': 8}
-    obj = object_read(path) if stage != 'report' else None
+    obj = files.object(names[0]) if stage != 'report' else None
     if stage == 'question':
         for key in ('question', 'scope', 'resources', 'stopping_condition'):
             text_field(obj, key)
@@ -262,7 +297,7 @@ def validate_stage(run, stage, mode, limits=None):
         list_field(obj, 'unresolved', False)
     elif stage == 'protocol':
         if mode == 'wine':
-            if digest(path) != digest(WINE / 'protocol.json'):
+            if files.digest(names[0]) != digest(WINE / 'protocol.json'):
                 raise ValueError('Wine demo only accepts the preserved protocol')
         else:
             for key in ('design', 'unit', 'split_or_comparison', 'leakage_control', 'stopping_rule'):
@@ -270,23 +305,26 @@ def validate_stage(run, stage, mode, limits=None):
             strings(obj, 'conditions'); strings(obj, 'metrics')
             if not isinstance(obj.get('previous_results_known'), bool):
                 raise Blocked('Declare previous_results_known as true or false')
-            names += refs(run, list_field(obj, 'data'), sources=source_ids(run))
+            names += refs(files, list_field(obj, 'data'), sources=source_ids(files))
+            code = list_field(obj, 'code', False) if 'code' in obj else []
+            names += refs(files, code, require_ids=False)
+            files.implementation_binding = 'declared_code_hashes' if code else 'not_bound'
     elif stage == 'experiment':
         if obj.get('status') != 'measured':
             raise Blocked('Experiment must contain an actual measured run')
-        if text_field(obj, 'protocol_sha256') != digest(safe(run, 'protocol.json')):
+        if text_field(obj, 'protocol_sha256') != files.digest('protocol.json'):
             raise ValueError('Experiment does not refer to the accepted protocol')
         for key in ('command', 'environment'):
             text_field(obj, key)
-        names += refs(run, list_field(obj, 'artifacts'))
+        names += refs(files, list_field(obj, 'artifacts'))
         list_field(obj, 'failures', False)
     elif stage == 'analysis':
         text_field(obj, 'unit'); text_field(obj, 'comparisons'); strings(obj, 'limitations')
-        artifacts = unique_ids(read(safe(run, 'experiment.json'))['artifacts'])
-        validate_claims(list_field(obj, 'claims'), source_ids(run), artifacts)
+        artifacts = unique_ids(files.object('experiment.json')['artifacts'])
+        validate_claims(list_field(obj, 'claims'), source_ids(files), artifacts)
     else:
-        claims = object_read(safe(run, 'claims.json')); names.append('claims.json')
-        analysis = read(safe(run, 'analysis.json'))
+        claims = files.object('claims.json'); names.append('claims.json')
+        analysis = files.object('analysis.json')
         if claims.get('claims') != analysis['claims']:
             raise ValueError('Report claim map differs from accepted analysis')
         if claims.get('limitations') != analysis['limitations']:
@@ -294,7 +332,7 @@ def validate_stage(run, stage, mode, limits=None):
         if claims.get('review_status') not in ('host_reviewed', 'template_generated'):
             raise Blocked('Declare report review_status')
         text_field(claims, 'review_scope')
-        content = path.read_text(encoding='utf-8')
+        content = files.text(names[0])
         for text in [c['text'] for c in analysis['claims']] + analysis['limitations']:
             if text not in content:
                 raise ValueError('Report omits a mapped claim or limitation')
@@ -304,16 +342,17 @@ def validate_stage(run, stage, mode, limits=None):
         for name in records + failures:
             if name in ('state.json', 'state.json.tmp', 'events.jsonl', 'NEXT.md', '.pipeline.lock'):
                 raise ValueError('Execution record refers to runner control file')
-            safe(run, name)
+            files.digest(name)
             names.append(name)
-    return list(dict.fromkeys(names))
+    files.outputs = {name: files.digest(name) for name in dict.fromkeys(names)}
+    return files
 
 
 def instructions(stage, limits):
     return {
         'question': '填写 question.json 的四项：question＝想比较的具体问题；scope＝这次比较的范围；resources＝真实已有材料和可用资源；stopping_condition＝完成什么检查或达到什么限制时结束。四项均用非空文字；未知材料不代填。',
         'evidence': '保存 evidence.json：mode=new/reused；search_log=[{query,status}]；sources=[{id,url,version,checked_at,status:read/unavailable,read_scope,locator,supports,does_not_support}]；unresolved=[]。checked_at为实际核对日期。最多' + str(limits['host_max_searches']) + '次检索、' + str(limits['host_max_sources']) + '项来源，真实记录阅读范围与失败。',
-        'protocol': '保存 protocol.json：design、unit、split_or_comparison、leakage_control、stopping_rule（字符串）；conditions、metrics（字符串数组）；previous_results_known（布尔）；data=[{path,sha256,source_id,license}]。数据路径相对此运行目录。',
+        'protocol': '保存 protocol.json：design、unit、split_or_comparison、leakage_control、stopping_rule（字符串）；conditions、metrics（字符串数组）；previous_results_known（布尔）；data=[{path,sha256,source_id,license}]。建议登记 code=[{path,sha256}] 固定本次代码与配置；未提供时明确标记未绑定实现。路径相对此运行目录，先接受协议再执行实验。',
         'experiment': '按已授权方案实际运行后保存 experiment.json：status=measured，protocol_sha256，command、environment（字符串），artifacts=[{id,path,sha256}]，failures=[失败记录的相对文件路径]；没有失败时用空数组。命令仅作为记录，本程序不会执行自定义命令。失败文件必须存在并会固定摘要。',
         'analysis': '核对全部条件与独立单位，保存 analysis.json：unit、comparisons（字符串），limitations（字符串数组），claims=[{id,text,artifact_ids:[],source_ids:[],locator}]。每条主张至少对应一个已登记来源或产物。',
         'report': '保存 REPORT.md 和 claims.json：claims、limitations与analysis.json完全一致；review_status=host_reviewed或template_generated；review_scope（实际检查范围）。报告包含每条主张原文和每条限制；结构通过不等于语义审核或外部审稿。',
@@ -323,6 +362,12 @@ def instructions(stage, limits):
 def next_file(run, state):
     incomplete = next((s for s in state['stages'] if s['status'] != 'accepted'), None)
     lines = ['# 下一步', '', '模式：' + state['mode'], '']
+    protocol = next(s for s in state['stages'] if s['id'] == 'protocol')
+    if state['mode'] == 'custom' and protocol['status'] == 'accepted':
+        binding = protocol.get('implementation_binding', 'not_bound')
+        lines += ['实现绑定：' + ('已固定 protocol.code 声明的代码/配置摘要；不证明实验实际使用了这些文件。'
+                                 if binding == 'declared_code_hashes' else
+                                 '未绑定实现（not_bound）：本轮未登记 protocol.code，代码/配置不在协议保护范围内。'), '']
     if incomplete:
         lines += ['当前步骤：' + incomplete['id'], '', instructions(incomplete['id'], state['limits']), '',
                   '补齐后运行：python -B scripts/research_pipeline.py advance --run "本次输出目录"',
@@ -511,13 +556,16 @@ def advance(run):
             try:
                 if state['mode'] == 'wine':
                     wine_step(run, sid)
-                names = validate_stage(run, sid, state['mode'], state['limits'])
+                validated = validate_stage(run, sid, state['mode'], state['limits'])
                 integrity(run, state)
-                stage.update(status='accepted', inputs=before, outputs={n: digest(safe(run, n)) for n in names},
+                validated.unchanged()
+                stage.update(status='accepted', inputs=before, outputs=validated.outputs,
                              mode=('reused' if sid in STAGES[:3] else 'measured' if sid == 'experiment' else
                                    'independently_recalculated' if sid == 'analysis' else 'template_generated')
                                    if state['mode'] == 'wine' else 'host_supplied',
                              validation_scope='bounded_wine_adapter' if state['mode'] == 'wine' else 'structure_and_reference_integrity')
+                if validated.implementation_binding is not None:
+                    stage['implementation_binding'] = validated.implementation_binding
                 event(run, state, sid, 'accepted', stage['validation_scope'])
             except (OSError, ValueError, KeyError, TypeError) as exc:
                 status = 'blocked' if isinstance(exc, Blocked) and state['mode'] == 'custom' else 'failed'
@@ -543,11 +591,13 @@ def verify(run):
         if state['status'] != 'complete' or any(s['status'] != 'accepted' for s in state['stages']):
             raise Blocked('Run is incomplete; consult NEXT.md')
         for stage in STAGES:
-            validate_stage(run, stage, state['mode'], state['limits'])
+            validated = validate_stage(run, stage, state['mode'], state['limits'])
+            validated.unchanged()
         if state['mode'] == 'wine':
             artifacts = read(run / 'experiment.json')['artifacts']
             manifest = next(x for x in artifacts if x['id'] == 'manifest')
             command(run, 'verify', 'verify_case.py', ['--input', safe(run, manifest['path']).parent])
+        integrity(run, state)
         scope = 'independent Wine numeric recalculation' if state['mode'] == 'wine' else 'structure and reference integrity only'
         print('PASS: ' + scope)
         return 0

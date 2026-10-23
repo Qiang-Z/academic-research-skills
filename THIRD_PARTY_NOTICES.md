@@ -21,3 +21,9 @@
 ## 真实案例的独立公开数据许可 · 2026-10-23
 
 `examples/real-wine/data/wine.data` 和 `wine.names` 来自 [UCI Wine](https://archive.ics.uci.edu/dataset/109/wine)，按 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 保留原始字节与署名。推荐引用：Aeberhard, S. & Forina, M. (1992). Wine [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5PC7J 。详见该目录README和DATA_SOURCE.json；不暗示数据作者背书本例。此数据不计入本库的技能来源项目/固定快照数量。论文全文没有随本例再分发。
+
+## Palmer Penguins公开数据教学案例
+
+`examples/real-penguins/data/penguins.csv`及两个运行档案中的相同数据字节来自[官方palmerpenguins仓库](https://github.com/allisonhorst/palmerpenguins)，固定提交 `8957207b78d6ccd1b4654a9dd9c9041b657478ab`，CC0 1.0。采集研究署名 Kristen B. Gorman / Palmer Station LTER；软件与教学整理署名 Allison M. Horst、Alison Presmanes Hill、Kristen B. Gorman。保留[原论文、数据包引用、固定URL与许可核对](examples/real-penguins/SOURCES.md)。
+
+原数据来自PAL-LTER/EDI；本轮三个EDI网页未读取成功，实际计算取自官方固定CSV，不声称重新核对原门户正文。不含上游插画或论文全文；本库新写实验、核验与交接程序独立于上游技能原文件。

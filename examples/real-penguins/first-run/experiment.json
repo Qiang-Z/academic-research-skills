@@ -1,0 +1,44 @@
+{
+  "status": "measured",
+  "protocol_sha256": "8f5249d82c2fe67ea8ea3f3d7181fde0e27ca2bcad461e94618b70a4733b4659",
+  "command": "python -B -X utf8 <run>/code/run_case.py --run <run>",
+  "environment": "Python 3.12.10; Windows; CPU; standard library; offline",
+  "artifacts": [
+    {
+      "id": "data_audit",
+      "path": "results/data_audit.json",
+      "sha256": "42ffd59df5b9b5e9f6769535ddad2fb7d8b6d033477d050e3f8732b083c8c02a"
+    },
+    {
+      "id": "metrics",
+      "path": "results/metrics.json",
+      "sha256": "80f51103b5e1176f3f536a2b45edf40afdc6be6f3e2b7f0ac63783ac20891f94"
+    },
+    {
+      "id": "models",
+      "path": "results/models.json",
+      "sha256": "67a7a8e85dad0003a4b0eb956b90d6178a7297c77a09da9cd127acd65b366271"
+    },
+    {
+      "id": "predictions",
+      "path": "results/predictions.csv",
+      "sha256": "2cd87e64d2e3f03157539d9ffbc0d0f1c2bfcbee2787602794f9a9062713b93f"
+    },
+    {
+      "id": "species_metrics",
+      "path": "results/species_metrics.json",
+      "sha256": "cb5b0367157c87d500896a17b8dd7a5ff8d493f88e6020fc7e6fed1225847b83"
+    },
+    {
+      "id": "splits",
+      "path": "results/splits.json",
+      "sha256": "23265660b3d854556d15d9966789b6616c4829f3a789ea38da0cb5715987491e"
+    }
+  ],
+  "failures": [],
+  "execution_records": [
+    "logs/experiment.command.json",
+    "logs/experiment.stdout.txt",
+    "logs/experiment.stderr.txt"
+  ]
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "split": "primary",
+    "condition": "mean_baseline",
+    "species": "Adelie",
+    "n": 52,
+    "mae_g": 614.0328561572959,
+    "rmse_g": 710.532894990856
+  },
+  {
+    "split": "primary",
+    "condition": "mean_baseline",
+    "species": "Chinstrap",
+    "n": 24,
+    "mae_g": 501.8310911808673,
+    "rmse_g": 572.1864926350725
+  },
+  {
+    "split": "primary",
+    "condition": "mean_baseline",
+    "species": "Gentoo",
+    "n": 43,
+    "mae_g": 943.5003650015639,
+    "rmse_g": 1032.2370765677078
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_ols",
+    "species": "Adelie",
+    "n": 52,
+    "mae_g": 373.2448562909739,
+    "rmse_g": 438.17656844221585
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_ols",
+    "species": "Chinstrap",
+    "n": 24,
+    "mae_g": 400.6525682102447,
+    "rmse_g": 448.4567029745455
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_ols",
+    "species": "Gentoo",
+    "n": 43,
+    "mae_g": 226.50406686661339,
+    "rmse_g": 309.7845732525302
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_species_ols",
+    "species": "Adelie",
+    "n": 52,
+    "mae_g": 384.95587035624965,
+    "rmse_g": 453.2762442480417
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_species_ols",
+    "species": "Chinstrap",
+    "n": 24,
+    "mae_g": 225.64607854657962,
+    "rmse_g": 278.9132326800069
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_species_ols",
+    "species": "Gentoo",
+    "n": 43,
+    "mae_g": 230.62032158187523,
+    "rmse_g": 304.02834078963417
+  },
+  {
+    "split": "secondary",
+    "condition": "mean_baseline",
+    "species": "Adelie",
+    "n": 50,
+    "mae_g": 481.7431192660552,
+    "rmse_g": 591.1631198520503
+  },
+  {
+    "split": "secondary",
+    "condition": "mean_baseline",
+    "species": "Chinstrap",
+    "n": 18,
+    "mae_g": 508.07849133537223,
+    "rmse_g": 600.0410548492546
+  },
+  {
+    "split": "secondary",
+    "condition": "mean_baseline",
+    "species": "Gentoo",
+    "n": 46,
+    "mae_g": 902.612684483446,
+    "rmse_g": 1029.7373237542488
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_ols",
+    "species": "Adelie",
+    "n": 50,
+    "mae_g": 309.86700318390336,
+    "rmse_g": 382.61394245846867
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_ols",
+    "species": "Chinstrap",
+    "n": 18,
+    "mae_g": 373.81322976632873,
+    "rmse_g": 495.7106576122269
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_ols",
+    "species": "Gentoo",
+    "n": 46,
+    "mae_g": 275.65845667828404,
+    "rmse_g": 336.54469163965643
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_species_ols",
+    "species": "Adelie",
+    "n": 50,
+    "mae_g": 321.94788619265023,
+    "rmse_g": 394.1092883700161
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_species_ols",
+    "species": "Chinstrap",
+    "n": 18,
+    "mae_g": 285.0051597212279,
+    "rmse_g": 362.4309381528475
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_species_ols",
+    "species": "Gentoo",
+    "n": 46,
+    "mae_g": 301.0835876760237,
+    "rmse_g": 369.86459323951726
+  }
+]

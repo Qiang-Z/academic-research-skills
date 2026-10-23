@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "<python>",
+    "-B",
+    "-X",
+    "utf8",
+    "<repo>\\scripts\\research_pipeline.py",
+    "advance",
+    "--run",
+    "<run>"
+  ],
+  "started_at": "2026-10-23T06:23:42+00:00",
+  "finished_at": "2026-10-23T06:23:43+00:00",
+  "exit_code": 2,
+  "expected_exit_code": 2,
+  "timeout_seconds": 120,
+  "python": "3.12.10",
+  "platform": "Windows"
+}

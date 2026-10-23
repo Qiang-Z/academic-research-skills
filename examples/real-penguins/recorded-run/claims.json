@@ -1,0 +1,95 @@
+{
+  "claims": [
+    {
+      "id": "C1",
+      "text": "官方数据共344条，按本题所需两列筛选后保留342条；主划分训练223条、测试119条。",
+      "artifact_ids": [
+        "data_audit",
+        "splits"
+      ],
+      "source_ids": [
+        "D1"
+      ],
+      "locator": "data_audit.json; splits.json split=primary"
+    },
+    {
+      "id": "C2",
+      "text": "2009年留出记录上，mean_baseline的MAE为710.5克，RMSE为819.5克（n=119）。",
+      "artifact_ids": [
+        "metrics",
+        "predictions"
+      ],
+      "source_ids": [],
+      "locator": "metrics.json split=primary condition=mean_baseline"
+    },
+    {
+      "id": "C3",
+      "text": "2009年留出记录上，flipper_ols的MAE为325.7克，RMSE为398.9克（n=119）。",
+      "artifact_ids": [
+        "metrics",
+        "predictions"
+      ],
+      "source_ids": [],
+      "locator": "metrics.json split=primary condition=flipper_ols"
+    },
+    {
+      "id": "C4",
+      "text": "2009年留出记录上，flipper_species_ols的MAE为297.1克，RMSE为372.7克（n=119）。",
+      "artifact_ids": [
+        "metrics",
+        "predictions"
+      ],
+      "source_ids": [],
+      "locator": "metrics.json split=primary condition=flipper_species_ols"
+    },
+    {
+      "id": "C5",
+      "text": "在本次2009年留出记录上，加入物种后MAE比仅用鳍长降低28.7克；这是固定划分上的描述性差异。",
+      "artifact_ids": [
+        "metrics"
+      ],
+      "source_ids": [],
+      "locator": "primary flipper_ols MAE minus flipper_species_ols MAE"
+    },
+    {
+      "id": "C6",
+      "text": "Horst等2022年论文已讨论鳍长与体重的关系以及加入物种的回归示例；本例是增加时间留出评价的教学延伸。",
+      "artifact_ids": [],
+      "source_ids": [
+        "P2"
+      ],
+      "locator": "Horst2022: Linear relationships, Figure 4"
+    },
+    {
+      "id": "C7",
+      "text": "预定2008年补充测试中，加入物种后MAE从306.2克变为307.7克，增加1.5克（n=114）；RMSE则从385.6克变为379.6克。不能据主划分声称加入物种总会更好。",
+      "artifact_ids": [
+        "metrics",
+        "predictions"
+      ],
+      "source_ids": [],
+      "locator": "metrics.json split=secondary flipper_ols/flipper_species_ols"
+    },
+    {
+      "id": "C8",
+      "text": "主划分中，Adelie、Gentoo的组内MAE未因加入物种而下降；总体误差降低不代表每个物种都改善。",
+      "artifact_ids": [
+        "species_metrics"
+      ],
+      "source_ids": [],
+      "locator": "species_metrics.json split=primary; compare flipper_ols/flipper_species_ols within each species"
+    }
+  ],
+  "limitations": [
+    "这是三个物种、三个岛屿、三个繁殖季的公开观测数据，不能推广到所有企鹅、地区或未来季节。",
+    "原采样包含同巢成对成鸟；简化CSV缺少巢ID，跨年个体重复情况未确认。时间留出不保证个体独立或完全隔离。",
+    "物种模型要求预测时已知物种；物种与岛屿等因素相关，本比较不证明物种的因果作用。",
+    "两个时间划分共享观测；不合并为独立重复，不报告p值或置信区间，也不声称统计显著或稳定胜出。",
+    "排除2条鳍长或体重缺失记录；未建模缺失机制。性别未作预测变量，9条仅缺性别的可用记录仍保留。",
+    "论文按来源表指定章节阅读；三个EDI原始数据门户本轮未能读取，实际计算使用固定版本的官方公开CSV。",
+    "已有论文关系和基准知识在设计时已知；本地方案先于本次指标计算，但不是外部预注册或Gorman原文完整复现。",
+    "流程核验只证明交接结构与引用摘要一致；另行的独立程序复算仅覆盖本固定案例的数值，不等于同行评审。"
+  ],
+  "review_status": "template_generated",
+  "review_scope": "根据本次通过独立复算的结果和固定来源记录生成；没有外部同行评审或自动全文语义审查。"
+}

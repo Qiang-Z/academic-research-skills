@@ -301,6 +301,109 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Accepted input/output changed'):
             p.verify(run)
 
+    def bind_code(self, run):
+        code = run / 'research.py'
+        code.write_text('print(1 + 2)\n', encoding='utf-8')
+        config = run / 'model.json'
+        p.write(config, {'fixture_condition': 'sum'})
+        obj = p.read(run / 'protocol.json')
+        obj['code'] = [{'path': path.name, 'sha256': p.digest(path)} for path in (code, config)]
+        p.write(run / 'protocol.json', obj)
+        experiment = p.read(run / 'experiment.json')
+        experiment['protocol_sha256'] = p.digest(run / 'protocol.json')
+        p.write(run / 'experiment.json', experiment)
+        return code, config
+
+    def test_25_custom_code_is_frozen_before_experiment_and_checked_on_resume(self):
+        run = self.prepared('custom-code-before-experiment')
+        code, config = self.bind_code(run)
+        experiment = (run / 'experiment.json').read_bytes()
+        (run / 'experiment.json').unlink()
+        self.assertEqual(p.advance(run), 2)
+        protocol = p.load_state(run)['stages'][2]
+        self.assertEqual(protocol['implementation_binding'], 'declared_code_hashes')
+        self.assertEqual(protocol['outputs'][code.name], p.digest(code))
+        self.assertEqual(protocol['outputs'][config.name], p.digest(config))
+        self.assertIn('已固定 protocol.code', (run / 'NEXT.md').read_text(encoding='utf-8'))
+        (run / 'experiment.json').write_bytes(experiment)
+        code.write_text('print(99)\n', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Accepted input/output changed: research.py'):
+            p.advance(run)
+
+    def test_26_custom_config_mutation_invalidates_completed_run(self):
+        run = self.prepared('custom-config-protected')
+        _, config = self.bind_code(run)
+        self.assertEqual(p.advance(run), 0)
+        self.assertEqual(p.verify(run), 0)
+        p.write(config, {'fixture_condition': 'changed'})
+        with self.assertRaisesRegex(ValueError, 'Accepted input/output changed: model.json'):
+            p.verify(run)
+
+    def test_27_custom_without_code_stays_compatible_and_explicitly_unbound(self):
+        for empty in (False, True):
+            with self.subTest(empty_code=empty):
+                run = self.prepared('custom-unbound-' + str(empty))
+                if empty:
+                    obj = p.read(run / 'protocol.json'); obj['code'] = []; p.write(run / 'protocol.json', obj)
+                    experiment = p.read(run / 'experiment.json')
+                    experiment['protocol_sha256'] = p.digest(run / 'protocol.json')
+                    p.write(run / 'experiment.json', experiment)
+                self.assertEqual(p.advance(run), 0)
+                self.assertEqual(p.verify(run), 0)
+                self.assertEqual(p.load_state(run)['stages'][2]['implementation_binding'], 'not_bound')
+                self.assertIn('未绑定实现（not_bound）', (run / 'NEXT.md').read_text(encoding='utf-8'))
+
+    def test_28_custom_code_rejects_missing_wrong_digest_and_unsafe_path(self):
+        variants = [('missing', 'missing.py', '0' * 64, 2),
+                    ('wrong-digest', 'research.py', '0' * 64, 1),
+                    ('unsafe', '../outside.py', '0' * 64, 1)]
+        for suffix, path, expected, exit_code in variants:
+            with self.subTest(variant=suffix):
+                run = self.prepared('custom-code-' + suffix)
+                self.bind_code(run)
+                obj = p.read(run / 'protocol.json'); obj['code'] = [{'path': path, 'sha256': expected}]
+                p.write(run / 'protocol.json', obj)
+                self.assertEqual(p.advance(run), exit_code)
+                self.assertNotEqual(p.load_state(run)['stages'][2]['status'], 'accepted')
+
+    def test_29_changed_validated_bytes_are_not_accepted(self):
+        actual_validate = p.validate_stage
+        for target_stage in ('analysis', 'protocol'):
+            with self.subTest(stage=target_stage):
+                run = self.prepared('custom-validation-race-' + target_stage)
+                code, _ = self.bind_code(run)
+                def mutate_after_validation(run, stage, mode, limits=None):
+                    validated = actual_validate(run, stage, mode, limits)
+                    if stage == target_stage:
+                        if stage == 'analysis':
+                            obj = p.read(run / 'analysis.json'); obj['unit'] = ''
+                            p.write(run / 'analysis.json', obj)
+                        else:
+                            code.write_text('print(99)\n', encoding='utf-8')
+                    return validated
+                with patch.object(p, 'validate_stage', side_effect=mutate_after_validation):
+                    self.assertEqual(p.advance(run), 1)
+                state = p.load_state(run)
+                rejected = next(s for s in state['stages'] if s['id'] == target_stage)
+                self.assertEqual(state['status'], 'failed')
+                self.assertEqual(rejected['status'], 'failed')
+                self.assertEqual(rejected['outputs'], {})
+                self.assertIn('File changed during stage validation', rejected['problem'])
+
+    def test_30_verify_rejects_change_after_validating_a_stage(self):
+        run = self.prepared('custom-verify-race')
+        self.assertEqual(p.advance(run), 0)
+        actual_validate = p.validate_stage
+        def mutate_after_validation(run, stage, mode, limits=None):
+            validated = actual_validate(run, stage, mode, limits)
+            if stage == 'analysis':
+                obj = p.read(run / 'analysis.json'); obj['unit'] = ''
+                p.write(run / 'analysis.json', obj)
+            return validated
+        with patch.object(p, 'validate_stage', side_effect=mutate_after_validation):
+            with self.assertRaisesRegex(ValueError, 'File changed during stage validation: analysis.json'):
+                p.verify(run)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

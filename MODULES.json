@@ -210,7 +210,8 @@
     "skill_discovery": "docs/discovery/2026-10-22/README.md",
     "real_data_case": "examples/real-wine/README.md",
     "automated_pipeline": "workflows/automated-research/README.md",
-    "current_skill_comparison": "docs/discovery/2026-10-23/README.md"
+    "current_skill_comparison": "docs/discovery/2026-10-23/README.md",
+    "custom_real_data_case": "examples/real-penguins/README.md"
   },
   "workflows": [
     {
@@ -220,10 +221,13 @@
       "routing": "workflows/automated-research/skill-routing.json",
       "runner": "scripts/research_pipeline.py",
       "validation_record": "workflows/automated-research/VALIDATION.md",
-      "scope": "Original orchestration; bounded Wine adapter and host-maintained custom handoffs. External upstream complete workflows remain unverified.",
+      "scope": "Original orchestration; bounded Wine adapter, host-maintained custom handoffs, and fixed Penguins custom case with independent numeric recalculation. Arbitrary custom research and external complete workflows remain unverified.",
       "bounded_wine_runtime_tested": true,
       "custom_handoff_structurally_tested": true,
-      "external_candidate_workflows_tested": false
+      "external_candidate_workflows_tested": false,
+      "bounded_custom_case_runtime_tested": true,
+      "custom_case_validation_record": "examples/real-penguins/VALIDATION.md"
     }
-  ]
+  ],
+  "version": "0.6.1"
 }

@@ -1,0 +1,38 @@
+{
+  "bytes": 15241,
+  "sha256": "f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93",
+  "rows": 344,
+  "usable_rows": 342,
+  "all_years": {
+    "2007": 110,
+    "2008": 114,
+    "2009": 120
+  },
+  "usable_years": {
+    "2007": 109,
+    "2008": 114,
+    "2009": 119
+  },
+  "excluded_csv_record_numbers": [
+    4,
+    272
+  ],
+  "usable_missing_sex": 9,
+  "species_by_year": {
+    "2007": {
+      "Adelie": 49,
+      "Gentoo": 34,
+      "Chinstrap": 26
+    },
+    "2008": {
+      "Adelie": 50,
+      "Gentoo": 46,
+      "Chinstrap": 18
+    },
+    "2009": {
+      "Adelie": 52,
+      "Gentoo": 43,
+      "Chinstrap": 24
+    }
+  }
+}

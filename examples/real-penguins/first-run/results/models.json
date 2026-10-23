@@ -1,0 +1,84 @@
+[
+  {
+    "split": "primary",
+    "condition": "mean_baseline",
+    "train_n": 223,
+    "feature_names": [
+      "intercept"
+    ],
+    "coefficients": [
+      4197.197309417041
+    ]
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_ols",
+    "train_n": 223,
+    "feature_names": [
+      "intercept",
+      "flipper_10mm"
+    ],
+    "coefficients": [
+      4201.7546480787,
+      483.94596264281614
+    ]
+  },
+  {
+    "split": "primary",
+    "condition": "flipper_species_ols",
+    "train_n": 223,
+    "feature_names": [
+      "intercept",
+      "flipper_10mm",
+      "Chinstrap",
+      "Gentoo"
+    ],
+    "coefficients": [
+      4215.067329671672,
+      444.04222296376014,
+      -237.38085452309312,
+      92.40289688071452
+    ]
+  },
+  {
+    "split": "secondary",
+    "condition": "mean_baseline",
+    "train_n": 109,
+    "feature_names": [
+      "intercept"
+    ],
+    "coefficients": [
+      4124.54128440367
+    ]
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_ols",
+    "train_n": 109,
+    "feature_names": [
+      "intercept",
+      "flipper_10mm"
+    ],
+    "coefficients": [
+      4275.318828884932,
+      483.3750690722826
+    ]
+  },
+  {
+    "split": "secondary",
+    "condition": "flipper_species_ols",
+    "train_n": 109,
+    "feature_names": [
+      "intercept",
+      "flipper_10mm",
+      "Chinstrap",
+      "Gentoo"
+    ],
+    "coefficients": [
+      4241.594532079383,
+      406.59257339253713,
+      -239.29169762426793,
+      214.32140108601715
+    ]
+  }
+]

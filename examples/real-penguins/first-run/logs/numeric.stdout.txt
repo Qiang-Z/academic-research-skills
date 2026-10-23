@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "check_count": 7591,
+  "counts": {
+    "raw_rows": 344,
+    "usable_rows": 342,
+    "excluded_record_ids": [
+      4,
+      272
+    ],
+    "predictions": 699,
+    "models": 6,
+    "metric_rows": 6,
+    "species_metric_rows": 18,
+    "split_records": 2,
+    "data_audit_records": 1,
+    "splits": {
+      "primary": {
+        "train_n": 223,
+        "test_n": 119,
+        "test_species_n": {
+          "Adelie": 52,
+          "Chinstrap": 24,
+          "Gentoo": 43
+        }
+      },
+      "secondary": {
+        "train_n": 109,
+        "test_n": 114,
+        "test_species_n": {
+          "Adelie": 50,
+          "Chinstrap": 18,
+          "Gentoo": 46
+        }
+      }
+    }
+  },
+  "method": "independent scalar OLS and within-species centered common-slope fit",
+  "numeric_tolerance": {
+    "absolute": 1e-07,
+    "relative": 1e-11
+  },
+  "scope": "fixed Penguins protocol, pinned data bytes, train/test membership, all fitted coefficients, targets, predictions, MAE and RMSE",
+  "does_not_establish": [
+    "independent observations or absence of repeated individuals",
+    "causality, external validity or statistical significance",
+    "general validation of arbitrary custom research or upstream workflows"
+  ]
+}

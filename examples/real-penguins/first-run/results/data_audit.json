@@ -1,0 +1,10 @@
+{
+  "raw_rows": 344,
+  "usable_rows": 342,
+  "excluded_record_ids": [
+    4,
+    272
+  ],
+  "retained_missing_sex": 9,
+  "missing_policy": "drop_only_missing_flipper_or_body"
+}

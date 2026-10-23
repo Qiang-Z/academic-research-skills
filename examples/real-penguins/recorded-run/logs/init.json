@@ -1,0 +1,6 @@
+{
+  "exit_code": 2,
+  "stdout": "RUN: <run>\nBLOCKED: question: Fill nonempty field: scope\n",
+  "stderr": "",
+  "recorded_at": "2026-10-23T06:23:42+00:00"
+}
