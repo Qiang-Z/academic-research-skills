@@ -1,0 +1,237 @@
+[
+  {
+    "repository": "K-Dense-AI/scientific-agent-skills",
+    "url": "https://api.github.com/repos/K-Dense-AI/scientific-agent-skills/git/trees/593377bb048752abb0152deab9fbb1083a6087df?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "LICENSE.md",
+      "pyproject.toml",
+      "skills/13c-metabolic-flux/assets/mfapy-license.txt",
+      "skills/13c-metabolic-flux/assets/requirements.txt",
+      "skills/hypogenic/assets/run_config.example.json",
+      "skills/hypogenic/assets/task_config.example.yaml",
+      "skills/opentrons-integration/requirements-flex.txt",
+      "skills/opentrons-integration/requirements-ot2.txt",
+      "skills/pacsomatic/LICENSE",
+      "skills/primer-design/assets/requirements.txt",
+      "skills/research-lookup/SKILL.md",
+      "skills/scientific-visualization/SKILL.md",
+      "skills/scientific-visualization/references/journal_requirements.md",
+      "skills/scientific-writing/SKILL.md",
+      "skills/statistical-analysis/SKILL.md",
+      "skills/timesfm-forecasting/references/system_requirements.md",
+      "skills/venue-templates/references/grants_requirements.md",
+      "tests/flowkit/fixtures/LICENSE",
+      "tests/nmrglue/fixtures/nmrglue-LICENSE.txt",
+      "tests/qiime2-amplicon/fixtures/LICENSE",
+      "tests/skill-requirements.toml"
+    ],
+    "file_count": 2780,
+    "license_filename_candidates": [
+      "LICENSE.md"
+    ]
+  },
+  {
+    "repository": "Imbad0202/academic-research-skills",
+    "url": "https://api.github.com/repos/Imbad0202/academic-research-skills/git/trees/3224a27a2571cefef0fddfd437004cb006f2b0cb?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "LICENSE",
+      "academic-paper-reviewer/SKILL.md",
+      "academic-paper/SKILL.md",
+      "deep-research/SKILL.md",
+      "pyproject.toml",
+      "requirements-dev.txt",
+      "requirements-pdf-content-classifier.txt",
+      "scripts/check_routing_core_sync.py",
+      "scripts/test_check_routing_core_sync.py",
+      "shared/references/routing_core.md"
+    ],
+    "file_count": 2846,
+    "license_filename_candidates": [
+      "LICENSE"
+    ]
+  },
+  {
+    "repository": "google-deepmind/science-skills",
+    "url": "https://api.github.com/repos/google-deepmind/science-skills/git/trees/99f3085bcb40514cdba7833205b3dedbf473b26d?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "LICENSE",
+      "SKILL_LICENSES.md",
+      "skills/alphagenome_atlas_website_links/pyproject.toml",
+      "skills/alphagenome_single_variant_analysis/pyproject.toml",
+      "skills/alphagenome_variant_impact_score/pyproject.toml",
+      "skills/literature_search_arxiv/SKILL.md",
+      "skills/literature_search_openalex/SKILL.md"
+    ],
+    "file_count": 240,
+    "license_filename_candidates": [
+      "LICENSE",
+      "SKILL_LICENSES.md"
+    ]
+  },
+  {
+    "repository": "karpathy/autoresearch",
+    "url": "https://api.github.com/repos/karpathy/autoresearch/git/trees/228791fb499afffb54b46200aca536f79142f117?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "program.md",
+      "pyproject.toml"
+    ],
+    "file_count": 10,
+    "license_filename_candidates": []
+  },
+  {
+    "repository": "aiming-lab/AutoResearchClaw",
+    "url": "https://api.github.com/repos/aiming-lab/AutoResearchClaw/git/trees/be4ba4755bf1b52220f25e13b2293b5956590070?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      ".claude/skills/scientific-visualization/SKILL.md",
+      ".claude/skills/scientific-writing/SKILL.md",
+      "LICENSE",
+      "experiments/arc_bench/scripts/_inject_p_requirements.py",
+      "pyproject.toml",
+      "researchclaw/pipeline/requirements_judge.py",
+      "researchclaw/pipeline/runner.py",
+      "researchclaw/pipeline/stages.py",
+      "researchclaw/skills/builtin/experiment/scientific-visualization/SKILL.md",
+      "researchclaw/skills/builtin/experiment/scientific-writing/SKILL.md"
+    ],
+    "file_count": 756,
+    "license_filename_candidates": [
+      "LICENSE"
+    ]
+  },
+  {
+    "repository": "SakanaAI/AI-Scientist",
+    "url": "https://api.github.com/repos/SakanaAI/AI-Scientist/git/trees/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "LICENSE",
+      "launch_scientist.py",
+      "requirements.txt",
+      "templates/probes/requirements.txt"
+    ],
+    "file_count": 2326,
+    "license_filename_candidates": [
+      "LICENSE"
+    ]
+  },
+  {
+    "repository": "HKUDS/AI-Researcher",
+    "url": "https://api.github.com/repos/HKUDS/AI-Researcher/git/trees/f9a6f8480860c193afff600eeffe3defcee8a978?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "benchmark/process/dataset_candidate/reasoning/math_reasoning/requirements.txt",
+      "docker/requirements.txt",
+      "examples/con_flowmatching/project/requirements.txt",
+      "examples/gnn_nodeformer/project/requirements.txt",
+      "examples/rotation_vq/project/requirements.txt",
+      "main_ai_researcher.py",
+      "pyproject.toml"
+    ],
+    "file_count": 1464,
+    "license_filename_candidates": []
+  },
+  {
+    "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "url": "https://api.github.com/repos/wanshuiyin/Auto-claude-code-research-in-sleep/git/trees/23745b69a14880b5716d1773e5d20f5f1e6ab1d6?recursive=1",
+    "truncated": false,
+    "selected_paths": [
+      "LICENSE",
+      "mcp-servers/feishu-bridge/requirements.txt",
+      "mcp-servers/llm-chat/requirements.txt",
+      "mcp-servers/minimax-chat/requirements.txt",
+      "skills/experiment-bridge/SKILL.md",
+      "skills/experiment-plan/SKILL.md",
+      "skills/paper-poster-html/LICENSES/posterly-MIT.txt",
+      "skills/research-lit/SKILL.md",
+      "skills/skills-codex/experiment-bridge/SKILL.md",
+      "skills/skills-codex/experiment-plan/SKILL.md",
+      "skills/skills-codex/research-lit/SKILL.md",
+      "tools/requirements-codex-policy-audit.txt"
+    ],
+    "file_count": 752,
+    "license_filename_candidates": [
+      "LICENSE"
+    ]
+  },
+  {
+    "repository": "Imbad0202/academic-research-skills-codex",
+    "url": "https://api.github.com/repos/Imbad0202/academic-research-skills-codex/git/trees/71528d9349bcdacfbe94111f06d9e2d82215a44d?recursive=1",
+    "truncated": false,
+    "file_count": 5304,
+    "license_filename_candidates": [
+      "LICENSE"
+    ],
+    "selected_paths": [
+      "LICENSE",
+      "README.md",
+      "README_JA.md",
+      "README_ZH-CN.md",
+      "README_ZH-TW.md",
+      "plugins/ars-codex/skills/academic-research-suite/SKILL.md",
+      "skills/academic-research-suite/SKILL.md"
+    ]
+  },
+  {
+    "repository": "zLanqing/codex-claude-academic-skills",
+    "url": "https://api.github.com/repos/zLanqing/codex-claude-academic-skills/git/trees/7ed6377f0efb6a38951b48ef03b19d996e454b1f?recursive=1",
+    "truncated": false,
+    "file_count": 389,
+    "license_filename_candidates": [
+      "LICENSE"
+    ],
+    "selected_paths": [
+      "LICENSE",
+      "README.md",
+      "office-academic-skill/SKILL.md",
+      "research-writing-skill/SKILL.md",
+      "scientific-toolkit-skill/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/astropy/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/citation-management/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/exploratory-data-analysis/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/literature-review/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/matlab/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/matplotlib/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/networkx/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/paper-lookup/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/pdf/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/pymatgen/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/pymoo/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/qutip/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/scientific-visualization/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/scikit-learn/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/seaborn/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/simpy/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/statistical-analysis/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/statsmodels/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/sympy/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/timesfm-forecasting/SKILL.md",
+      "scientific-toolkit-skill/references/scientific-skills/xlsx/SKILL.md"
+    ]
+  },
+  {
+    "repository": "assafelovic/gpt-researcher",
+    "url": "https://api.github.com/repos/assafelovic/gpt-researcher/git/trees/3582a6841fe7dc801e2a34e34ee408641aea9bce?recursive=1",
+    "truncated": false,
+    "file_count": 841,
+    "license_filename_candidates": [
+      "LICENSE"
+    ],
+    "selected_paths": [
+      ".claude/SKILL.md",
+      "LICENSE",
+      "README-ja_JP.md",
+      "README-ko_KR.md",
+      "README-ru_RU.md",
+      "README-zh_CN.md",
+      "README.md",
+      "gpt_researcher/skills/researcher.py",
+      "pyproject.toml",
+      "requirements.txt",
+      "skills/gpt-researcher/SKILL.md"
+    ]
+  }
+]

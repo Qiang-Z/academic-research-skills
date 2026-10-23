@@ -1,0 +1,518 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "scope": "Ten relevant high-attention candidates from bounded web discovery and official GitHub API searches. Not an exhaustive global ranking or star-growth analysis.",
+  "sources": [
+    "metadata.json",
+    "search-evidence.json",
+    "tree-evidence.json",
+    "file-evidence.json"
+  ],
+  "query_count": 3,
+  "results_per_query": 15,
+  "metadata_repository_count": 13,
+  "upstream_files_read_count": 40,
+  "primary_candidates": [
+    {
+      "id": "autoresearch",
+      "repository": "karpathy/autoresearch",
+      "url": "https://github.com/karpathy/autoresearch",
+      "stars": 98418,
+      "metadata_checked_at_utc": "2026-10-23T05:16:35.937762+00:00",
+      "commit": "228791fb499afffb54b46200aca536f79142f117",
+      "commit_date": "2026-03-26T00:07:37Z",
+      "pushed_at": "2026-03-26T00:07:37Z",
+      "type": "experiment-loop",
+      "integration_level": "design-reference-only",
+      "license_assessment": "No root license found in complete pinned tree; GitHub license null",
+      "entrypoints": [
+        {
+          "path": "program.md",
+          "permalink": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/program.md",
+          "read_this_round": true
+        },
+        {
+          "path": "pyproject.toml",
+          "permalink": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/pyproject.toml",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Python >=3.10",
+        "PyTorch 2.9.1 CUDA 12.8 index",
+        "single GPU",
+        "uv and dataset/tokenizer preparation"
+      ],
+      "adopted_design_ideas": [
+        "fixed evaluation",
+        "baseline before changes",
+        "bounded experiment ledger"
+      ],
+      "limits": [
+        "No source copying",
+        "Do not adopt indefinite loop or git reset policy"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "kdense",
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "stars": 53960,
+      "metadata_checked_at_utc": "2026-10-23T05:16:35.936251+00:00",
+      "commit": "593377bb048752abb0152deab9fbb1083a6087df",
+      "commit_date": "2026-10-19T09:33:56Z",
+      "pushed_at": "2026-10-19T09:33:57Z",
+      "type": "skills-library",
+      "integration_level": "reuse-existing-local-snapshot; optional-external-skills",
+      "license_assessment": "MIT; LICENSE.md read",
+      "entrypoints": [
+        {
+          "path": "skills/statistical-analysis/SKILL.md",
+          "permalink": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/statistical-analysis/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "skills/research-lookup/SKILL.md",
+          "permalink": "https://github.com/K-Dense-AI/scientific-agent-skills/blob/593377bb048752abb0152deab9fbb1083a6087df/skills/research-lookup/SKILL.md",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Statistics: Python >=3.12 with isolated pingouin/scipy/statsmodels/pandas/matplotlib/seaborn environment",
+        "Lookup: Python >=3.10, parallel-web-tools and Parallel API; optional OpenRouter backend"
+      ],
+      "adopted_design_ideas": [
+        "method-specific selection",
+        "evidence matrix",
+        "assumption and uncertainty reporting"
+      ],
+      "limits": [
+        "New statistical/lookup components not installed",
+        "API service availability not tested"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": "92ace75ac21efe19a620434e0ca4e356081fe807"
+    },
+    {
+      "id": "ars",
+      "repository": "Imbad0202/academic-research-skills",
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "stars": 53509,
+      "metadata_checked_at_utc": "2026-10-23T05:16:35.937762+00:00",
+      "commit": "3224a27a2571cefef0fddfd437004cb006f2b0cb",
+      "commit_date": "2026-10-21T03:05:54Z",
+      "pushed_at": "2026-10-23T05:08:05Z",
+      "type": "skills-and-workflow-suite",
+      "integration_level": "external-reference-only",
+      "license_assessment": "CC BY-NC 4.0; root LICENSE read",
+      "entrypoints": [
+        {
+          "path": "academic-paper/SKILL.md",
+          "permalink": "https://github.com/Imbad0202/academic-research-skills/blob/3224a27a2571cefef0fddfd437004cb006f2b0cb/academic-paper/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "shared/contracts/evidence/claim_registry.schema.json",
+          "permalink": "https://github.com/Imbad0202/academic-research-skills/blob/3224a27a2571cefef0fddfd437004cb006f2b0cb/shared/contracts/evidence/claim_registry.schema.json",
+          "read_this_round": true
+        },
+        {
+          "path": "scripts/claim_registry_coverage.py",
+          "permalink": "https://github.com/Imbad0202/academic-research-skills/blob/3224a27a2571cefef0fddfd437004cb006f2b0cb/scripts/claim_registry_coverage.py",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Agent host",
+        "Claim coverage script: PyYAML and jsonschema",
+        "Additional providers/PDF tools depend on chosen task"
+      ],
+      "adopted_design_ideas": [
+        "reading scope",
+        "claim-to-evidence links",
+        "stage handoff"
+      ],
+      "limits": [
+        "No code or prompt copying in this change",
+        "Coverage is not complete semantic verification"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "gpt-researcher",
+      "repository": "assafelovic/gpt-researcher",
+      "url": "https://github.com/assafelovic/gpt-researcher",
+      "stars": 30250,
+      "metadata_checked_at_utc": "2026-10-23T05:20:06.952124+00:00",
+      "commit": "3582a6841fe7dc801e2a34e34ee408641aea9bce",
+      "commit_date": "2026-10-10T22:03:51Z",
+      "pushed_at": "2026-10-10T22:03:53Z",
+      "type": "retrieval-and-report-framework",
+      "integration_level": "optional-external-backend-not-integrated",
+      "license_assessment": "Conflict: root LICENSE Apache-2.0; same-commit pyproject declares MIT",
+      "entrypoints": [
+        {
+          "path": ".claude/SKILL.md",
+          "permalink": "https://github.com/assafelovic/gpt-researcher/blob/3582a6841fe7dc801e2a34e34ee408641aea9bce/.claude/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "skills/gpt-researcher/SKILL.md",
+          "permalink": "https://github.com/assafelovic/gpt-researcher/blob/3582a6841fe7dc801e2a34e34ee408641aea9bce/skills/gpt-researcher/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "pyproject.toml",
+          "permalink": "https://github.com/assafelovic/gpt-researcher/blob/3582a6841fe7dc801e2a34e34ee408641aea9bce/pyproject.toml",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Python >=3.12",
+        "Configured LLM and retrieval providers",
+        "Web/model/document dependencies; UI optional"
+      ],
+      "adopted_design_ideas": [
+        "plan queries, retrieve, aggregate, report"
+      ],
+      "limits": [
+        "No copying or installation while license declarations conflict",
+        "Not an experimental replication engine"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "aris",
+      "repository": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+      "stars": 17937,
+      "metadata_checked_at_utc": "2026-10-23T05:16:38.319033+00:00",
+      "commit": "23745b69a14880b5716d1773e5d20f5f1e6ab1d6",
+      "commit_date": "2026-10-22T06:23:13Z",
+      "pushed_at": "2026-10-22T06:23:14Z",
+      "type": "research-skills-library",
+      "integration_level": "reuse-existing-local-snapshot",
+      "license_assessment": "MIT; root LICENSE read",
+      "entrypoints": [
+        {
+          "path": "skills/experiment-plan/SKILL.md",
+          "permalink": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/23745b69a14880b5716d1773e5d20f5f1e6ab1d6/skills/experiment-plan/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "skills/experiment-bridge/SKILL.md",
+          "permalink": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/23745b69a14880b5716d1773e5d20f5f1e6ab1d6/skills/experiment-bridge/SKILL.md",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Agent host for Markdown skills",
+        "Experiment environment depends on topic",
+        "Remote deployment and model review require separate configuration"
+      ],
+      "adopted_design_ideas": [
+        "claim to evidence to run order",
+        "must-run vs optional experiments",
+        "budget and failure logging"
+      ],
+      "limits": [
+        "Keep local pinned snapshot",
+        "Do not inherit automatic deployment defaults"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": "26b95cfa0d8747078e9e43b42e20952709e561b8"
+    },
+    {
+      "id": "ai-scientist",
+      "repository": "SakanaAI/AI-Scientist",
+      "url": "https://github.com/SakanaAI/AI-Scientist",
+      "stars": 14776,
+      "metadata_checked_at_utc": "2026-10-23T05:16:38.112626+00:00",
+      "commit": "1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb",
+      "commit_date": "2025-12-19T07:46:21Z",
+      "pushed_at": "2025-12-19T07:46:21Z",
+      "type": "experiment-and-paper-framework",
+      "integration_level": "deferred-reference",
+      "license_assessment": "The AI Scientist Source Code License v1.0 December 2025; custom Responsible-AI-derived license",
+      "entrypoints": [
+        {
+          "path": "LICENSE",
+          "permalink": "https://github.com/SakanaAI/AI-Scientist/blob/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/LICENSE",
+          "read_this_round": true
+        },
+        {
+          "path": "requirements.txt",
+          "permalink": "https://github.com/SakanaAI/AI-Scientist/blob/1de1dbc1f4ee2c5f61e9c94348d55eb51d7fa2eb/requirements.txt",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "LLM API clients",
+        "aider-chat",
+        "PyTorch and template-specific computation/data",
+        "matplotlib and PDF tooling"
+      ],
+      "adopted_design_ideas": [
+        "template-scoped experiments and report handoff"
+      ],
+      "limits": [
+        "Custom license and resource requirements",
+        "No full workflow validation here"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "autoresearchclaw",
+      "repository": "aiming-lab/AutoResearchClaw",
+      "url": "https://github.com/aiming-lab/AutoResearchClaw",
+      "stars": 14743,
+      "metadata_checked_at_utc": "2026-10-23T05:16:35.939127+00:00",
+      "commit": "be4ba4755bf1b52220f25e13b2293b5956590070",
+      "commit_date": "2026-08-19T03:24:41Z",
+      "pushed_at": "2026-08-19T03:35:13Z",
+      "type": "research-automation-framework",
+      "integration_level": "design-reference-only",
+      "license_assessment": "MIT; root LICENSE read",
+      "entrypoints": [
+        {
+          "path": "researchclaw/pipeline/runner.py",
+          "permalink": "https://github.com/aiming-lab/AutoResearchClaw/blob/be4ba4755bf1b52220f25e13b2293b5956590070/researchclaw/pipeline/runner.py",
+          "read_this_round": true
+        },
+        {
+          "path": "researchclaw/pipeline/stages.py",
+          "permalink": "https://github.com/aiming-lab/AutoResearchClaw/blob/be4ba4755bf1b52220f25e13b2293b5956590070/researchclaw/pipeline/stages.py",
+          "read_this_round": true
+        },
+        {
+          "path": "config.researchclaw.example.yaml",
+          "permalink": "https://github.com/aiming-lab/AutoResearchClaw/blob/be4ba4755bf1b52220f25e13b2293b5956590070/config.researchclaw.example.yaml",
+          "read_this_round": true
+        },
+        {
+          "path": "pyproject.toml",
+          "permalink": "https://github.com/aiming-lab/AutoResearchClaw/blob/be4ba4755bf1b52220f25e13b2293b5956590070/pyproject.toml",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Python >=3.11",
+        "PyYAML, rich, arxiv, NumPy",
+        "LLM backend and experiment-specific environment",
+        "Docker/LaTeX depending on chosen route"
+      ],
+      "adopted_design_ideas": [
+        "stage states",
+        "checkpoint resume",
+        "budget checks",
+        "failure provenance"
+      ],
+      "limits": [
+        "Static functions observed, not runtime-tested",
+        "Do not import entire framework into default novice path"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "ai-researcher",
+      "repository": "HKUDS/AI-Researcher",
+      "url": "https://github.com/HKUDS/AI-Researcher",
+      "stars": 5834,
+      "metadata_checked_at_utc": "2026-10-23T05:16:38.318145+00:00",
+      "commit": "f9a6f8480860c193afff600eeffe3defcee8a978",
+      "commit_date": "2025-10-16T06:47:34Z",
+      "pushed_at": "2025-10-16T06:47:34Z",
+      "type": "containerized-research-framework",
+      "integration_level": "deferred-reference",
+      "license_assessment": "GitHub license null; no root license filename found in complete pinned tree",
+      "entrypoints": [
+        {
+          "path": "README.md",
+          "permalink": "https://github.com/HKUDS/AI-Researcher/blob/f9a6f8480860c193afff600eeffe3defcee8a978/README.md",
+          "read_this_round": true
+        },
+        {
+          "path": "pyproject.toml",
+          "permalink": "https://github.com/HKUDS/AI-Researcher/blob/f9a6f8480860c193afff600eeffe3defcee8a978/pyproject.toml",
+          "read_this_round": true
+        },
+        {
+          "path": "docker/requirements.txt",
+          "permalink": "https://github.com/HKUDS/AI-Researcher/blob/f9a6f8480860c193afff600eeffe3defcee8a978/docker/requirements.txt",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Docker",
+        "Configured LLM provider",
+        "Research-task packages and compute"
+      ],
+      "adopted_design_ideas": [
+        "resource collection to experiment to report"
+      ],
+      "limits": [
+        "No copying without clarified license",
+        "Full container environment not tested"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "zlanqing",
+      "repository": "zLanqing/codex-claude-academic-skills",
+      "url": "https://github.com/zLanqing/codex-claude-academic-skills",
+      "stars": 5208,
+      "metadata_checked_at_utc": "2026-10-23T05:20:06.952124+00:00",
+      "commit": "7ed6377f0efb6a38951b48ef03b19d996e454b1f",
+      "commit_date": "2026-05-14T09:08:48Z",
+      "pushed_at": "2026-05-14T09:08:48Z",
+      "type": "chinese-academic-skills-library",
+      "integration_level": "optional-external-skills-not-integrated",
+      "license_assessment": "MIT root LICENSE; bundled references keep original attribution",
+      "entrypoints": [
+        {
+          "path": "scientific-toolkit-skill/SKILL.md",
+          "permalink": "https://github.com/zLanqing/codex-claude-academic-skills/blob/7ed6377f0efb6a38951b48ef03b19d996e454b1f/scientific-toolkit-skill/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "research-writing-skill/SKILL.md",
+          "permalink": "https://github.com/zLanqing/codex-claude-academic-skills/blob/7ed6377f0efb6a38951b48ef03b19d996e454b1f/research-writing-skill/SKILL.md",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Agent host",
+        "MATLAB/Octave or scientific Python by task",
+        "Office output tools by artifact type"
+      ],
+      "adopted_design_ideas": [
+        "route by desired deliverable",
+        "load only relevant scientific reference"
+      ],
+      "limits": [
+        "Overlaps existing repository",
+        "No new installation for default path"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    },
+    {
+      "id": "gdm",
+      "repository": "google-deepmind/science-skills",
+      "url": "https://github.com/google-deepmind/science-skills",
+      "stars": 3317,
+      "metadata_checked_at_utc": "2026-10-23T05:16:35.937762+00:00",
+      "commit": "99f3085bcb40514cdba7833205b3dedbf473b26d",
+      "commit_date": "2026-10-15T14:22:52Z",
+      "pushed_at": "2026-10-15T14:23:06Z",
+      "type": "source-specific-science-skills",
+      "integration_level": "source-adapter-design-reference; external-candidate",
+      "license_assessment": "Apache-2.0; data/service/paper terms separate",
+      "entrypoints": [
+        {
+          "path": "skills/literature_search_arxiv/SKILL.md",
+          "permalink": "https://github.com/google-deepmind/science-skills/blob/99f3085bcb40514cdba7833205b3dedbf473b26d/skills/literature_search_arxiv/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "skills/literature_search_openalex/SKILL.md",
+          "permalink": "https://github.com/google-deepmind/science-skills/blob/99f3085bcb40514cdba7833205b3dedbf473b26d/skills/literature_search_openalex/SKILL.md",
+          "read_this_round": true
+        },
+        {
+          "path": "skills/literature_search_arxiv/scripts/search_arxiv.py",
+          "permalink": "https://github.com/google-deepmind/science-skills/blob/99f3085bcb40514cdba7833205b3dedbf473b26d/skills/literature_search_arxiv/scripts/search_arxiv.py",
+          "read_this_round": true
+        },
+        {
+          "path": "skills/literature_search_openalex/scripts/openalex_cli.py",
+          "permalink": "https://github.com/google-deepmind/science-skills/blob/99f3085bcb40514cdba7833205b3dedbf473b26d/skills/literature_search_openalex/scripts/openalex_cli.py",
+          "read_this_round": true
+        }
+      ],
+      "dependencies": [
+        "Python >=3.10",
+        "uv for documented invocation",
+        "polite-http",
+        "OpenAlex also python-dotenv; key/quotas depend on endpoint"
+      ],
+      "adopted_design_ideas": [
+        "bounded source-specific queries",
+        "preserve identifiers and provenance",
+        "explicit source failures"
+      ],
+      "limits": [
+        "Upstream scripts not executed",
+        "OpenAlex key wording differs between README and skill; live availability unverified"
+      ],
+      "upstream_code_executed_this_round": false,
+      "upstream_runtime_validated_this_round": false,
+      "local_snapshot_commit": null
+    }
+  ],
+  "same_family_variant": {
+    "repository": "Imbad0202/academic-research-skills-codex",
+    "parent_family": "ars",
+    "stars": 13371,
+    "commit": "71528d9349bcdacfbe94111f06d9e2d82215a44d",
+    "license": "CC BY-NC 4.0; root LICENSE read",
+    "entrypoint": {
+      "path": "skills/academic-research-suite/SKILL.md",
+      "permalink": "https://github.com/Imbad0202/academic-research-skills-codex/blob/71528d9349bcdacfbe94111f06d9e2d82215a44d/skills/academic-research-suite/SKILL.md",
+      "read_this_round": true
+    },
+    "note": "Host adaptation, not independent scientific-method validation; not copied or installed this round."
+  },
+  "low_attention_previous_candidates": [
+    {
+      "repository": "KalarisLabs/research-agent-skills",
+      "stars": 53,
+      "note": "Prior-round functional reference, not classified as popular."
+    },
+    {
+      "repository": "xcl2005/academic-paper-writing-skill",
+      "stars": 22,
+      "note": "Prior-round functional reference, not classified as popular."
+    }
+  ],
+  "composition_recommendation": {
+    "entry": "workflows/automated-research/README.md",
+    "engine": "scripts/research_pipeline.py",
+    "existing_skill_backbone": [
+      "aris",
+      "kdense",
+      "existing ClaudeScholar citation/results guidance"
+    ],
+    "design_references": [
+      "gdm",
+      "autoresearch",
+      "autoresearchclaw",
+      "ars"
+    ],
+    "default_external_installations": [],
+    "rule": "Execute only bounded local adapters whose outputs can be checked; route arbitrary topics through explicit material/protocol handoffs. External skill links alone do not constitute integration."
+  },
+  "failures": [],
+  "ambiguities": [
+    "Search results included same-name forks/old descriptions; official full_name and pinned commit used for identity.",
+    "GPT Researcher root license and package metadata disagree.",
+    "GDM OpenAlex key descriptions differ across docs."
+  ],
+  "validation_scope": "Static provenance/interface review only; current new local pipeline runtime evidence belongs to its own validation record."
+}

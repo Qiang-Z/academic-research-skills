@@ -1,0 +1,3 @@
+# This repository verifies published file bytes and preserved source snapshots.
+# Do not rewrite line endings on checkout based on the user's operating system.
+* -text

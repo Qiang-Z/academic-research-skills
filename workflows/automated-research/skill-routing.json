@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "version": "1.0",
+  "scope": "Repository-owned orchestration; local instruction routing is separate from script execution. External candidates are read-only references, not installed adapters.",
+  "stages": [
+    {
+      "id": "question",
+      "module_index": "modules/idea-discovery/SKILL_INDEX.md",
+      "primary": {
+        "path": "modules/idea-discovery/04_KDense/upstream/skills/hypothesis-generation/SKILL.md",
+        "sha256": "5bccec0437d96d61821ec2095e7e32b61e8634cd8c02f11f42da953121e92719",
+        "use_when": "由观察形成小问题，区分假设、预测和证据"
+      },
+      "supplemental": [],
+      "external_candidates": []
+    },
+    {
+      "id": "evidence",
+      "module_index": "modules/literature-review/SKILL_INDEX.md",
+      "primary": {
+        "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/research-lit/SKILL.md",
+        "sha256": "d6293c58a6d6319b7ae5075ee9a1587ae83368400fbe15ff89a338e52e549c61",
+        "use_when": "限定范围检索与实际阅读"
+      },
+      "supplemental": [
+        {
+          "path": "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/citation-verification/SKILL.md",
+          "sha256": "62e7eaed943d3773896f0e9af58913ec7950b34b8c939f3e8e984427a77a91ab",
+          "use_when": "引用前核对身份和支持位置"
+        },
+        {
+          "path": "modules/idea-discovery/04_KDense/upstream/skills/literature-review/SKILL.md",
+          "sha256": "16a9e85bcdcb9bb859e1646bf836e51b22900445ba2e367d8d75be05b5a5cba8",
+          "use_when": "扩展为专题综合时加载"
+        }
+      ],
+      "external_candidates": [
+        {
+          "repository": "google-deepmind/science-skills",
+          "integration": "reference_only_not_installed",
+          "details": "docs/discovery/2026-10-23/candidates.json"
+        },
+        {
+          "repository": "K-Dense-AI/scientific-agent-skills",
+          "integration": "reference_only_not_installed",
+          "details": "docs/discovery/2026-10-23/candidates.json"
+        }
+      ]
+    },
+    {
+      "id": "protocol",
+      "module_index": "modules/experiment-design/SKILL_INDEX.md",
+      "primary": {
+        "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/experiment-plan/SKILL.md",
+        "sha256": "61812df053fd8717cccb248fcabec3863f930eaedba03463bc059294dcc3863a",
+        "use_when": "把问题转成预定比较与证据需求"
+      },
+      "supplemental": [],
+      "external_candidates": [
+        {
+          "repository": "karpathy/autoresearch",
+          "integration": "reference_only_not_installed",
+          "details": "docs/discovery/2026-10-23/candidates.json"
+        }
+      ]
+    },
+    {
+      "id": "experiment",
+      "module_index": "modules/experiment-design/SKILL_INDEX.md",
+      "primary": {
+        "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/run-experiment/SKILL.md",
+        "sha256": "8325128eab14c7f82213d44c8e78e98f44ca680baa9c78f3bee8766f8e9f464a",
+        "use_when": "自定义研究已有可执行方案时参考环境和日志；不自动启用远程部署"
+      },
+      "supplemental": [],
+      "external_candidates": [
+        {
+          "repository": "aiming-lab/AutoResearchClaw",
+          "integration": "reference_only_not_installed",
+          "details": "docs/discovery/2026-10-23/candidates.json"
+        }
+      ]
+    },
+    {
+      "id": "analysis",
+      "module_index": "modules/data-analysis/SKILL_INDEX.md",
+      "primary": {
+        "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/analyze-results/SKILL.md",
+        "sha256": "1a5f798558018fe6c8faa8b9997ac4cd1076aceb73cfb5bdc261e5de5727f7e2",
+        "use_when": "完整描述结果和受限解释"
+      },
+      "supplemental": [
+        {
+          "path": "modules/idea-discovery/05_ClaudeScholar/upstream_codex/skills/results-analysis/SKILL.md",
+          "sha256": "2232f74d141fad4a3e23635be0109217713d34bf0cb7be8d120e6296f4b79782",
+          "use_when": "明确统计单位、配对、独立性与允许措辞"
+        }
+      ],
+      "external_candidates": [
+        {
+          "repository": "K-Dense-AI/scientific-agent-skills",
+          "integration": "reference_only_not_installed",
+          "details": "docs/discovery/2026-10-23/candidates.json"
+        }
+      ]
+    },
+    {
+      "id": "report",
+      "module_index": "modules/paper-writing/SKILL_INDEX.md",
+      "primary": {
+        "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/paper-plan/SKILL.md",
+        "sha256": "f57db68d201585c238522fdc38d7db16007638821f5f202faea723bdbcb8ff6d",
+        "use_when": "按已有证据组织短报告，保持草稿范围"
+      },
+      "supplemental": [
+        {
+          "path": "modules/idea-discovery/01_ARIS/upstream/skills/skills-codex/paper-claim-audit/SKILL.md",
+          "sha256": "53bc00ee13d861e76e4f5a1a5d4f0ab40544ca563ee328af4c38bcb19b64a95b",
+          "use_when": "另行开展主张审查时；未真实执行不记录审阅通过"
+        }
+      ],
+      "external_candidates": [
+        {
+          "repository": "Imbad0202/academic-research-skills",
+          "integration": "reference_only_not_installed",
+          "details": "docs/discovery/2026-10-23/candidates.json"
+        }
+      ]
+    }
+  ],
+  "overrides": {
+    "analysis": "Use appropriate effect measures; do not force relative improvement when baseline is zero or percentage-point contrast is more interpretable. Shared splits are not independent studies.",
+    "execution": "Only the original Wine adapter is executable by this runner. Custom commands are recorded, never executed from JSON.",
+    "review": "Template reports and host checks are not external peer review. No submission-ready status.",
+    "budget": "Host search/source limits are guidance, not a network/API quota enforcement mechanism."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "Maintainer skill format validator only; not a runtime dependency",
+  "dependency": "PyYAML==6.0.3 in isolated temporary directory",
+  "isolated_install_exit": 0,
+  "validation_exit": 0,
+  "stdout": "Skill is valid!\n",
+  "stderr": "",
+  "skill_sha256": "c10dafcac644e999913715bf2b32fdf2765261f8a5c05e22e3fe708928db0d68",
+  "validator_sha256": "6068513d924ed3559e186dfcdead7439129828dcf402167fd925c06dffbf2806"
+}

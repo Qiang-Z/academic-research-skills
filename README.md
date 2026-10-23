@@ -40,7 +40,9 @@
 | 稿件或审稿意见 | [检查稿件、准备逐条回复](modules/submission-rebuttal/USAGE.md) |
 | 越来越多的笔记和文件 | [建立项目记录与知识库](modules/research-knowledge/USAGE.md) |
 
-想把阅读和实验连起来？试试[六步流程](workflows/research-starter/README.md)，或直接跟做[真实论文与公开数据案例：葡萄酒品种分类](examples/real-wine/README.md)。想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)。
+想让助手连续推进研究？使用[自动化科研 pipeline](workflows/automated-research/README.md)：一句话启动真实案例，或带着自己的课题按阶段推进，保存进度并支持中断恢复。[热门仓库如何组合](workflows/automated-research/COMPOSITION.md)
+
+想先了解每一步？试试[六步流程](workflows/research-starter/README.md)，或直接跟做[真实论文与公开数据案例：葡萄酒品种分类](examples/real-wine/README.md)。想自己选技能时，再看[完整技能用法速查](docs/SKILL_CATALOG.md)。
 
 <details>
 <summary><strong>展开八个模块的全流程地图</strong></summary>

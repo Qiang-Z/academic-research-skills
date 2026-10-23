@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-23",
+  "method": "Separate agent code review and controlled failed-child then real retry exercise; root checked the preserved state and missing registered failure file.",
+  "runner_sha256_before_fix": "a233fb35e894477da4321acaf071c36e2650ac5f19549c29dc4d79b7c10f67c0",
+  "finding": "After a failed experiment followed by a successful retry, the registered first command record could be deleted without verify rejecting the run.",
+  "observed_sequence": [
+    {
+      "step": "Injected child exit 7",
+      "advance_exit": 1
+    },
+    {
+      "step": "Real retry",
+      "advance_exit": 0
+    },
+    {
+      "step": "Delete the registered first failed command record",
+      "missing": [
+        "attempts/experiment-001/command.json"
+      ]
+    },
+    {
+      "step": "Verifier before fix",
+      "verify_exit": 0
+    }
+  ],
+  "scope": "Actual detected provenance defect, not a corruption of the public dataset or numeric calculation.",
+  "fix_required": "Protect all files from experiment/analysis attempts and validate custom failure record references; check missing and changed history after acceptance."
+}

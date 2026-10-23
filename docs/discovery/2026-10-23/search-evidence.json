@@ -1,0 +1,389 @@
+[
+  {
+    "query": "academic skills in:name,description archived:false",
+    "url": "https://api.github.com/search/repositories?q=academic+skills+in%3Aname%2Cdescription+archived%3Afalse&sort=stars&order=desc&per_page=15",
+    "retrieved_at_utc": "2026-10-23T05:19:26.550331+00:00",
+    "total_count": 8124,
+    "incomplete_results": false,
+    "items": [
+      {
+        "full_name": "Imbad0202/academic-research-skills",
+        "html_url": "https://github.com/Imbad0202/academic-research-skills",
+        "stargazers_count": 53510,
+        "description": "Academic Research Skills for Claude Code: research → write → review → revise → finalize",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "Imbad0202/academic-research-skills-codex",
+        "html_url": "https://github.com/Imbad0202/academic-research-skills-codex",
+        "stargazers_count": 13371,
+        "description": "Codex-native Academic Research Skills suite for human-in-the-loop academic research workflows",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "zLanqing/codex-claude-academic-skills",
+        "html_url": "https://github.com/zLanqing/codex-claude-academic-skills",
+        "stargazers_count": 5208,
+        "description": "本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skill 专为中文科研用户设计，可在 Claude Code 和 codex 中一键调用。",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "Adkid-Zephyr/anti-defensive-writing-Skill",
+        "html_url": "https://github.com/Adkid-Zephyr/anti-defensive-writing-Skill",
+        "stargazers_count": 3755,
+        "description": "极致轻量｜阻止论文的防御性写作 | Anti-defensive writing for academic papers — 学术写作原则 Skill + prompt pack (CN/EN)",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "openags/paper-search-mcp",
+        "html_url": "https://github.com/openags/paper-search-mcp",
+        "stargazers_count": 2891,
+        "description": "MCP, CLI, Skills for searching and downloading academic papers from multiple sources like arXiv, PubMed, bioRxiv, etc.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "LigphiDonk/academic-figure-generator",
+        "html_url": "https://github.com/LigphiDonk/academic-figure-generator",
+        "stargazers_count": 2711,
+        "description": "AI 驱动的学术论文配图生成平台。上传论文 → AI 分析内容生成 Prompt → 一键生成高质量科研配图，还有配套的skill可在主流agent中使用",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "HughYau/AcademicForge",
+        "html_url": "https://github.com/HughYau/AcademicForge",
+        "stargazers_count": 2605,
+        "description": "One Forge, All Skills: A curated skill collection for academic writing and research.  点开即用，按需配置的一站式学术研究skills平台。",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "AIScientists-Dev/academic-humanizer",
+        "html_url": "https://github.com/AIScientists-Dev/academic-humanizer",
+        "stargazers_count": 2434,
+        "description": "Strip AI-writing tells from papers and grant proposals (NSF/NIH), while keeping scholarly voice and tying claims to evidence. A skill for Claude Code, Codex, and MorphMind.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "yb2460/harness-anything",
+        "html_url": "https://github.com/yb2460/harness-anything",
+        "stargazers_count": 2368,
+        "description": "Harness Anything - AI agent control hub: WPS, MS Office, Zotero, Photoshop, 47 CLI commands, 27 academic skills, SVG-to-PPTX",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "aipoch/medical-research-skills",
+        "html_url": "https://github.com/aipoch/medical-research-skills",
+        "stargazers_count": 1986,
+        "description": "Hundreds of agent skills for medical research, including protocol design, data analysis, evidence insights, and academic writing.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "lishix520/academic-paper-skills",
+        "html_url": "https://github.com/lishix520/academic-paper-skills",
+        "stargazers_count": 1422,
+        "description": "Systematic framework for planning and writing academic papers using Claude Code. Includes strategist (planning) and composer (writing) skills with quality checkpoints.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "zsyggg/paper-craft-skills",
+        "html_url": "https://github.com/zsyggg/paper-craft-skills",
+        "stargazers_count": 1388,
+        "description": "Claude Code skills for academic papers: deep analysis, comics, summaries | 论文工艺：深度解读、漫画生成、速览总结",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "Gabberflast/academic-pptx-skill",
+        "html_url": "https://github.com/Gabberflast/academic-pptx-skill",
+        "stargazers_count": 1292,
+        "description": "A Claude Skill for creating academic presentations (conference talks, seminar slides, thesis defenses, grant briefings). Enforces action titles, structured argument, exhibit discipline, citation standards, and communication-first design. Works alongside Anthropic's built-in PPTX skill.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "LeonChaoX/qinyan-academic-skills",
+        "html_url": "https://github.com/LeonChaoX/qinyan-academic-skills",
+        "stargazers_count": 974,
+        "description": "A curated, multilingual library of 182 installable AI agent skills for end-to-end academic research—spanning literature discovery, scientific writing, grant development, bioinformatics, drug discovery, clinical research, machine learning, and data analysis.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "ganzhi-black/humanities-thesis-skill",
+        "html_url": "https://github.com/ganzhi-black/humanities-thesis-skill",
+        "stargazers_count": 736,
+        "description": "AI skill for humanities thesis writing — from topic selection to publication. 8 academic databases, 21 review rules, anti-hallucination guardrails. 人文社科论文写作 AI Skill",
+        "fork": false,
+        "archived": false
+      }
+    ]
+  },
+  {
+    "query": "scientific skills in:name,description archived:false",
+    "url": "https://api.github.com/search/repositories?q=scientific+skills+in%3Aname%2Cdescription+archived%3Afalse&sort=stars&order=desc&per_page=15",
+    "retrieved_at_utc": "2026-10-23T05:19:29.635379+00:00",
+    "total_count": 1275,
+    "incomplete_results": false,
+    "items": [
+      {
+        "full_name": "K-Dense-AI/scientific-agent-skills",
+        "html_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "stargazers_count": 53960,
+        "description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "aipoch/open-science",
+        "html_url": "https://github.com/aipoch/open-science",
+        "stargazers_count": 5338,
+        "description": "The open-source AI research workbench for scientific research and agent workflows. Local-first, model-agnostic desktop app with extensible skills, MCP tools and connectors, Python/R execution and traceable artifacts for reproducible research on macOS, Windows and Linux.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "zLanqing/codex-claude-academic-skills",
+        "html_url": "https://github.com/zLanqing/codex-claude-academic-skills",
+        "stargazers_count": 5208,
+        "description": "本仓库包含三个面向学术科研人员的Skills，覆盖从文献阅读、论文写作到科学计算的完整研究工作流。office-academic-skill 负责论文阅读报告与学术 PPT/Word 文档生成；research-writing-skill 提供论文写作、润色与审稿回复辅助；scientific-toolkit-skill 整合 MATLAB/Python 科学计算与期刊级图表生成。三个 Skill 专为中文科研用户设计，可在 Claude Code 和 codex 中一键调用。",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "google-deepmind/science-skills",
+        "html_url": "https://github.com/google-deepmind/science-skills",
+        "stargazers_count": 3317,
+        "description": "GDM Science Skills to speed up agentic scientific workflows with better grounding and higher token efficiency. Integrate insights from AlphaGenome, AFDB, UniProt and 30+ other databases and tools.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "Haojae/scipilot-figure-skill",
+        "html_url": "https://github.com/Haojae/scipilot-figure-skill",
+        "stargazers_count": 2699,
+        "description": "SciPilot Skills family - Publication-grade scientific figure copilot for Claude Code ",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "delibae/claude-prism",
+        "html_url": "https://github.com/delibae/claude-prism",
+        "stargazers_count": 1824,
+        "description": "An offline-first scientific writing workspace powered by Claude. LaTeX + Python + 100+ scientific skills all running locally.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "LeonChaoX/qinyan-academic-skills",
+        "html_url": "https://github.com/LeonChaoX/qinyan-academic-skills",
+        "stargazers_count": 974,
+        "description": "A curated, multilingual library of 182 installable AI agent skills for end-to-end academic research—spanning literature discovery, scientific writing, grant development, bioinformatics, drug discovery, clinical research, machine learning, and data analysis.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "Boom5426/Nature-Paper-Skills",
+        "html_url": "https://github.com/Boom5426/Nature-Paper-Skills",
+        "stargazers_count": 618,
+        "description": "An AI-powered Scientific Writing Workflow: Agent skills for drafting, revising, auditing, and resubmitting Nature-style journal manuscripts.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "xjtulyc/MedgeClaw",
+        "html_url": "https://github.com/xjtulyc/MedgeClaw",
+        "stargazers_count": 618,
+        "description": "Open-source AI research assistant for biomedicine — chat to run RNA-seq, drug discovery, clinical analysis, and more. Built on Claude Code with 140 K-Dense scientific skills, real-time dashboard, and RStudio/JupyterLab integration. | 开源生物医学 AI 研究助手，对话即可驱动转录组、药物发现、临床分析等工作流，集成 140 个科学技能与实时研究看板。",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "InternScience/Awesome-Scientific-Skills",
+        "html_url": "https://github.com/InternScience/Awesome-Scientific-Skills",
+        "stargazers_count": 573,
+        "description": "An open, curated collection of Agent Skills for scientific research — clone it, use it, extend it!",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "OpSafari/hypoarena",
+        "html_url": "https://github.com/OpSafari/hypoarena",
+        "stargazers_count": 541,
+        "description": "Scientific hypothesis-discovery workbench: grounded hypothesis-evidence graphs, synthetic literature with planted causal chains, generate-debate-evolve loops over pluggable offline adapters, Elo tournaments recovering planted skill order, paraphrase dedup, Bayesian evidence accumulation, reproducible reports. NumPy core, CPU-only torch extra.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "modelscope/Awesome-Vibe-Research",
+        "html_url": "https://github.com/modelscope/Awesome-Vibe-Research",
+        "stargazers_count": 464,
+        "description": "An open, collaboratively-built repository for AI-assisted scientific research — collecting and curating agents, skills, workflows, tools, and best practices across the full research lifecycle. 面向 AI 辅助科研的开放共建仓库 收集和沉淀科研全流程中的 agents、skills、workflows、tools 与最佳实践",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "K-Dense-AI/claude-skills-mcp",
+        "html_url": "https://github.com/K-Dense-AI/claude-skills-mcp",
+        "stargazers_count": 407,
+        "description": "MCP server for searching and retrieving Scientific Agent Skills using vector search",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "weisscharlesj/SciCompforChemists",
+        "html_url": "https://github.com/weisscharlesj/SciCompforChemists",
+        "stargazers_count": 342,
+        "description": "Scientific Computing for Chemists with Python is a free book for teaching basic coding skills to chemists using Python, Jupyter notebooks, and the other Python software. This textbook teaches a variety of Python packages including NumPy, SciPy, matplotlib, pandas, seaborn, nmrglue, SymPy, scikit-image, scikit-learn, and others.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "guhaohao0991/PaperClaw",
+        "html_url": "https://github.com/guhaohao0991/PaperClaw",
+        "stargazers_count": 252,
+        "description": "an OpenClaw skill that can generate paper search-review-critque expert-agent relevant to specific topics (we use Scientific ML and 3D geometry surrogate modeling as a demo).",
+        "fork": false,
+        "archived": false
+      }
+    ]
+  },
+  {
+    "query": "autonomous research in:name,description stars:>1000 archived:false",
+    "url": "https://api.github.com/search/repositories?q=autonomous+research+in%3Aname%2Cdescription+stars%3A%3E1000+archived%3Afalse&sort=stars&order=desc&per_page=15",
+    "retrieved_at_utc": "2026-10-23T05:19:31.195185+00:00",
+    "total_count": 27,
+    "incomplete_results": false,
+    "items": [
+      {
+        "full_name": "khoj-ai/khoj",
+        "html_url": "https://github.com/khoj-ai/khoj",
+        "stargazers_count": 37793,
+        "description": "Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "assafelovic/gpt-researcher",
+        "html_url": "https://github.com/assafelovic/gpt-researcher",
+        "stargazers_count": 30250,
+        "description": "An autonomous agent that conducts deep research on any data using any LLM providers",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "virattt/dexter",
+        "html_url": "https://github.com/virattt/dexter",
+        "stargazers_count": 27708,
+        "description": "An autonomous agent for deep financial research",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "microsoft/AirSim",
+        "html_url": "https://github.com/microsoft/AirSim",
+        "stargazers_count": 18568,
+        "description": "Open source simulator for autonomous vehicles built on Unreal Engine / Unity, from Microsoft AI & Research",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "wanshuiyin/Auto-claude-code-research-in-sleep",
+        "html_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep",
+        "stargazers_count": 17937,
+        "description": "ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works with Claude Code, Codex, OpenClaw, or any LLM agent.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "aiming-lab/AutoResearchClaw",
+        "html_url": "https://github.com/aiming-lab/AutoResearchClaw",
+        "stargazers_count": 14743,
+        "description": "Fully autonomous & self-evolving research from idea to paper. Chat an Idea. Get a Paper. 🦞",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "carla-simulator/carla",
+        "html_url": "https://github.com/carla-simulator/carla",
+        "stargazers_count": 14523,
+        "description": "Open-source simulator for autonomous driving research.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "0x4m4/hexstrike-ai",
+        "html_url": "https://github.com/0x4m4/hexstrike-ai",
+        "stargazers_count": 13023,
+        "description": "HexStrike AI MCP Agents is an advanced MCP server that lets AI agents (Claude, GPT, Copilot, etc.) autonomously run 150+ cybersecurity tools for automated pentesting, vulnerability discovery, bug bounty automation, and security research. Seamlessly bridge LLMs with real-world offensive security capabilities.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "MervinPraison/PraisonAI",
+        "html_url": "https://github.com/MervinPraison/PraisonAI",
+        "stargazers_count": 9283,
+        "description": "PraisonAI 🦞 — Hire a 24/7 AI Workforce. Stop writing boilerplate and start shipping autonomous self-improving agents that research, plan, code, and execute tasks. Deployed in 5 lines of code with built-in memory, RAG, and support for 100+ LLMs.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "SamuelSchmidgall/AgentLaboratory",
+        "html_url": "https://github.com/SamuelSchmidgall/AgentLaboratory",
+        "stargazers_count": 5909,
+        "description": "Agent Laboratory is an end-to-end autonomous research workflow meant to assist you as the human researcher toward implementing your research ideas",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "HKUDS/AI-Researcher",
+        "html_url": "https://github.com/HKUDS/AI-Researcher",
+        "stargazers_count": 5834,
+        "description": "[NeurIPS2025] \"AI-Researcher: Autonomous Scientific Innovation\" -- A production-ready version: https://novix.science/chat",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "sapientinc/PRAXIST",
+        "html_url": "https://github.com/sapientinc/PRAXIST",
+        "stargazers_count": 5554,
+        "description": "Autonomous research system for measurable, computer-executable research.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "webfuse-com/awesome-autoresearch",
+        "html_url": "https://github.com/webfuse-com/awesome-autoresearch",
+        "stargazers_count": 2574,
+        "description": "A curated list of autonomous improvement loops, research agents, and autoresearch-style systems inspired by Karpathy's autoresearch.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "crshdn/mission-control",
+        "html_url": "https://github.com/crshdn/mission-control",
+        "stargazers_count": 2156,
+        "description": "The world's first Autonomous Product Engine (APE): AI agents research your market, generate features, and ship code as PRs. Convoy mode, crash recovery, cost tracking, 80+ API endpoints. Self-hosted via OpenClaw Gateway.",
+        "fork": false,
+        "archived": false
+      },
+      {
+        "full_name": "trevin-creator/autoresearch-mlx",
+        "html_url": "https://github.com/trevin-creator/autoresearch-mlx",
+        "stargazers_count": 1873,
+        "description": "Apple Silicon (MLX) port of Karpathy's autoresearch — autonomous AI research loops on Mac, no PyTorch required.",
+        "fork": false,
+        "archived": false
+      }
+    ]
+  }
+]

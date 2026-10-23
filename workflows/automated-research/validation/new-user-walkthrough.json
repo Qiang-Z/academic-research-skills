@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-23",
+  "method": "Independent new-context agent follows the new user task with only repository access and original programs; no network/install/upstream execution. Not a human usability study.",
+  "runner_sha256": "a233fb35e894477da4321acaf071c36e2650ac5f19549c29dc4d79b7c10f67c0",
+  "revision_scope": "Before historical failure log protection fix; root later reran final version CLI and tests.",
+  "commands": [
+    {
+      "command": "doctor",
+      "exit_code": 0
+    },
+    {
+      "command": "demo --output <new-demo>",
+      "exit_code": 0
+    },
+    {
+      "command": "verify --run <new-demo>",
+      "exit_code": 0
+    },
+    {
+      "command": "init --topic 标准化对鸢尾花分类有什么影响 --output <new-iris>",
+      "exit_code": 2
+    },
+    {
+      "command": "status --run <new-iris>",
+      "exit_code": 0
+    },
+    {
+      "command": "advance --run <new-iris>",
+      "exit_code": 2
+    }
+  ],
+  "demo_stage_modes": [
+    {
+      "id": "question",
+      "status": "accepted",
+      "mode": "reused"
+    },
+    {
+      "id": "evidence",
+      "status": "accepted",
+      "mode": "reused"
+    },
+    {
+      "id": "protocol",
+      "status": "accepted",
+      "mode": "reused"
+    },
+    {
+      "id": "experiment",
+      "status": "accepted",
+      "mode": "measured"
+    },
+    {
+      "id": "analysis",
+      "status": "accepted",
+      "mode": "independently_recalculated"
+    },
+    {
+      "id": "report",
+      "status": "accepted",
+      "mode": "template_generated"
+    }
+  ],
+  "iris": {
+    "status": "blocked",
+    "question": {
+      "question": "标准化对鸢尾花分类有什么影响",
+      "scope": "",
+      "resources": "",
+      "stopping_condition": ""
+    },
+    "report_exists": false
+  },
+  "checked": {
+    "prediction_records": 810,
+    "metric_groups": 18,
+    "primary_correct": [
+      18,
+      31,
+      45
+    ],
+    "primary_denominator": 45,
+    "gain_pp": 31.11111111111111,
+    "new_searches": 0,
+    "read_records_reused": 5,
+    "report_mode": "template_generated"
+  },
+  "usability_findings": [
+    "Homepage first exercise reads a teaching manuscript; explicit new pipeline task routes to Wine demo.",
+    "init exit2 means run created but fields missing, not failure to create.",
+    "status exit0 means status query succeeded; project may still be blocked.",
+    "NEXT should explain technical field names in Chinese; assistant maintains the JSON for beginners."
+  ],
+  "raw_artifact_hashes": {
+    "state.json": "4676aec072500b992e9c3bbf634841e16dbe9286971bcb23298f4ae6d9dfc2d1",
+    "events.jsonl": "0a3c0cea95e7c05aa0cfdf6311e7e3aeef65c700e1bdfd3aa3769b1f7c7203b0",
+    "REPORT.md": "91ab5a9c1edd3997860609ed7128f7537640e4327e3e5bf12ee894ae116327c9",
+    "claims.json": "af6e67d191b29e9eb28ded141328ce948a1345fd224528ab5e0331bd330ba0c9",
+    "analysis.json": "9e20c62a1a9ea20c6c07747c3d4dcb32cda2660885d91f1a449c077219d631c3"
+  }
+}

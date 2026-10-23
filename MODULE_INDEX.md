@@ -23,6 +23,7 @@
 
 | 入口 | 用途 |
 |---|---|
+| [自动化科研 pipeline](workflows/automated-research/README.md) | 基于热门项目选型与本地已有技能，提供环境检查、真实案例实跑、阶段交接与断点恢复。 |
 | [六步入门 pipeline](workflows/research-starter/README.md) | 一个问题串起检索、设计、运行、分析和短报告，附限定实测。 |
 | [真实论文与公开数据案例](examples/real-wine/README.md) | UCI Wine的六步实跑、810条预测、来源记录、问题修复与复跑命令。 |
 | [新技能检索与比较](docs/discovery/2026-10-22/README.md) | 固定版本候选、增量能力、依赖、缺陷和组合验证。 |

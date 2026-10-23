@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-23",
+  "python": "3.12.10",
+  "commands": [
+    {
+      "arguments": [
+        "doctor"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 0.448,
+      "stdout": "{\"python\": \"3.12.10\", \"core\": \"standard library\", \"optional_matplotlib_available\": false, \"local_skill_references_checked\": 10, \"network_required\": false, \"adapter\": \"Wine only; custom tasks use host-prepared artifacts, no arbitrary command execution\"}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "demo",
+        "--output",
+        "<run>"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 2.875,
+      "stdout": "RUN: <run>\nCOMPLETE: six stages accepted; mode=wine; report=<run>\\REPORT.md\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "verify",
+        "--run",
+        "<run>"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 1.299,
+      "stdout": "PASS: independent Wine numeric recalculation\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "advance",
+        "--run",
+        "<run>"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 0.59,
+      "stdout": "COMPLETE: six stages accepted; mode=wine; report=<run>\\REPORT.md\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "status",
+        "--run",
+        "<run>"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 0.56,
+      "stdout": "{\n  \"status\": \"complete\",\n  \"mode\": \"wine\",\n  \"stages\": [\n    {\n      \"id\": \"question\",\n      \"status\": \"accepted\",\n      \"mode\": \"reused\"\n    },\n    {\n      \"id\": \"evidence\",\n      \"status\": \"accepted\",\n      \"mode\": \"reused\"\n    },\n    {\n      \"id\": \"protocol\",\n      \"status\": \"accepted\",\n      \"mode\": \"reused\"\n    },\n    {\n      \"id\": \"experiment\",\n      \"status\": \"accepted\",\n      \"mode\": \"measured\"\n    },\n    {\n      \"id\": \"analysis\",\n      \"status\": \"accepted\",\n      \"mode\": \"independently_recalculated\"\n    },\n    {\n      \"id\": \"report\",\n      \"status\": \"accepted\",\n      \"mode\": \"template_generated\"\n    }\n  ],\n  \"next\": \"NEXT.md\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "init",
+        "--topic",
+        "标准化对鸢尾花分类有什么影响",
+        "--output",
+        "<custom>"
+      ],
+      "exit_code": 2,
+      "expected_exit": 2,
+      "seconds": 0.496,
+      "stdout": "RUN: <custom>\nBLOCKED: question: Fill nonempty field: scope\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "status",
+        "--run",
+        "<custom>"
+      ],
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 0.365,
+      "stdout": "{\n  \"status\": \"blocked\",\n  \"mode\": \"custom\",\n  \"stages\": [\n    {\n      \"id\": \"question\",\n      \"status\": \"blocked\",\n      \"mode\": null\n    },\n    {\n      \"id\": \"evidence\",\n      \"status\": \"pending\",\n      \"mode\": null\n    },\n    {\n      \"id\": \"protocol\",\n      \"status\": \"pending\",\n      \"mode\": null\n    },\n    {\n      \"id\": \"experiment\",\n      \"status\": \"pending\",\n      \"mode\": null\n    },\n    {\n      \"id\": \"analysis\",\n      \"status\": \"pending\",\n      \"mode\": null\n    },\n    {\n      \"id\": \"report\",\n      \"status\": \"pending\",\n      \"mode\": null\n    }\n  ],\n  \"next\": \"NEXT.md\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "advance",
+        "--run",
+        "<custom>"
+      ],
+      "exit_code": 2,
+      "expected_exit": 2,
+      "seconds": 0.383,
+      "stdout": "BLOCKED: question: Fill nonempty field: scope\n",
+      "stderr": ""
+    }
+  ],
+  "runner_sha256": "18aab42ad526b07d4c4e38878579d6a5d42e68d21bb878ce8272af49a5a4d3f8",
+  "routing_sha256": "8c5655c8a4a066a082c65f28a3e08cd7a90c4f9468f04dc907dac1d5cd414cc0",
+  "stages": [
+    {
+      "id": "question",
+      "status": "accepted",
+      "mode": "reused",
+      "validation_scope": "bounded_wine_adapter"
+    },
+    {
+      "id": "evidence",
+      "status": "accepted",
+      "mode": "reused",
+      "validation_scope": "bounded_wine_adapter"
+    },
+    {
+      "id": "protocol",
+      "status": "accepted",
+      "mode": "reused",
+      "validation_scope": "bounded_wine_adapter"
+    },
+    {
+      "id": "experiment",
+      "status": "accepted",
+      "mode": "measured",
+      "validation_scope": "bounded_wine_adapter"
+    },
+    {
+      "id": "analysis",
+      "status": "accepted",
+      "mode": "independently_recalculated",
+      "validation_scope": "bounded_wine_adapter"
+    },
+    {
+      "id": "report",
+      "status": "accepted",
+      "mode": "template_generated",
+      "validation_scope": "bounded_wine_adapter"
+    }
+  ],
+  "prediction_records": 810,
+  "scientific_artifacts_equal_to_previous_real_wine_run": {
+    "data-audit.json": true,
+    "splits.json": true,
+    "scalers.json": true,
+    "predictions.csv": true,
+    "metrics.json": true,
+    "paired-analysis.json": true,
+    "results.md": true
+  },
+  "resume_did_not_recompute": true,
+  "custom_stopped_without_results": true,
+  "new_searches": 0,
+  "source_read_records_reused": 5,
+  "other_candidates_retained": 4,
+  "output_sha256": {
+    "REPORT.md": "91ab5a9c1edd3997860609ed7128f7537640e4327e3e5bf12ee894ae116327c9",
+    "analysis.json": "b786688178563ecef6ddb026ef46bf378458a494b085d80b49842c45ddda7e79",
+    "claims.json": "af6e67d191b29e9eb28ded141328ce948a1345fd224528ab5e0331bd330ba0c9",
+    "state.json": "1d62847a0118fc7fb3da36aadc30f1bf79946a2a412aaf988ba6d3b1f3e80c75",
+    "events.jsonl": "b9a4088c95508ca297c668a3e4c4fcaff082fc93f7c1a2e0e9f91b9f01fb0013"
+  }
+}
